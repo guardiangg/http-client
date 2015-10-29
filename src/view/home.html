@@ -1,0 +1,45 @@
+<div class="featured hidden-xs" ng-if="totalPlayers" ng-cloak>
+    <span translate>Real-time stats for <em>{{totalPlayers|number}}</em> Destiny players</span>
+    <span translate><em>{{totalPlayers24|number}}</em> tracked in the past day</span>
+</div>
+<div class="row" style="margin-bottom:20px;">
+    <div ng-repeat="(platform, modeData) in featured" class="col-md-6">
+        <div class="leaderboard-platform-wrapper">
+            <div class="leaderboard-platform">
+                <i ng-class="platform == 1 ? 'ggg ggg-platform-xbox' : 'ggg ggg-platform-ps'"></i>
+                <translate>Top {{platforms[platform]}} Guardians</translate>
+            </div>
+            <div ng-repeat="(mode, data) in modeData" class="col-sm-6 leaderboard-wrapper leaderboard-wrapper-home">
+                <h4 class="col-xs-12 text-center">
+                    <i class="ggg ggg-{{modes[mode]|lowercase}}"
+                       ng-class="{'ggg-iron-banner':mode == 19, 'ggg-osiris':mode == 14}">
+                    </i> {{modes[mode]}}
+                </h4>
+                <table class="table table-striped leaderboard leaderboard-home">
+                    <tr>
+                        <th style="width:5%"></th>
+                        <th translate>Name</th>
+                        <th style="width:5%" class="text-right">Elo</th>
+                    </tr>
+                    <tr ng-repeat="(rank, row) in data">
+                        <td>#{{rank+1}}</td>
+                        <td><a ui-sref="app.profile({platform: row.membershipType, name: row.name})">{{row.name}}</a></td>
+                        <td class="text-right">{{row.elo|number}}</td>
+                    </tr>
+                </table>
+                <div class="text-right leaderboard-more">
+                    <a class="btn btn-default btn-xs" ui-sref="app.leaderboard-platform-mode({platform: platform, mode: mode})">
+                        <translate>More</translate>&nbsp;<i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<h2 translate>Crucible Class Breakdown</h2>
+
+<div class="row">
+    <highchart config="kd" class="col-sm-6"></highchart>
+    <highchart config="popularity" class="col-sm-6"></highchart>
+</div>

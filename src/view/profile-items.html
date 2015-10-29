@@ -1,0 +1,23 @@
+<div class="item" ng-repeat="item in profileItems">
+    <div class="item-icon">
+        <img ng-src="{{item.definition && '//www.bungie.net' + item.definition.icon || ''}}" />
+    </div>
+    <div class="item-info">
+        <div class="item-name element-type-{{item.damageType}}">
+            <span class="primary-stat element-type-{{item.damageType}}" ng-if="item.primaryStat.value">
+                {{item.primaryStat.value}}
+            </span>
+            {{item.definition.itemName}}
+        </div>
+        <ul class="perks">
+            <li ng-repeat="perk in item.perks" class="perk">
+                <span tooltip="{{perk.description}}" data-toggle="tooltip">
+                    <span class="perk-icon">
+                        <img ng-src="{{perk.icon && '//www.bungie.net' + perk.icon || ''}}" />
+                    </span>
+                    <span class="perk-info">{{perk.name}}</span>
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>

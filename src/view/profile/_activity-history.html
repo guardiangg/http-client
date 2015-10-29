@@ -1,0 +1,94 @@
+<h2>Elo <span translate class="subtext">since "The Taken King" launch (Sept. 15, 2015)</span></h2>
+<div class="loading" ng-if="loading.elo || loading.eloHistory">
+    <i class="fa fa-cog fa-spin"></i> <translate>Loading Elo Data...</translate>
+</div>
+<div class="elo">
+    <div class="ratings row" ng-if="elos.length > 0 && !loading.elo">
+        <div ng-repeat="e in ::elos" class="col-xs-2 rating" ng-style="{ 'background-color': e.league.colors.background }" ng-if="$index < 6">
+            <i class="ggg {{modeIcons[e.mode]}}"></i> {{ e.elo }}
+            <div class="hidden-xs">{{modes[e.mode]}}</div>
+            <div class="rank" ng-if="e.rank == -1" translate>Placing</div>
+            <div class="rank" ng-if="e.rank > -1">#{{e.rank+1|number}}</div>
+            <div class="league" ng-style="{ 'background-color': e.league.colors.line }">{{e.league.label}}</div>
+        </div>
+    </div>
+    <div class="chart" ng-if="!loading.eloHistory && !chartEmpty">
+        <highchart config="chart" style="height: 300px;"></highchart>
+    </div>
+    <div ng-if="!loading.eloHistory && !loading.elo && elos.length == 0 && chartEmpty" class="empty" translate>
+        No Elo data exists for this player. This is either an error in our system, or the player pretty much never enters Crucible.
+    </div>
+</div>
+
+<h2 translate>Match History</h2>
+
+<div class="btn-group history-mode" role="group">
+    <a href="javascript:" ng-click="setMode(5)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 5}">
+        <translate>All</translate>
+    </a>
+    <a href="javascript:" ng-click="setMode(19)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 19}">
+        <i class="ggg ggg-iron-banner"></i> <translate>Iron Banner</translate>
+    </a>
+    <a href="javascript:" ng-click="setMode(14)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 14}">
+        <i class="ggg ggg-osiris"></i> <translate>Trials of Osiris</translate>
+    </a>
+    <a href="javascript:" ng-click="setMode(10)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 10}">
+        <i class="ggg ggg-control"></i> <translate>Control</translate>
+    </a>
+    <a href="javascript:" ng-click="setMode(12)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 12}">
+        <i class="ggg ggg-clash"></i> <translate>Clash</translate>
+    </a>
+    <a href="javascript:" ng-click="setMode(24)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 24}">
+        <i class="ggg ggg-rift"></i> <translate>Rift</translate>
+    </a>
+    <a href="javascript:" ng-click="setMode(13)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 13}">
+        <i class="ggg ggg-rumble"></i> <translate>Rumble</translate>
+    </a>
+    <a href="javascript:" ng-click="setMode(23)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 23}">
+        <i class="ggg ggg-elimination"></i> <translate>Elimination</translate>
+    </a>
+    <a href="javascript:" ng-click="setMode(9)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 9}">
+        <i class="ggg ggg-skirmish"></i> <translate>Skirmish</translate>
+    </a>
+</div>
+
+<div class="loading" ng-if="loading.activityHistory">
+    <i class="fa fa-cog fa-spin"></i> <translate>Loading Game History...</translate>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped history noselect" ng-if="activities && !loading.activityHistory">
+        <tr>
+            <th style="width:15%">Played</th>
+            <th style="width:20%" class="hidden-xs" translate>Map</th>
+            <th style="width:8%" class="text-center" translate>Score</th>
+            <th style="width:5%" class="text-center" translate>K</th>
+            <th style="width:5%" class="text-center" translate>D</th>
+            <th style="width:5%" class="text-center hidden-xs" translate>A</th>
+            <th style="width:5%" class="text-center" translate>K/D</th>
+            <th style="width:10%" class="text-center" translate>Standing</th>
+            <th style="width:1%" class="text-center"></th>
+        </tr>
+        <tr ng-repeat="activity in activities">
+            <td class="clickable">{{ activity.period|ago }}</td>
+            <td class="clickable hidden-xs">
+                <i class="ggg {{modeIcons[activity.activityDetails.mode]}}"></i> {{ activity.definition.activityName }}
+            </td>
+            <td class="text-center clickable">{{ activity.values.score.basic.displayValue }}</td>
+            <td class="text-center clickable">{{ activity.values.kills.basic.displayValue }}</td>
+            <td class="text-center clickable">{{ activity.values.deaths.basic.displayValue }}</td>
+            <td class="text-center clickable hidden-xs">{{ activity.values.assists.basic.displayValue }}</td>
+            <td class="text-center clickable" ng-class="activity.values.killsDeathsRatio.basic.value < 1 ? 'kd negative' : 'kd positive'">
+                {{ activity.values.killsDeathsRatio.basic.displayValue }}
+            </td>
+            <td class="text-center clickable" ng-class="activity.values.standing.basic.displayValue == 'Defeat' ? 'standing negative' : 'standing positive'">
+                {{ activity.values.standing.basic.displayValue }}
+            </td>
+            <td class="text-center external clickable">
+                <i class="fa fa-plus-square-o pgcr-toggle" pgcr instance-id="activity.activityDetails.instanceId" character-id="character.characterBase.characterId"></i>
+            </td>
+        </tr>
+        <tr ng-if="activities.length == 0" ng-cloak>
+            <td colspan="9" class="empty" translate>No games have been played in this mode.</td>
+        </tr>
+    </table>
+</div>

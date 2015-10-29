@@ -1,0 +1,36 @@
+<uib-tabset justified="true">
+    <uib-tab heading="Overview">
+        <div class="row" ng-if="chartsReady">
+            <highchart config="subclassKd" class="col-md-6"></highchart>
+            <highchart config="subclassWinRate" class="col-md-6"></highchart>
+        </div>
+    </uib-tab>
+    <uib-tab heading="Perks">
+        <div class="row">
+            <div ng-repeat="(col, colPerks) in perks" ng-if="col > 0" class="col-sm-3">
+                <h2>{{colNames[col]}}</h2>
+                <div ng-repeat="perk in colPerks|orderBy:'row'">
+                    <img ng-src="//www.bungie.net{{perk.icon}}" style="background: #000; width: 64px; height: 64px;"><br/>
+                    {{perk.name}}<br/>
+                    <progress max="{{perkTotals[col]}}" value="{{perk.total}}"></progress><br/>
+                    Wins: {{perk.wins / perk.total * 100|number:2}}%<br/>
+                    KD: {{perk.kills / perk.deaths|number:2}}
+                </div>
+            </div>
+        </div>
+    </uib-tab>
+    <uib-tab heading="Exotics">
+        <div class="row">
+            <div ng-repeat="(type, typeExotics) in exotics" class="col-sm-3">
+                <h2>{{type}}</h2>
+                <div ng-repeat="exotic in typeExotics">
+                    <img ng-src="//www.bungie.net{{exotic.icon}}" style="background: #000; width: 64px; height: 64px;"><br/>
+                    {{exotic.name}}<br/>
+                    <progress max="{{exoticTotals[type]}}" value="{{exotic.total}}"></progress><br/>
+                    Wins: {{exotic.wins / exotic.total * 100|number:2}}%<br/>
+                    KD: {{exotic.kills / exotic.deaths|number:2}}
+                </div>
+            </div>
+        </div>
+    </uib-tab>
+</uib-tabset>

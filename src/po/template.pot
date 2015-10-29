@@ -1,0 +1,496 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#. Short for grenade
+#: profile/_character.html:57
+msgid "'Nade"
+msgstr ""
+
+#: profile/_pgcr.html:35
+#: profile/_pgcr.html:40
+msgid "(Winner)"
+msgstr ""
+
+#: home.html:3
+msgid "<em>{{totalPlayers24|number}}</em> tracked in the past day"
+msgstr ""
+
+#. Short for assists
+#: leaderboard.html:63
+#: profile/_activity-history.html:66
+#: profile/_pgcr.html:9
+msgid "A"
+msgstr ""
+
+#: index.html:36
+msgid "Advanced Destiny Stats"
+msgstr ""
+
+#: profile/_character.html:45
+msgid "Agility"
+msgstr ""
+
+#: profile/_activity-history.html:27
+msgid "All"
+msgstr ""
+
+#: faq.html:31
+msgid ""
+"All players start at a baseline of 1200 points. You will take points from your opponent's Elo score by\n"
+"            defeating them, and vise versa. Defeating a more skilled opponent will yield higher points than if you beat up\n"
+"            on a weaker one. The higher the score, the more skilled the player. It is extremely difficult\n"
+"            to maintain a high Elo score, these players are regarded as the best of the best!"
+msgstr ""
+
+#: profile/_pgcr.html:34
+msgid "Alpha"
+msgstr ""
+
+#: profile/_character.html:29
+msgid "Armor"
+msgstr ""
+
+#: faq.html:38
+msgid "As your score rises and falls, you'll be categorized into leagues."
+msgstr ""
+
+#: profile/_pgcr.html:32
+msgid "Average Team Elo"
+msgstr ""
+
+#: shared/service/consts.js:169
+msgid "Bladedancer"
+msgstr ""
+
+#: profile/_pgcr.html:39
+msgid "Bravo"
+msgstr ""
+
+#: shared/chart/elo.js:129
+#: shared/service/consts.js:37
+msgid "Bronze"
+msgstr ""
+
+#: faq.html:43
+msgid "Bronze: 0-1099"
+msgstr ""
+
+#: index.html:183
+msgid "Bungie API Error"
+msgstr ""
+
+#: search.html:4
+msgid "Choose your platform"
+msgstr ""
+
+#: index.html:113
+#: index.html:74
+#: profile/_activity-history.html:39
+#: shared/service/consts.js:99
+msgid "Clash"
+msgstr ""
+
+#: index.html:108
+#: index.html:69
+#: profile/_activity-history.html:36
+#: shared/service/consts.js:98
+msgid "Control"
+msgstr ""
+
+#: home.html:40
+msgid "Crucible Class Breakdown"
+msgstr ""
+
+#. Short for deaths
+#: leaderboard.html:62
+#: profile/_activity-history.html:65
+#: profile/_pgcr.html:8
+msgid "D"
+msgstr ""
+
+#: shared/service/consts.js:134
+msgid "Defender"
+msgstr ""
+
+#: shared/chart/elo.js:69
+#: shared/service/consts.js:81
+msgid "Diamond"
+msgstr ""
+
+#: faq.html:47
+msgid "Diamond: 1700+"
+msgstr ""
+
+#: index.html:160
+msgid "Donate"
+msgstr ""
+
+#: faq.html:50
+msgid ""
+"Each mode you play has its own Elo rating and league categorization. Beyond that, Elo is account-wide, so in\n"
+"            Control you'll have the same rating whether you're on your Titan, Warlock or Hunter."
+msgstr ""
+
+#: index.html:128
+#: index.html:89
+#: profile/_activity-history.html:48
+#: shared/service/consts.js:102
+msgid "Elimination"
+msgstr ""
+
+#: index.html:154
+msgid "FAQ"
+msgstr ""
+
+#: leaderboard.html:8
+#: leaderboard.html:88
+msgid "First"
+msgstr ""
+
+#: faq.html:1
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: faq.html:26
+msgid "From <a href=\"https://en.wikipedia.org/wiki/Elo_rating_system\">Wikipedia</a>:"
+msgstr ""
+
+#: leaderboard.html:66
+msgid "Games"
+msgstr ""
+
+#: faq.html:6
+msgid ""
+"GGG is the lovechild of a couple hardcore Destiny fans. If you like what we've done and want to show your\n"
+"        support, feel free to buy us a beer and/or pony!"
+msgstr ""
+
+#: shared/chart/elo.js:99
+#: shared/service/consts.js:59
+msgid "Gold"
+msgstr ""
+
+#: faq.html:45
+msgid "Gold: 1300-1499"
+msgstr ""
+
+#: profile/_pgcr.html:4
+msgid "Guardian"
+msgstr ""
+
+#: index.html:172
+msgid "Guardian..."
+msgstr ""
+
+#: index.html:3
+msgid "Guardian.gg - Advanced Destiny Stats, Profiles and Leaderboards"
+msgstr ""
+
+#: shared/service/consts.js:159
+msgid "Gunslinger"
+msgstr ""
+
+#: index.html:55
+msgid "Home"
+msgstr ""
+
+#: faq.html:17
+msgid "How accurate is this data?"
+msgstr ""
+
+#: faq.html:5
+msgid "How can I help?"
+msgstr ""
+
+#: faq.html:63
+msgid "How do I get in touch if I have a question/suggestion?"
+msgstr ""
+
+#: shared/service/consts.js:123
+msgid "Hunter"
+msgstr ""
+
+#: index.html:103
+#: index.html:64
+#: profile/_activity-history.html:30
+#: shared/service/consts.js:103
+msgid "Iron Banner"
+msgstr ""
+
+#. Short for kills
+#: leaderboard.html:61
+#: profile/_activity-history.html:64
+#: profile/_pgcr.html:7
+msgid "K"
+msgstr ""
+
+#. Short for kills / deaths
+#: leaderboard.html:64
+#: profile/_activity-history.html:67
+#: profile/_pgcr.html:10
+msgid "K/D"
+msgstr ""
+
+#: shared/chart/kd.js:16
+msgid "Kills / Deaths"
+msgstr ""
+
+#: leaderboard.html:112
+#: leaderboard.html:32
+msgid "Last"
+msgstr ""
+
+#: index.html:58
+msgid "Leaderboards"
+msgstr ""
+
+#: profile/_character.html:2
+msgid "Loading Characters..."
+msgstr ""
+
+#: profile/_activity-history.html:3
+msgid "Loading Elo Data..."
+msgstr ""
+
+#: profile/_activity-history.html:56
+msgid "Loading Game History..."
+msgstr ""
+
+#: profile/_character.html:69
+msgid "Loading Items..."
+msgstr ""
+
+#: profile/_activity-history.html:62
+msgid "Map"
+msgstr ""
+
+#: profile/_activity-history.html:23
+msgid "Match History"
+msgstr ""
+
+#: profile/_character.html:62
+msgid "Melee"
+msgstr ""
+
+#: home.html:32
+msgid "More"
+msgstr ""
+
+#: home.html:21
+#: leaderboard.html:59
+msgid "Name"
+msgstr ""
+
+#: leaderboard.html:105
+#: leaderboard.html:25
+msgid "Next"
+msgstr ""
+
+#: shared/service/consts.js:164
+msgid "Nightstalker"
+msgstr ""
+
+#: profile/_activity-history.html:18
+msgid "No Elo data exists for this player. This is either an error in our system, or the player pretty much never enters Crucible."
+msgstr ""
+
+#: profile/_activity-history.html:91
+msgid "No games have been played in this mode."
+msgstr ""
+
+#: index.html:184
+msgid ""
+"Oh dang, it looks like the Bungie API is acting up. We're not able to show you this page until the issue\n"
+"            gets resolved. Grab yourself a nice tall glass of iced tea and come back to refresh the page. It might work\n"
+"            itself out, or it might not..."
+msgstr ""
+
+#: search.html:12
+msgid "Oops, we weren't able to find \"{{name}}\". Verify spelling and try again."
+msgstr ""
+
+#: faq.html:57
+msgid ""
+"Our global weapon stats are undergoing a revamp. We had to go back to the drawing board with a recent site\n"
+"            overhaul. It will be coming back better than ever, but we don't have a timeline at this moment."
+msgstr ""
+
+#: leaderboard.html:17
+#: leaderboard.html:97
+msgid "Page {{page+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>"
+msgstr ""
+
+#: profile/_activity-history.html:10
+msgid "Placing"
+msgstr ""
+
+#: shared/chart/elo.js:84
+#: shared/service/consts.js:70
+msgid "Platinum"
+msgstr ""
+
+#: faq.html:46
+msgid "Platinum: 1500-1699"
+msgstr ""
+
+#: leaderboard.html:15
+#: leaderboard.html:95
+msgid "Prev"
+msgstr ""
+
+#: leaderboard.html:58
+msgid "Rank"
+msgstr ""
+
+#: home.html:2
+msgid "Real-time stats for <em>{{totalPlayers|number}}</em> Destiny players"
+msgstr ""
+
+#: profile/_character.html:37
+msgid "Recovery"
+msgstr ""
+
+#: index.html:123
+#: index.html:84
+#: profile/_activity-history.html:42
+#: shared/service/consts.js:100
+msgid "Rift"
+msgstr ""
+
+#: index.html:118
+#: index.html:79
+#: profile/_activity-history.html:45
+#: shared/service/consts.js:101
+msgid "Rumble"
+msgstr ""
+
+#: profile/_activity-history.html:63
+#: profile/_pgcr.html:6
+msgid "Score"
+msgstr ""
+
+#: index.html:175
+msgid "Search"
+msgstr ""
+
+#: shared/chart/elo.js:114
+#: shared/service/consts.js:48
+msgid "Silver"
+msgstr ""
+
+#: faq.html:44
+msgid "Silver: 1100-1299"
+msgstr ""
+
+#: profile/_activity-history.html:1
+msgid "since \"The Taken King\" launch (Sept. 15, 2015)"
+msgstr ""
+
+#: faq.html:18
+msgid ""
+"Since the launch of the Taken King, we have aggregated data from every single match played. Our rankings\n"
+"            are updated in real-time and immediately available. If you have played Destiny recently, particularly in the\n"
+"            Crucible, you have a profile here - check it out!"
+msgstr ""
+
+#: index.html:133
+#: index.html:94
+#: profile/_activity-history.html:51
+#: shared/service/consts.js:97
+msgid "Skirmish"
+msgstr ""
+
+#: profile/_activity-history.html:68
+#: profile/_pgcr.html:11
+msgid "Standing"
+msgstr ""
+
+#: shared/service/consts.js:154
+msgid "Stormcaller"
+msgstr ""
+
+#: shared/service/consts.js:139
+msgid "Striker"
+msgstr ""
+
+#: shared/chart/popularity.js:16
+msgid "Subclass Popularity"
+msgstr ""
+
+#: shared/service/consts.js:129
+msgid "Sunbreaker"
+msgstr ""
+
+#: shared/service/consts.js:144
+msgid "Sunsinger"
+msgstr ""
+
+#: profile/_character.html:52
+msgid "Super"
+msgstr ""
+
+#: profile/_pgcr.html:3
+msgid "Team"
+msgstr ""
+
+#: faq.html:27
+msgid ""
+"The Elo rating system is a method for calculating the relative skill levels of players in\n"
+"            competitor-versus-competitor games."
+msgstr ""
+
+#: index.html:189
+msgid "This error most often occurs if Bungie's doing maintenance in Destiny."
+msgstr ""
+
+#: shared/service/consts.js:124
+msgid "Titan"
+msgstr ""
+
+#: home.html:10
+msgid "Top {{platforms[platform]}} Guardians"
+msgstr ""
+
+#: shared/chart/subclass-kd.js:16
+msgid "Total Subclass K/D"
+msgstr ""
+
+#: profile/_activity-history.html:33
+#: shared/service/consts.js:104
+msgid "Trials of Osiris"
+msgstr ""
+
+#: shared/service/consts.js:149
+msgid "Voidwalker"
+msgstr ""
+
+#: profile/_pgcr.html:37
+msgid "vs."
+msgstr ""
+
+#: shared/service/consts.js:122
+msgid "Warlock"
+msgstr ""
+
+#: search.html:2
+msgid "We found more than one result for \"{{name}}\""
+msgstr ""
+
+#: faq.html:25
+msgid "What is \"Elo\" and what does it mean?"
+msgstr ""
+
+#: shared/chart/subclass-win-rate.js:16
+msgid "Win Rate"
+msgstr ""
+
+#: leaderboard.html:65
+msgid "Win%"
+msgstr ""
+
+#: faq.html:65
+msgid "You can fire us an email at"
+msgstr ""
