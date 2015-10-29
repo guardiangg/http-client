@@ -25,7 +25,7 @@ msgstr ""
 msgid "A"
 msgstr ""
 
-#: index.html:36
+#: index.html:35
 msgid "Advanced Destiny Stats"
 msgstr ""
 
@@ -78,7 +78,7 @@ msgstr ""
 msgid "Bronze: 0-1099"
 msgstr ""
 
-#: index.html:183
+#: index.html:182
 msgid "Bungie API Error"
 msgstr ""
 
@@ -86,15 +86,15 @@ msgstr ""
 msgid "Choose your platform"
 msgstr ""
 
-#: index.html:113
-#: index.html:74
+#: index.html:112
+#: index.html:73
 #: profile/_activity-history.html:39
 #: shared/service/consts.js:99
 msgid "Clash"
 msgstr ""
 
-#: index.html:108
-#: index.html:69
+#: index.html:107
+#: index.html:68
 #: profile/_activity-history.html:36
 #: shared/service/consts.js:98
 msgid "Control"
@@ -124,7 +124,7 @@ msgstr ""
 msgid "Diamond: 1700+"
 msgstr ""
 
-#: index.html:160
+#: index.html:159
 msgid "Donate"
 msgstr ""
 
@@ -134,14 +134,14 @@ msgid ""
 "            Control you'll have the same rating whether you're on your Titan, Warlock or Hunter."
 msgstr ""
 
-#: index.html:128
-#: index.html:89
+#: index.html:127
+#: index.html:88
 #: profile/_activity-history.html:48
 #: shared/service/consts.js:102
 msgid "Elimination"
 msgstr ""
 
-#: index.html:154
+#: index.html:153
 msgid "FAQ"
 msgstr ""
 
@@ -151,6 +151,7 @@ msgid "First"
 msgstr ""
 
 #: faq.html:1
+#: routes.js:27
 msgid "Frequently Asked Questions"
 msgstr ""
 
@@ -181,19 +182,19 @@ msgstr ""
 msgid "Guardian"
 msgstr ""
 
-#: index.html:172
+#: index.html:171
 msgid "Guardian..."
 msgstr ""
 
-#: index.html:3
-msgid "Guardian.gg - Advanced Destiny Stats, Profiles and Leaderboards"
+#: app.js:56
+msgid "Guardian.gg: Advanced Destiny Stats, Profiles and Leaderboards"
 msgstr ""
 
 #: shared/service/consts.js:159
 msgid "Gunslinger"
 msgstr ""
 
-#: index.html:55
+#: index.html:54
 msgid "Home"
 msgstr ""
 
@@ -213,8 +214,8 @@ msgstr ""
 msgid "Hunter"
 msgstr ""
 
-#: index.html:103
-#: index.html:64
+#: index.html:102
+#: index.html:63
 #: profile/_activity-history.html:30
 #: shared/service/consts.js:103
 msgid "Iron Banner"
@@ -243,7 +244,7 @@ msgstr ""
 msgid "Last"
 msgstr ""
 
-#: index.html:58
+#: index.html:57
 msgid "Leaderboards"
 msgstr ""
 
@@ -301,7 +302,7 @@ msgstr ""
 msgid "No games have been played in this mode."
 msgstr ""
 
-#: index.html:184
+#: index.html:183
 msgid ""
 "Oh dang, it looks like the Bungie API is acting up. We're not able to show you this page until the issue\n"
 "            gets resolved. Grab yourself a nice tall glass of iced tea and come back to refresh the page. It might work\n"
@@ -353,15 +354,15 @@ msgstr ""
 msgid "Recovery"
 msgstr ""
 
-#: index.html:123
-#: index.html:84
+#: index.html:122
+#: index.html:83
 #: profile/_activity-history.html:42
 #: shared/service/consts.js:100
 msgid "Rift"
 msgstr ""
 
-#: index.html:118
-#: index.html:79
+#: index.html:117
+#: index.html:78
 #: profile/_activity-history.html:45
 #: shared/service/consts.js:101
 msgid "Rumble"
@@ -372,7 +373,7 @@ msgstr ""
 msgid "Score"
 msgstr ""
 
-#: index.html:175
+#: index.html:174
 msgid "Search"
 msgstr ""
 
@@ -396,8 +397,8 @@ msgid ""
 "            Crucible, you have a profile here - check it out!"
 msgstr ""
 
-#: index.html:133
-#: index.html:94
+#: index.html:132
+#: index.html:93
 #: profile/_activity-history.html:51
 #: shared/service/consts.js:97
 msgid "Skirmish"
@@ -442,7 +443,7 @@ msgid ""
 "            competitor-versus-competitor games."
 msgstr ""
 
-#: index.html:189
+#: index.html:188
 msgid "This error most often occurs if Bungie's doing maintenance in Destiny."
 msgstr ""
 
