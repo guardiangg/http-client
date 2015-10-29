@@ -1,11 +1,10 @@
-# http-client
+# Guardian.gg HTTP Client
 
-## prep for pwn
+## Install & Run
 
 ```sh
 cd http-client
 npm install
 bower install
-gulp dev
-gulp watch
+gulp build && gulp watch
 ```
