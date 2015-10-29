@@ -58,6 +58,13 @@ app
                     gettextCatalog.loadRemote('/language/' + toParams.locale + '.json');
                 }
 
+                if (toState.title) {
+                    $rootScope.title = gettextCatalog.getString(toState.title) + ' - Guardian.gg';
+                } else {
+                    $log.debug('no title, setting default...');
+                    $rootScope.title = gettextCatalog.getString('Guardian.gg: Advanced Destiny Stats, Profiles and Leaderboards');
+                }
+
                 gettextCatalog.setCurrentLanguage(toParams.locale);
                 $cookieStore.put('gggLocale', toParams.locale);
                 moment.locale(toParams.locale);

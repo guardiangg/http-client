@@ -3,8 +3,9 @@ var app = angular.module('app');
 app.config([
     '$locationProvider',
     '$stateProvider',
+    'gettext',
 
-    function ($locationProvider, $stateProvider) {
+    function ($locationProvider, $stateProvider, gettext) {
         $locationProvider.html5Mode(true);
         $locationProvider.hashPrefix('!');
 
@@ -23,7 +24,7 @@ app.config([
             })
             .state('app.faq', {
                 url: '/faq',
-                title: 'page.faq.title',
+                title: gettext('Frequently Asked Questions'),
                 templateUrl: 'app/view/faq.html'
             })
             .state('app.search', {
