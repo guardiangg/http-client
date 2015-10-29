@@ -1,5 +1,5 @@
 var series          = require('stream-series'),
-	gulp            = require('gulp'),
+    gulp            = require('gulp'),
     async           = require('async'),
     concat          = require('gulp-concat'),
     gettext         = require('gulp-angular-gettext'),
@@ -14,7 +14,7 @@ var series          = require('stream-series'),
     uglify          = require('gulp-uglify'),
     util            = require('gulp-util'),
 
-	// ggg deps
+    // ggg deps
     gggDownload = require('./gulp/download.js');
 
 var isProd = !!util.env.prod;
