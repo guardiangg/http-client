@@ -11,8 +11,6 @@ app.controller('homeCtrl', [
     'charts',
 
     function ($rootScope, $scope, $q, $interval, leaderboardApi, api, consts, charts) {
-        $rootScope.title = false;
-
         $scope.leaderboards = {1: {}, 2: {}};
         $scope.platforms = consts.platforms;
         $scope.modes = consts.modes;

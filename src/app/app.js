@@ -49,6 +49,13 @@ app
         function($cookieStore, $rootScope, $state, $log, $location, gettextCatalog) {
             // track state changes and update locale accordingly
             $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+                if (toState.title) {
+                    $rootScope.title = gettextCatalog.getString(toState.title) + ' - Guardian.gg';
+                } else {
+                    $log.debug('no title, setting default...');
+                    $rootScope.title = gettextCatalog.getString('Guardian.gg: Advanced Destiny Stats, Profiles and Leaderboards');
+                }
+                
                 if (fromParams.locale == toParams.locale) {
                     return;
                 }
@@ -56,13 +63,6 @@ app
                 // translations are by default in English
                 if (toParams.locale != 'en') {
                     gettextCatalog.loadRemote('/language/' + toParams.locale + '.json');
-                }
-
-                if (toState.title) {
-                    $rootScope.title = gettextCatalog.getString(toState.title) + ' - Guardian.gg';
-                } else {
-                    $log.debug('no title, setting default...');
-                    $rootScope.title = gettextCatalog.getString('Guardian.gg: Advanced Destiny Stats, Profiles and Leaderboards');
                 }
 
                 gettextCatalog.setCurrentLanguage(toParams.locale);
