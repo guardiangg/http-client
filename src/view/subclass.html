@@ -55,7 +55,7 @@
     <i class="fa fa-cog fa-spin"></i> <translate>Loading Charts...</translate>
 </div>
 
-<div class="row subclass-charts" ng-show="!loading.charts" ng-cloak>
+<div class="row subclass-charts" ng-show="!loading.charts">
     <highchart config="subclassKd" class="col-md-6"></highchart>
     <highchart config="subclassWinRate" class="col-md-6"></highchart>
 </div>
@@ -102,7 +102,7 @@
         <div class="loading" ng-if="loading.perks">
             <i class="fa fa-cog fa-spin"></i> <translate>Loading Perks...</translate>
         </div>
-        <div ng-repeat="(col, colPerks) in perks" ng-show="col > 0 && !loading.perks && perks.length > 0" ng-cloak>
+        <div ng-repeat="(col, colPerks) in perks" ng-show="col > 0 && !loading.perks && perks.length > 0">
             <h3>{{colNames[col]}}</h3>
             <table class="table table-striped subclass-top">
                 <tr>
@@ -119,16 +119,16 @@
                 </tr>
             </table>
         </div>
-        <div class="empty" ng-show="!loading.perks && perks.length == 0" ng-cloak translate>
+        <div class="empty" ng-show="!loading.perks && perks.length == 0" translate>
             Insufficient perk data was found for this game mode in the last 7 days.
         </div>
     </div>
     <div class="col-md-4">
-        <h3 translate ng-show="!loading.weapons && weapons.length > 0" ng-cloak>Exotic Weapons</h3>
+        <h3 translate ng-show="!loading.weapons && weapons.length > 0">Exotic Weapons</h3>
         <div class="loading" ng-if="loading.weapons">
             <i class="fa fa-cog fa-spin"></i> <translate>Loading Weapons...</translate>
         </div>
-        <table class="table table-striped subclass-top" ng-show="!loading.weapons && weapons.length > 0" ng-cloak>
+        <table class="table table-striped subclass-top" ng-show="!loading.weapons && weapons.length > 0">
             <tr>
                 <th translate>Item</th>
                 <th translate>K/D</th>
@@ -142,16 +142,16 @@
                 <td>{{item.total / totals.weapons * 100|number:1}}%</td>
             </tr>
         </table>
-        <div class="empty" ng-show="!loading.weapons && weapons.length == 0" ng-cloak translate>
+        <div class="empty" ng-show="!loading.weapons && weapons.length == 0" translate>
             Insufficient weapon data was found for this game mode in the last 7 days.
         </div>
     </div>
     <div class="col-md-4">
-        <h3 translate ng-show="!loading.armor && armors.length > 0" ng-cloak>Exotic Armor</h3>
+        <h3 translate ng-show="!loading.armor && armors.length > 0">Exotic Armor</h3>
         <div class="loading" ng-if="loading.armor">
             <i class="fa fa-cog fa-spin"></i> <translate>Loading Armor...</translate>
         </div>
-        <table class="table table-striped subclass-top" ng-show="!loading.armor && armors.length > 0" ng-cloak>
+        <table class="table table-striped subclass-top" ng-show="!loading.armor && armors.length > 0">
             <tr>
                 <th translate>Item</th>
                 <th translate>K/D</th>
@@ -165,7 +165,7 @@
                 <td>{{item.total / totals.armor * 100|number:1}}%</td>
             </tr>
         </table>
-        <div class="empty" ng-show="!loading.armor && armors.length == 0" ng-cloak translate>
+        <div class="empty" ng-show="!loading.armor && armors.length == 0" translate>
             Insufficient armor data was found for this game mode in the last 7 days.
         </div>
     </div>

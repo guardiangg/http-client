@@ -1,4 +1,4 @@
-<html>
+<html ng-cloak>
 <head>
     <title ng-bind="title"></title>
     <meta charset="utf-8">
@@ -196,7 +196,7 @@
     </nav>
 
     <div ui-view ng-if="!apiError"></div>
-    <div class="error" ng-if="apiError" ng-cloak>
+    <div class="error" ng-if="apiError">
         <h3 translate>Bungie API Error</h3>
         <p translate>
             Oh dang, it looks like the Bungie API is acting up. We're not able to show you this page until the issue

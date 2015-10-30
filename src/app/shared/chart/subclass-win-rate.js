@@ -16,9 +16,13 @@ app.factory('chart-subclass-win-rate', [
                     text: gettext('Win Rate by Mode')
                 },
                 xAxis: {
+                    gridLineWidth: 0,
+                    minorGridLineWidth: 0,
                     type: 'category'
                 },
                 yAxis: {
+                    gridLineWidth: 0,
+                    minorGridLineWidth: 0,
                     title: {
                         text: false
                     }
