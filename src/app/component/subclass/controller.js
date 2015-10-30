@@ -1,6 +1,7 @@
 var app = angular.module('app');
 
 app.controller('subclassCtrl', [
+    '$rootScope',
     '$scope',
     '$stateParams',
     '$cookies',
@@ -10,8 +11,11 @@ app.controller('subclassCtrl', [
     'charts',
     'gamedata',
 
-    function ($scope, $stateParams, $cookies, $filter, api, consts, charts, gamedata) {
+    function ($rootScope, $scope, $stateParams, $cookies, $filter, api, consts, charts, gamedata) {
         var subclassId = consts.subclassToId($stateParams.subclass);
+        $scope.subclass = consts.subclasses[subclassId];
+
+        $rootScope.title = $scope.subclass.label + ' - Subclass Item/Perk Analysis - Guardian.gg';
 
         $scope.mode = $cookies.get('gggModeSubclass');
         if (!$scope.mode) {
@@ -41,7 +45,6 @@ app.controller('subclassCtrl', [
 
         $scope.subclassKd = charts.get('subclass-kd');
         $scope.subclassWinRate = charts.get('subclass-win-rate');
-        $scope.subclass = consts.subclasses[subclassId];
 
         var prepareExoticList = function(list) {
             list = _.filter(list, function(item) {
