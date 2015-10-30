@@ -23,7 +23,7 @@
 
     <div class="mode">
         <div class="filter-head" translate>Select a game mode</div>
-        <ui-select ng-model="mode" theme="bootstrap" on-select="getActivitiesForMode($item, $model)">
+        <ui-select ng-model="mode" theme="selectize" on-select="getActivitiesForMode($item, $model)">
             <ui-select-match><i class="ggg-{{ modeIcons[$select.selected] }} ggg-select"></i>&nbsp;{{ modes[$select.selected] }}</ui-select-match>
             <ui-select-choices repeat="m in modeItems">
                 <i class="ggg-{{ modeIcons[m] }} ggg-select"></i>

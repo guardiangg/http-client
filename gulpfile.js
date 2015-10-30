@@ -108,6 +108,7 @@ var jsVendorCallback = function() {
 gulp.task('build', ['config', 'robots', 'image', 'font', 'translate', 'view', 'css', 'jsVendor', 'js', 'index']);
 
 gulp.task('watch', function() {
+    gulp.watch(['./src/index.html'], ['index']);
     gulp.watch(['./src/asset/less/**/*.less'], ['css']);
     gulp.watch(['./src/app/**/*.js'], ['js']);
     gulp.watch(['./src/po/*.po'], ['translate']);

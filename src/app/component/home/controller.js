@@ -30,69 +30,6 @@ app.controller('homeCtrl', [
                 });
             });
 
-        var halt = false;
-        var stop = false;
-
-        var refreshFirsts = function() {
-            // hard-mode ?????
-            // normal-mode (testing) 1733556769
-            // mock empty 5466544564
-            api
-                .getHomeWorldFirsts('3534581229')
-                .then(function(result) {
-                    var raids = [];
-
-                    for (var i in result.data) {
-                        var row = result.data[i];
-                        var instanceId = row.instanceId;
-
-                        var instance = _.find(raids, function(raid) {
-                            return raid.instanceId == instanceId;
-                        });
-
-                        if (!instance) {
-                            var unix = moment(row.endedAt).unix();
-
-                            instance = {
-                                instanceId: instanceId,
-                                completionUnix: unix,
-                                completionFormatted: moment.unix(unix).format('MMM Do, h:mm:ssa'),
-                                members: []
-                            };
-
-                            raids.push(instance);
-                        }
-
-                        instance.members.push(row);
-                    }
-
-                    raids = _.sortBy(raids, 'completionUnix').slice(0, 5);
-
-                    if (raids.length == 5) {
-                        halt = true;
-                    }
-
-                    var emptySlots = 5 - raids.length;
-                    if (emptySlots > 0) {
-                        for (var i = 0; i < emptySlots; i++) {
-                            raids.push({
-                                empty: true
-                            });
-                        }
-                    }
-
-                    $scope.worldFirst = raids;
-                });
-
-            if (!stop) {
-                stop = $interval(refreshFirsts, 15000);
-            }
-
-            if (halt) {
-                $interval.cancel(stop);
-            }
-        };
-
         api
             .getHomeStats()
             .then(function(result) {
@@ -125,7 +62,5 @@ app.controller('homeCtrl', [
                     });
                 });
             });
-
-        refreshFirsts();
     }
 ]);
