@@ -39,14 +39,14 @@ app
         }
     ])
     .run([
-        '$cookieStore',
+        '$cookies',
         '$rootScope',
         '$state',
         '$log',
         '$location',
         'gettextCatalog',
 
-        function($cookieStore, $rootScope, $state, $log, $location, gettextCatalog) {
+        function($cookies, $rootScope, $state, $log, $location, gettextCatalog) {
             // track state changes and update locale accordingly
             $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
                 if (toState.title) {
@@ -67,11 +67,11 @@ app
                 }
 
                 gettextCatalog.setCurrentLanguage(toParams.locale);
-                $cookieStore.put('gggLocale', toParams.locale);
+                $cookies.put('gggLocale', toParams.locale);
                 moment.locale(toParams.locale);
             });
 
-            var cookie = $cookieStore.get('gggLocale');
+            var cookie = $cookies.get('gggLocale');
 
             if (!$location.path().match(/^\/\w{2}\//)) {
                 var locale = cookie ? cookie : 'en';

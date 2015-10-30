@@ -13,12 +13,16 @@ app.factory('chart-subclass-kd', [
                     enabled: false
                 },
                 title: {
-                    text: gettext('Total Subclass K/D')
+                    text: gettext('K/D by Mode')
                 },
                 xAxis: {
+                    gridLineWidth: 0,
+                    minorGridLineWidth: 0,
                     type: 'category'
                 },
                 yAxis: {
+                    gridLineWidth: 0,
+                    minorGridLineWidth: 0,
                     title: {
                         text: false
                     }
@@ -31,7 +35,10 @@ app.factory('chart-subclass-kd', [
             series: [{
                 colorByPoint: true,
                 data: []
-            }]
+            }],
+            size: {
+                height: 250
+            }
         }
     }
 ]);

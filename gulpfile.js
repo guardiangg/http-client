@@ -154,11 +154,11 @@ gulp.task('js', jsCallback);
 gulp.task('css', cssCallback);
 
 gulp.task('image', function() {
-    return gulp.src('./src/asset/image/*').pipe(gulp.dest('./build/asset/image'));
+    return gulp.src('./src/asset/image/**/*').pipe(gulp.dest('./build/asset/image'));
 });
 
 gulp.task('font', function() {
-    return gulp.src('./src/asset/font/*').pipe(gulp.dest('./build/asset/font'));
+    return gulp.src('./src/asset/font/**/*').pipe(gulp.dest('./build/asset/font'));
 });
 
 gulp.task('robots', function() {

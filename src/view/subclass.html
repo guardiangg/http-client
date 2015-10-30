@@ -1,36 +1,172 @@
-<uib-tabset justified="true">
-    <uib-tab heading="Overview">
-        <div class="row" ng-if="chartsReady">
-            <highchart config="subclassKd" class="col-md-6"></highchart>
-            <highchart config="subclassWinRate" class="col-md-6"></highchart>
-        </div>
-    </uib-tab>
-    <uib-tab heading="Perks">
-        <div class="row">
-            <div ng-repeat="(col, colPerks) in perks" ng-if="col > 0" class="col-sm-3">
-                <h2>{{colNames[col]}}</h2>
-                <div ng-repeat="perk in colPerks|orderBy:'row'">
-                    <img ng-src="//www.bungie.net{{perk.icon}}" style="background: #000; width: 64px; height: 64px;"><br/>
-                    {{perk.name}}<br/>
-                    <progress max="{{perkTotals[col]}}" value="{{perk.total}}"></progress><br/>
-                    Wins: {{perk.wins / perk.total * 100|number:2}}%<br/>
-                    KD: {{perk.kills / perk.deaths|number:2}}
-                </div>
+<div class="row subclass-selector">
+    <div class="col-md-4">
+        <div class="subclass" ng-class="{'active': subclass.name == 'bladedancer' || subclass.name == 'gunslinger' || subclass.name == 'nightstalker'}">
+            <div class="pull-right options">
+                <a ui-sref="app.subclass({subclass: 'bladedancer'})" ng-class="{'active': subclass.name == 'bladedancer'}">
+                    <img src="/asset/image/subclass/bladedancer.png" />
+                </a>
+                <a ui-sref="app.subclass({subclass: 'gunslinger'})" ng-class="{'active': subclass.name == 'gunslinger'}">
+                    <img src="/asset/image/subclass/gunslinger.png" />
+                </a>
+                <a ui-sref="app.subclass({subclass: 'nightstalker'})" ng-class="{'active': subclass.name == 'nightstalker'}">
+                    <img src="/asset/image/subclass/nightstalker.png" />
+                </a>
             </div>
+            <h4 translate>Hunter</h4>
         </div>
-    </uib-tab>
-    <uib-tab heading="Exotics">
-        <div class="row">
-            <div ng-repeat="(type, typeExotics) in exotics" class="col-sm-3">
-                <h2>{{type}}</h2>
-                <div ng-repeat="exotic in typeExotics">
-                    <img ng-src="//www.bungie.net{{exotic.icon}}" style="background: #000; width: 64px; height: 64px;"><br/>
-                    {{exotic.name}}<br/>
-                    <progress max="{{exoticTotals[type]}}" value="{{exotic.total}}"></progress><br/>
-                    Wins: {{exotic.wins / exotic.total * 100|number:2}}%<br/>
-                    KD: {{exotic.kills / exotic.deaths|number:2}}
-                </div>
+    </div>
+    <div class="col-md-4">
+        <div class="subclass" ng-class="{'active': subclass.name == 'striker' || subclass.name == 'sunbreaker' || subclass.name == 'defender'}">
+            <div class="pull-right options">
+                <a ui-sref="app.subclass({subclass: 'striker'})" ng-class="{'active': subclass.name == 'striker'}">
+                    <img src="/asset/image/subclass/striker.png" />
+                </a>
+                <a ui-sref="app.subclass({subclass: 'sunbreaker'})" ng-class="{'active': subclass.name == 'sunbreaker'}">
+                    <img src="/asset/image/subclass/sunbreaker.png" />
+                </a>
+                <a ui-sref="app.subclass({subclass: 'defender'})" ng-class="{'active': subclass.name == 'defender'}">
+                    <img src="/asset/image/subclass/defender.png" />
+                </a>
             </div>
+            <h4 translate>Titan</h4>
         </div>
-    </uib-tab>
-</uib-tabset>
+    </div>
+    <div class="col-md-4">
+        <div class="subclass" ng-class="{'active': subclass.name == 'stormcaller' || subclass.name == 'sunsinger' || subclass.name == 'voidwalker'}">
+            <div class="pull-right options">
+                <a ui-sref="app.subclass({subclass: 'stormcaller'})" ng-class="{'active': subclass.name == 'stormcaller'}">
+                    <img src="/asset/image/subclass/stormcaller.png" />
+                </a>
+                <a ui-sref="app.subclass({subclass: 'sunsinger'})" ng-class="{'active': subclass.name == 'sunsinger'}">
+                    <img src="/asset/image/subclass/sunsinger.png" />
+                </a>
+                <a ui-sref="app.subclass({subclass: 'voidwalker'})" ng-class="{'active': subclass.name == 'voidwalker'}">
+                    <img src="/asset/image/subclass/voidwalker.png" />
+                </a>
+            </div>
+            <h4 translate>Warlock</h4>
+        </div>
+    </div>
+</div>
+
+<h2 translate>{{subclass.label}} Overview</h2>
+
+<div class="loading" ng-if="loading.charts">
+    <i class="fa fa-cog fa-spin"></i> <translate>Loading Charts...</translate>
+</div>
+
+<div class="row subclass-charts" ng-show="!loading.charts">
+    <highchart config="subclassKd" class="col-md-6"></highchart>
+    <highchart config="subclassWinRate" class="col-md-6"></highchart>
+</div>
+
+<h2 translate>{{subclass.label}} Perks &amp; Exotics</h2>
+
+<div class="subclass-info" translate>
+    This data examines the last 7 days of PvP in Destiny for players using the {{subclass.label}} subclass.
+    The rolling sample provides an accurate look at what players are using and what's working. Select a mode on
+    the filter bar below to only map K/D and win rates in that mode.
+</div>
+
+<div class="subclass-filter">
+    <div class="btn-group" role="group">
+        <a href="javascript:" ng-click="setMode(10)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 10}">
+            <i class="ggg ggg-control"></i> <translate>Control</translate>
+        </a>
+        <a href="javascript:" ng-click="setMode(19)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 19}">
+            <i class="ggg ggg-iron-banner"></i> <translate>Iron Banner</translate>
+        </a>
+        <a href="javascript:" ng-click="setMode(14)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 14}">
+            <i class="ggg ggg-osiris"></i> <translate>Trials of Osiris</translate>
+        </a>
+        <a href="javascript:" ng-click="setMode(12)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 12}">
+            <i class="ggg ggg-clash"></i> <translate>Clash</translate>
+        </a>
+        <a href="javascript:" ng-click="setMode(24)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 24}">
+            <i class="ggg ggg-rift"></i> <translate>Rift</translate>
+        </a>
+        <a href="javascript:" ng-click="setMode(13)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 13}">
+            <i class="ggg ggg-rumble"></i> <translate>Rumble</translate>
+        </a>
+        <a href="javascript:" ng-click="setMode(23)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 23}">
+            <i class="ggg ggg-elimination"></i> <translate>Elimination</translate>
+        </a>
+        <a href="javascript:" ng-click="setMode(9)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 9}">
+            <i class="ggg ggg-skirmish"></i> <translate>Skirmish</translate>
+        </a>
+    </div>
+</div>
+
+<div class="row subclass-items">
+    <div class="col-md-4">
+        <div class="loading" ng-if="loading.perks">
+            <i class="fa fa-cog fa-spin"></i> <translate>Loading Perks...</translate>
+        </div>
+        <div ng-repeat="(col, colPerks) in perks" ng-show="col > 0 && !loading.perks && perks.length > 0">
+            <h3>{{colNames[col]}}</h3>
+            <table class="table table-striped subclass-top">
+                <tr>
+                    <th translate>Perk</th>
+                    <th translate>K/D</th>
+                    <th translate>Win%</th>
+                    <th translate>Use%</th>
+                </tr>
+                <tr ng-repeat="perk in colPerks|orderBy:'row'">
+                    <td><img ng-src="//www.bungie.net{{perk.icon}}"> {{perk.name}}</td>
+                    <td ng-class="perk.kd >= 1 ? 'positive' : 'negative'">{{perk.kd|number:2}}</td>
+                    <td>{{perk.wins / perk.total * 100|number:1}}%</td>
+                    <td>{{perk.total / perkTotals[col] * 100|number:1}}%</td>
+                </tr>
+            </table>
+        </div>
+        <div class="empty" ng-show="!loading.perks && perks.length == 0" translate>
+            Insufficient perk data was found for this game mode in the last 7 days.
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h3 translate ng-show="!loading.weapons && weapons.length > 0">Exotic Weapons</h3>
+        <div class="loading" ng-if="loading.weapons">
+            <i class="fa fa-cog fa-spin"></i> <translate>Loading Weapons...</translate>
+        </div>
+        <table class="table table-striped subclass-top" ng-show="!loading.weapons && weapons.length > 0">
+            <tr>
+                <th translate>Item</th>
+                <th translate>K/D</th>
+                <th translate>Win%</th>
+                <th translate>Use%</th>
+            </tr>
+            <tr ng-repeat="item in weapons">
+                <td><img ng-src="//www.bungie.net{{item.icon}}"> {{item.name}}</td>
+                <td ng-class="item.kd >= 1 ? 'positive' : 'negative'">{{item.kd|number:2}}</td>
+                <td>{{item.wins / item.total * 100|number:1}}%</td>
+                <td>{{item.total / totals.weapons * 100|number:1}}%</td>
+            </tr>
+        </table>
+        <div class="empty" ng-show="!loading.weapons && weapons.length == 0" translate>
+            Insufficient weapon data was found for this game mode in the last 7 days.
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h3 translate ng-show="!loading.armor && armors.length > 0">Exotic Armor</h3>
+        <div class="loading" ng-if="loading.armor">
+            <i class="fa fa-cog fa-spin"></i> <translate>Loading Armor...</translate>
+        </div>
+        <table class="table table-striped subclass-top" ng-show="!loading.armor && armors.length > 0">
+            <tr>
+                <th translate>Item</th>
+                <th translate>K/D</th>
+                <th translate>Win%</th>
+                <th translate>Use%</th>
+            </tr>
+            <tr ng-repeat="item in armors">
+                <td><img ng-src="//www.bungie.net{{item.icon}}"> {{item.name}}</td>
+                <td ng-class="item.kd >= 1 ? 'positive' : 'negative'">{{item.kd|number:2}}</td>
+                <td>{{item.wins / item.total * 100|number:1}}%</td>
+                <td>{{item.total / totals.armor * 100|number:1}}%</td>
+            </tr>
+        </table>
+        <div class="empty" ng-show="!loading.armor && armors.length == 0" translate>
+            Insufficient armor data was found for this game mode in the last 7 days.
+        </div>
+    </div>
+</div>

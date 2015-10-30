@@ -193,7 +193,7 @@ app.controller('profileCtrl', [
                 }
 
                 $scope.name = result.Response[0].displayName;
-                $rootScope.title = $scope.name + ' - Destiny PvP Profile';
+                $rootScope.title = $scope.name + ' - Destiny PvP Profile - Guardian.gg';
                 $scope.loading.name = false;
                 load(result.Response[0].membershipType, result.Response[0].membershipId);
             });

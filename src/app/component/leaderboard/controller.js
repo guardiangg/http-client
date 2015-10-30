@@ -23,7 +23,7 @@ app.controller('leaderboardCtrl', [
             leaderboard: true
         };
 
-        $rootScope.title = $scope.modes[$scope.mode] + ' Leaderboard - ' + $scope.platforms[$scope.platform];
+        $rootScope.title = $scope.modes[$scope.mode] + ' Leaderboard - ' + $scope.platforms[$scope.platform] + ' - Guardian.gg';
 
         $scope.load = function(platform, mode, page, update) {
             if (!platform || !mode) {

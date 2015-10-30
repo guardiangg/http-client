@@ -1,4 +1,4 @@
-<html>
+<html ng-cloak>
 <head>
     <title ng-bind="title"></title>
     <meta charset="utf-8">
@@ -78,6 +78,11 @@
                                 </a>
                             </li>
                             <li>
+                                <a ui-sref="app.leaderboard-platform-mode({platform: 2, mode: 14})">
+                                    <i class="ggg ggg-osiris"></i>&nbsp;<translate>Trials of Osiris</translate>
+                                </a>
+                            </li>
+                            <li>
                                 <a ui-sref="app.leaderboard-platform-mode({platform: 2, mode: 10})">
                                     <i class="ggg ggg-control"></i>&nbsp;<translate>Control</translate>
                                 </a>
@@ -114,6 +119,11 @@
                             <li>
                                 <a ui-sref="app.leaderboard-platform-mode({platform: 1, mode: 19})">
                                     <i class="ggg ggg-iron-banner"></i>&nbsp;<translate>Iron Banner</translate>
+                                </a>
+                            </li>
+                            <li>
+                                <a ui-sref="app.leaderboard-platform-mode({platform: 1, mode: 14})">
+                                    <i class="ggg ggg-osiris"></i>&nbsp;<translate>Trials of Osiris</translate>
                                 </a>
                             </li>
                             <li>
@@ -191,7 +201,7 @@
     </nav>
 
     <div ui-view ng-if="!apiError"></div>
-    <div class="error" ng-if="apiError" ng-cloak>
+    <div class="error" ng-if="apiError">
         <h3 translate>Bungie API Error</h3>
         <p translate>
             Oh dang, it looks like the Bungie API is acting up. We're not able to show you this page until the issue
