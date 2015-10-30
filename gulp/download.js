@@ -115,7 +115,7 @@ var download = function(locale) {
                     row = JSON.parse(row.json);
 
                     // exotics only
-                    if (row.tierType !== 2) {
+                    if (row.tierType !== 6) {
                         return;
                     }
 
