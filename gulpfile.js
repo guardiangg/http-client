@@ -47,7 +47,7 @@ var jsFiles = {
         'angular-sanitize/angular-sanitize.js',
         'angular-ui-router/release/angular-ui-router.js',
         'angular-ui-select/dist/select.js',
-        'angularjs-datepicker/dist/angular-datepicker.min.js',
+        'angularjs-datepicker/src/js/angular-datepicker.js',
         'angular-tooltips/dist/angular-tooltips.min.js',
         'highcharts-release/highcharts.src.js',
         'highcharts-release/themes/grid-light.js',

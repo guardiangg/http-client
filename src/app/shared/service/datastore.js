@@ -23,6 +23,10 @@ app.factory('datastore', ['$location', function($location) {
 
             var data = [];
             for (var k in params) {
+                if (!params.hasOwnProperty(k)) {
+                    continue;
+                }
+
                 var value = params[k];
 
                 if (!this.mappingInverse[k] || value === false || value == null) {
@@ -32,7 +36,7 @@ app.factory('datastore', ['$location', function($location) {
                 data.push(this.mappingInverse[k] + ':' + value);
             }
 
-            $location.path('filter/' + data.join(';'));
+            //$location.path('filter/' + data.join(';'));
         },
 
         getParamsFromHash: function() {
@@ -49,6 +53,10 @@ app.factory('datastore', ['$location', function($location) {
 
             var params = {};
             for (var i in options) {
+                if (!options.hasOwnProperty(i)) {
+                    continue;
+                }
+
                 var segments = options[i].split(':');
                 if (segments.length != 2) {
                     continue;

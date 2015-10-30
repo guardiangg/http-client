@@ -1,0 +1,127 @@
+<div id="ggg-filter">
+    <div class="processing" ng-class="queuedUpdateProgress == 100 ? 'animated flipOutX' : 'animated flipInX'">
+        <h3>
+            <i class="fa fa-gear fa-spin"></i>&nbsp;
+            <translate>We're crunching the numbers based on your filters, this may take a moment.</translate>
+        </h3>
+        <div class="progress">
+            <div class="progress-bar" ng-style="{ width: queuedUpdateProgress + '%' }"></div>
+        </div>
+    </div>
+
+    <div class="platform">
+        <div class="filter-head" translate>Platform</div>
+        <div class="btn-group" role="group" aria-label="Platform">
+            <button type="button" class="btn btn-default" ng-class="{ 'btn-primary': filters.platform == 2 }" ng-click="filters.platform = 2">
+                <i class="ggg-platform-ps"></i>
+            </button>
+            <button type="button" class="btn btn-default" ng-class="{ 'btn-primary': filters.platform == 1 }" ng-click="filters.platform = 1">
+                <i class="ggg-platform-xbox"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="mode">
+        <div class="filter-head" translate>Select a game mode</div>
+        <ui-select ng-model="mode" theme="bootstrap" on-select="getActivitiesForMode($item, $model)">
+            <ui-select-match><i class="ggg-{{ modeIcons[$select.selected] }} ggg-select"></i>&nbsp;{{ modes[$select.selected] }}</ui-select-match>
+            <ui-select-choices repeat="m in modeItems">
+                <i class="ggg-{{ modeIcons[m] }} ggg-select"></i>
+                <span ng-bind-html="modes[m] | highlight: $select.search"></span>
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="activity">
+        <div class="activity-disabled" ng-if="activities.length == 0"></div>
+        <div class="activity-loading" ng-if="loadingActivities">
+            <span><i class="fa fa-refresh fa-spin"></i>&nbsp;<translate>Refreshing map list...</translate></span>
+        </div>
+        <div class="filter-head" translate>Select a map</div>
+        <ui-select ng-model="activity" theme="bootstrap" ng-disabled="disabled">
+            <ui-select-match>
+                {{ $select.selected.name }} <span ng-if="mode.selected.type == 'PvE'">{{ $select.selected.level }}</span>
+            </ui-select-match>
+
+            <ui-select-choices repeat="a in activities | propsFilter: { name: $select.search } | orderBy:['name', 'level']">
+                <span ng-bind-html="a.name + ' ' + a.level | highlight: $select.search" ng-if="mode.selected.type == 'PvE'"></span>
+                <span ng-bind-html="a.name | highlight: $select.search" ng-if="mode.selected.type == 'PvP'"></span>
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <!--<div class="range rangeStart">
+        <div class="filter-head" translate>Start day</div>
+        <datepicker date-format="yyyy-MM-dd" date-set="{{ filters.start }}" date-min-limit="2014/09/09" date-max-limit="{{ today }}">
+            <input ng-model="filters.start" type="text"/>
+        </datepicker>
+    </div>
+    <div class="range rangeEnd">
+        <div class="filter-head" translate>End day</div>
+        <datepicker date-format="yyyy-MM-dd" date-set="{{ filters.end }}" date-min-limit="2014/09/09" date-max-limit="{{ today }}">
+            <input ng-model="filters.end" type="text"/>
+        </datepicker>
+    </div>-->
+
+    <div class="update">
+        <div class="filter-head">&nbsp;</div>
+        <button class="btn btn-primary" ng-click="update()">
+            <i class="fa fa-refresh"></i>&nbsp;<translate>Update</translate>
+        </button>
+    </div>
+</div>
+
+<div id="weapon-type">
+    <highchart id="chartWeaponType" config="weaponTypeConfig"></highchart>
+</div>
+
+<div id="extended-stats">
+    <h2>
+        <translate>Top Weapons</translate>&nbsp;
+        <small translate>Ranked as a percentage of all kills</small>
+    </h2>
+
+    <div class="empty animated flipInX" ng-if="!weaponsLoading && weapons.primary.length == 0">
+        <i class="fa fa-exclamation-triangle"></i>&nbsp;<translate>There is no data matching your filters.</translate>
+    </div>
+
+    <div class="updating" ng-if="weaponsLoading">
+        <i class="fa fa-refresh fa-spin"></i>&nbsp;<translate>Data is updating...</translate>
+    </div>
+
+    <div class="row animated flipInX" ng-if="!weaponsLoading && weapons.primary.length > 0">
+        <div class="col-md-4">
+            <h3 translate>Primary</h3>
+            <ul class="weapon-list">
+                <li ng-repeat="item in weapons.primary | orderBy: '-kills' | limitTo: 5" class="item-{{ item.itemQuality }}">
+                    <img ng-src="http://www.bungie.net{{ item.itemIcon }}" />
+                    <span class="usage">{{ item.kills | number: 2 }}%</span>
+                    <span class="name">{{ item.itemName }}</span>
+                    <span class="type">{{ item.itemType }}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3 translate>Special</h3>
+            <ul class="weapon-list">
+                <li ng-repeat="item in weapons.special | orderBy: '-kills' | limitTo: 5" class="item-{{ item.itemQuality }}">
+                    <img ng-src="http://www.bungie.net{{ item.itemIcon }}" />
+                    <span class="usage">{{ item.kills | number: 2 }}%</span>
+                    <span class="name">{{ item.itemName }}</span>
+                    <span class="type">{{ item.itemType }}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3 translate>Heavy</h3>
+            <ul class="weapon-list">
+                <li ng-repeat="item in weapons.heavy | orderBy: '-kills' | limitTo: 5" class="item-{{ item.itemQuality }}">
+                    <img ng-src="http://www.bungie.net{{ item.itemIcon }}" />
+                    <span class="usage">{{ item.kills | number: 2 }}%</span>
+                    <span class="name">{{ item.itemName }}</span>
+                    <span class="type">{{ item.itemType }}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

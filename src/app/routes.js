@@ -61,6 +61,11 @@ app.config([
                 url: '/leaderboard',
                 controller: 'leaderboardCtrl',
                 templateUrl: 'app/view/leaderboard.html'
+            })
+            .state('app.weapon-stats', {
+                url: '/weapon-stats',
+                controller: 'weaponStatsCtrl',
+                templateUrl: 'app/view/weapon-stats.html'
             });
     }
 ]);

@@ -52,10 +52,11 @@ app
                 if (toState.title) {
                     $rootScope.title = gettextCatalog.getString(toState.title) + ' - Guardian.gg';
                 } else {
-                    $log.debug('no title, setting default...');
-                    $rootScope.title = gettextCatalog.getString('Guardian.gg: Advanced Destiny Stats, Profiles and Leaderboards');
+                    $rootScope.title = gettextCatalog.getString(
+                        'Guardian.gg: Advanced Destiny Stats, Profiles and Leaderboards'
+                    );
                 }
-                
+
                 if (fromParams.locale == toParams.locale) {
                     return;
                 }
