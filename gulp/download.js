@@ -15,6 +15,9 @@ var download = function(locale) {
         return 'build/data/' + locale + '/' + path;
     };
 
+    if (!fs.existsSync('tmp')) {
+        fs.mkdirSync('tmp');
+    }
     if (!fs.existsSync('build/data')) {
         fs.mkdirSync('build/data');
     }
@@ -49,9 +52,13 @@ var download = function(locale) {
                             log('File already exists, skipping...');
                             next(null, dbpath);
                         } else {
-                            request('http://www.bungie.net' + path)
+                            log('Downloading game manifest data...');
+                            var writeStream = fs.createWriteStream(zipname);
+
+                            request
+                                .get('http://www.bungie.net' + path)
                                 .on('response', function (res) {
-                                    res.pipe(fs.createWriteStream(zipname));
+                                    res.pipe(writeStream);
                                 })
                                 .on('end', function () {
                                     log('Download complete, unzipping...');
