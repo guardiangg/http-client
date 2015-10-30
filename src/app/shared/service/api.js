@@ -10,8 +10,8 @@ app.service('api',[
             var endpoints = {
                 chart: {
                     eloHistory: 'chart/elo/{membershipId}',
-                    subclassDetails: 'chart/subclass/{subclassId}',
-                    subclassTotals: 'chart/subclass'
+                    subclassDetails: 'chart/subclass/{subclassId}?modes=9,10,12,13,14,19,23,24',
+                    subclassTotals: 'chart/subclass?modes=9,10,12,13,14,19,23,24'
                 },
 
                 clan: 'clan/{clanName}',
@@ -23,8 +23,8 @@ app.service('api',[
                 elo: 'elo/{membershipId}',
                 eloHistory: 'elo/history/{membershipIds}',
 
-                subclassExotics: 'subclass/{subclassId}/exotics',
-                subclassPerks: 'subclass/{subclassId}/perks',
+                subclassExotics: 'subclass/{subclassId}/exotics?mode={mode}&start={start}&end={end}',
+                subclassPerks: 'subclass/{subclassId}/perks?mode={mode}&start={start}&end={end}',
 
                 // old, need updated below this
                 classBalance: '/api/carnage/chart/class-usage',
@@ -40,16 +40,12 @@ app.service('api',[
                 }));
             };
 
-            this.getSubclassPerks = function(subclass) {
-                return $http.get(util.buildApiUrl(endpoints.subclassPerks, {
-                    subclassId: consts.subclassToId(subclass)
-                }));
+            this.getSubclassPerks = function(params) {
+                return $http.get(util.buildApiUrl(endpoints.subclassPerks, params));
             };
 
-            this.getSubclassExotics = function(subclass) {
-                return $http.get(util.buildApiUrl(endpoints.subclassExotics, {
-                    subclassId: consts.subclassToId(subclass)
-                }));
+            this.getSubclassExotics = function(params) {
+                return $http.get(util.buildApiUrl(endpoints.subclassExotics, params));
             };
 
             this.getSubclassTotals = function() {

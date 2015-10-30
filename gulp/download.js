@@ -123,7 +123,8 @@ var download = function(locale) {
                         name: row.itemName,
                         description: row.itemDescription,
                         icon: row.icon,
-                        typeName: row.itemTypeName
+                        typeName: row.itemTypeName,
+                        bucket: row.bucketTypeHash
                     };
                 }, function () {
                     log('Writing ' + Object.keys(data).length + ' items...');

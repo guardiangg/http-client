@@ -34,6 +34,7 @@ msgid "Agility"
 msgstr ""
 
 #: profile\_activity-history.html:27
+#: subclass.html:74
 msgid "All"
 msgstr ""
 
@@ -91,6 +92,7 @@ msgstr ""
 #: index.html:73
 #: profile\_activity-history.html:39
 #: shared\service\consts.js:99
+#: subclass.html:86
 msgid "Clash"
 msgstr ""
 
@@ -98,6 +100,7 @@ msgstr ""
 #: index.html:68
 #: profile\_activity-history.html:36
 #: shared\service\consts.js:98
+#: subclass.html:83
 msgid "Control"
 msgstr ""
 
@@ -140,7 +143,16 @@ msgstr ""
 #: index.html:88
 #: profile\_activity-history.html:48
 #: shared\service\consts.js:102
+#: subclass.html:95
 msgid "Elimination"
+msgstr ""
+
+#: subclass.html:153
+msgid "Exotic Armor"
+msgstr ""
+
+#: subclass.html:130
+msgid "Exotic Weapons"
 msgstr ""
 
 #: index.html:153
@@ -218,14 +230,33 @@ msgid "How do I get in touch if I have a question/suggestion?"
 msgstr ""
 
 #: shared\service\consts.js:123
+#: subclass.html:15
 msgid "Hunter"
+msgstr ""
+
+#: subclass.html:171
+msgid "Insufficient armor data was found for this game mode in the last 7 days."
+msgstr ""
+
+#: subclass.html:125
+msgid "Insufficient perk data was found for this game mode in the last 7 days."
+msgstr ""
+
+#: subclass.html:148
+msgid "Insufficient weapon data was found for this game mode in the last 7 days."
 msgstr ""
 
 #: index.html:102
 #: index.html:63
 #: profile\_activity-history.html:30
 #: shared\service\consts.js:103
+#: subclass.html:77
 msgid "Iron Banner"
+msgstr ""
+
+#: subclass.html:136
+#: subclass.html:159
+msgid "Item"
 msgstr ""
 
 #. Short for kills
@@ -239,7 +270,14 @@ msgstr ""
 #: leaderboard.html:64
 #: profile\_activity-history.html:67
 #: profile\_pgcr.html:10
+#: subclass.html:113
+#: subclass.html:137
+#: subclass.html:160
 msgid "K/D"
+msgstr ""
+
+#: shared\chart\subclass-kd.js:16
+msgid "K/D by Mode"
 msgstr ""
 
 #: shared\chart\kd.js:16
@@ -255,8 +293,16 @@ msgstr ""
 msgid "Leaderboards"
 msgstr ""
 
+#: subclass.html:155
+msgid "Loading Armor..."
+msgstr ""
+
 #: profile\_character.html:2
 msgid "Loading Characters..."
+msgstr ""
+
+#: subclass.html:55
+msgid "Loading Charts..."
 msgstr ""
 
 #: profile\_activity-history.html:3
@@ -269,6 +315,14 @@ msgstr ""
 
 #: profile\_character.html:69
 msgid "Loading Items..."
+msgstr ""
+
+#: subclass.html:106
+msgid "Loading Perks..."
+msgstr ""
+
+#: subclass.html:132
+msgid "Loading Weapons..."
 msgstr ""
 
 #: profile\_activity-history.html:62
@@ -332,6 +386,10 @@ msgstr ""
 msgid "Page {{page+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>"
 msgstr ""
 
+#: subclass.html:112
+msgid "Perk"
+msgstr ""
+
 #: profile\_activity-history.html:10
 msgid "Placing"
 msgstr ""
@@ -346,6 +404,7 @@ msgid "Platinum: 1500-1699"
 msgstr ""
 
 #: index.html:60
+#: shared\service\consts.js:94
 msgid "PlayStation"
 msgstr ""
 
@@ -370,6 +429,7 @@ msgstr ""
 #: index.html:83
 #: profile\_activity-history.html:42
 #: shared\service\consts.js:100
+#: subclass.html:89
 msgid "Rift"
 msgstr ""
 
@@ -377,6 +437,7 @@ msgstr ""
 #: index.html:78
 #: profile\_activity-history.html:45
 #: shared\service\consts.js:101
+#: subclass.html:92
 msgid "Rumble"
 msgstr ""
 
@@ -409,6 +470,7 @@ msgstr ""
 #: index.html:93
 #: profile\_activity-history.html:51
 #: shared\service\consts.js:97
+#: subclass.html:98
 msgid "Skirmish"
 msgstr ""
 
@@ -459,11 +521,19 @@ msgid ""
 "            competitor-versus-competitor games."
 msgstr ""
 
+#: subclass.html:65
+msgid ""
+"This data examines the last 7 days of PvP in Destiny for players using the {{subclass.label}} subclass.\r\n"
+"    The rolling sample provides an accurate look at what players are using and what's working. Select a mode on\r\n"
+"    the filter bar below to only map K/D and win rates in that mode."
+msgstr ""
+
 #: index.html:196
 msgid "This error most often occurs if Bungie's doing maintenance in Destiny."
 msgstr ""
 
 #: shared\service\consts.js:124
+#: subclass.html:31
 msgid "Titan"
 msgstr ""
 
@@ -475,13 +545,16 @@ msgstr ""
 msgid "Top {{platforms[platform]}} Guardians"
 msgstr ""
 
-#: shared\chart\subclass-kd.js:16
-msgid "Total Subclass K/D"
-msgstr ""
-
 #: profile\_activity-history.html:33
 #: shared\service\consts.js:104
+#: subclass.html:80
 msgid "Trials of Osiris"
+msgstr ""
+
+#: subclass.html:115
+#: subclass.html:139
+#: subclass.html:162
+msgid "Use%"
 msgstr ""
 
 #: index.html:150
@@ -490,6 +563,7 @@ msgid "Voidwalker"
 msgstr ""
 
 #: shared\service\consts.js:122
+#: subclass.html:47
 msgid "Warlock"
 msgstr ""
 
@@ -502,14 +576,18 @@ msgid "What is \"Elo\" and what does it mean?"
 msgstr ""
 
 #: shared\chart\subclass-win-rate.js:16
-msgid "Win Rate"
+msgid "Win Rate by Mode"
 msgstr ""
 
 #: leaderboard.html:65
+#: subclass.html:114
+#: subclass.html:138
+#: subclass.html:161
 msgid "Win%"
 msgstr ""
 
 #: index.html:99
+#: shared\service\consts.js:93
 msgid "Xbox"
 msgstr ""
 
@@ -523,4 +601,12 @@ msgstr ""
 
 #: profile\_pgcr.html:37
 msgid "vs."
+msgstr ""
+
+#: subclass.html:52
+msgid "{{subclass.label}} Overview"
+msgstr ""
+
+#: subclass.html:63
+msgid "{{subclass.label}} Perks &amp; Exotics"
 msgstr ""

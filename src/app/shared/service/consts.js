@@ -90,8 +90,8 @@ app.service('consts', [
                 }
             },
             platforms: {
-                1: 'Xbox',
-                2: 'PlayStation'
+                1: gettextCatalog.getString('Xbox'),
+                2: gettextCatalog.getString('PlayStation')
             },
             modes: {
                 9: gettextCatalog.getString('Skirmish'),

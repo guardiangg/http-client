@@ -13,7 +13,7 @@ app.factory('chart-subclass-win-rate', [
                     enabled: false
                 },
                 title: {
-                    text: gettext('Win Rate')
+                    text: gettext('Win Rate by Mode')
                 },
                 xAxis: {
                     type: 'category'
@@ -31,7 +31,10 @@ app.factory('chart-subclass-win-rate', [
             series: [{
                 colorByPoint: true,
                 data: []
-            }]
+            }],
+            size: {
+                height: 250
+            }
         }
     }
 ]);
