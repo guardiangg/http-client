@@ -16,9 +16,13 @@ app.factory('chart-subclass-kd', [
                     text: gettext('K/D by Mode')
                 },
                 xAxis: {
+                    gridLineWidth: 0,
+                    minorGridLineWidth: 0,
                     type: 'category'
                 },
                 yAxis: {
+                    gridLineWidth: 0,
+                    minorGridLineWidth: 0,
                     title: {
                         text: false
                     }
