@@ -6,8 +6,9 @@ app.controller('weaponStatsCtrl', [
     'charts',
     'consts',
     'datastore',
+    'gamedata',
 
-    function ($scope, api, charts, consts, datastore) {
+    function ($scope, api, charts, consts, datastore, gamedata) {
         $scope.modes = consts.modes;
         $scope.modeItems = Object.keys(consts.modes);
         $scope.modeIcons = consts.modeIcons;
@@ -15,7 +16,6 @@ app.controller('weaponStatsCtrl', [
         $scope.queuedUpdateProgress = 100;
 
         $scope.activity = {};
-        $scope.activities = [];
         $scope.classBalance = [];
         $scope.winRatios = [];
 
@@ -37,30 +37,25 @@ app.controller('weaponStatsCtrl', [
 
         $scope.loadingActivities = false;
 
-        $scope.getActivitiesForMode = function() {
+        $scope.getActivitiesForMode = function(item) {
             $scope.loadingActivities = true;
             datastore.setParams($scope.filters);
 
-            api.getActivitiesByMode($scope.mode).then(function(data) {
-                $scope.loadingActivities = false;
-                var activities = [{
-                    'id': '',
-                    'name': '- Any Map -'
-                }];
+            gamedata
+                .get('activities')
+                .then(function(result) {
+                    var activities = [];
 
-                $scope.activities = activities.concat(data);
-                var params = datastore.getParamsFromHash();
-
-                if (params['activity']) {
-                    for (var i in $scope.activities) {
-                        if ($scope.activities[i].id == params['activity']) {
-                            $scope.filters.activity = params['activity'];
-                            $scope.activity.selected = $scope.activities[i];
-                            break;
+                    _.forEach(result, function(activity) {
+                        if (activity.typeHash != 3695721985) {
+                            return;
                         }
-                    }
-                }
-            });
+                        activities.push(activity);
+                    });
+
+                    $scope.activities = activities;
+                    $scope.loadingActivities = false;
+                });
         };
 
         /*if ($scope.filters.mode != null) {

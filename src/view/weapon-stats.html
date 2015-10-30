@@ -23,7 +23,7 @@
 
     <div class="mode">
         <div class="filter-head" translate>Select a game mode</div>
-        <ui-select ng-model="mode" theme="bootstrap" on-select="getActivitiesForMode($item, $model)">
+        <ui-select ng-model="mode" theme="bootstrap" on-select="getActivitiesForMode($item)">
             <ui-select-match><i class="{{ modeIcons[$select.selected] }} ggg-select"></i>&nbsp;{{ modes[$select.selected] }}</ui-select-match>
             <ui-select-choices repeat="m in modeItems">
                 <i class="{{ modeIcons[m] }} ggg-select"></i>
@@ -43,7 +43,7 @@
                 {{ $select.selected.name }} <span ng-if="mode.selected.type == 'PvE'">{{ $select.selected.level }}</span>
             </ui-select-match>
 
-            <ui-select-choices repeat="a in activities | propsFilter: { name: $select.search } | orderBy:['name', 'level']">
+            <ui-select-choices repeat="a in activities | orderBy:['name', 'level']">
                 <span ng-bind-html="a.name + ' ' + a.level | highlight: $select.search" ng-if="mode.selected.type == 'PvE'"></span>
                 <span ng-bind-html="a.name | highlight: $select.search" ng-if="mode.selected.type == 'PvP'"></span>
             </ui-select-choices>

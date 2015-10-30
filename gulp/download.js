@@ -93,7 +93,8 @@ var download = function(locale) {
                         description: row.activityDescription,
                         icon: row.icon,
                         level: row.activityLevel,
-                        skulls: row.skulls
+                        skulls: row.skulls,
+                        typeHash: row.activityTypeHash
                     };
                 }, function () {
                     log('Writing ' + Object.keys(data).length + ' activities...');

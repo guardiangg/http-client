@@ -29,7 +29,7 @@ app.controller('subclassCtrl', [
         $scope.subclassWinRate = charts.get('subclass-win-rate');
 
         gamedata.get('subclass-nodes').then(function(result) {
-            var perks = result.data[consts.subclassToId($stateParams.subclass)];
+            var perks = result[consts.subclassToId($stateParams.subclass)];
 
             api
                 .getSubclassPerks($stateParams.subclass)
@@ -78,7 +78,7 @@ app.controller('subclassCtrl', [
         });
 
         gamedata.get('items').then(function(result) {
-            var exotics = result.data;
+            var exotics = result;
 
             api
                 .getSubclassExotics($stateParams.subclass)

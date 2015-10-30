@@ -24,8 +24,8 @@ app.service('gamedata', [
                                 data[lang] = {};
                             }
 
-                            data[name] = result;
-                            resolve(result);
+                            data[name] = result.data;
+                            resolve(data[name]);
                         }, function() {
                             reject();
                             throw "failed to load gamedata: " + name;

@@ -23,7 +23,7 @@ app.controller('clanCtrl', [
                 return gamedata.get('activities');
             })
             .then(function(result) {
-                $scope.activities = result.data;
+                $scope.activities = result;
             });
     }
 ]);
