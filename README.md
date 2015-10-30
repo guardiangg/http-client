@@ -13,6 +13,30 @@ if you want to chat about it!
 If you want to contribute, fork the repository and make all submissions in the form of pull requests. New features 
 should be submitted to the `develop` branch. Bug fixes on production code can be submitted to `master`
 
+## Coding Style
+Contributions are expected to remain under a consistent coding style.
+
+- 4 space indentation
+- No hard tabs
+- Any static English string must use the `translate` directive to provide localization support. We may choose to delay 
+a feature until we can get full localization for all strings in it.
+- Angular dependencies must be explicitly provided in an array to allow proper minification, the following example 
+illustrates the style we use in any angular component.
+
+```js
+var app = angular.module('app');
+
+app.controller('foobar', [
+    '$scope',
+    
+    function($scope) {
+    }
+]);
+```
+
+- Re-usable components like an API service should be put in the `app/shared` directory. All other highly 
+context-specific code like a profile controller should be put in the `app/component` directory.
+
 ## Setting up development environment
 ```sh
 git clone git@github.com:guardiangg/http-client
