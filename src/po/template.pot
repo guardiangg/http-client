@@ -34,7 +34,6 @@ msgid "Agility"
 msgstr ""
 
 #: profile\_activity-history.html:27
-#: subclass.html:74
 msgid "All"
 msgstr ""
 
@@ -92,7 +91,7 @@ msgstr ""
 #: index.html:73
 #: profile\_activity-history.html:39
 #: shared\service\consts.js:99
-#: subclass.html:86
+#: subclass.html:83
 msgid "Clash"
 msgstr ""
 
@@ -100,7 +99,7 @@ msgstr ""
 #: index.html:68
 #: profile\_activity-history.html:36
 #: shared\service\consts.js:98
-#: subclass.html:83
+#: subclass.html:74
 msgid "Control"
 msgstr ""
 
@@ -143,15 +142,15 @@ msgstr ""
 #: index.html:88
 #: profile\_activity-history.html:48
 #: shared\service\consts.js:102
-#: subclass.html:95
+#: subclass.html:92
 msgid "Elimination"
 msgstr ""
 
-#: subclass.html:153
+#: subclass.html:150
 msgid "Exotic Armor"
 msgstr ""
 
-#: subclass.html:130
+#: subclass.html:127
 msgid "Exotic Weapons"
 msgstr ""
 
@@ -234,15 +233,15 @@ msgstr ""
 msgid "Hunter"
 msgstr ""
 
-#: subclass.html:171
+#: subclass.html:168
 msgid "Insufficient armor data was found for this game mode in the last 7 days."
 msgstr ""
 
-#: subclass.html:125
+#: subclass.html:122
 msgid "Insufficient perk data was found for this game mode in the last 7 days."
 msgstr ""
 
-#: subclass.html:148
+#: subclass.html:145
 msgid "Insufficient weapon data was found for this game mode in the last 7 days."
 msgstr ""
 
@@ -254,8 +253,8 @@ msgstr ""
 msgid "Iron Banner"
 msgstr ""
 
-#: subclass.html:136
-#: subclass.html:159
+#: subclass.html:133
+#: subclass.html:156
 msgid "Item"
 msgstr ""
 
@@ -270,9 +269,9 @@ msgstr ""
 #: leaderboard.html:64
 #: profile\_activity-history.html:67
 #: profile\_pgcr.html:10
-#: subclass.html:113
-#: subclass.html:137
-#: subclass.html:160
+#: subclass.html:110
+#: subclass.html:134
+#: subclass.html:157
 msgid "K/D"
 msgstr ""
 
@@ -293,7 +292,7 @@ msgstr ""
 msgid "Leaderboards"
 msgstr ""
 
-#: subclass.html:155
+#: subclass.html:152
 msgid "Loading Armor..."
 msgstr ""
 
@@ -317,11 +316,11 @@ msgstr ""
 msgid "Loading Items..."
 msgstr ""
 
-#: subclass.html:106
+#: subclass.html:103
 msgid "Loading Perks..."
 msgstr ""
 
-#: subclass.html:132
+#: subclass.html:129
 msgid "Loading Weapons..."
 msgstr ""
 
@@ -386,7 +385,7 @@ msgstr ""
 msgid "Page {{page+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>"
 msgstr ""
 
-#: subclass.html:112
+#: subclass.html:109
 msgid "Perk"
 msgstr ""
 
@@ -429,7 +428,7 @@ msgstr ""
 #: index.html:83
 #: profile\_activity-history.html:42
 #: shared\service\consts.js:100
-#: subclass.html:89
+#: subclass.html:86
 msgid "Rift"
 msgstr ""
 
@@ -437,7 +436,7 @@ msgstr ""
 #: index.html:78
 #: profile\_activity-history.html:45
 #: shared\service\consts.js:101
-#: subclass.html:92
+#: subclass.html:89
 msgid "Rumble"
 msgstr ""
 
@@ -470,7 +469,7 @@ msgstr ""
 #: index.html:93
 #: profile\_activity-history.html:51
 #: shared\service\consts.js:97
-#: subclass.html:98
+#: subclass.html:95
 msgid "Skirmish"
 msgstr ""
 
@@ -551,9 +550,9 @@ msgstr ""
 msgid "Trials of Osiris"
 msgstr ""
 
-#: subclass.html:115
-#: subclass.html:139
-#: subclass.html:162
+#: subclass.html:112
+#: subclass.html:136
+#: subclass.html:159
 msgid "Use%"
 msgstr ""
 
@@ -580,9 +579,9 @@ msgid "Win Rate by Mode"
 msgstr ""
 
 #: leaderboard.html:65
-#: subclass.html:114
-#: subclass.html:138
-#: subclass.html:161
+#: subclass.html:111
+#: subclass.html:135
+#: subclass.html:158
 msgid "Win%"
 msgstr ""
 
