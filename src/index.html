@@ -41,7 +41,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#ggg-nav">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only" translate>Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -57,7 +57,7 @@
                             <translate>Leaderboards</translate> <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="dropdown-header"><i class="ggg ggg-platform-ps"></i> PlayStation</li>
+                            <li class="dropdown-header"><i class="ggg ggg-platform-ps"></i>&nbsp;<translate>PlayStation</translate></li>
                             <li>
                                 <a ui-sref="app.leaderboard-platform-mode({platform: 2, mode: 19})">
                                     <i class="ggg ggg-iron-banner"></i>&nbsp;<translate>Iron Banner</translate>
@@ -96,7 +96,7 @@
 
                             <li class="divider"></li>
 
-                            <li class="dropdown-header"><i class="ggg ggg-platform-xbox"></i> Xbox</li>
+                            <li class="dropdown-header"><i class="ggg ggg-platform-xbox"></i>&nbsp;<translate>Xbox</translate></li>
                             <li>
                                 <a ui-sref="app.leaderboard-platform-mode({platform: 1, mode: 19})">
                                     <i class="ggg ggg-iron-banner"></i>&nbsp;<translate>Iron Banner</translate>
@@ -135,19 +135,19 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subclasses <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><translate>Subclasses</translate> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/subclass/bladedancer">Bladedancer</a></li>
-                            <li><a href="/subclass/gunslinger">Gunslinger</a></li>
-                            <li><a href="/subclass/nightstalker">Nightstalker</a></li>
+                            <li><a ui-sref="app.subclass({subclass: 'bladedancer'})"><translate>Bladedancer</translate></a></li>
+                            <li><a ui-sref="app.subclass({subclass: 'gunslinger'})"><translate>Gunslinger</translate></a></li>
+                            <li><a ui-sref="app.subclass({subclass: 'nightstalker'})"><translate>Nightstalker</translate></a></li>
                             <li class="divider"></li>
-                            <li><a href="/subclass/defender">Defender</a></li>
-                            <li><a href="/subclass/striker">Striker</a></li>
-                            <li><a href="/subclass/sunbreaker">Sunbreaker</a></li>
+                            <li><a ui-sref="app.subclass({subclass: 'defender'})"><translate>Defender</translate></a></li>
+                            <li><a ui-sref="app.subclass({subclass: 'striker'})"><translate>Striker</translate></a></li>
+                            <li><a ui-sref="app.subclass({subclass: 'sunbreaker'})"><translate>Sunbreaker</translate></a></li>
                             <li class="divider"></li>
-                            <li><a href="/subclass/stormcaller">Stormcaller</a></li>
-                            <li><a href="/subclass/sunsinger">Sunsinger</a></li>
-                            <li><a href="/subclass/voidwalker">Voidwalker</a></li>
+                            <li><a ui-sref="app.subclass({subclass: 'stormcaller'})"><translate>Stormcaller</translate></a></li>
+                            <li><a ui-sref="app.subclass({subclass: 'sunsinger'})"><translate>Sunsinger</translate></a></li>
+                            <li><a ui-sref="app.subclass({subclass: 'voidwalker'})"><translate>Voidwalker</translate></a></li>
                         </ul>
                     </li>
                     <li><a ui-sref="app.faq" translate="">FAQ</a></li>
@@ -156,7 +156,7 @@
                     <li class="divider"></li>
                     <li>
                         <a href="javascript:" onclick="document.getElementById('paypal').submit()">
-                            <i class="fa fa-paypal"></i>&nbsp;<translate>Donate</translate>
+                            <i class="fa fa-paypal"></i>&nbsp;<translate class="hidden-sm">Donate</translate>
                         </a>
                         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display: none" id="paypal">
                             <input type="hidden" name="cmd" value="_s-xclick">
@@ -165,13 +165,21 @@
                             <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                         </form>
                     </li>
+                    <li>
+                        <a href="https://github.com/guardiangg/http-client">
+                            <i class="fa fa-github"></i>&nbsp;<translate class="hidden-sm">GitHub</translate>
+                        </a>
+                    </li>
                 </ul>
                 <form class="navbar-form navbar-right" ng-submit="searchForPlayer(name)">
                     <div class="form-group">
                         <input type="text" class="form-control" ng-model="name" ph="'Guardian...'|translate">
                     </div>
                     &nbsp;
-                    <button type="submit" class="btn btn-default" translate>Search</button>
+                    <button type="submit" class="btn btn-default">
+                        <translate class="hidden-sm">Search</translate>
+                        <i class="fa fa-search visible-sm"></i>
+                    </button>
                 </form>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
