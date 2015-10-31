@@ -55,7 +55,7 @@ app.controller('subclassCtrl', [
                 item.kd = item.deaths > 0 ? item.kills / item.deaths : item.kills;
             });
 
-            list = _.sortBy(list, 'kd').reverse();
+            list = _.sortBy(list, 'total').reverse();
 
             return list;
         };
