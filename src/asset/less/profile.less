@@ -324,7 +324,12 @@ tr.pgcr-wrapper {
                 color: #fff;
 
                 span {
-                    font-weight: bold;
+                    font-weight: normal;
+
+                    &.value {
+                        font-weight: bold;
+                        padding-right: 4px;
+                    }
                 }
             }
 
@@ -354,6 +359,10 @@ tr.pgcr-wrapper {
 
         span {
             font-size: 11px;
+
+            strong {
+                padding-right: 4px;
+            }
         }
     }
 }

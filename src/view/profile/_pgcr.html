@@ -20,7 +20,7 @@
             </a>
         </td>
         <td class="text-center">{{ entry.elo.elo || '-' }}</td>
-        <td class="text-center">{{ entry.values.score.basic.displayValue }} {{ entry.extended.values.combatRating.basic.displayValue }}</td>
+        <td class="text-center">{{ entry.values.score.basic.displayValue }}</td>
         <td class="text-center">{{ entry.values.kills.basic.displayValue }}</td>
         <td class="text-center">{{ entry.values.deaths.basic.displayValue }}</td>
         <td class="text-center">{{ entry.values.assists.basic.displayValue }}</td>
@@ -32,10 +32,8 @@
             <h3 translate>Average Team Elo</h3>
 
             <i class="ggg ggg-alpha"></i>&nbsp;<translate>Alpha</translate>&nbsp;{{ teamElo.alpha ? teamElo.alpha : '-' }}
-            <span ng-if="winner.values.team.basic.value == 16">&nbsp;<translate>(Winner)</translate>
-
-            </span><translate>vs.</translate>&nbsp;
-
+            <span ng-if="winner.values.team.basic.value == 16">&nbsp;<translate>(Winner)</translate></span>
+            &nbsp;<translate>vs.</translate>&nbsp;
             <i class="ggg ggg-bravo"></i>&nbsp;<translate>Bravo</translate>&nbsp;{{ teamElo.bravo ? teamElo.bravo : '-' }}
             <span ng-if="winner.values.team.basic.value == 17">&nbsp;<translate>(Winner)</translate></span>
         </td>
