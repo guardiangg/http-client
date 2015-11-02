@@ -16,6 +16,8 @@
     "angular-ui-select": "~0.13.0",
     "angularjs-datepicker": "~0.2.12",
     "AngularJS-Toaster": "angularjs-toaster#~0.4.15",
+    "angulartics": "angularitics#~0.20.1",
+    "angulartics-google-analytics": "~0.1.1",
     "animate.css": "~3.3.0",
     "bootstrap": "~3.3.5",
     "highcharts-ng": "~0.0.8",

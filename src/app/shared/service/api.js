@@ -4,8 +4,9 @@ app.service('api',[
     'consts',
     'datastore',
     'util',
+    'gettextCatalog',
 
-    function($http, $q, consts, datastore, util) {
+    function($http, $q, consts, datastore, util, gettextCatalog) {
         return new function() {
             var endpoints = {
                 chart: {
@@ -23,8 +24,8 @@ app.service('api',[
                 elo: 'elo/{membershipId}',
                 eloHistory: 'elo/history/{membershipIds}',
 
-                subclassExotics: 'subclass/{subclassId}/exotics?mode={mode}&start={start}&end={end}',
-                subclassPerks: 'subclass/{subclassId}/perks?mode={mode}&start={start}&end={end}',
+                subclassExotics: 'subclass/{subclassId}/exotics?mode={mode}&start={start}&end={end}&lc={lc}',
+                subclassPerks: 'subclass/{subclassId}/perks?mode={mode}&start={start}&end={end}&lc={lc}',
 
                 // old, need updated below this
                 classBalance: '/api/carnage/chart/class-usage',
@@ -41,10 +42,12 @@ app.service('api',[
             };
 
             this.getSubclassPerks = function(params) {
+                params.lc = gettextCatalog.getCurrentLanguage();
                 return $http.get(util.buildApiUrl(endpoints.subclassPerks, params));
             };
 
             this.getSubclassExotics = function(params) {
+                params.lc = gettextCatalog.getCurrentLanguage();
                 return $http.get(util.buildApiUrl(endpoints.subclassExotics, params));
             };
 

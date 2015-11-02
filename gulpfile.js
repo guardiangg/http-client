@@ -1,21 +1,18 @@
-var series          = require('stream-series'),
-    gulp            = require('gulp'),
-    async           = require('async'),
-    concat          = require('gulp-concat'),
-    gettext         = require('gulp-angular-gettext'),
-    jeditor         = require('gulp-json-editor'),
-    inject          = require('gulp-inject'),
-    less            = require('gulp-less'),
-    minifyCSS       = require('gulp-minify-css'),
-    minifyHTML      = require('gulp-minify-html'),
-    rename          = require('gulp-rename'),
-    rev             = require('gulp-rev'),
-    watch           = require('gulp-watch'),
-    uglify          = require('gulp-uglify'),
-    util            = require('gulp-util'),
-
-    // ggg deps
-    gggDownload = require('./gulp/download.js');
+var series     = require('stream-series'),
+    gulp       = require('gulp'),
+    async      = require('async'),
+    concat     = require('gulp-concat'),
+    gettext    = require('gulp-angular-gettext'),
+    jeditor    = require('gulp-json-editor'),
+    inject     = require('gulp-inject'),
+    less       = require('gulp-less'),
+    minifyCSS  = require('gulp-minify-css'),
+    minifyHTML = require('gulp-minify-html'),
+    rename     = require('gulp-rename'),
+    rev        = require('gulp-rev'),
+    watch      = require('gulp-watch'),
+    uglify     = require('gulp-uglify'),
+    util       = require('gulp-util');
 
 var isProd = !!util.env.prod;
 
@@ -49,6 +46,8 @@ var jsFiles = {
         'angular-ui-select/dist/select.js',
         'angularjs-datepicker/src/js/angular-datepicker.js',
         'angular-tooltips/dist/angular-tooltips.min.js',
+        'angulartics/dist/angulartics.min.js',
+        'angulartics-google-analytics/dist/angulartics-google-analytics.min.js',
         'highcharts-release/highcharts.src.js',
         'highcharts-release/themes/grid-light.js',
         'highcharts-ng/dist/highcharts-ng.js',
@@ -190,14 +189,4 @@ gulp.task('translate', function () {
             format: 'json'
         }))
         .pipe(gulp.dest('build/language/'));
-});
-
-gulp.task('download', function() {
-    gggDownload('en');
-    gggDownload('de');
-    gggDownload('fr');
-    gggDownload('es');
-    gggDownload('it');
-    gggDownload('ja');
-    gggDownload('pt-br');
 });
