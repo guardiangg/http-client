@@ -5,9 +5,8 @@ app.controller('clanCtrl', [
     '$location',
     '$routeParams',
     'api',
-    'gamedata',
 
-    function ($scope, $location, $routeParams, api, gamedata) {
+    function ($scope, $location, $routeParams, api) {
         api
             .getClan($routeParams.clanName)
             .then(function(result) {
