@@ -9,9 +9,8 @@ app.controller('subclassCtrl', [
     'api',
     'consts',
     'charts',
-    'gamedata',
 
-    function ($rootScope, $scope, $stateParams, $cookies, $filter, api, consts, charts, gamedata) {
+    function ($rootScope, $scope, $stateParams, $cookies, $filter, api, consts, charts) {
         var subclassId = consts.subclassToId($stateParams.subclass);
         $scope.subclass = consts.subclasses[subclassId];
 
@@ -46,12 +45,12 @@ app.controller('subclassCtrl', [
         $scope.subclassKd = charts.get('subclass-kd');
         $scope.subclassWinRate = charts.get('subclass-win-rate');
 
-        var prepareExoticList = function(list) {
-            list = _.filter(list, function(item) {
+        var prepareExoticList = function (list) {
+            list = _.filter(list, function (item) {
                 return item.total > 150;
             });
 
-            _.each(list, function(item) {
+            _.each(list, function (item) {
                 item.kd = item.deaths > 0 ? item.kills / item.deaths : item.kills;
             });
 
@@ -60,13 +59,13 @@ app.controller('subclassCtrl', [
             return list;
         };
 
-        var loadSubclassCharts = function() {
+        var loadSubclassCharts = function () {
             $scope.loading.charts = true;
 
             api
                 .getSubclassDetails($stateParams.subclass)
-                .then(function(result) {
-                    _.each(result, function(data) {
+                .then(function (result) {
+                    _.each(result, function (data) {
                         $scope.subclassKd.series[0].data.push({
                             y: data.kills / data.deaths,
                             name: consts.modes[data.mode]
@@ -82,156 +81,141 @@ app.controller('subclassCtrl', [
                 });
         };
 
-        var loadSubclassPerks = function() {
+        var loadSubclassPerks = function () {
             $scope.loading.perks = true;
             $scope.loading.weapons = true;
             $scope.loading.armor = true;
 
-            gamedata.get('subclass-nodes').then(function(result) {
-                var perks = result.data[subclassId];
+            api
+                .getSubclassPerks({
+                    subclassId: subclassId,
+                    mode: $scope.mode,
+                    start: moment().weekday(-7).format('YYYY-MM-DD'),
+                    end: moment().format('YYYY-MM-DD')
+                })
+                .then(function (result) {
+                    var filtered = [],
+                        totals = {};
 
-                api
-                    .getSubclassPerks({
-                        subclassId: subclassId,
-                        mode: $scope.mode,
-                        start: moment().weekday(-7).format('YYYY-MM-DD'),
-                        end: moment().format('YYYY-MM-DD')
-                    })
-                    .then(function(result) {
-                        var filtered = [],
-                            totals = {};
+                    _.each(result.data, function (group) {
+                        _.each(group, function (row) {
+                            var perk = perks[row.nodeHash];
 
-                        _.each(result.data, function(group) {
-                            _.each(group, function(row) {
-                                var perk = perks[row.nodeHash];
+                            // no definition = no bueno
+                            if (!perk) {
+                                return;
+                            }
 
-                                // no definition = no bueno
-                                if (!perk) {
-                                    return;
-                                }
+                            // skip sprint and perks everyone gets
+                            if (perk.col == -1 || ([2, 3, 4].indexOf(perk.col) != -1 && perk.row == 0)) {
+                                return;
+                            }
 
-                                // skip sprint and perks everyone gets
-                                if (perk.col == -1 || ([2, 3, 4].indexOf(perk.col) != -1 && perk.row == 0)) {
-                                    return;
-                                }
+                            if (!filtered[perk.col]) {
+                                filtered[perk.col] = {};
+                            }
 
-                                if (!filtered[perk.col]) {
-                                    filtered[perk.col] = {};
-                                }
-
-                                var item = {
-                                    name: perk.name,
-                                    description: perk.description,
-                                    icon: perk.icon,
-                                    row: perk.row,
-                                    total: row.total,
-                                    deaths: row.deaths,
-                                    kills: row.kills,
-                                    wins: row.wins,
-                                    kd: row.deaths > 0 ? row.kills / row.deaths : row.kills
-                                };
-
-                                if (filtered[perk.col][row.nodeHash]) {
-                                    filtered[perk.col][row.nodeHash].total += row.total;
-                                    filtered[perk.col][row.nodeHash].kills += row.kills;
-                                    filtered[perk.col][row.nodeHash].deaths += row.deaths;
-                                    filtered[perk.col][row.nodeHash].wins += row.wins;
-                                    filtered[perk.col][row.nodeHash].kd = filtered[perk.col][row.nodeHash].deaths > 0 ?
-                                        filtered[perk.col][row.nodeHash].kills / filtered[perk.col][row.nodeHash].deaths :
-                                        filtered[perk.col][row.nodeHash].kills;
-                                } else {
-                                    filtered[perk.col][row.nodeHash] = item;
-                                }
-
-                                if (!totals[perk.col]) {
-                                    totals[perk.col] = 0;
-                                }
-
-                                totals[perk.col] += row.total
-                            });
-                        });
-
-                        $scope.perks = filtered;
-                        $scope.perkTotals = totals;
-                        $scope.loading.perks = false;
-                    });
-            });
-
-            gamedata.get('items').then(function(result) {
-                var exotics = result.data;
-
-                api
-                    .getSubclassExotics({
-                        subclassId: subclassId,
-                        mode: $scope.mode,
-                        start: moment().weekday(-7).format('YYYY-MM-DD'),
-                        end: moment().format('YYYY-MM-DD')
-                    })
-                    .then(function(result) {
-                        var weapons = {},
-                            armors = {},
-                            totals = {
-                                weapons: 0,
-                                armor: 0
+                            var item = {
+                                name: perk.name,
+                                description: perk.description,
+                                icon: perk.icon,
+                                row: perk.row,
+                                total: row.total,
+                                deaths: row.deaths,
+                                kills: row.kills,
+                                wins: row.wins,
+                                kd: row.deaths > 0 ? row.kills / row.deaths : row.kills
                             };
 
-                        _.each(result.data, function(group) {
-                            _.each(group, function(row) {
-                                var exotic = exotics[row.itemHash];
+                            if (filtered[perk.col][row.nodeHash]) {
+                                filtered[perk.col][row.nodeHash].total += row.total;
+                                filtered[perk.col][row.nodeHash].kills += row.kills;
+                                filtered[perk.col][row.nodeHash].deaths += row.deaths;
+                                filtered[perk.col][row.nodeHash].wins += row.wins;
+                                filtered[perk.col][row.nodeHash].kd = filtered[perk.col][row.nodeHash].deaths > 0 ?
+                                filtered[perk.col][row.nodeHash].kills / filtered[perk.col][row.nodeHash].deaths :
+                                    filtered[perk.col][row.nodeHash].kills;
+                            } else {
+                                filtered[perk.col][row.nodeHash] = item;
+                            }
 
-                                if (!exotic) {
-                                    return;
-                                }
+                            if (!totals[perk.col]) {
+                                totals[perk.col] = 0;
+                            }
 
-                                var weapon = [consts.buckets.special, consts.buckets.primary, consts.buckets.heavy];
-                                var armor = [consts.buckets.head, consts.buckets.arm, consts.buckets.chest, consts.buckets.leg];
-
-                                var item = {
-                                    name: exotic.name,
-                                    description: exotic.description,
-                                    icon: exotic.icon,
-                                    total: row.total,
-                                    deaths: row.deaths,
-                                    kills: row.kills,
-                                    wins: row.wins
-                                };
-
-                                if (weapon.indexOf(exotic.bucket) > -1) {
-                                    if (weapons[row.itemHash]) {
-                                        weapons[row.itemHash].total += row.total;
-                                        weapons[row.itemHash].kills += row.kills;
-                                        weapons[row.itemHash].deaths += row.deaths;
-                                        weapons[row.itemHash].wins += row.wins;
-                                    } else {
-                                        weapons[row.itemHash] = item;
-                                    }
-
-                                    totals.weapons += row.total;
-                                } else if (armor.indexOf(exotic.bucket) > -1) {
-                                    if (armors[row.itemHash]) {
-                                        armors[row.itemHash].total += row.total;
-                                        armors[row.itemHash].kills += row.kills;
-                                        armors[row.itemHash].deaths += row.deaths;
-                                        armors[row.itemHash].wins += row.wins;
-                                    } else {
-                                        armors[row.itemHash] = item;
-                                    }
-
-                                    totals.armor += row.total;
-                                }
-                            });
+                            totals[perk.col] += row.total
                         });
-
-                        $scope.weapons = prepareExoticList(weapons);
-                        $scope.armors = prepareExoticList(armors);
-                        $scope.loading.weapons = false;
-                        $scope.loading.armor = false;
-                        $scope.totals = totals;
                     });
-            });
+
+                    $scope.perks = filtered;
+                    $scope.perkTotals = totals;
+                    $scope.loading.perks = false;
+                });
+
+            api
+                .getSubclassExotics({
+                    subclassId: subclassId,
+                    mode: $scope.mode,
+                    start: moment().weekday(-7).format('YYYY-MM-DD'),
+                    end: moment().format('YYYY-MM-DD')
+                })
+                .then(function (result) {
+                    var weapons = {},
+                        armors = {},
+                        totals = {
+                            weapons: 0,
+                            armor: 0
+                        };
+
+                    _.each(result.data, function (group) {
+                        _.each(group, function (row) {
+                            var weapon = [consts.buckets.special, consts.buckets.primary, consts.buckets.heavy];
+                            var armor = [consts.buckets.head, consts.buckets.arm, consts.buckets.chest, consts.buckets.leg];
+
+                            var item = {
+                                name: row.itemName,
+                                icon: row.itemIcon,
+                                total: row.total,
+                                deaths: row.deaths,
+                                kills: row.kills,
+                                wins: row.wins
+                            };
+
+                            if (weapon.indexOf(row.bucketHash) > -1) {
+                                if (weapons[row.itemHash]) {
+                                    weapons[row.itemHash].total += row.total;
+                                    weapons[row.itemHash].kills += row.kills;
+                                    weapons[row.itemHash].deaths += row.deaths;
+                                    weapons[row.itemHash].wins += row.wins;
+                                } else {
+                                    weapons[row.itemHash] = item;
+                                }
+
+                                totals.weapons += row.total;
+                            } else if (armor.indexOf(row.bucketHash) > -1) {
+                                if (armors[row.itemHash]) {
+                                    armors[row.itemHash].total += row.total;
+                                    armors[row.itemHash].kills += row.kills;
+                                    armors[row.itemHash].deaths += row.deaths;
+                                    armors[row.itemHash].wins += row.wins;
+                                } else {
+                                    armors[row.itemHash] = item;
+                                }
+
+                                totals.armor += row.total;
+                            }
+                        });
+                    });
+
+                    $scope.weapons = prepareExoticList(weapons);
+                    $scope.armors = prepareExoticList(armors);
+                    $scope.loading.weapons = false;
+                    $scope.loading.armor = false;
+                    $scope.totals = totals;
+                });
         };
 
-        $scope.nodeFilter = function(a) {
+        $scope.nodeFilter = function (a) {
             var node = $scope.perkData[a];
 
             if (!node) {
@@ -241,7 +225,7 @@ app.controller('subclassCtrl', [
             return node.col;
         };
 
-        $scope.setMode = function(mode, force) {
+        $scope.setMode = function (mode, force) {
             if ($scope.mode == mode && !force) {
                 return;
             }
