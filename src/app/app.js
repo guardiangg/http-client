@@ -8,6 +8,9 @@ var app = angular.module(
         'angular.filter',
         'angular-loading-bar',
 
+        'angulartics',
+        'angulartics.google.analytics',
+
         'gettext',
 
         'highcharts-ng',

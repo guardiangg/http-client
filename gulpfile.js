@@ -49,6 +49,8 @@ var jsFiles = {
         'angular-ui-select/dist/select.js',
         'angularjs-datepicker/dist/angular-datepicker.min.js',
         'angular-tooltips/dist/angular-tooltips.min.js',
+        'angulartics/dist/angulartics.min.js',
+        'angulartics-google-analytics/dist/angulartics-google-analytics.min.js',
         'highcharts-release/highcharts.src.js',
         'highcharts-release/themes/grid-light.js',
         'highcharts-ng/dist/highcharts-ng.js',
