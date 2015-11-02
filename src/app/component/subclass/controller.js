@@ -99,27 +99,15 @@ app.controller('subclassCtrl', [
 
                     _.each(result.data, function (group) {
                         _.each(group, function (row) {
-                            var perk = perks[row.nodeHash];
-
-                            // no definition = no bueno
-                            if (!perk) {
-                                return;
-                            }
-
-                            // skip sprint and perks everyone gets
-                            if (perk.col == -1 || ([2, 3, 4].indexOf(perk.col) != -1 && perk.row == 0)) {
-                                return;
-                            }
-
-                            if (!filtered[perk.col]) {
-                                filtered[perk.col] = {};
+                            if (!filtered[row.col]) {
+                                filtered[row.col] = {};
                             }
 
                             var item = {
-                                name: perk.name,
-                                description: perk.description,
-                                icon: perk.icon,
-                                row: perk.row,
+                                name: row.name,
+                                description: row.description,
+                                icon: row.icon,
+                                row: row.row,
                                 total: row.total,
                                 deaths: row.deaths,
                                 kills: row.kills,
@@ -127,23 +115,23 @@ app.controller('subclassCtrl', [
                                 kd: row.deaths > 0 ? row.kills / row.deaths : row.kills
                             };
 
-                            if (filtered[perk.col][row.nodeHash]) {
-                                filtered[perk.col][row.nodeHash].total += row.total;
-                                filtered[perk.col][row.nodeHash].kills += row.kills;
-                                filtered[perk.col][row.nodeHash].deaths += row.deaths;
-                                filtered[perk.col][row.nodeHash].wins += row.wins;
-                                filtered[perk.col][row.nodeHash].kd = filtered[perk.col][row.nodeHash].deaths > 0 ?
-                                filtered[perk.col][row.nodeHash].kills / filtered[perk.col][row.nodeHash].deaths :
-                                    filtered[perk.col][row.nodeHash].kills;
+                            if (filtered[row.col][row.nodeIndex]) {
+                                filtered[row.col][row.nodeIndex].total += row.total;
+                                filtered[row.col][row.nodeIndex].kills += row.kills;
+                                filtered[row.col][row.nodeIndex].deaths += row.deaths;
+                                filtered[row.col][row.nodeIndex].wins += row.wins;
+                                filtered[row.col][row.nodeIndex].kd = filtered[row.col][row.nodeIndex].deaths > 0 ?
+                                filtered[row.col][row.nodeIndex].kills / filtered[row.col][row.nodeIndex].deaths :
+                                    filtered[row.col][row.nodeIndex].kills;
                             } else {
-                                filtered[perk.col][row.nodeHash] = item;
+                                filtered[row.col][row.nodeIndex] = item;
                             }
 
-                            if (!totals[perk.col]) {
-                                totals[perk.col] = 0;
+                            if (!totals[row.col]) {
+                                totals[row.col] = 0;
                             }
 
-                            totals[perk.col] += row.total
+                            totals[row.col] += row.total
                         });
                     });
 
