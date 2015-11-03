@@ -40,12 +40,11 @@
         <div class="filter-head" translate>Select a map</div>
         <ui-select ng-model="activity" theme="bootstrap" ng-disabled="disabled">
             <ui-select-match>
-                {{ $select.selected.name }} <span ng-if="mode.selected.type == 'PvE'">{{ $select.selected.level }}</span>
+                {{ $select.selected.name }}</span>
             </ui-select-match>
 
             <ui-select-choices repeat="a in activities | orderBy:['name', 'level']">
-                <span ng-bind-html="a.name + ' ' + a.level | highlight: $select.search" ng-if="mode.selected.type == 'PvE'"></span>
-                <span ng-bind-html="a.name | highlight: $select.search" ng-if="mode.selected.type == 'PvP'"></span>
+                <span ng-bind-html="a.name | highlight: $select.search"></span>
             </ui-select-choices>
         </ui-select>
     </div>

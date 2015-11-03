@@ -15,6 +15,10 @@ app.service('api',[
                     subclassTotals: 'chart/subclass?modes=9,10,12,13,14,19,23,24'
                 },
 
+                weapons: {
+                    activitiesByMode: 'weapon-stats/activities?mode={mode}&lc={lc}'
+                },
+
                 clan: 'clan/{clanName}',
                 clanCompletions: 'clan/{clanName}/completions',
 
@@ -25,14 +29,7 @@ app.service('api',[
                 eloHistory: 'elo/history/{membershipIds}',
 
                 subclassExotics: 'subclass/{subclassId}/exotics?mode={mode}&start={start}&end={end}&lc={lc}',
-                subclassPerks: 'subclass/{subclassId}/perks?mode={mode}&start={start}&end={end}&lc={lc}',
-
-                // old, need updated below this
-                classBalance: '/api/carnage/chart/class-usage',
-                winRatio: '/api/carnage/chart/team-wins',
-                weapons: '/api/carnage/chart/top-weapons',
-                weaponTypes: '/api/carnage/chart/weapon-type-ranges',
-                activities: '/api/gamedata/activity/mode/{mode}'
+                subclassPerks: 'subclass/{subclassId}/perks?mode={mode}&start={start}&end={end}&lc={lc}'
             };
 
             this.getClan = function(clanName) {
@@ -67,14 +64,6 @@ app.service('api',[
                 );
             };
 
-            this.getHomeWorldFirsts = function(referenceId) {
-                return $http.get(
-                    util.buildApiUrl(endpoints.homeWorldStats, {
-                        referenceId: referenceId
-                    })
-                );
-            };
-
             this.getEloByMembershipId = function(membershipId) {
                 return $http.get(
                     util.buildApiUrl(endpoints.elo, {
@@ -105,32 +94,13 @@ app.service('api',[
                 );
             };
 
-            this.getActivitiesByMode = function(mode) {
-                return this.get(endpoints['activities'].replace('{mode}', mode));
-            };
-
-            this.getClanCompletions = function(clanName) {
+            this.getWeaponActivities = function(mode) {
                 return $http.get(
-                    util.buildApiUrl(endpoints.clanCompletions, {
-                        clanName: clanName
+                    util.buildApiUrl(endpoints.weapons.activitiesByMode, {
+                        mode: mode,
+                        lc: gettextCatalog.getCurrentLanguage()
                     })
                 );
-            };
-
-            this.getClassBalance = function() {
-                return this.get(endpoints['classBalance'], true);
-            };
-
-            this.getWinRatio = function() {
-                return this.get(endpoints['winRatio'], true);
-            };
-
-            this.getWeapons = function() {
-                return this.get(endpoints['weapons'], true);
-            };
-
-            this.getWeaponTypes = function() {
-                return this.get(endpoints['weaponTypes'], true);
             };
 
             this.get = function(endpoint, queryString) {

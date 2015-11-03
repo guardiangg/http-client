@@ -6,9 +6,8 @@ app.controller('weaponStatsCtrl', [
     'charts',
     'consts',
     'datastore',
-    'gamedata',
 
-    function ($scope, api, charts, consts, datastore, gamedata) {
+    function ($scope, api, charts, consts, datastore) {
         $scope.modes = consts.modes;
         $scope.modeItems = Object.keys(consts.modes);
         $scope.modeIcons = consts.modeIcons;
@@ -37,23 +36,14 @@ app.controller('weaponStatsCtrl', [
 
         $scope.loadingActivities = false;
 
-        $scope.getActivitiesForMode = function(item) {
+        $scope.getActivitiesForMode = function(mode) {
             $scope.loadingActivities = true;
             datastore.setParams($scope.filters);
 
-            gamedata
-                .get('activities')
+            api
+                .getWeaponActivities(mode)
                 .then(function(result) {
-                    var activities = [];
-
-                    _.forEach(result, function(activity) {
-                        if (activity.typeHash != 3695721985) {
-                            return;
-                        }
-                        activities.push(activity);
-                    });
-
-                    $scope.activities = activities;
+                    $scope.activities = result.data;
                     $scope.loadingActivities = false;
                 });
         };
@@ -92,7 +82,7 @@ app.controller('weaponStatsCtrl', [
                 return;
             }
 
-            $scope.queuedUpdateProgress = 0;
+            $scope.queuedUpdateProgress = 100;
             $scope.weaponsLoading = true;
 
             datastore.setParams($scope.filters);
@@ -102,10 +92,9 @@ app.controller('weaponStatsCtrl', [
                 .then(function(data) {
                     $scope.updateWeaponTypes(data);
                     $scope.queuedUpdateProgress += 50;
-                });
 
-            api
-                .getWeapons()
+                    return api.getWeapons();
+                })
                 .then(function(data) {
                     $scope.updateWeapons(data);
                     $scope.queuedUpdateProgress += 50;
