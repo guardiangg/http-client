@@ -145,7 +145,7 @@ app.controller('profileCtrl', [
             api
                 .getEloChart(membershipId)
                 .then(function(result) {
-                    _.each(result, function(row) {
+                    _.each(result.data, function(row) {
                         if (!$scope.chart.series[row.mode]) {
                             $scope.chart.series[row.mode] = {
                                 data: [],

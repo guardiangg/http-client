@@ -65,7 +65,7 @@ app.controller('subclassCtrl', [
             api
                 .getSubclassDetails($stateParams.subclass)
                 .then(function (result) {
-                    _.each(result, function (data) {
+                    _.each(result.data, function (data) {
                         $scope.subclassKd.series[0].data.push({
                             y: data.kills / data.deaths,
                             name: consts.modes[data.mode]

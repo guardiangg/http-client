@@ -16,7 +16,8 @@ app.service('api',[
                 },
 
                 weapons: {
-                    activitiesByMode: 'weapon-stats/activities?mode={mode}&lc={lc}'
+                    activitiesByMode: 'weapon/activities?mode={mode}&lc={lc}',
+                    top: 'weapon/top?mode={mode}&platform={platform}&start={start}&end={end}'
                 },
 
                 clan: 'clan/{clanName}',
@@ -26,7 +27,7 @@ app.service('api',[
                 homeWorldStats: 'home/world-first/{referenceId}',
 
                 elo: 'elo/{membershipId}',
-                eloHistory: 'elo/history/{membershipIds}',
+                eloHistory: 'elo/history/{membershipIds}?start={start}&end={end}&mode={mode}',
 
                 subclassExotics: 'subclass/{subclassId}/exotics?mode={mode}&start={start}&end={end}&lc={lc}',
                 subclassPerks: 'subclass/{subclassId}/perks?mode={mode}&start={start}&end={end}&lc={lc}'
@@ -49,11 +50,11 @@ app.service('api',[
             };
 
             this.getSubclassTotals = function() {
-                return this.get(util.buildApiUrl(endpoints.chart.subclassTotals), true);
+                return $http.get(util.buildApiUrl(endpoints.chart.subclassTotals));
             };
 
             this.getSubclassDetails = function(subclass) {
-                return this.get(util.buildApiUrl(endpoints.chart.subclassDetails, {
+                return $http.get(util.buildApiUrl(endpoints.chart.subclassDetails, {
                     subclassId: consts.subclassToId(subclass)
                 }));
             };
@@ -72,25 +73,26 @@ app.service('api',[
                 );
             };
 
-            this.getEloHistory = function(membershipIds, params) {
+            this.getEloHistory = function(membershipIds, day, mode) {
                 if (!membershipIds.constructor == Array) {
                     membershipIds = [membershipIds];
                 }
 
-                return this.get(
+                return $http.get(
                     util.buildApiUrl(endpoints.eloHistory, {
-                        membershipIds: membershipIds.join(',')
-                    }, params),
-                    true
+                        membershipIds: membershipIds.join(','),
+                        start: day,
+                        end: day,
+                        mode: mode
+                    })
                 );
             };
 
-            this.getEloChart = function(membershipId, params) {
-                return this.get(
+            this.getEloChart = function(membershipId) {
+                return $http.get(
                     util.buildApiUrl(endpoints.chart.eloHistory, {
                         membershipId: membershipId
-                    }, params),
-                    true
+                    })
                 );
             };
 
@@ -101,21 +103,6 @@ app.service('api',[
                         lc: gettextCatalog.getCurrentLanguage()
                     })
                 );
-            };
-
-            this.get = function(endpoint, queryString) {
-                var deferred = $q.defer();
-
-                if (queryString) {
-                    endpoint += datastore.getQueryString();
-                }
-
-                $http.get(endpoint)
-                    .then(function (result) {
-                        deferred.resolve(result.data);
-                    });
-
-                return deferred.promise;
             };
         };
     }

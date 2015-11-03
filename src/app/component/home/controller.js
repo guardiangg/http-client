@@ -42,11 +42,11 @@ app.controller('homeCtrl', [
             .then(function(result) {
                 var total = 0;
 
-                _.each(result, function(data) {
+                _.each(result.data, function(data) {
                     total += data.playerPercent;
                 });
 
-                _.each(result, function(data) {
+                _.each(result.data, function(data) {
                     $scope.kd.series[0].data.push({
                         y: data.kd,
                         id: consts.subclassIdToLabel(data.subclassId),

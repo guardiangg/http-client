@@ -57,13 +57,9 @@ app.directive('pgcr', [
                                 return;
                             }
 
-                            return api
-                                .getEloHistory(membershipIds, {
-                                    start: day,
-                                    end: day,
-                                    mode: data.activityDetails.mode
-                                });
-                        }).then(function(elos) {
+                            return api.getEloHistory(membershipIds, day, data.activityDetails.mode);
+                        }).then(function(result) {
+                            var elos = result.data;
                             var avgs = {alpha: {value: 0, count: 0}, bravo: {value: 0, count: 0}};
 
                             _.each(scope.players, function(player) {
