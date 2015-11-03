@@ -23,7 +23,7 @@
 
     <div class="mode">
         <div class="filter-head" translate>Select a game mode</div>
-        <ui-select ng-model="mode" theme="bootstrap" on-select="getActivitiesForMode($item)">
+        <ui-select ng-model="filters.mode" theme="bootstrap" on-select="getActivitiesForMode($item)">
             <ui-select-match><i class="{{ modeIcons[$select.selected] }} ggg-select"></i>&nbsp;{{ modes[$select.selected] }}</ui-select-match>
             <ui-select-choices repeat="m in modeItems">
                 <i class="{{ modeIcons[m] }} ggg-select"></i>
@@ -35,32 +35,30 @@
     <div class="activity">
         <div class="activity-disabled" ng-if="activities.length == 0"></div>
         <div class="activity-loading" ng-if="loadingActivities">
-            <span><i class="fa fa-refresh fa-spin"></i>&nbsp;<translate>Refreshing map list...</translate></span>
+            <i class="fa fa-refresh fa-spin"></i>&nbsp;<translate>Refreshing map list...</translate>
         </div>
         <div class="filter-head" translate>Select a map</div>
-        <ui-select ng-model="activity" theme="bootstrap" ng-disabled="disabled">
-            <ui-select-match>
-                {{ $select.selected.name }}</span>
-            </ui-select-match>
+        <ui-select ng-model="filters.activity" theme="bootstrap" ng-disabled="disabled">
+            <ui-select-match>{{ $select.selected.name }}</ui-select-match>
 
-            <ui-select-choices repeat="a in activities | orderBy:['name', 'level']">
+            <ui-select-choices repeat="a.hash as a in activities | orderBy:['name', 'level']">
                 <span ng-bind-html="a.name | highlight: $select.search"></span>
             </ui-select-choices>
         </ui-select>
     </div>
 
-    <!--<div class="range rangeStart">
+    <div class="range rangeStart">
         <div class="filter-head" translate>Start day</div>
-        <datepicker date-format="yyyy-MM-dd" date-set="{{ filters.start }}" date-min-limit="2014/09/09" date-max-limit="{{ today }}">
+        <datepicker date-format="yyyy-MM-dd" date-min-limit="2015/09/15" date-max-limit="{{ today }}">
             <input ng-model="filters.start" type="text"/>
         </datepicker>
     </div>
     <div class="range rangeEnd">
         <div class="filter-head" translate>End day</div>
-        <datepicker date-format="yyyy-MM-dd" date-set="{{ filters.end }}" date-min-limit="2014/09/09" date-max-limit="{{ today }}">
+        <datepicker date-format="yyyy-MM-dd" date-min-limit="2015/09/15" date-max-limit="{{ today }}">
             <input ng-model="filters.end" type="text"/>
         </datepicker>
-    </div>-->
+    </div>
 
     <div class="update">
         <div class="filter-head">&nbsp;</div>
@@ -92,10 +90,10 @@
         <div class="col-md-4">
             <h3 translate>Primary</h3>
             <ul class="weapon-list">
-                <li ng-repeat="item in weapons.primary | orderBy: '-kills' | limitTo: 5" class="item-{{ item.itemQuality }}">
-                    <img ng-src="http://www.bungie.net{{ item.itemIcon }}" />
-                    <span class="usage">{{ item.kills | number: 2 }}%</span>
-                    <span class="name">{{ item.itemName }}</span>
+                <li ng-repeat="item in weapons.primary | orderBy: '-kills'" class="item-{{ item.tier }}">
+                    <img ng-src="http://www.bungie.net{{ item.icon }}" />
+                    <span class="usage">{{ item.kills / totals.primary * 100 | number: 2 }}%</span>
+                    <span class="name">{{ item.name }}</span>
                     <span class="type">{{ item.itemType }}</span>
                 </li>
             </ul>
@@ -103,10 +101,10 @@
         <div class="col-md-4">
             <h3 translate>Special</h3>
             <ul class="weapon-list">
-                <li ng-repeat="item in weapons.special | orderBy: '-kills' | limitTo: 5" class="item-{{ item.itemQuality }}">
-                    <img ng-src="http://www.bungie.net{{ item.itemIcon }}" />
-                    <span class="usage">{{ item.kills | number: 2 }}%</span>
-                    <span class="name">{{ item.itemName }}</span>
+                <li ng-repeat="item in weapons.special | orderBy: '-kills'" class="item-{{ item.tier }}">
+                    <img ng-src="http://www.bungie.net{{ item.icon }}" />
+                    <span class="usage">{{ item.kills / totals.special * 100 | number: 2 }}%</span>
+                    <span class="name">{{ item.name }}</span>
                     <span class="type">{{ item.itemType }}</span>
                 </li>
             </ul>
@@ -114,10 +112,10 @@
         <div class="col-md-4">
             <h3 translate>Heavy</h3>
             <ul class="weapon-list">
-                <li ng-repeat="item in weapons.heavy | orderBy: '-kills' | limitTo: 5" class="item-{{ item.itemQuality }}">
-                    <img ng-src="http://www.bungie.net{{ item.itemIcon }}" />
-                    <span class="usage">{{ item.kills | number: 2 }}%</span>
-                    <span class="name">{{ item.itemName }}</span>
+                <li ng-repeat="item in weapons.heavy | orderBy: '-kills'" class="item-{{ item.tier }}">
+                    <img ng-src="http://www.bungie.net{{ item.icon }}" />
+                    <span class="usage">{{ item.kills / totals.heavy * 100 | number: 2 }}%</span>
+                    <span class="name">{{ item.name }}</span>
                     <span class="type">{{ item.itemType }}</span>
                 </li>
             </ul>
