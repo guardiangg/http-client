@@ -23,14 +23,15 @@ app.controller('weaponStatsCtrl', [
             platform: 2,
             start: moment().subtract(30, 'days').format('YYYY-MM-DD'),
             end: moment().subtract(1, 'days').format('YYYY-MM-DD'),
-            mode: 10
+            mode: 10,
+            activity: ''
         }, $location.search());
 
         $scope.loadingActivities = false;
 
         $scope.getActivitiesForMode = function(mode) {
             $scope.loadingActivities = true;
-            $scope.filters.activity = null;
+            $scope.filters.activity = '';
 
             api
                 .getWeaponActivities(mode)
@@ -38,7 +39,7 @@ app.controller('weaponStatsCtrl', [
                     result.data.unshift({
                         name: '- ' + gettext('Any Map') + ' -',
                         icon: null,
-                        hash: null
+                        hash: ''
                     });
 
                     $scope.activities = result.data;
