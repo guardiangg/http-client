@@ -3,12 +3,12 @@ var app = angular.module('app');
 app.controller('weaponStatsCtrl', [
     '$scope',
     '$location',
-    'api',
     'charts',
     'consts',
     'gettext',
+    'weaponStats',
 
-    function ($scope, $location, api, charts, consts, gettext) {
+    function ($scope, $location, charts, consts, gettext, weaponStats) {
         $scope.modes = consts.modes;
         $scope.modeItems = Object.keys(consts.modes);
         $scope.modeIcons = consts.modeIcons;
@@ -33,8 +33,8 @@ app.controller('weaponStatsCtrl', [
             $scope.loadingActivities = true;
             $scope.filters.activity = '';
 
-            api
-                .getWeaponActivities(mode)
+            weaponStats
+                .getActivitiesForMode(mode)
                 .then(function(result) {
                     result.data.unshift({
                         name: '- ' + gettext('Any Map') + ' -',
@@ -57,66 +57,40 @@ app.controller('weaponStatsCtrl', [
             $scope.queuedUpdateProgress = 0;
             $scope.weaponsLoading = true;
 
-            api
-                .getTopWeapons()
+            weaponStats
+                .loadWeapons()
                 .then(function(result) {
-                    $scope.totals = {};
-                    $scope.weapons = result.data;
-
-                    // calculate total kills for each type
-                    _.each(['primary', 'special', 'heavy'], function(type) {
-                        $scope.totals[type] = _.reduce($scope.weapons[type], function(total, weapon) {
-                            return total + weapon.kills;
-                        }, 0);
-                    });
-
-                    $scope.queuedUpdateProgress += 50;
-
-                    return api.getTopWeaponTypes();
-                })
-                .then(function(result) {
-                    $scope.updateWeaponTypes(result.data);
-
-                    $scope.queuedUpdateProgress += 50;
+                    $scope.weapons = result.weapons;
                     $scope.weaponsLoading = false;
-                });
-        };
 
-        $scope.updateWeaponTypes = function(data) {
-            // calculate total kills for each day
-            var kills = {};
-            _.each(data, function(typeData) {
-                _.each(typeData, function(row) {
-                    if (!kills[row.day]) {
-                        kills[row.day] = 0;
-                    }
-                    kills[row.day] += row.kills;
-                })
-            });
+                    var series;
+                    if ($scope.filters.start == $scope.filters.end) {
+                    } else {
+                        $scope.weaponTypeConfig = charts.get('weapon-spline');
 
-            var series;
-            if ($scope.filters.start == $scope.filters.end) {
-            } else {
-                $scope.weaponTypeConfig = charts.get('weapon-spline');
+                        series = {};
 
-                series = {};
+                        _.each(result.weaponTypes, function(typeData, typeName) {
+                            series[typeName] = {
+                                data: [],
+                                name: typeName
+                            };
 
-                _.each(data, function(typeData, typeName) {
-                    series[typeName] = {
-                        data: [],
-                        name: typeName
-                    };
-
-                    _.each(_.sortBy(typeData, 'day'), function(row) {
-                        series[typeName].data.push({
-                            x: +new Date(row.day),
-                            y: row.kills / kills[row.day] * 100
+                            _.each(_.sortBy(typeData, 'day'), function(row) {
+                                series[typeName].data.push({
+                                    x: +new Date(row.day),
+                                    y: row.kills
+                                });
+                            });
                         });
-                    });
-                });
-            }
+                    }
 
-            $scope.weaponTypeConfig.series = series;
+                    $scope.weaponTypeConfig.series = series;
+                }, function() {
+                    // handle?
+                }, function(value) {
+                    $scope.queuedUpdateProgress += value;
+                });
         };
 
         if ($scope.filters.mode != null) {

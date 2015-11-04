@@ -14,12 +14,6 @@ app.service('api',[
                     subclassTotals: 'chart/subclass?modes=9,10,12,13,14,19,23,24'
                 },
 
-                weapons: {
-                    activitiesByMode: 'weapon/activities?mode={mode}&lc={lc}',
-                    top: 'weapon/top?mode={mode}&platform={platform}&start={start}&end={end}&activity={activity}',
-                    topTypes: 'weapon/type/top?mode={mode}&platform={platform}&start={start}&end={end}&activity={activity}'
-                },
-
                 clan: 'clan/{clanName}',
                 clanCompletions: 'clan/{clanName}/completions',
 
@@ -92,43 +86,6 @@ app.service('api',[
                 return $http.get(
                     util.buildApiUrl(endpoints.chart.eloHistory, {
                         membershipId: membershipId
-                    })
-                );
-            };
-
-            this.getWeaponActivities = function(mode) {
-                return $http.get(
-                    util.buildApiUrl(endpoints.weapons.activitiesByMode, {
-                        mode: mode,
-                        lc: gettextCatalog.getCurrentLanguage()
-                    })
-                );
-            };
-
-            this.getTopWeapons = function() {
-                var search = $location.search();
-
-                return $http.get(
-                    util.buildApiUrl(endpoints.weapons.top, {
-                        mode: search.mode ? search.mode : 10,
-                        platform: search.platform ? search.platform : 2,
-                        start: search.start,
-                        end: search.end,
-                        activity: search.activity ? search.activity : ''
-                    })
-                );
-            };
-
-            this.getTopWeaponTypes = function() {
-                var search = $location.search();
-
-                return $http.get(
-                    util.buildApiUrl(endpoints.weapons.topTypes, {
-                        mode: search.mode ? search.mode : 10,
-                        platform: search.platform ? search.platform : 2,
-                        start: search.start,
-                        end: search.end,
-                        activity: search.activity ? search.activity : ''
                     })
                 );
             };

@@ -92,7 +92,7 @@
             <ul class="weapon-list">
                 <li ng-repeat="item in weapons.primary | orderBy: '-kills'" class="item-{{ item.tier }}">
                     <img ng-src="http://www.bungie.net{{ item.icon }}" />
-                    <span class="usage">{{ item.kills / totals.primary * 100 | number: 2 }}%</span>
+                    <span class="usage">{{ item.kills | number: 2 }}%</span>
                     <span class="name">{{ item.name }}</span>
                     <span class="type">{{ item.itemType }}</span>
                 </li>
@@ -103,7 +103,7 @@
             <ul class="weapon-list">
                 <li ng-repeat="item in weapons.special | orderBy: '-kills'" class="item-{{ item.tier }}">
                     <img ng-src="http://www.bungie.net{{ item.icon }}" />
-                    <span class="usage">{{ item.kills / totals.special * 100 | number: 2 }}%</span>
+                    <span class="usage">{{ item.kills | number: 2 }}%</span>
                     <span class="name">{{ item.name }}</span>
                     <span class="type">{{ item.itemType }}</span>
                 </li>
@@ -114,7 +114,7 @@
             <ul class="weapon-list">
                 <li ng-repeat="item in weapons.heavy | orderBy: '-kills'" class="item-{{ item.tier }}">
                     <img ng-src="http://www.bungie.net{{ item.icon }}" />
-                    <span class="usage">{{ item.kills / totals.heavy * 100 | number: 2 }}%</span>
+                    <span class="usage">{{ item.kills | number: 2 }}%</span>
                     <span class="name">{{ item.name }}</span>
                     <span class="type">{{ item.itemType }}</span>
                 </li>
