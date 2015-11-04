@@ -140,7 +140,7 @@ gulp.task('index', function() {
         .pipe(inject(jsCallback(), {ignorePath: '/build', removeTags: true, name:'app'}));
 
     //if (isProd) {
-        stream = stream.pipe(minifyHTML());
+        //stream = stream.pipe(minifyHTML());
     //}
 
     return stream.pipe(gulp.dest('./build'))
@@ -168,7 +168,7 @@ gulp.task('view', function() {
     var stream = gulp.src(viewFiles);
 
     //if (isProd) {
-        stream = stream.pipe(minifyHTML());
+        //stream = stream.pipe(minifyHTML());
     //}
 
     return stream.pipe(gulp.dest('./build/app/view'));

@@ -17,7 +17,6 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Coustard' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">-->
 
     <base href="/" />
 
@@ -31,21 +30,18 @@
 
 <div class="container" ng-controller="layoutCtrl">
     <div class="row">
-        <div class="logo col-md-12">
+        <div class="logo col-sm-6">
             <a ui-sref="app.home"><img src="/asset/image/logo.png" /></a>
             <translate>Advanced Destiny Stats</translate>
         </div>
-    </div>
 
-    <div class="row">
-        <form ng-submit="searchForPlayer(name)" class="col-xs-offset-3">
-            <div class="form-group col-xs-6">
+        <form ng-submit="searchForPlayer(name)" class="col-sm-6">
+            <div class="form-group col-sm-offset-2 col-sm-9">
                 <input type="text" class="form-control" ng-model="name" ph="'Search for a Guardian...'|translate">
             </div>
-            &nbsp;
-            <button type="submit" class="btn btn-default col-xs-2">
-                <translate class="hidden-sm">Search</translate>
+            <button type="submit" class="btn btn-default col-sm-1">
                 <i class="fa fa-search visible-sm"></i>
+                <translate class="visible-md">Search</translate>
             </button>
         </form>
     </div>
