@@ -84,7 +84,7 @@
         <small translate>Ranked as a percentage of all kills</small>
     </h2>
 
-    <div class="empty animated flipInX" ng-if="!weaponsLoading && weapons.primary.length == 0">
+    <div class="empty" ng-if="!weaponsLoading && weapons.primary.length == 0">
         <i class="fa fa-exclamation-triangle"></i>&nbsp;<translate>There is no data matching your filters.</translate>
     </div>
 
@@ -92,7 +92,7 @@
         <i class="fa fa-refresh fa-spin"></i>&nbsp;<translate>Data is updating...</translate>
     </div>
 
-    <div class="row animated flipInX" ng-if="!weaponsLoading && weapons.primary.length > 0">
+    <div class="row" ng-if="!weaponsLoading && weapons.primary.length > 0">
         <div class="col-md-4">
             <h3 translate>Primary</h3>
             <ul class="weapon-list">
