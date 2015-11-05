@@ -3,7 +3,6 @@
   "dependencies": {
     "angular": "~1.4.5",
     "angular-animate": "~1.4.5",
-    "angular-cookies": "~1.4.7",
     "angular-filter": "~0.5.7",
     "angular-gettext": "~2.1.2",
     "angular-loading-bar": "~0.8.0",
@@ -24,6 +23,7 @@
     "highcharts-release": "~4.1",
     "jquery": "~2.1",
     "moment": "~2.10.3",
+    "ngstorage": "~0.3.9",
     "underscore": "~1.8.3"
   },
   "resolutions": {

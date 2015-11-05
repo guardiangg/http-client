@@ -4,19 +4,19 @@ app.controller('subclassCtrl', [
     '$rootScope',
     '$scope',
     '$stateParams',
-    '$cookies',
+    '$localStorage',
     '$filter',
     'api',
     'consts',
     'charts',
 
-    function ($rootScope, $scope, $stateParams, $cookies, $filter, api, consts, charts) {
+    function ($rootScope, $scope, $stateParams, $localStorage, $filter, api, consts, charts) {
         var subclassId = consts.subclassToId($stateParams.subclass);
         $scope.subclass = consts.subclasses[subclassId];
 
         $rootScope.title = $scope.subclass.label + ' - Subclass Item/Perk Analysis - Guardian.gg';
 
-        $scope.mode = $cookies.get('gggModeSubclass');
+        $scope.mode = $localStorage.modeSubclass;
         if (!$scope.mode) {
             $scope.mode = 10;
         }
@@ -225,7 +225,7 @@ app.controller('subclassCtrl', [
             }
 
             $scope.mode = mode;
-            $cookies.put('gggModeSubclass', mode);
+            $localStorage.modeSubclass = mode;
 
             loadSubclassPerks();
         };

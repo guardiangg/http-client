@@ -2,8 +2,8 @@ var app = angular.module(
     'app',
     [
         'ngAnimate',
-        'ngCookies',
         'ngSanitize',
+        'ngStorage',
 
         'angular.filter',
         'angular-loading-bar',
@@ -42,14 +42,14 @@ app
         }
     ])
     .run([
-        '$cookies',
+        '$localStorage',
         '$rootScope',
         '$state',
         '$log',
         '$location',
         'gettextCatalog',
 
-        function($cookies, $rootScope, $state, $log, $location, gettextCatalog) {
+        function($localStorage, $rootScope, $state, $log, $location, gettextCatalog) {
             // track state changes and update locale accordingly
             $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
                 if (toState.title) {
@@ -70,14 +70,12 @@ app
                 }
 
                 gettextCatalog.setCurrentLanguage(toParams.locale);
-                $cookies.put('gggLocale', toParams.locale);
+                $localStorage.locale = toParams.locale;
                 moment.locale(toParams.locale);
             });
 
-            var cookie = $cookies.get('gggLocale');
-
             if (!$location.path().match(/^\/\w{2}\//)) {
-                var locale = cookie ? cookie : 'en';
+                var locale = $localStorage.locale ? $localStorage.locale : 'en';
 
                 $log.debug('no url locale set, redirecting to: ' + locale);
                 $state.go('app.home', { locale: locale });

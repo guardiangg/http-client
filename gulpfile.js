@@ -34,7 +34,6 @@ var jsFiles = {
         'bootstrap/dist/js/bootstrap.min.js',
         'angular/angular.js',
         'angular-animate/angular-animate.js',
-        'angular-cookies/angular-cookies.js',
         'angular-filter/dist/angular-filter.js',
         'angular-loading-bar/src/loading-bar.js',
         'angular-gettext/dist/angular-gettext.js',
@@ -48,9 +47,13 @@ var jsFiles = {
         'angular-tooltips/dist/angular-tooltips.min.js',
         'angulartics/dist/angulartics.min.js',
         'angulartics-google-analytics/dist/angulartics-google-analytics.min.js',
+
+        'ngstorage/ngStorage.js',
+
         'highcharts-release/highcharts.src.js',
         'highcharts-release/themes/grid-light.js',
         'highcharts-ng/dist/highcharts-ng.js',
+
         'moment/moment.js',
         'moment/locale/fr.js',
         'moment/locale/es.js',
