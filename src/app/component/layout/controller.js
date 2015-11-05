@@ -18,7 +18,7 @@ app.controller('layoutCtrl', [
                 name = $localStorage.searchPlaceholder;
             }
 
-            $localStorage.searchPlaceholder = name;
+            $scope.placeholder = $localStorage.searchPlaceholder = name;
             $scope.name = '';
             $state.go('app.search', { name: name });
         };
