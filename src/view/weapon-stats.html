@@ -12,22 +12,17 @@
     <div class="platform">
         <div class="filter-head" translate>Platform</div>
         <div class="btn-group" role="group" aria-label="Platform">
-            <button type="button" class="btn btn-default" ng-class="{ 'btn-primary': filters.platform == 2 }" ng-click="filters.platform = 2">
-                <i class="ggg-platform-ps"></i>
-            </button>
-            <button type="button" class="btn btn-default" ng-class="{ 'btn-primary': filters.platform == 1 }" ng-click="filters.platform = 1">
-                <i class="ggg-platform-xbox"></i>
-            </button>
+            <button type="button" class="btn btn-default ggg-platform-ps" ng-class="{ 'btn-primary': filters.platform == 2 }" ng-click="filters.platform = 2"></button>
+            <button type="button" class="btn btn-default ggg-platform-xbox" ng-class="{ 'btn-primary': filters.platform == 1 }" ng-click="filters.platform = 1"></button>
         </div>
     </div>
 
     <div class="mode">
         <div class="filter-head" translate>Select a game mode</div>
         <ui-select ng-model="filters.mode" theme="bootstrap" on-select="getActivitiesForMode($item)">
-            <ui-select-match><i class="{{ modeIcons[$select.selected] }} ggg-select"></i>&nbsp;{{ modes[$select.selected] }}</ui-select-match>
+            <ui-select-match><i class="ggg {{ modeIcons[$select.selected] }}"></i>&nbsp;{{ modes[$select.selected] }}</ui-select-match>
             <ui-select-choices repeat="m in modeItems">
-                <i class="{{ modeIcons[m] }} ggg-select"></i>
-                <span ng-bind-html="modes[m] | highlight: $select.search"></span>
+                <i class="ggg {{ modeIcons[m] }}"></i> <span ng-bind-html="modes[m] | highlight: $select.search"></span>
             </ui-select-choices>
         </ui-select>
     </div>
@@ -40,7 +35,6 @@
         <div class="filter-head" translate>Select a map</div>
         <ui-select ng-model="filters.activity" theme="bootstrap" ng-disabled="disabled">
             <ui-select-match>{{ $select.selected.name }}</ui-select-match>
-
             <ui-select-choices repeat="a.hash as a in activities | orderBy:['name', 'level']">
                 <span ng-bind-html="a.name | highlight: $select.search"></span>
             </ui-select-choices>
@@ -49,14 +43,22 @@
 
     <div class="range rangeStart">
         <div class="filter-head" translate>Start day</div>
-        <datepicker date-format="yyyy-MM-dd" date-min-limit="2015/09/15" date-max-limit="{{ today }}">
-            <input ng-model="filters.start" type="text"/>
+        <datepicker date-format="yyyy-MM-dd"
+                    date-min-limit="2015/09/15"
+                    date-max-limit="{{ today }}"
+                    button-prev="<i class='fa fa-arrow-left'></i>"
+                    button-next="<i class='fa fa-arrow-right'></i>">
+            <input ng-model="filters.start" type="text" class="form-control" />
         </datepicker>
     </div>
     <div class="range rangeEnd">
         <div class="filter-head" translate>End day</div>
-        <datepicker date-format="yyyy-MM-dd" date-min-limit="2015/09/15" date-max-limit="{{ today }}">
-            <input ng-model="filters.end" type="text"/>
+        <datepicker date-format="yyyy-MM-dd"
+                    date-min-limit="2015/09/15"
+                    date-max-limit="{{ today }}"
+                    button-prev="<i class='fa fa-arrow-left'></i>"
+                    button-next="<i class='fa fa-arrow-right'></i>">
+            <input ng-model="filters.end" type="text" class="form-control" />
         </datepicker>
     </div>
 
