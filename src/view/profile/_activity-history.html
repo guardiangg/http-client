@@ -55,7 +55,7 @@
 <div class="loading" ng-if="loading.fireteam">
     <i class="fa fa-cog fa-spin"></i> <translate>Loading Fireteam...</translate>
 </div>
-<div class="fireteam row">
+<div class="fireteam row" ng-if="fireteam.length > 0">
     <div class="col-xs-12 title">Recently Played With</div>
     <div class="col-sm-1"></div>
     <div class="col-sm-2 list" ng-repeat="row in fireteam">
