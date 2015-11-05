@@ -61,12 +61,12 @@ app.controller('profileCtrl', [
                         });
 
                         $scope.loading.activityHistory = false;
-                        return api.getFireteam(mode, membershipId);
-                    })
-                    .then(function(result) {
-                        $scope.fireteam = result.data;
-                        $scope.loading.fireteam = false;
+                        //return api.getFireteam(mode, membershipId);
                     });
+                    //.then(function(result) {
+                    //    $scope.fireteam = result.data;
+                    //    $scope.loading.fireteam = false;
+                    //});
             };
 
             $scope.loadInventory = function() {
