@@ -139,9 +139,9 @@ gulp.task('index', function() {
         .pipe(inject(jsVendorCallback(), {ignorePath: '/build', removeTags: true, name: 'vendor'}))
         .pipe(inject(jsCallback(), {ignorePath: '/build', removeTags: true, name:'app'}));
 
-    //if (isProd) {
-        //stream = stream.pipe(minifyHTML());
-    //}
+    if (isProd) {
+        stream = stream.pipe(minifyHTML());
+    }
 
     return stream.pipe(gulp.dest('./build'))
 });
@@ -167,9 +167,9 @@ gulp.task('robots', function() {
 gulp.task('view', function() {
     var stream = gulp.src(viewFiles);
 
-    //if (isProd) {
-        //stream = stream.pipe(minifyHTML());
-    //}
+    if (isProd) {
+        stream = stream.pipe(minifyHTML());
+    }
 
     return stream.pipe(gulp.dest('./build/app/view'));
 });

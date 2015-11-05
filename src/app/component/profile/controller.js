@@ -22,6 +22,7 @@ app.controller('profileCtrl', [
             activityHistory: true,
             elo: true,
             eloHistory: true,
+            fireteam: true,
             name: true,
             character: true,
             inventory: true
@@ -197,9 +198,14 @@ app.controller('profileCtrl', [
                     $scope.loading.character = false;
                     $scope.changeCharacter(idx);
                 });
+
+            api
+                .getFireteam(membershipId)
+                .then(function(result) {
+                    $scope.fireteam = result.data;
+                });
         };
 
-        $scope.loading.name = true;
         bungie
             .searchForPlayer($stateParams.platform, $stateParams.name)
             .success(function(result) {

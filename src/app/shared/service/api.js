@@ -17,6 +17,8 @@ app.service('api',[
                 clan: 'clan/{clanName}',
                 clanCompletions: 'clan/{clanName}/completions',
 
+                fireTeam: 'fireteam/{membershipId}',
+
                 homeStats: 'home/stats',
                 homeWorldStats: 'home/world-first/{referenceId}',
 
@@ -25,6 +27,12 @@ app.service('api',[
 
                 subclassExotics: 'subclass/{subclassId}/exotics?mode={mode}&start={start}&end={end}&lc={lc}',
                 subclassPerks: 'subclass/{subclassId}/perks?mode={mode}&start={start}&end={end}&lc={lc}'
+            };
+
+            this.getFireteam = function(membershipId) {
+                return $http.get(util.buildApiUrl(endpoints.fireTeam, {
+                    membershipId: membershipId
+                }));
             };
 
             this.getClan = function(clanName) {

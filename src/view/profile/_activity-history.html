@@ -20,6 +20,22 @@
     </div>
 </div>
 
+<h2 translate ng-if="fireteam.length > 0">Recently Played With</h2>
+<div class="table-responsive">
+    <table class="table table-striped history noselect">
+        <tr>
+            <th translate>Name</th>
+        </tr>
+        <tr ng-repeat="row in fireteam" ng-if="$index > 0">
+            <td>
+                <a ui-sref="app.profile({name: row.name, platform: row.membershipType})">
+                    <span ng-if="row.clanTag">[{{ row.clanTag }}]</span> {{ row.name }}
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+
 <h2 translate>Match History</h2>
 
 <div class="btn-group history-mode" role="group">
