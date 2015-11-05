@@ -79,7 +79,7 @@ app.controller('weaponStatsCtrl', [
                         _.each(result.weaponTypes, function(typeData, typeName) {
                             seriesData.data.push({
                                 name: typeName,
-                                y: typeData[0].kills
+                                y: Math.round(typeData[0].kills * 100) / 100
                             });
                         });
 
@@ -96,7 +96,7 @@ app.controller('weaponStatsCtrl', [
                             _.each(_.sortBy(typeData, 'day'), function(row) {
                                 series[typeName].data.push({
                                     x: +new Date(row.day),
-                                    y: row.kills
+                                    y: Math.round(row.kills * 100) / 100
                                 });
                             });
                         });
