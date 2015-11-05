@@ -65,6 +65,7 @@ app.controller('weaponStatsCtrl', [
 
                     var series;
                     if ($scope.filters.start == $scope.filters.end) {
+                        $scope.weaponTypeConfig = charts.get('weapon-bar');
                     } else {
                         $scope.weaponTypeConfig = charts.get('weapon-spline');
 
