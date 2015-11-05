@@ -265,15 +265,39 @@ input[type="color"]:focus,
     border: none;
 }
 
-.navbar-form {
+////
+// Search
+////
+.search {
+    text-align: right;
+
+    input {
+        height: 44px;
+        width: auto;
+        display: inline-block;
+    }
+
     button {
-        height: 34px;
+        height: 44px;
     }
 
     @media (min-width:768px) and (max-width:991px) {
-        .form-control {
-            max-width: 120px;
-        }
+
+    }
+}
+
+////
+// Language
+////
+.language {
+    visibility: hidden;
+    position: relative;
+    margin-bottom: 6px;
+    font-size: 0.9em;
+
+    > span {
+        color: #000;
+        font-weight: bold;
     }
 }
 

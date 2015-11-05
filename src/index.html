@@ -30,17 +30,30 @@
 
 <div class="container" ng-controller="layoutCtrl">
     <div class="row">
-        <div class="logo col-sm-6">
+        <div class="logo col-sm-7">
             <a ui-sref="app.home"><img src="/asset/image/logo.png" /></a>
             <translate>Advanced Destiny Stats</translate>
         </div>
 
-        <div class="col-sm-6">
-            <form ng-submit="searchForPlayer(name)" class="row">
-                <div class="form-group col-xs-10 col-sm-offset-2 col-sm-8">
+        <div class="col-sm-5">
+            <div class="language pull-right hidden-xs">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-globe"></i>&nbsp;{{ languages[currentLanguage()] }} <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="(short, long) in ::languages" ng-if="short != currentLanguage()">
+                        <a href="javascript:" ng-click="changeLanguage(short)">{{ long }}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <form ng-submit="searchForPlayer(name)" class="search">
+                <div class="input-group">
                     <input type="text" class="form-control" ng-model="name" placeholder="{{ placeholder }}">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default fa fa-search" type="button"></button>
+                    </span>
                 </div>
-                <button type="submit" class="btn btn-default col-xs-2 col-sm-2 fa fa-search"></button>
             </form>
         </div>
     </div>
