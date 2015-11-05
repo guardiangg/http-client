@@ -5,15 +5,16 @@ app.controller('profileCtrl', [
     '$scope',
     '$stateParams',
     '$location',
+    '$localStorage',
     'api',
     'bungie',
     'consts',
     'charts',
     'auditFactory',
 
-    function ($rootScope, $scope, $stateParams, $location, api, bungie, consts, charts, auditFactory) {
+    function ($rootScope, $scope, $stateParams, $location, $localStorage, api, bungie, consts, charts, auditFactory) {
         //var audit = new auditFactory($scope);
-        $scope.mode = 5;
+        $scope.mode = $localStorage.profileMode ? $localStorage.profileMode : 5;
         $scope.modes = consts.modes;
         $scope.modeIcons = consts.modeIcons;
         $scope.classes = consts.classes;
@@ -34,16 +35,19 @@ app.controller('profileCtrl', [
                     return;
                 }
 
+                $localStorage.profileMode = mode;
+
                 $scope.mode = mode;
 
                 $scope.loading.activityHistory = true;
+                $scope.loading.fireteam = true;
                 bungie
                     .getActivityHistory(
-                    platform,
-                    membershipId,
-                    $scope.character.characterBase.characterId,
-                    mode
-                )
+                        platform,
+                        membershipId,
+                        $scope.character.characterBase.characterId,
+                        mode
+                    )
                     .then(function(result) {
                         var defs = result.data.Response.definitions.activities;
                         $scope.activities = result.data.Response.data.activities;
@@ -57,6 +61,11 @@ app.controller('profileCtrl', [
                         });
 
                         $scope.loading.activityHistory = false;
+                        return api.getFireteam(mode, membershipId);
+                    })
+                    .then(function(result) {
+                        $scope.fireteam = result.data;
+                        $scope.loading.fireteam = false;
                     });
             };
 
@@ -197,12 +206,6 @@ app.controller('profileCtrl', [
 
                     $scope.loading.character = false;
                     $scope.changeCharacter(idx);
-                });
-
-            api
-                .getFireteam(membershipId)
-                .then(function(result) {
-                    $scope.fireteam = result.data;
                 });
         };
 
