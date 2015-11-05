@@ -63,13 +63,26 @@ app.controller('weaponStatsCtrl', [
                     $scope.weapons = result.weapons;
                     $scope.weaponsLoading = false;
 
-                    var series;
+                    var series = {};
                     if ($scope.filters.start == $scope.filters.end) {
                         $scope.weaponTypeConfig = charts.get('weapon-bar');
+
+                        var seriesData = {
+                            name: "Weapon Types",
+                            colorByPoint: true,
+                            data: []
+                        };
+
+                        _.each(result.weaponTypes, function(typeData, typeName) {
+                            seriesData.data.push({
+                                name: typeName,
+                                y: typeData[0].kills
+                            });
+                        });
+
+                        series = [seriesData];
                     } else {
                         $scope.weaponTypeConfig = charts.get('weapon-spline');
-
-                        series = {};
 
                         _.each(result.weaponTypes, function(typeData, typeName) {
                             series[typeName] = {

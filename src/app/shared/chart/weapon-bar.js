@@ -16,12 +16,16 @@ app.factory('chart-weapon-bar', [
                     text: gettext('Kills by Weapon Type')
                 },
                 xAxis: {
-                    type: 'category'
+                    type: 'category',
+                    minorGridLineWidth: 0,
+                    gridLineWidth: 0
                 },
                 yAxis: {
                     title: {
                         text: gettext('Percentage of Total Kills')
-                    }
+                    },
+                    minorGridLineWidth: 0,
+                    gridLineWidth: 0
                 },
                 legend: {
                     enabled: false
