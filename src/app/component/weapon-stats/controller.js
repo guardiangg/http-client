@@ -1,6 +1,7 @@
 var app = angular.module('app');
 
 app.controller('weaponStatsCtrl', [
+    '$rootScope',
     '$scope',
     '$location',
     'charts',
@@ -8,7 +9,9 @@ app.controller('weaponStatsCtrl', [
     'gettext',
     'weaponStats',
 
-    function ($scope, $location, charts, consts, gettext, weaponStats) {
+    function ($rootScope, $scope, $location, charts, consts, gettext, weaponStats) {
+        $rootScope.title = 'Best Crucible Weapons - Guardian.gg';
+
         $scope.modes = consts.modes;
         $scope.modeItems = Object.keys(consts.modes);
         $scope.modeIcons = consts.modeIcons;
