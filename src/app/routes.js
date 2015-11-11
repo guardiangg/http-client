@@ -20,52 +20,52 @@ app.config([
             .state('app.home', {
                 url: '/',
                 controller: 'homeCtrl',
-                templateUrl: 'app/view/home.html'
+                templateUrl: 'home.html'
             })
             .state('app.faq', {
                 url: '/faq',
                 title: gettext('Frequently Asked Questions'),
-                templateUrl: 'app/view/faq.html'
+                templateUrl: 'faq.html'
             })
             .state('app.search', {
                 url: '/search/{name}',
                 controller: 'searchCtrl',
-                templateUrl: 'app/view/search.html'
+                templateUrl: 'search.html'
             })
             .state('app.subclass', {
                 url: '/subclass/{subclass:[a-z]+}',
                 controller: 'subclassCtrl',
-                templateUrl: 'app/view/subclass.html'
+                templateUrl: 'subclass.html'
             })
             .state('app.profile', {
                 url: '/profile/{platform}/{name}',
                 controller: 'profileCtrl',
-                templateUrl: 'app/view/profile.html'
+                templateUrl: 'profile.html'
             })
             .state('app.leaderboard-platform-mode-name', {
                 url: '/leaderboard/{platform}/{mode}/{name}',
                 controller: 'leaderboardCtrl',
-                templateUrl: 'app/view/leaderboard.html'
+                templateUrl: 'leaderboard.html'
             })
             .state('app.leaderboard-platform-mode', {
                 url: '/leaderboard/{platform}/{mode}',
                 controller: 'leaderboardCtrl',
-                templateUrl: 'app/view/leaderboard.html'
+                templateUrl: 'leaderboard.html'
             })
             .state('app.leaderboard-platform', {
                 url: '/leaderboard/{platform}',
                 controller: 'leaderboardCtrl',
-                templateUrl: 'app/view/leaderboard.html'
+                templateUrl: 'leaderboard.html'
             })
             .state('app.leaderboard', {
                 url: '/leaderboard',
                 controller: 'leaderboardCtrl',
-                templateUrl: 'app/view/leaderboard.html'
+                templateUrl: 'leaderboard.html'
             })
             .state('app.weapon-stats', {
                 url: '/weapon-stats',
                 controller: 'weaponStatsCtrl',
-                templateUrl: 'app/view/weapon-stats.html'
+                templateUrl: 'weapon-stats.html'
             });
     }
 ]);

@@ -6,7 +6,6 @@
     "angular-filter": "~0.5.7",
     "angular-gettext": "~2.1.2",
     "angular-loading-bar": "~0.8.0",
-    "angular-localization": "~1.2.1",
     "angular-sanitize": "~1.4.5",
     "angular-smooth-scroll": "ngSmoothScroll#~1.7.1",
     "angular-toastr": "~1.5.0",

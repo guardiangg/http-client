@@ -17,6 +17,9 @@ app.service('util', [
                 if (params) {
                     queryParams = '?';
                     for (var prop in params) {
+                        if (!params.hasOwnProperty(prop)) {
+                            return;
+                        }
                         queryParams += encodeURIComponent(prop) + '=' + encodeURIComponent(params[prop]) + '&';
                     }
                     queryParams = queryParams.substring(0, queryParams.length - 1);
@@ -36,16 +39,6 @@ app.service('util', [
                 }
 
                 return url;
-            };
-
-            this.getView = function(view) {
-                var path = '/app/view/' + view;
-
-                if (config.deployTime) {
-                    path = path + '?t=' + config.deployTime;
-                }
-
-                return path;
             };
         };
     }

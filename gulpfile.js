@@ -1,5 +1,6 @@
 var series     = require('stream-series'),
     gulp       = require('gulp'),
+    templates  = require('gulp-angular-templatecache'),
     async      = require('async'),
     concat     = require('gulp-concat'),
     gettext    = require('gulp-angular-gettext'),
@@ -22,8 +23,8 @@ var cssFiles = [
 
 var jsFiles = {
     site: [
-        'config.js',
         'app.js',
+        'templates.js',
         'routes.js',
         'shared/**/*.js',
         'component/**/*.js'
@@ -64,7 +65,7 @@ var jsFiles = {
     ]
 };
 
-var viewFiles = ['./src/view/**/*.html'];
+var templateFiles = ['./src/view/**/*.html'];
 
 var cssCallback = function() {
     var stream = gulp
@@ -107,18 +108,35 @@ var jsVendorCallback = function() {
     return stream.pipe(gulp.dest('./build/asset/js'));
 };
 
-gulp.task('build', ['config', 'robots', 'image', 'font', 'translate', 'view', 'css', 'jsVendor', 'js', 'index']);
+gulp.task('build', ['config', 'robots', 'image', 'font', 'translate', 'index']);
 
 gulp.task('watch', function() {
     gulp.watch(['./src/index.html'], ['index']);
     gulp.watch(['./src/asset/less/**/*.less'], ['css']);
     gulp.watch(['./src/app/**/*.js'], ['js']);
     gulp.watch(['./src/po/*.po'], ['translate']);
-    gulp.watch(viewFiles, ['view']);
+    gulp.watch(templateFiles, ['templates']);
+});
+
+gulp.task('templates', function() {
+    return gulp
+        .src(templateFiles)
+        .pipe(templates({
+            module: 'app',
+            standalone: false
+        }))
+        .pipe(gulp.dest('./src/app'))
 });
 
 gulp.task('config', function() {
     var stream = gulp.src('./src/app/config.json.dist');
+
+    stream = stream
+       .pipe(jeditor(function(json) {
+           json.deployTime = +new Date();
+
+           return json;
+       }));
 
     if (isProd) {
         stream = stream
@@ -135,7 +153,7 @@ gulp.task('config', function() {
         .pipe(gulp.dest('./build/app'));
 });
 
-gulp.task('index', function() {
+gulp.task('index', ['js', 'jsVendor', 'css'], function() {
     var stream = gulp
         .src('./src/index.html')
         .pipe(inject(cssCallback(), {ignorePath: '/build', removeTags: true, name: 'app'}))
@@ -151,7 +169,7 @@ gulp.task('index', function() {
 
 gulp.task('jsVendor', jsVendorCallback);
 
-gulp.task('js', jsCallback);
+gulp.task('js', ['templates'], jsCallback);
 
 gulp.task('css', cssCallback);
 
@@ -165,16 +183,6 @@ gulp.task('font', function() {
 
 gulp.task('robots', function() {
     return gulp.src('./robots.txt').pipe(gulp.dest('./build'));
-});
-
-gulp.task('view', function() {
-    var stream = gulp.src(viewFiles);
-
-    if (isProd) {
-        stream = stream.pipe(minifyHTML());
-    }
-
-    return stream.pipe(gulp.dest('./build/app/view'));
 });
 
 gulp.task('pot', function () {

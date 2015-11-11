@@ -24,7 +24,7 @@ app.directive('pgcr', [
 
                     var html = angular.element(
                         '<tr class="pgcr-wrapper" id="' + elementId + '">' +
-                        '   <td colspan="9"><ng-include src="\'/app/view/profile/_pgcr.html\'"></ng-include></td>' +
+                        '   <td colspan="9"><ng-include src="\'profile/_pgcr.html\'"></ng-include></td>' +
                         '</tr>'
                     );
 
