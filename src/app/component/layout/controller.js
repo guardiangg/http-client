@@ -18,7 +18,7 @@ app.controller('layoutCtrl', [
             es: 'Español',
             fr: 'Français',
             it: 'Italiano',
-            ptbr: 'Português (Brasil)',
+            'pt-br': 'Português (Brasil)',
             ja: '日本語'
         };
 

@@ -12,7 +12,7 @@ app.config([
         $stateProvider
             .state('app', {
                 abstract: true,
-                url: '/{locale:en|fr|es|de|it|ja|ptbr}',
+                url: '/{locale:en|fr|es|de|it|ja|pt-br}',
 
                 // abstract states still require a template for children to populate
                 template: '<ui-view/>'
