@@ -18,13 +18,13 @@ app.controller('layoutCtrl', [
             es: 'Español',
             fr: 'Français',
             it: 'Italiano',
-            'pt-br': 'Português (Brasil)',
+            ptbr: 'Português (Brasil)',
             ja: '日本語'
         };
 
         $scope.currentLanguage = function() {
             return gettextCatalog.getCurrentLanguage();
-        }
+        };
 
         $scope.changeLanguage = function(lang) {
             $state.go($state.current.name, _.extend($stateParams, {locale: lang}));
