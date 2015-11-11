@@ -118,7 +118,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('config', function() {
-    var stream = gulp.src('./src/app/config.json');
+    var stream = gulp.src('./src/app/config.json.dist');
 
     if (isProd) {
         stream = stream
