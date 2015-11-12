@@ -37,6 +37,11 @@ app.config([
                 controller: 'subclassCtrl',
                 templateUrl: 'subclass.html'
             })
+            .state('app.items', {
+                url: '/items',
+                controller: 'itemCtrl',
+                templateUrl: 'item.html'
+            })
             .state('app.profile', {
                 url: '/profile/{platform}/{name}',
                 controller: 'profileCtrl',

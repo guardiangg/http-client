@@ -41,10 +41,10 @@ app.controller('leaderboardCtrl', [
                     .getPage($scope.platform, $scope.mode, page)
                     .success(function(results) {
                         $scope.results   = results;
-                        $scope.pageCount = results.page_count;
-                        $scope.pageTotal = Math.ceil(results.total_items / results.page_count) - 1;
+                        $scope.pageCount = results.pageCount;
+                        $scope.pageTotal = Math.ceil(results.totalItems / results.pageCount) - 1;
                         $scope.page      = page;
-                        $scope.total     = results.total_items;
+                        $scope.total     = results.totalItems;
                         $scope.loading.leaderboard = false;
 
                         _.each($scope.results, function(entries) {
