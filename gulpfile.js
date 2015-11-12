@@ -23,11 +23,12 @@ var cssFiles = [
 
 var jsFiles = {
     site: [
-        'app.js',
-        'templates.js',
-        'routes.js',
-        'shared/**/*.js',
-        'component/**/*.js'
+        'app/app.js',
+        'app/templates.js',
+        'app/routes.js',
+        'app/shared/**/*.js',
+        'app/component/**/*.js',
+        'i18n/*.js'
     ],
     vendor: [
         'underscore/underscore.js',
@@ -82,7 +83,7 @@ var cssCallback = function() {
 };
 
 var jsCallback = function() {
-    var stream = gulp.src(jsFiles.site, { cwd: './src/app/' });
+    var stream = gulp.src(jsFiles.site, { cwd: './src/' });
 
     if (isProd) {
         stream = stream
@@ -108,7 +109,7 @@ var jsVendorCallback = function() {
     return stream.pipe(gulp.dest('./build/asset/js'));
 };
 
-gulp.task('build', ['config', 'robots', 'image', 'font', 'translate', 'index']);
+gulp.task('build', ['config', 'robots', 'image', 'font', 'index']);
 
 gulp.task('watch', function() {
     gulp.watch(['./src/index.html'], ['index']);
@@ -153,7 +154,7 @@ gulp.task('config', function() {
         .pipe(gulp.dest('./build/app'));
 });
 
-gulp.task('index', ['js', 'jsVendor', 'css'], function() {
+gulp.task('index', ['js', 'jsVendor', 'css', 'translate'], function() {
     var stream = gulp
         .src('./src/index.html')
         .pipe(inject(cssCallback(), {ignorePath: '/build', removeTags: true, name: 'app'}))
@@ -196,8 +197,6 @@ gulp.task('pot', function () {
 gulp.task('translate', function () {
     return gulp
         .src('src/po/**/*.po')
-        .pipe(gettext.compile({
-            format: 'json'
-        }))
-        .pipe(gulp.dest('build/language/'));
+        .pipe(gettext.compile())
+        .pipe(gulp.dest('src/i18n/'));
 });

@@ -64,11 +64,6 @@ app
                     return;
                 }
 
-                // translations are by default in English
-                if (toParams.locale != 'en') {
-                    gettextCatalog.loadRemote('/language/' + toParams.locale + '.json');
-                }
-
                 gettextCatalog.setCurrentLanguage(toParams.locale);
                 $localStorage.locale = toParams.locale;
                 moment.locale(toParams.locale);

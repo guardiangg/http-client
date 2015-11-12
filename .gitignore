@@ -4,4 +4,6 @@ build/
 node_modules/
 tmp/
 src/app/config.json
+src/i18n/
+src/app/templates.js
 *.mo
