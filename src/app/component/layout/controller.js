@@ -40,8 +40,7 @@ app.controller('layoutCtrl', [
         };
 
         $scope.changeLanguage = function(lang) {
-            $state.go($state.current.name, _.extend($stateParams, {locale: lang}));
-            $window.location.reload();
+            $window.location = $scope.hreflangs[lang];
         };
 
         $scope.searchForPlayer = function(name) {
