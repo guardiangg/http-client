@@ -5,10 +5,11 @@ app.controller('layoutCtrl', [
     '$state',
     '$stateParams',
     '$localStorage',
+    '$window',
     'gettext',
     'gettextCatalog',
 
-    function ($scope, $state, $stateParams, $localStorage, gettext, gettextCatalog) {
+    function ($scope, $state, $stateParams, $localStorage, $window, gettext, gettextCatalog) {
         $scope.placeholder = $localStorage.searchPlaceholder ?
             $localStorage.searchPlaceholder : gettext('Search for a Guardian...');
 
@@ -28,6 +29,7 @@ app.controller('layoutCtrl', [
 
         $scope.changeLanguage = function(lang) {
             $state.go($state.current.name, _.extend($stateParams, {locale: lang}));
+            $window.location.reload();
         };
 
         $scope.searchForPlayer = function(name) {

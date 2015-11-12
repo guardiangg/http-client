@@ -23,12 +23,12 @@ var cssFiles = [
 
 var jsFiles = {
     site: [
+        'i18n/*.js',
         'app/app.js',
         'app/templates.js',
         'app/routes.js',
         'app/shared/**/*.js',
-        'app/component/**/*.js',
-        'i18n/*.js'
+        'app/component/**/*.js'
     ],
     vendor: [
         'underscore/underscore.js',
