@@ -52,6 +52,9 @@ app
         function($localStorage, $rootScope, $state, $log, $location, gettextCatalog) {
             // track state changes and update locale accordingly
             $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+                // reset api errors
+                $rootScope.apiError = false;
+
                 if (toState.title) {
                     $rootScope.title = gettextCatalog.getString(toState.title) + ' - Guardian.gg';
                 } else {
