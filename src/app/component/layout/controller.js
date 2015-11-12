@@ -2,6 +2,7 @@ var app = angular.module('app');
 
 app.controller('layoutCtrl', [
     '$scope',
+    '$location',
     '$state',
     '$stateParams',
     '$localStorage',
@@ -9,7 +10,7 @@ app.controller('layoutCtrl', [
     'gettext',
     'gettextCatalog',
 
-    function ($scope, $state, $stateParams, $localStorage, $window, gettext, gettextCatalog) {
+    function ($scope, $location, $state, $stateParams, $localStorage, $window, gettext, gettextCatalog) {
         $scope.placeholder = $localStorage.searchPlaceholder ?
             $localStorage.searchPlaceholder : gettext('Search for a Guardian...');
 
@@ -22,6 +23,17 @@ app.controller('layoutCtrl', [
             'pt-br': 'Português (Brasil)',
             ja: '日本語'
         };
+
+        $scope.hreflangs = {};
+        _.each($scope.languages, function(lang, key) {
+            if (key == gettextCatalog.getCurrentLanguage()) {
+                return;
+            }
+
+            $scope.hreflangs[key] = $location
+                .absUrl()
+                .replace('/' + gettextCatalog.getCurrentLanguage() + '/', '/' + key + '/');
+        });
 
         $scope.currentLanguage = function() {
             return gettextCatalog.getCurrentLanguage();

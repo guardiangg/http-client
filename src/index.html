@@ -1,4 +1,4 @@
-<html ng-cloak>
+<html ng-cloak ng-controller="layoutCtrl">
 <head>
     <title ng-bind="title"></title>
     <meta charset="utf-8">
@@ -6,13 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="alternate" hreflang="de" href="https://guardian.gg/de/" />
-    <link rel="alternate" hreflang="en" href="https://guardian.gg/en/" />
-    <link rel="alternate" hreflang="es" href="https://guardian.gg/es/" />
-    <link rel="alternate" hreflang="fr" href="https://guardian.gg/fr/" />
-    <link rel="alternate" hreflang="it" href="https://guardian.gg/it/" />
-    <link rel="alternate" hreflang="ja" href="https://guardian.gg/ja/" />
-    <link rel="alternate" hreflang="pt-br" href="https://guardian.gg/pt-br/" />
+    <link rel="alternate" hreflang="{{ lang }}" ng-href="{{ url }}" ng-repeat="(lang, url) in hreflangs"/>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Coustard' rel='stylesheet' type='text/css'>
@@ -28,7 +22,7 @@
 
 <toaster-container></toaster-container>
 
-<div class="container" ng-controller="layoutCtrl">
+<div class="container">
     <div class="row">
         <div class="logo col-sm-7">
             <a ui-sref="app.home"><img src="/asset/image/logo.png" /></a>
