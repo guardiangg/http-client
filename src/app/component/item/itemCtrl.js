@@ -5,10 +5,14 @@ app.controller('itemCtrl', [
     'gamedata',
 
     function ($scope, gamedata) {
-        gamedata
-            .getPage('items', 0)
-            .then(function(r) {
-                console.log(r);
-            });
+        $scope.load = function(page) {
+            gamedata
+                .getPage('items', page)
+                .then(function(data) {
+                    $scope.r = data;
+                });
+        };
+
+        $scope.load(0);
     }
 ]);

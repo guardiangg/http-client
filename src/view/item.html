@@ -1,0 +1,27 @@
+<pagination data="r" name="'Items'|translate" callback="load" ng-if="r"></pagination>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <body>
+        <tr ng-repeat="entity in r.data">
+            <td>
+                <img ng-src="//bungie.net{{entity.icon}}">
+                <a ui-sref="app.itemDetailName({hash: entity.hash, name: entity.name})">
+                    <strong>{{ entity.name }}</strong>
+                </a><br/>
+                <small>{{ entity.typeName }}</small>
+            </td>
+            <td>
+                {{ entity.description }}
+            </td>
+        </tr>
+        </body>
+    </table>
+</div>
+
+<pagination data="data" name="'Items'|translate" callback="load" ng-if="data"></pagination>

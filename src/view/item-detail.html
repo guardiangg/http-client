@@ -1,0 +1,11 @@
+<div class="page-header">
+    <h1>{{entity.name}} <small>{{entity.typeName}}</small></h1>
+</div>
+<p>{{entity.description}}</p>
+
+<h2>Talents</h2>
+<div ng-repeat="talent in entity.talents">
+    <img ng-src="//bungie.net{{ talent.icon }}" style="background-color: #000">
+    <div>{{talent.name}}</div>
+    <small>{{talent.description}}</small>
+</div>

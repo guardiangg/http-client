@@ -42,6 +42,16 @@ app.config([
                 controller: 'itemCtrl',
                 templateUrl: 'item.html'
             })
+            .state('app.itemDetail', {
+                url: '/items/{hash:[0-9]+}',
+                controller: 'itemDetailCtrl',
+                templateUrl: 'item-detail.html'
+            })
+            .state('app.itemDetailName', {
+                url: '/items/{hash:[0-9]+}/{name}',
+                controller: 'itemDetailCtrl',
+                templateUrl: 'item-detail.html'
+            })
             .state('app.profile', {
                 url: '/profile/{platform}/{name}',
                 controller: 'profileCtrl',

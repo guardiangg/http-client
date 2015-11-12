@@ -2,6 +2,25 @@
     var Gamedata = function($q, $http, gettextCatalog, util) {
         var PAGE_SIZE = 100;
 
+        this.get = function(type, hash) {
+            return $q(function(resolve, reject) {
+                $http
+                    .get(
+                        util.buildApiUrl(
+                            'gamedata/{type}/{hash}?lc={lc}',
+                            {
+                                type: type,
+                                hash: hash,
+                                lc: gettextCatalog.getCurrentLanguage()
+                            }
+                        )
+                    )
+                    .then(function(r) {
+                        resolve(r.data);
+                    }, reject)
+            });
+        };
+
         this.getPage = function(type, page) {
             return $q(function(resolve, reject) {
                 $http
