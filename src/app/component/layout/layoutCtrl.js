@@ -25,11 +25,8 @@ app.controller('layoutCtrl', [
         };
 
         $scope.hreflangs = {};
-        _.each($scope.languages, function(lang, key) {
-            if (key == gettextCatalog.getCurrentLanguage()) {
-                return;
-            }
 
+        _.each($scope.languages, function(lang, key) {
             $scope.hreflangs[key] = $location
                 .absUrl()
                 .replace('/' + gettextCatalog.getCurrentLanguage() + '/', '/' + key + '/');

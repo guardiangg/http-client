@@ -78,6 +78,10 @@ app
                 $log.debug('no url locale set, redirecting to: ' + locale);
                 $state.go('app.home', { locale: locale });
             }
+
+            if ($localStorage.locale) {
+                gettextCatalog.setCurrentLanguage($localStorage.locale);
+            }
         }
     ]);
 
