@@ -79,7 +79,7 @@ app
                 $state.go('app.home', { locale: locale });
             }
 
-            if ($localStorage.locale) {
+            if ($localStorage.locale && $localStorage.locale.length > 0) {
                 gettextCatalog.setCurrentLanguage($localStorage.locale);
             }
         }
