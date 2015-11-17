@@ -3,9 +3,9 @@ var app = angular.module('app');
 app.config([
     '$locationProvider',
     '$stateProvider',
-    'gettext',
+    '$urlRouterProvider',
 
-    function ($locationProvider, $stateProvider, gettext) {
+    function ($locationProvider, $stateProvider, $urlRouterProvider) {
         $locationProvider.html5Mode({
             enabled: true,
             requireBase: false
@@ -15,7 +15,16 @@ app.config([
         $stateProvider
             .state('app', {
                 abstract: true,
-                url: '{locale:en|fr|es|de|it|ja|pt-br}/',
+                url: '/{locale}/',
+                params: {
+                    locale: [
+                        'gettextCatalog',
+
+                        function(gettextCatalog) {
+                            return gettextCatalog.getCurrentLanguage();
+                        }
+                    ]
+                },
 
                 // abstract states still require a template for children to populate
                 template: '<ui-view/>'
@@ -27,7 +36,6 @@ app.config([
             })
             .state('app.faq', {
                 url: 'faq',
-                title: gettext('Frequently Asked Questions'),
                 templateUrl: 'faq.html'
             })
             .state('app.search', {
