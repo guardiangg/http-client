@@ -65,6 +65,16 @@
     <div class="clear"></div>
 </div>
 
+<div ng-if="loading.inventory" class="loading">
+    <i class="fa fa-cog fa-spin"></i> <translate>Loading Items...</translate>
+</div>
+
+<div class="loadout" ng-if="!loading.inventory">
+    <profile-items slots="subclass" items="items" definitions="definitions"></profile-items>
+    <profile-items slots="primary,special,heavy" items="items" definitions="definitions"></profile-items>
+    <profile-items slots="head,arm,chest,leg" is-exotic="true" items="items" definitions="definitions"></profile-items>
+</div>
+
 <div class="ad-placement profile-left">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- GGG-Profile-Left -->
@@ -76,14 +86,4 @@
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
-</div>
-
-<div ng-if="loading.inventory" class="loading">
-    <i class="fa fa-cog fa-spin"></i> <translate>Loading Items...</translate>
-</div>
-
-<div class="loadout" ng-if="!loading.inventory">
-    <profile-items slots="subclass" items="items" definitions="definitions"></profile-items>
-    <profile-items slots="primary,special,heavy" items="items" definitions="definitions"></profile-items>
-    <profile-items slots="head,arm,chest,leg" is-exotic="true" items="items" definitions="definitions"></profile-items>
 </div>
