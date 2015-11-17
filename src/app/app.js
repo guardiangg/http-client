@@ -70,18 +70,22 @@ app
                 gettextCatalog.setCurrentLanguage(toParams.locale);
                 $localStorage.locale = toParams.locale;
                 moment.locale(toParams.locale);
+
+                console.log(gettextCatalog.getCurrentLanguage());
             });
 
-            if (!$location.path().match(/^\/\w{2}\//)) {
-                var locale = $localStorage.locale ? $localStorage.locale : 'en';
+            var locale = $localStorage.locale ? $localStorage.locale : 'en';
 
+            if (!$location.path().match(/^\/\w{2}\//)) {
                 $log.debug('no url locale set, redirecting to: ' + locale);
                 $state.go('app.home', { locale: locale });
             }
 
-            if ($localStorage.locale && $localStorage.locale.length > 0) {
-                gettextCatalog.setCurrentLanguage($localStorage.locale);
+            if (locale && locale.length > 0) {
+                gettextCatalog.setCurrentLanguage(locale);
             }
+
+            console.log(gettextCatalog.getCurrentLanguage());
         }
     ]);
 
