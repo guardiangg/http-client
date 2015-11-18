@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="alternate" hreflang="{{ lang }}" ng-href="{{ url }}" ng-repeat="(lang, url) in hreflangs"/>
+    <link rel="alternate" hreflang="{{ lang }}" ng-href="{{ url }}" ng-repeat="(lang, url) in hreflangs()"/>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Coustard' rel='stylesheet' type='text/css'>
@@ -67,7 +67,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="ggg-nav">
                 <ul class="nav navbar-nav">
-                    <li><a ui-sref="app.home" translate>Home</a></li>
+                    <li><a ui-sref="app.home()" translate>Home</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <translate>Leaderboards</translate> <span class="caret"></span>
@@ -192,6 +192,11 @@
                             <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit">
                             <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                         </form>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/guardiandotgg" class="twitter-follow-button" data-show-count="false">
+                            <i class="fa fa-twitter"></i>&nbsp;<translate class="hidden-sm">Follow</translate>
+                        </a>
                     </li>
                     <li>
                         <a href="https://github.com/guardiangg/http-client">
