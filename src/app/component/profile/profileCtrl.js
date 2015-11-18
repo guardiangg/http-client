@@ -160,8 +160,13 @@ app.controller('profileCtrl', [
                     });
 
                     result.data.sort(function(a, b) {
+                        if (b.rank == -2 && a.rank == -1) {
+                            return 1;
+                        }
                         return b.elo - a.elo;
                     });
+
+                    console.log(result.data);
 
                     $scope.elos = result.data;
                     $scope.loading.elo = false;

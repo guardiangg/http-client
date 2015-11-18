@@ -5,10 +5,13 @@
 <div class="elo">
     <div class="ratings row" ng-if="elos.length > 0 && !loading.elo">
         <div ng-repeat="e in ::elos" class="col-xs-2 rating" ng-style="{ 'background-color': e.league.colors.background }" ng-if="$index < 6">
-            <i class="ggg {{modeIcons[e.mode]}}"></i> {{ e.elo }}
+            <i class="ggg {{modeIcons[e.mode]}}"></i>
+            <span ng-if="e.rank != -1">{{ e.elo }}</span>
+            <span ng-if="e.rank == -1">N/A</span>
             <div class="hidden-xs">{{modes[e.mode]}}</div>
             <div class="rank" ng-if="e.rank == -1" translate>Placing</div>
-            <div class="rank" ng-if="e.rank > -1">#{{e.rank+1|number}}</div>
+            <div class="rank" ng-if="e.rank == -2" translate>Inactive</div>
+            <div class="rank" ng-if="e.rank > 0">#{{e.rank|number}}</div>
             <div class="league" ng-style="{ 'background-color': e.league.colors.line }">{{e.league.label}}</div>
         </div>
     </div>

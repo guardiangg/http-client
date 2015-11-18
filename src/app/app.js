@@ -56,9 +56,7 @@ app
             if (!match) {
                 $log.debug('no url locale set, redirecting to: ' + locale);
                 $state.go('app.home', { locale: locale });
-            }
-
-            if (locale !== match[1]) {
+            } else if (locale !== match[1]) {
                 $log.debug('selected locale does not match url, updating url to match...');
                 $state.go($state.current.name ? $state.current.name : 'app.home', { locale: locale });
             }
