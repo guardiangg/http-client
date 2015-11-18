@@ -4,15 +4,19 @@ app.controller('leaderboardCtrl', [
     '$rootScope',
     '$scope',
     '$location',
+    '$state',
     '$q',
     '$interval',
     '$stateParams',
+    'gettextCatalog',
     'smoothScroll',
     'leaderboardApi',
     'api',
     'consts',
 
-    function ($rootScope, $scope, $location, $q, $interval, $stateParams, smoothScroll, leaderboardApi, api, consts) {
+    function ($rootScope, $scope, $location, $state, $q, $interval, $stateParams, gettextCatalog, smoothScroll, leaderboardApi, api, consts) {
+        var locale = gettextCatalog.getCurrentLanguage();
+
         $scope.page = 0;
         $scope.mode = $stateParams.mode ? Number($stateParams.mode) : 10;
         $scope.platform = $stateParams.platform ? Number($stateParams.platform) : 2;
@@ -31,7 +35,16 @@ app.controller('leaderboardCtrl', [
             }
 
             if (update !== false) {
-                $location.url('/leaderboard/' + platform + '/' + mode);
+                var href = $state.href(
+                    'app.leaderboard-platform-mode',
+                    {
+                        platform: platform,
+                        mode: mode,
+                        locale: locale
+                    }
+                );
+
+                $location.url(href);
             }
 
             return $q(function(resolve) {
@@ -56,10 +69,6 @@ app.controller('leaderboardCtrl', [
                         resolve();
                     });
             });
-        };
-
-        $scope.profile = function(membershipId) {
-            $location.url('/profile/' + $scope.platform + '/' + membershipId);
         };
 
         $scope.search = function(name) {
@@ -97,8 +106,18 @@ app.controller('leaderboardCtrl', [
                                 });
                                 $interval.cancel(stop);
 
+                                var href = $state.href(
+                                    'app.leaderboard-platform-mode-name',
+                                    {
+                                        locale: locale,
+                                        platform: $scope.platform,
+                                        mode: $scope.mode,
+                                        name: name
+                                    }
+                                );
+
                                 // update url for hotlinking
-                                $location.url(['/leaderboard', $scope.platform, $scope.mode, name].join('/'));
+                                $location.url(href);
                             }, 10);
                         });
                 });
