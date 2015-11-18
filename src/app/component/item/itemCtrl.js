@@ -2,9 +2,12 @@ var app = angular.module('app');
 
 app.controller('itemCtrl', [
     '$scope',
+    '$location',
     'gamedata',
 
-    function ($scope, gamedata) {
+    function ($scope, $location, gamedata) {
+        $scope.filters = {};
+
         $scope.load = function(page) {
             gamedata
                 .getPage('items', page)
@@ -14,5 +17,9 @@ app.controller('itemCtrl', [
         };
 
         $scope.load(0);
+
+        $scope.$watch('filters', function(value) {
+            $location.search(value);
+        });
     }
 ]);

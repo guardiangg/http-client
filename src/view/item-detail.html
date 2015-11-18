@@ -1,11 +1,29 @@
-<div class="page-header">
-    <h1>{{entity.name}} <small>{{entity.typeName}}</small></h1>
-</div>
-<p>{{entity.description}}</p>
+<section class="item-details">
+    <div class="header">
+        <h1>{{ entity.name }}</h1>
+        <img ng-src="//bungie.net{{ entity.icon }}">
+        <div class="tier">{{ entity.tierTypeName }}</div>
+        <p>{{ entity.description }}</p>
+    </div>
 
-<h2>Talents</h2>
-<div ng-repeat="talent in entity.talents">
-    <img ng-src="//bungie.net{{ talent.icon }}" style="background-color: #000">
-    <div>{{talent.name}}</div>
-    <small>{{talent.description}}</small>
-</div>
+    <h2>Sources</h2>
+    <div ng-repeat="source in entity.rewardSources">
+        <img ng-src="//bungie.net{{ source.icon }}" style="background-color: #000">
+        <div>{{source.name}}</div>
+        <small>{{source.description}}</small>
+    </div>
+
+    <h2>Stats</h2>
+    <div ng-repeat="stat in entity.stats">
+        <img ng-src="//bungie.net{{ stat.icon }}" style="background-color: #000">
+        <div>{{stat.name}}</div>
+        <small>{{stat.description}}</small>
+    </div>
+
+    <h2>Perks</h2>
+    <div ng-repeat="perk in entity.perks">
+        <img ng-src="//bungie.net{{ perk.icon }}" style="background-color: #000">
+        <div>{{perk.name}}</div>
+        <small>{{perk.description}}</small>
+    </div>
+</section>

@@ -54,12 +54,12 @@ app.config([
                 templateUrl: 'item.html'
             })
             .state('app.itemDetail', {
-                url: '/items/{hash:[0-9]+}',
+                url: 'items/{hash:[0-9]+}',
                 controller: 'itemDetailCtrl',
                 templateUrl: 'item-detail.html'
             })
             .state('app.itemDetailName', {
-                url: '/items/{hash:[0-9]+}/{name}',
+                url: 'items/{hash:[0-9]+}/{name}',
                 controller: 'itemDetailCtrl',
                 templateUrl: 'item-detail.html'
             })
