@@ -159,11 +159,31 @@ app.controller('profileCtrl', [
                         elo.league = consts.ratingToLeague(elo.elo);
                     });
 
+                    // inactive -2
+                    // placing  -1
                     result.data.sort(function(a, b) {
-                        if (b.rank == -2 && a.rank == -1) {
+                        if (b.rank == a.rank) {
+                            return 0;
+                        }
+                        if (a.rank == -1) {
                             return 1;
                         }
-                        return b.elo - a.elo;
+                        if (b.rank == -1) {
+                            return -1;
+                        }
+                        if (a.rank == -2) {
+                            if (b.rank == -1) {
+                                return -1;
+                            }
+                            return 1;
+                        }
+                        if (b.rank == -2) {
+                            if (a.rank == -1) {
+                                return 1;
+                            }
+                            return -1;
+                        }
+                        return a.rank - b.rank;
                     });
 
                     $scope.elos = result.data;
