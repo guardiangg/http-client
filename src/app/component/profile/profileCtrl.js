@@ -166,8 +166,6 @@ app.controller('profileCtrl', [
                         return b.elo - a.elo;
                     });
 
-                    console.log(result.data);
-
                     $scope.elos = result.data;
                     $scope.loading.elo = false;
                 });
