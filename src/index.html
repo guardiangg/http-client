@@ -208,18 +208,18 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-    <div ui-view ng-if="!apiError"></div>
-    <div class="error" ng-if="apiError">
+    <div class="error" ng-show="apiError" ng-cloak>
         <h3 translate>Bungie API Error</h3>
         <p translate>
-            Oh dang, it looks like the Bungie API is acting up. We're not able to show you this page until the issue
-            gets resolved. Grab yourself a nice tall glass of iced tea and come back to refresh the page. It might work
-            itself out, or it might not...
+            This page relies on one or more Bungie APIs to properly display. We weren't able to retrieve some data, so
+            as a result one or more areas of this page are temporarily disabled. Try again in a few minutes.
         </p>
         <p translate>
-            This error most often occurs if Bungie's doing maintenance in Destiny.
+            <em>Internal error code: {{apiError}}</em>
         </p>
     </div>
+    <div ui-view></div>
+
 </div>
 
 <!-- vendor:js -->

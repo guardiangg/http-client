@@ -20,7 +20,7 @@
 
 <div class="clear"></div>
 
-<div class="stats" ng-if="!loading.character">
+<div class="stats" ng-show="!loading.character">
     <div class="base col-xs-3">
         <div class="stat-bar">
             <div class="fill" ng-style="{ width: ((character.characterBase.stats.STAT_ARMOR.value / 10) * 100) + '%' }"></div>

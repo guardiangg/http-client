@@ -71,11 +71,14 @@
 </div>
 -->
 
-<div class="loading" ng-if="loading.activityHistory">
+<div class="empty" ng-show="maintenance.activityHistory">
+    <i class="fa fa-warning"></i> <translate>The match history is unavailable due to an API error</translate>
+</div>
+<div class="loading" ng-show="loading.activityHistory">
     <i class="fa fa-cog fa-spin"></i> <translate>Loading Game History...</translate>
 </div>
 <div class="table-responsive">
-    <table class="table table-striped history noselect" ng-if="activities && !loading.activityHistory">
+    <table class="table table-striped history noselect" ng-show="activities && !loading.activityHistory">
         <tr>
             <th style="width:15%">Played</th>
             <th style="width:20%" class="hidden-xs" translate>Map</th>
