@@ -70,7 +70,7 @@ msgid "Average Team Elo"
 msgstr ""
 
 #: index.html:166
-#: shared\service\consts.js:169
+#: shared\service\consts.js:170
 msgid "Bladedancer"
 msgstr ""
 
@@ -98,7 +98,7 @@ msgstr ""
 #: index.html:138
 #: index.html:94
 #: profile\_activity-history.html:42
-#: shared\service\consts.js:99
+#: shared\service\consts.js:100
 #: subclass.html:83
 msgid "Clash"
 msgstr ""
@@ -127,7 +127,7 @@ msgid "Data is updating..."
 msgstr ""
 
 #: index.html:170
-#: shared\service\consts.js:134
+#: shared\service\consts.js:135
 msgid "Defender"
 msgstr ""
 
@@ -153,7 +153,7 @@ msgstr ""
 #: index.html:109
 #: index.html:153
 #: profile\_activity-history.html:51
-#: shared\service\consts.js:102
+#: shared\service\consts.js:103
 #: subclass.html:92
 msgid "Elimination"
 msgstr ""
@@ -223,7 +223,7 @@ msgid "Guardian.gg: Advanced Destiny Stats, Profiles and Leaderboards"
 msgstr ""
 
 #: index.html:167
-#: shared\service\consts.js:159
+#: shared\service\consts.js:160
 msgid "Gunslinger"
 msgstr ""
 
@@ -247,7 +247,7 @@ msgstr ""
 msgid "How do I get in touch if I have a question/suggestion?"
 msgstr ""
 
-#: shared\service\consts.js:123
+#: shared\service\consts.js:124
 #: subclass.html:15
 msgid "Hunter"
 msgstr ""
@@ -271,7 +271,7 @@ msgstr ""
 #: index.html:123
 #: index.html:79
 #: profile\_activity-history.html:33
-#: shared\service\consts.js:103
+#: shared\service\consts.js:104
 #: subclass.html:77
 msgid "Iron Banner"
 msgstr ""
@@ -385,7 +385,7 @@ msgid "Next"
 msgstr ""
 
 #: index.html:168
-#: shared\service\consts.js:164
+#: shared\service\consts.js:165
 msgid "Nightstalker"
 msgstr ""
 
@@ -469,7 +469,7 @@ msgstr ""
 #: index.html:104
 #: index.html:148
 #: profile\_activity-history.html:45
-#: shared\service\consts.js:100
+#: shared\service\consts.js:101
 #: subclass.html:86
 msgid "Rift"
 msgstr ""
@@ -477,9 +477,13 @@ msgstr ""
 #: index.html:143
 #: index.html:99
 #: profile\_activity-history.html:48
-#: shared\service\consts.js:101
+#: shared\service\consts.js:102
 #: subclass.html:89
 msgid "Rumble"
+msgstr ""
+
+#: shared\service\consts.js:99
+msgid "Salvage"
 msgstr ""
 
 #: profile\_activity-history.html:85
@@ -537,12 +541,12 @@ msgid "Start day"
 msgstr ""
 
 #: index.html:174
-#: shared\service\consts.js:154
+#: shared\service\consts.js:155
 msgid "Stormcaller"
 msgstr ""
 
 #: index.html:171
-#: shared\service\consts.js:139
+#: shared\service\consts.js:140
 msgid "Striker"
 msgstr ""
 
@@ -555,12 +559,12 @@ msgid "Subclasses"
 msgstr ""
 
 #: index.html:172
-#: shared\service\consts.js:129
+#: shared\service\consts.js:130
 msgid "Sunbreaker"
 msgstr ""
 
 #: index.html:175
-#: shared\service\consts.js:144
+#: shared\service\consts.js:145
 msgid "Sunsinger"
 msgstr ""
 
@@ -607,7 +611,7 @@ msgstr ""
 msgid "This profile temporarily cannot be displayed. Too much data is missing by consequence of the current API issues."
 msgstr ""
 
-#: shared\service\consts.js:124
+#: shared\service\consts.js:125
 #: subclass.html:31
 msgid "Titan"
 msgstr ""
@@ -627,7 +631,7 @@ msgstr ""
 #: index.html:128
 #: index.html:84
 #: profile\_activity-history.html:36
-#: shared\service\consts.js:104
+#: shared\service\consts.js:105
 #: subclass.html:80
 msgid "Trials of Osiris"
 msgstr ""
@@ -643,11 +647,11 @@ msgid "Use%"
 msgstr ""
 
 #: index.html:176
-#: shared\service\consts.js:149
+#: shared\service\consts.js:150
 msgid "Voidwalker"
 msgstr ""
 
-#: shared\service\consts.js:122
+#: shared\service\consts.js:123
 #: subclass.html:47
 msgid "Warlock"
 msgstr ""
