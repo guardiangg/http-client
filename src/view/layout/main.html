@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="logo col-sm-7">
+        <a ui-sref="app.home"><img src="/asset/image/logo.png" /></a>
+        <translate>Advanced Destiny Stats</translate>
+    </div>
+
+    <div class="col-sm-5">
+        <div class="language pull-right">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-globe"></i>&nbsp;{{ languages[currentLanguage()] }} <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li ng-repeat="(short, long) in ::languages" ng-if="short != currentLanguage()">
+                    <a href="javascript:" ng-click="changeLanguage(short)">{{ long }}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+        <form ng-submit="searchForPlayer(name)" class="search">
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="name" placeholder="{{ placeholder }}">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default fa fa-search" type="submit"></button>
+                    </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<nav class="navbar navbar-default" ng-include="'layout/nav.html'"></nav>
+
+<div class="error" ng-show="apiError" ng-cloak>
+    <h3 translate>Bungie API Error</h3>
+    <p translate>
+        This page relies on one or more Bungie APIs to properly display. We weren't able to retrieve some data, so
+        as a result one or more areas of this page are temporarily disabled. Try again in a few minutes.
+    </p>
+    <p translate>
+        <em>Internal error code: {{apiError}}</em>
+    </p>
+</div>
+<div ui-view></div>
