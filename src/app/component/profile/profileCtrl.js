@@ -28,6 +28,13 @@ app.controller('profileCtrl', [
             character: true,
             inventory: true
         };
+        $scope.maintenance = {
+            activityHistory: false,
+            fireteam: false,
+            name: false,
+            character: false,
+            inventory: false
+        };
 
         var load = function(platform, membershipId) {
             $scope.setMode = function(mode, force) {
@@ -40,7 +47,10 @@ app.controller('profileCtrl', [
                 $scope.mode = mode;
 
                 $scope.loading.activityHistory = true;
+                $scope.maintenance.activityHistory = false;
                 $scope.loading.fireteam = true;
+                $scope.maintenance.fireteam = false;
+
                 bungie
                     .getActivityHistory(
                         platform,
@@ -62,6 +72,9 @@ app.controller('profileCtrl', [
 
                         $scope.loading.activityHistory = false;
                         //return api.getFireteam(mode, membershipId);
+                    }, function(err) {
+                        $scope.loading.activityHistory = false;
+                        $scope.maintenance.activityHistory = true;
                     });
                     //.then(function(result) {
                     //    $scope.fireteam = result.data;
@@ -71,6 +84,7 @@ app.controller('profileCtrl', [
 
             $scope.loadInventory = function() {
                 $scope.loading.inventory = true;
+                $scope.maintenance.inventory = false;
 
                 bungie
                     .getInventory(
@@ -84,6 +98,9 @@ app.controller('profileCtrl', [
                         //audit.setLoadout($scope.items);
                         //audit.setDefinitions($scope.definitions);
                         $scope.loading.inventory = false;
+                    }, function(err) {
+                        $scope.loading.inventory = false;
+                        $scope.maintenance.inventory = true;
                     });
             };
 
@@ -159,8 +176,31 @@ app.controller('profileCtrl', [
                         elo.league = consts.ratingToLeague(elo.elo);
                     });
 
+                    // inactive -2
+                    // placing  -1
                     result.data.sort(function(a, b) {
-                        return b.elo - a.elo;
+                        if (b.rank == a.rank) {
+                            return 0;
+                        }
+                        if (a.rank == -1) {
+                            return 1;
+                        }
+                        if (b.rank == -1) {
+                            return -1;
+                        }
+                        if (a.rank == -2) {
+                            if (b.rank == -1) {
+                                return -1;
+                            }
+                            return 1;
+                        }
+                        if (b.rank == -2) {
+                            if (a.rank == -1) {
+                                return 1;
+                            }
+                            return -1;
+                        }
+                        return a.rank - b.rank;
                     });
 
                     $scope.elos = result.data;
@@ -188,10 +228,12 @@ app.controller('profileCtrl', [
                 });
 
             $scope.loading.character = true;
+            $scope.maintenance.character = false;
+
             bungie
                 .getAccount(platform, membershipId)
-                .success(function(result) {
-                    $scope.characters = result.Response.data.characters;
+                .then(function(response) {
+                    $scope.characters = response.data.Response.data.characters;
 
                     var idx = 0;
                     var maxLastPlayed = 0;
@@ -206,21 +248,27 @@ app.controller('profileCtrl', [
 
                     $scope.loading.character = false;
                     $scope.changeCharacter(idx);
+                }, function(err) {
+                    $scope.loading.character = false;
+                    $scope.maintenance.character = true;
                 });
         };
 
         bungie
             .searchForPlayer($stateParams.platform, $stateParams.name)
-            .success(function(result) {
-                if (result.Response.length == 0) {
+            .then(function(response) {
+                if (response.data.Response.length == 0) {
                     $location.url('/');
                     return;
                 }
 
-                $scope.name = result.Response[0].displayName;
+                $scope.name = response.data.Response[0].displayName;
                 $rootScope.title = $scope.name + ' - Destiny PvP Profile - Guardian.gg';
                 $scope.loading.name = false;
-                load(result.Response[0].membershipType, result.Response[0].membershipId);
+                load(response.data.Response[0].membershipType, response.data.Response[0].membershipId);
+            }, function(err) {
+                $scope.loading.name = false;
+                $scope.maintenance.name = true;
             });
 
         $scope.$on('$destroy', function() {

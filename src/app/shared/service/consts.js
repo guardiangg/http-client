@@ -96,6 +96,7 @@ app.service('consts', [
             modes: {
                 9: gettextCatalog.getString('Skirmish'),
                 10: gettextCatalog.getString('Control'),
+                11: gettextCatalog.getString('Salvage'),
                 12: gettextCatalog.getString('Clash'),
                 24: gettextCatalog.getString('Rift'),
                 13: gettextCatalog.getString('Rumble'),

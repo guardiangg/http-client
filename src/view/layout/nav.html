@@ -1,0 +1,164 @@
+
+<div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#ggg-nav">
+            <span class="sr-only" translate>Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="ggg-nav">
+        <ul class="nav navbar-nav">
+            <li><a ui-sref="app.home()" translate>Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <translate>Leaderboards</translate> <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-header"><i class="ggg ggg-platform-ps"></i>&nbsp;<translate>PlayStation</translate></li>
+                    <li>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 2, mode: 19})">
+                            <i class="ggg ggg-iron-banner"></i>&nbsp;<translate>Iron Banner</translate>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 2, mode: 14})">
+                            <i class="ggg ggg-osiris"></i>&nbsp;<translate>Trials of Osiris</translate>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 2, mode: 10})">
+                            <i class="ggg ggg-control"></i>&nbsp;<translate>Control</translate>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 2, mode: 12})">
+                            <i class="ggg ggg-clash"></i>&nbsp;<translate>Clash</translate>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 2, mode: 13})">
+                            <i class="ggg ggg-rumble"></i>&nbsp;<translate>Rumble</translate>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 2, mode: 24})">
+                            <i class="ggg ggg-rift"></i>&nbsp;<translate>Rift</translate>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 2, mode: 23})">
+                            <i class="ggg ggg-elimination"></i>&nbsp;<translate>Elimination</translate>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 2, mode: 9})">
+                            <i class="ggg ggg-skirmish"></i>&nbsp;<translate>Skirmish</translate>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 2, mode: 11})">
+                            <i class="ggg ggg-salvage"></i>&nbsp;<translate>Salvage</translate>
+                        </a>
+                    </li>
+
+                    <li class="divider"></li>
+
+                    <li class="dropdown-header"><i class="ggg ggg-platform-xbox"></i>&nbsp;<translate>Xbox</translate></li>
+                    <li>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 1, mode: 19})">
+                            <i class="ggg ggg-iron-banner"></i>&nbsp;<translate>Iron Banner</translate>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 1, mode: 14})">
+                            <i class="ggg ggg-osiris"></i>&nbsp;<translate>Trials of Osiris</translate>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 1, mode: 10})">
+                            <i class="ggg ggg-control"></i>&nbsp;<translate>Control</translate>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 1, mode: 12})">
+                            <i class="ggg ggg-clash"></i>&nbsp;<translate>Clash</translate>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 1, mode: 13})">
+                            <i class="ggg ggg-rumble"></i>&nbsp;<translate>Rumble</translate>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 1, mode: 24})">
+                            <i class="ggg ggg-rift"></i>&nbsp;<translate>Rift</translate>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 1, mode: 23})">
+                            <i class="ggg ggg-elimination"></i>&nbsp;<translate>Elimination</translate>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 1, mode: 9})">
+                            <i class="ggg ggg-skirmish"></i>&nbsp;<translate>Skirmish</translate>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 1, mode: 11})">
+                            <i class="ggg ggg-salvage"></i>&nbsp;<translate>Salvage</translate>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><translate>Subclasses</translate> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a ui-sref="app.subclass({subclass: 'bladedancer'})"><translate>Bladedancer</translate></a></li>
+                    <li><a ui-sref="app.subclass({subclass: 'gunslinger'})"><translate>Gunslinger</translate></a></li>
+                    <li><a ui-sref="app.subclass({subclass: 'nightstalker'})"><translate>Nightstalker</translate></a></li>
+                    <li class="divider"></li>
+                    <li><a ui-sref="app.subclass({subclass: 'defender'})"><translate>Defender</translate></a></li>
+                    <li><a ui-sref="app.subclass({subclass: 'striker'})"><translate>Striker</translate></a></li>
+                    <li><a ui-sref="app.subclass({subclass: 'sunbreaker'})"><translate>Sunbreaker</translate></a></li>
+                    <li class="divider"></li>
+                    <li><a ui-sref="app.subclass({subclass: 'stormcaller'})"><translate>Stormcaller</translate></a></li>
+                    <li><a ui-sref="app.subclass({subclass: 'sunsinger'})"><translate>Sunsinger</translate></a></li>
+                    <li><a ui-sref="app.subclass({subclass: 'voidwalker'})"><translate>Voidwalker</translate></a></li>
+                </ul>
+            </li>
+            <!--<li><a ui-sref="app.items" translate>Items</a></li>-->
+            <li><a ui-sref="app.weapon-stats" translate>Weapon Stats</a></li>
+            <li><a ui-sref="app.faq" translate="">FAQ</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="divider"></li>
+            <li>
+                <a href="javascript:" onclick="document.getElementById('paypal').submit()">
+                    <i class="fa fa-paypal"></i>&nbsp;<translate class="hidden-sm">Donate</translate>
+                </a>
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display: none" id="paypal">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="L5SUDPCS8DNSN">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+            </li>
+            <li>
+                <a href="https://twitter.com/guardiandotgg" class="twitter-follow-button" data-show-count="false">
+                    <i class="fa fa-twitter"></i>&nbsp;<translate class="hidden-sm">Follow</translate>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/guardiangg/http-client">
+                    <i class="fa fa-github"></i>&nbsp;<translate class="hidden-sm">GitHub</translate>
+                </a>
+            </li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->

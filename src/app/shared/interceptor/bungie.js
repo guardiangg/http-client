@@ -9,7 +9,8 @@ app.factory('bungieInterceptor', [
             response: function (response) {
                 if (response.config.url.indexOf('proxy.guardian.gg') > -1) {
                     if (response.data.ErrorCode && response.data.ErrorCode != 1) {
-                        $rootScope.apiError = true;
+                        $rootScope.apiError = '[' + response.data.ErrorCode + '] ' + response.data.ErrorStatus;
+                        return $q.reject(response);
                     }
                 }
 
@@ -18,7 +19,7 @@ app.factory('bungieInterceptor', [
 
             responseError: function (rejection) {
                 if (rejection.config.url.indexOf('proxy.guardian.gg') > -1) {
-                    $rootScope.apiError = true;
+                    $rootScope.apiError = 'UnknownProxyError';
                 }
 
                 return $q.reject(rejection);

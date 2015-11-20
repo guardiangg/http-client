@@ -5,10 +5,13 @@
 <div class="elo">
     <div class="ratings row" ng-if="elos.length > 0 && !loading.elo">
         <div ng-repeat="e in ::elos" class="col-xs-2 rating" ng-style="{ 'background-color': e.league.colors.background }" ng-if="$index < 6">
-            <i class="ggg {{modeIcons[e.mode]}}"></i> {{ e.elo }}
+            <i class="ggg {{modeIcons[e.mode]}}"></i>
+            <span ng-if="e.rank != -1">{{ e.elo }}</span>
+            <span ng-if="e.rank == -1">N/A</span>
             <div class="hidden-xs">{{modes[e.mode]}}</div>
             <div class="rank" ng-if="e.rank == -1" translate>Placing</div>
-            <div class="rank" ng-if="e.rank > -1">#{{e.rank+1|number}}</div>
+            <div class="rank" ng-if="e.rank == -2" translate>Inactive</div>
+            <div class="rank" ng-if="e.rank > 0">#{{e.rank|number}}</div>
             <div class="league" ng-style="{ 'background-color': e.league.colors.line }">{{e.league.label}}</div>
         </div>
     </div>
@@ -50,6 +53,9 @@
     <a href="javascript:" ng-click="setMode(9)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 9}">
         <i class="ggg ggg-skirmish"></i> <translate>Skirmish</translate>
     </a>
+    <a href="javascript:" ng-click="setMode(11)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 11}">
+        <i class="ggg ggg-salvage"></i> <translate>Salvage</translate>
+    </a>
 </div>
 
 <!--
@@ -68,11 +74,14 @@
 </div>
 -->
 
-<div class="loading" ng-if="loading.activityHistory">
+<div class="empty" ng-show="maintenance.activityHistory">
+    <i class="fa fa-warning"></i> <translate>The match history is unavailable due to an API error</translate>
+</div>
+<div class="loading" ng-show="loading.activityHistory">
     <i class="fa fa-cog fa-spin"></i> <translate>Loading Game History...</translate>
 </div>
 <div class="table-responsive">
-    <table class="table table-striped history noselect" ng-if="activities && !loading.activityHistory">
+    <table class="table table-striped history noselect" ng-show="activities && !loading.activityHistory">
         <tr>
             <th style="width:15%">Played</th>
             <th style="width:20%" class="hidden-xs" translate>Map</th>

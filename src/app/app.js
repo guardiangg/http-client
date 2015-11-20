@@ -50,8 +50,32 @@ app
         'gettextCatalog',
 
         function($localStorage, $rootScope, $state, $log, $location, gettextCatalog) {
-            // track state changes and update locale accordingly
-            $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+            var locale = $localStorage.locale ? $localStorage.locale : 'en';
+            var match = $location.path().match(/^\/(en|fr|it|es|de|pt-br|ja)\//);
+
+            if (!match) {
+                $log.debug('no url locale set, redirecting to: ' + locale);
+                $state.go('app.home', { locale: locale });
+            } else if (locale !== match[1]) {
+                $log.debug('selected locale does not match url, updating url to match...');
+                $state.go($state.current.name ? $state.current.name : 'app.home', { locale: locale });
+            }
+
+            gettextCatalog.setCurrentLanguage(locale);
+            moment.locale(locale);
+
+            $rootScope.$on('$stateNotFound', function(event, state) {
+                $log.error('state not found');
+                $log.error(state);
+            });
+
+            $rootScope.$on('$stateChangeError', function(event, err) {
+                $log.error(err);
+            });
+
+            $rootScope.$on('$stateChangeStart', function(event, toState) {
+                $rootScope.apiError = false;
+
                 if (toState.title) {
                     $rootScope.title = gettextCatalog.getString(toState.title) + ' - Guardian.gg';
                 } else {
@@ -59,22 +83,7 @@ app
                         'Guardian.gg: Advanced Destiny Stats, Profiles and Leaderboards'
                     );
                 }
-
-                if (fromParams.locale == toParams.locale) {
-                    return;
-                }
-
-                gettextCatalog.setCurrentLanguage(toParams.locale);
-                $localStorage.locale = toParams.locale;
-                moment.locale(toParams.locale);
             });
-
-            if (!$location.path().match(/^\/\w{2}\//)) {
-                var locale = $localStorage.locale ? $localStorage.locale : 'en';
-
-                $log.debug('no url locale set, redirecting to: ' + locale);
-                $state.go('app.home', { locale: locale });
-            }
         }
     ]);
 

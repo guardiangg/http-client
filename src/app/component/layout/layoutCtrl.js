@@ -24,23 +24,26 @@ app.controller('layoutCtrl', [
             ja: '日本語'
         };
 
-        $scope.hreflangs = {};
-        _.each($scope.languages, function(lang, key) {
-            if (key == gettextCatalog.getCurrentLanguage()) {
-                return;
-            }
+        $scope.hreflangs = function() {
+            var uris = {};
 
-            $scope.hreflangs[key] = $location
-                .absUrl()
-                .replace('/' + gettextCatalog.getCurrentLanguage() + '/', '/' + key + '/');
-        });
+            _.each($scope.languages, function(lang, key) {
+                uris[key] = $location
+                    .absUrl()
+                    .replace('/' + gettextCatalog.getCurrentLanguage() + '/', '/' + key + '/');
+            });
+
+            return uris;
+        };
 
         $scope.currentLanguage = function() {
             return gettextCatalog.getCurrentLanguage();
         };
 
         $scope.changeLanguage = function(lang) {
-            $window.location = $scope.hreflangs[lang];
+            $localStorage.locale = lang;
+            $state.go($state.current.name, { locale: lang });
+            $window.location.reload();
         };
 
         $scope.searchForPlayer = function(name) {
