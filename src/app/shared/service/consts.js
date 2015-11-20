@@ -190,6 +190,46 @@ app.service('consts', [
                 'shader': 2973005342,
                 'emblem': 4274335291,
                 'emote': 3054419239
+            },
+            itemType: {
+                none: 0,
+                currency: 1,
+                armor: 2,
+                weapon: 3,
+                bounty: 4,
+                completedBounty: 5,
+                bountyReward: 6,
+                message: 7,
+                engram: 8,
+                consumable: 9,
+                exchangeMaterial: 10,
+                missionReward: 11,
+                questStep: 12,
+                questStepComplete: 13,
+                emblem: 14,
+                quest: 15
+            },
+            itemSubType: {
+                none: 0,
+                crucible: 1,
+                vanguard: 2,
+                ironBanner: 3,
+                queen: 4,
+                exotic: 5,
+                autoRifle: 6,
+                shotgun: 7,
+                machinegun: 8,
+                handCannon: 9,
+                rocketLauncher: 10,
+                fusionRifle: 11,
+                sniperRifle: 12,
+                pulseRifle: 13,
+                scoutRifle: 14,
+                camera: 15,
+                crm: 16,
+                sidearm: 17,
+                sword: 18,
+                mask: 19
             }
         };
     }
