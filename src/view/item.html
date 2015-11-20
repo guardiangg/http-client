@@ -1,10 +1,15 @@
 <pagination data="r" name="'Items'|translate" callback="load" ng-if="r"></pagination>
 
+<div class="filters">
+    Filters available: tier, type, subType, class
+    see https://github.com/guardiangg/http-server/blob/master/model/gamedata_item.go#L60
+</div>
+
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Name</th>
+            <th translate>Name</th>
         </tr>
         </thead>
         <body>
