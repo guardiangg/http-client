@@ -45,6 +45,17 @@ app.service('consts', [
                 });
             },
 
+            languages: {
+                de: 'Deutsch',
+                en: 'English',
+                es: 'Español',
+                fr: 'Français',
+                it: 'Italiano',
+                'pt-br': 'Português (Brasil)',
+                ja: '日本語',
+                pl: 'Polski'
+            },
+
             leagues: {
                 bronze: {
                     label: gettextCatalog.getString('Bronze'),

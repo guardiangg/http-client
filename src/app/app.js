@@ -47,11 +47,13 @@ app
         '$state',
         '$log',
         '$location',
+        'consts',
         'gettextCatalog',
 
-        function($localStorage, $rootScope, $state, $log, $location, gettextCatalog) {
+        function($localStorage, $rootScope, $state, $log, $location, consts, gettextCatalog) {
             var locale = $localStorage.locale ? $localStorage.locale : 'en';
-            var match = $location.path().match(/^\/(en|fr|it|es|de|pt-br|ja)\//);
+            var regex = new RegExp("^\/(" + Object.keys(consts.languages).join('|') + ")\/");
+            var match = $location.path().match(regex);
 
             if (!match) {
                 $log.debug('no url locale set, redirecting to: ' + locale);
