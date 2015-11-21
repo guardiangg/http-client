@@ -20,7 +20,13 @@ app.directive('profileItems', [
 
                     _.each(scope.slots.split(','), function(slot) {
                         var item = _.find(scope.items, function(i) {
-                            return i.bucketHash == consts.buckets[slot];
+                            if (consts.item_types.weapon.types[slot]) {
+                                return i.bucketHash == consts.item_types.weapon.types[slot].bucket;
+
+                            } else if (consts.item_types.armor.types[slot]) {
+                                return i.bucketHash == consts.item_types.armor.types[slot].bucket;
+
+                            }
                         });
 
                         if (!item) {

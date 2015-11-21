@@ -5,6 +5,19 @@ app.service('consts', [
 
     function (gettextCatalog) {
         return {
+            itemSubTypeToId: function(name) {
+                var result;
+
+                _.find(this.item_sub_types, function(type, id) {
+                    if (type.name.toLowerCase().trim() == name.toLowerCase().trim()) {
+                        result = parseInt(id);
+                        return true;
+                    }
+                });
+
+                return result;
+            },
+
             subclassToId: function(name) {
                 var result = null;
 
@@ -171,65 +184,237 @@ app.service('consts', [
                     color: '#3EB9FD'
                 }
             },
-            buckets: {
-                'subclass': 3284755031,
-                'primary': 1498876634,
-                'special': 2465295065,
-                'heavy': 953998645,
-                'head': 3448274439,
-                'arm': 3551918588,
-                'chest': 14239492,
-                'leg': 20886954,
-                'ghost': 4023194814,
-                'class': 1585787867,
-                'artifact': 434908299,
-                'ship': 284967655,
-                'vehicle': 2025709351,
-                'consumable': 1469714392,
-                'material': 3865314626,
-                'shader': 2973005342,
-                'emblem': 4274335291,
-                'emote': 3054419239
+            item_types: {
+                weapon: {
+                    label: 'Weapon',
+                    types: {
+                        primary: {
+                            list_type: 'weapon',
+                            bucket: 1498876634,
+                            label: gettextCatalog.getString('Primary Weapon'),
+                            sub_types: [0, 6, 7, 9, 11, 12, 13, 14]
+                        },
+                        special: {
+                            list_type: 'weapon',
+                            bucket: 2465295065,
+                            label: gettextCatalog.getString('Special Weapon'),
+                            sub_types: [0, 7, 11, 12, 17]
+                        },
+                        heavy: {
+                            list_type: 'weapon',
+                            bucket: 953998645,
+                            label: gettextCatalog.getString('Heavy Weapon'),
+                            sub_types: [0, 11, 8, 10, 18]
+                        }
+                    }
+                },
+                armor: {
+                    label: 'Armor',
+                    types: {
+                        head: {
+                            list_type: 'armor',
+                            bucket: 3448274439,
+                            label: gettextCatalog.getString('Helmets'),
+                            sub_types: [0, 19]
+                        },
+                        arm: {
+                            list_type: 'armor',
+                            bucket: 3551918588,
+                            label: gettextCatalog.getString('Arms'),
+                            sub_types: [0]
+                        },
+                        chest: {
+                            list_type: 'armor',
+                            bucket: 14239492,
+                            label: gettextCatalog.getString('Chest'),
+                            sub_types: [0]
+                        },
+                        leg: {
+                            list_type: 'armor',
+                            bucket: 20886954,
+                            label: gettextCatalog.getString('Legs'),
+                            sub_types: [0]
+                        },
+                        class: {
+                            list_type: 'armor',
+                            bucket: 1585787867,
+                            label: gettextCatalog.getString('Class Items'),
+                            sub_types: [0]
+                        },
+                        ghost: {
+                            list_type: 'armor',
+                            bucket: 4023194814,
+                            label: gettextCatalog.getString('Ghost'),
+                            sub_types: [0]
+                        },
+                        artifact: {
+                            list_type: 'armor',
+                            bucket: 434908299,
+                            label: gettextCatalog.getString('Artifact'),
+                            sub_types: [0]
+                        }
+                    }
+                },
+                other_equippable: {
+                    label: 'Other Equippable',
+                    types: {
+                        subclass: {
+                            list_type: 'standard',
+                            bucket: 3284755031,
+                            label: gettextCatalog.getString('Subclass'),
+                            sub_types: [0]
+                        },
+                        emblem: {
+                            list_type: 'standard',
+                            bucket: 4274335291,
+                            label: gettextCatalog.getString('Emblem'),
+                            sub_types: [0]
+                        },
+                        shader: {
+                            list_type: 'standard',
+                            bucket: 2973005342,
+                            label: gettextCatalog.getString('Shader'),
+                            sub_types: [0]
+                        },
+                        ship: {
+                            list_type: 'standard',
+                            bucket: 284967655,
+                            label: gettextCatalog.getString('Ship'),
+                            sub_types: [0]
+                        },
+                        sparrow: {
+                            list_type: 'vehicle',
+                            bucket: 2025709351,
+                            label: gettextCatalog.getString('Sparrow'),
+                            sub_types: [0]
+                        },
+                        emote: {
+                            list_type: 'standard',
+                            bucket: 3054419239,
+                            label: gettextCatalog.getString('Emote'),
+                            sub_types: [0]
+                        }
+                    }
+                },
+                inventory: {
+                    label: 'Inventory',
+                    types: {
+                        //temporary: {
+                        //    bucket: 2197472680,
+                        //    label: gettextCatalog.getString('Temporary'),
+                        //    sub_types: []
+                        //},
+                        //bounty: {
+                        //    bucket: 2197472680,
+                        //    label: gettextCatalog.getString('Bounty'),
+                        //    sub_types: [1, 2, 3, 4, 5]
+                        //},
+                        //quest: {
+                        //    bucket: 1801258597,
+                        //    label: gettextCatalog.getString('Quest'),
+                        //    sub_types: []
+                        //},
+                        //mission: {
+                        //    bucket: 375726501,
+                        //    label: gettextCatalog.getString('Mission Key Item'),
+                        //    sub_types: []
+                        //},
+                        consumable: {
+                            list_type: 'standard',
+                            bucket: 1469714392,
+                            label: gettextCatalog.getString('Consumable'),
+                            sub_types: [0]
+                        },
+                        material: {
+                            list_type: 'standard',
+                            bucket: 3865314626,
+                            label: gettextCatalog.getString('Material'),
+                            sub_types: [0]
+                        }
+                    }
+                }
             },
-            itemType: {
-                none: 0,
-                currency: 1,
-                armor: 2,
-                weapon: 3,
-                bounty: 4,
-                completedBounty: 5,
-                bountyReward: 6,
-                message: 7,
-                engram: 8,
-                consumable: 9,
-                exchangeMaterial: 10,
-                missionReward: 11,
-                questStep: 12,
-                questStepComplete: 13,
-                emblem: 14,
-                quest: 15
-            },
-            itemSubType: {
-                none: 0,
-                crucible: 1,
-                vanguard: 2,
-                ironBanner: 3,
-                queen: 4,
-                exotic: 5,
-                autoRifle: 6,
-                shotgun: 7,
-                machinegun: 8,
-                handCannon: 9,
-                rocketLauncher: 10,
-                fusionRifle: 11,
-                sniperRifle: 12,
-                pulseRifle: 13,
-                scoutRifle: 14,
-                camera: 15,
-                crm: 16,
-                sidearm: 17,
-                sword: 18,
-                mask: 19
+            item_sub_types: {
+                0: {
+                    name: 'all',
+                    label: gettextCatalog.getString('All')
+                },
+                1: {
+                    name: 'crucible',
+                    label: gettextCatalog.getString('Crucible')
+                },
+                2: {
+                    name: 'vanguard',
+                    label: gettextCatalog.getString('Vanguard')
+                },
+                3: {
+                    name: 'iron-banner',
+                    label: gettextCatalog.getString('Iron Banner')
+                },
+                4: {
+                    name: 'reef',
+                    label: gettextCatalog.getString('Reef')
+                },
+                5: {
+                    name: 'exotic',
+                    label: gettextCatalog.getString('Exotic')
+                },
+                6: {
+                    name: 'auto-rifle',
+                    label: gettextCatalog.getString('Auto Rifle')
+                },
+                7: {
+                    name: 'shotgun',
+                    label: gettextCatalog.getString('Shotgun')
+                },
+                8: {
+                    name: 'machine-gun',
+                    label: gettextCatalog.getString('Machine Gun')
+                },
+                9: {
+                    name: 'hand-cannon',
+                    label: gettextCatalog.getString('Hand Cannon')
+                },
+                10: {
+                    name: 'rocket-launcher',
+                    label: gettextCatalog.getString('Rocket Launcher')
+                },
+                11: {
+                    name: 'fusion-rifle',
+                    label: gettextCatalog.getString('Fusion Rifle')
+                },
+                12: {
+                    name: 'sniper-rifle',
+                    label: gettextCatalog.getString('Sniper Rifle')
+                },
+                13: {
+                    name: 'pulse-rifle',
+                    label: gettextCatalog.getString('Pulse Rifle')
+                },
+                14: {
+                    name: 'scout-rifle',
+                    label: gettextCatalog.getString('Scout Rifle')
+                },
+                15: {
+                    name: 'camera',
+                    label: gettextCatalog.getString('Camera')
+                },
+                16: {
+                    name: 'crm',
+                    label: gettextCatalog.getString('Special Orders')
+                },
+                17: {
+                    name: 'sidearm',
+                    label: gettextCatalog.getString('Sidearm')
+                },
+                18: {
+                    name: 'sword',
+                    label: gettextCatalog.getString('Sword')
+                },
+                19: {
+                    name: 'mask',
+                    label: gettextCatalog.getString('Mask')
+                }
             }
         };
     }

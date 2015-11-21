@@ -21,21 +21,30 @@
             });
         };
 
-        this.getPage = function(type, page) {
+        this.getPage = function(type, page, filters) {
+            var filterStr = '';
+            if (filters) {
+                _.each(filters, function(filter, id) {
+                    filterStr += '&' + encodeURIComponent(id) + '=' + encodeURIComponent(filter);
+                })
+            }
+
             return $q(function(resolve, reject) {
                 $http
                     .get(
                         util.buildApiUrl(
-                            'gamedata/{type}?offset={offset}&lc={lc}',
+                            'gamedata/{type}?offset={offset}&lc={lc}{filters}',
                             {
                                 type: type,
                                 offset: page * PAGE_SIZE,
-                                lc: gettextCatalog.getCurrentLanguage()
+                                lc: gettextCatalog.getCurrentLanguage(),
+                                filters: filterStr
                             }
                         )
                     )
                     .then(function(r) {
                         resolve({
+                            page: parseInt(page),
                             data: r.data.data,
                             pageCount: r.data.pageCount,
                             pageSize: r.data.pageSize,

@@ -2,21 +2,63 @@ var app = angular.module('app');
 
 app.controller('itemCtrl', [
     '$scope',
+    '$state',
     '$location',
+    '$stateParams',
     'gamedata',
+    'consts',
 
-    function ($scope, $location, gamedata) {
+    function ($scope, $state, $location, $stateParams, gamedata, consts) {
         $scope.filters = {};
+        $scope.typeSlug = $stateParams.type;
+        $scope.type;
+        $scope.subTypeSlug = $stateParams.subType;
+        $scope.subType = consts.itemSubTypeToId($scope.subTypeSlug);
+        $scope.page = $stateParams.page;
+
+        _.each(consts.item_types, function(parent) {
+            if (parent.types[$scope.typeSlug]) {
+                $scope.type = parent.types[$scope.typeSlug];
+            }
+        });
+
+        if (!$scope.type || !_.contains($scope.type.sub_types, $scope.subType)) {
+            console.log('no route match, handle error here');
+        }
 
         $scope.load = function(page) {
-            gamedata
-                .getPage('items', page)
-                .then(function(data) {
-                    $scope.r = data;
-                });
+            if (page === $scope.page &&
+                $scope.typeSlug === $stateParams.type &&
+                $scope.subTypeSlug === $stateParams.subType
+            ) {
+                return;
+            }
+
+            var href = $state.href(
+                'app.items',
+                {
+                    page: page,
+                    type: $scope.typeSlug,
+                    subType: $scope.subTypeSlug
+                }
+            );
+
+            $location.url(href);
         };
 
-        $scope.load(0);
+        var filters = {
+            bucket: $scope.type.bucket
+        };
+
+        if ($scope.subType !== 0) {
+            filters.subType = $scope.subType;
+        };
+
+        gamedata
+            .getPage('items', $scope.page, filters)
+            .then(function(data) {
+                $scope.results = data;
+            });
 
         $scope.$watch('filters', function(value) {
             $location.search(value);

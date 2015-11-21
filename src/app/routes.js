@@ -49,7 +49,7 @@ app.config([
                 templateUrl: 'subclass.html'
             })
             .state('app.items', {
-                url: 'items',
+                url: 'items/{type:[a-z-]+}/{subType:[a-z-]+}/{page:[0-9]+}',
                 controller: 'itemCtrl',
                 templateUrl: 'item.html'
             })

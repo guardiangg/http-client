@@ -129,7 +129,7 @@ app.controller('profileCtrl', [
             $scope.getSuperCooldown = function(stat, items) {
                 var tiers = {};
                 var subClass = _.find(items, function(i) {
-                    return i.bucketHash == consts.buckets['subclass'];
+                    return i.bucketHash == consts.item_types.other_equippable.types.subclass.bucket;
                 });
                 if (subClass) {
                     if ([3658182170,2007186000,2455559914,4143670657].indexOf(subClass.items[0].itemHash) > -1 ) {

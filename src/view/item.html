@@ -1,19 +1,25 @@
-<pagination data="r" name="'Items'|translate" callback="load" ng-if="r"></pagination>
-
 <div class="filters">
-    Filters available: tier, type, subType, class
-    see https://github.com/guardiangg/http-server/blob/master/model/gamedata_item.go#L60
+    <pagination data="results" name="'Items'|translate" callback="load" ng-if="results.data.length > 0" class="pull-right"></pagination>
+
+    <!-- add bucket/tier filters here -->
+
+    <input type="text"
+           ng-model="name"
+           ng-model-options="{debounce: 500}"
+           ng-change="search(name)"
+           class="form-control filter-name"
+           placeholder="Item name..."/>
 </div>
 
 <div class="table-responsive">
-    <table class="table table-striped">
+    <table class="table table-striped item-list">
         <thead>
         <tr>
             <th translate>Name</th>
         </tr>
         </thead>
         <body>
-        <tr ng-repeat="entity in r.data">
+        <tr ng-repeat="entity in results.data">
             <td>
                 <img ng-src="//bungie.net{{entity.icon}}">
                 <a ui-sref="app.itemDetailName({hash: entity.hash, name: entity.name})">
@@ -28,5 +34,3 @@
         </body>
     </table>
 </div>
-
-<pagination data="data" name="'Items'|translate" callback="load" ng-if="data"></pagination>

@@ -22,8 +22,8 @@ app.directive('pagination', [
                         }
                     };
 
-                    $scope.page     = 0;
-                    $scope.maxPages = $scope.data.totalItems = $scope.data.pageCount;
+                    $scope.page     = $scope.data.page;
+                    $scope.maxPages = Math.floor($scope.data.totalItems / $scope.data.pageCount);
                 }
             ],
             templateUrl: 'directive/pagination.html'

@@ -157,8 +157,18 @@ app.controller('subclassCtrl', [
 
                     _.each(result.data, function (group) {
                         _.each(group, function (row) {
-                            var weapon = [consts.buckets.special, consts.buckets.primary, consts.buckets.heavy];
-                            var armor = [consts.buckets.head, consts.buckets.arm, consts.buckets.chest, consts.buckets.leg];
+                            var weapon = [
+                                consts.item_types.weapon.types.primary.bucket,
+                                consts.item_types.weapon.types.special.bucket,
+                                consts.item_types.weapon.types.heavy.bucket
+                            ];
+
+                            var armor = [
+                                consts.item_types.armor.types.head.bucket,
+                                consts.item_types.armor.types.arm.bucket,
+                                consts.item_types.armor.types.chest.bucket,
+                                consts.item_types.armor.types.leg.bucket
+                            ];
 
                             var item = {
                                 name: row.itemName,
