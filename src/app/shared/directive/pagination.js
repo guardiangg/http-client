@@ -24,6 +24,7 @@ app.directive('pagination', [
 
                     $scope.page     = $scope.data.page;
                     $scope.maxPages = Math.floor($scope.data.totalItems / $scope.data.pageCount);
+                    $scope.total    = $scope.data.totalItems;
                 }
             ],
             templateUrl: 'directive/pagination.html'
