@@ -7,22 +7,15 @@ app.controller('layoutCtrl', [
     '$stateParams',
     '$localStorage',
     '$window',
+    'consts',
     'gettext',
     'gettextCatalog',
 
-    function ($scope, $location, $state, $stateParams, $localStorage, $window, gettext, gettextCatalog) {
+    function ($scope, $location, $state, $stateParams, $localStorage, $window, consts, gettext, gettextCatalog) {
         $scope.placeholder = $localStorage.searchPlaceholder ?
             $localStorage.searchPlaceholder : gettext('Search for a Guardian...');
 
-        $scope.languages = {
-            de: 'Deutsch',
-            en: 'English',
-            es: 'Español',
-            fr: 'Français',
-            it: 'Italiano',
-            'pt-br': 'Português (Brasil)',
-            ja: '日本語'
-        };
+        $scope.languages = consts.languages;
 
         $scope.hreflangs = function() {
             var uris = {};
