@@ -9,6 +9,14 @@ msgstr ""
 msgid "'Nade"
 msgstr ""
 
+#: subclass.html:52
+msgid "{{subclass.label}} Overview"
+msgstr ""
+
+#: subclass.html:63
+msgid "{{subclass.label}} Perks &amp; Exotics"
+msgstr ""
+
 #: home.html:3
 msgid "<em>{{totalPlayers24|number}}</em> tracked in the past day"
 msgstr ""
@@ -36,7 +44,7 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-#: faq.html:37
+#: faq.html:40
 msgid ""
 "All players start at a baseline of 1200 points. You will take points from your opponent's Elo score by\n"
 "            defeating them, and vise versa. Defeating a more skilled opponent will yield higher points than if you beat up\n"
@@ -56,7 +64,7 @@ msgstr ""
 msgid "Armor"
 msgstr ""
 
-#: faq.html:44
+#: faq.html:47
 msgid "As your score rises and falls, you'll be categorized into leagues."
 msgstr ""
 
@@ -73,13 +81,10 @@ msgstr ""
 msgid "Bravo"
 msgstr ""
 
+#: faq.html:52
 #: shared\chart\elo.js:129
 #: shared\service\consts.js:48
 msgid "Bronze"
-msgstr ""
-
-#: faq.html:49
-msgid "Bronze: 0-1099"
 msgstr ""
 
 #: layout\main.html:33
@@ -126,20 +131,17 @@ msgstr ""
 msgid "Defender"
 msgstr ""
 
+#: faq.html:56
 #: shared\chart\elo.js:69
 #: shared\service\consts.js:92
 msgid "Diamond"
-msgstr ""
-
-#: faq.html:53
-msgid "Diamond: 1700+"
 msgstr ""
 
 #: layout\nav.html:143
 msgid "Donate"
 msgstr ""
 
-#: faq.html:56
+#: faq.html:59
 msgid ""
 "Each mode you play has its own Elo rating and league categorization. Beyond that, Elo is account-wide, so in\n"
 "            Control you'll have the same rating whether you're on your Titan, Warlock or Hunter."
@@ -182,8 +184,9 @@ msgstr ""
 msgid "Frequently Asked Questions"
 msgstr ""
 
-#: faq.html:32
-msgid "From <a href=\"https://en.wikipedia.org/wiki/Elo_rating_system\">Wikipedia</a>:"
+#. Used in the line: From Wikipedia:
+#: faq.html:33
+msgid "From"
 msgstr ""
 
 #: leaderboard.html:78
@@ -200,13 +203,10 @@ msgstr ""
 msgid "GitHub"
 msgstr ""
 
+#: faq.html:54
 #: shared\chart\elo.js:99
 #: shared\service\consts.js:70
 msgid "Gold"
-msgstr ""
-
-#: faq.html:51
-msgid "Gold: 1300-1499"
 msgstr ""
 
 #: profile\_pgcr.html:4
@@ -214,7 +214,7 @@ msgid "Guardian"
 msgstr ""
 
 #: app.js:84
-msgid "Guardian.gg: Advanced Destiny Stats, Profiles and Leaderboards"
+msgid "Guardian.gg - Advanced Destiny Stats, Profiles and Leaderboards"
 msgstr ""
 
 #: layout\nav.html:123
@@ -238,7 +238,7 @@ msgstr ""
 msgid "How can I help?"
 msgstr ""
 
-#: faq.html:62
+#: faq.html:65
 msgid "How do I get in touch if I have a question/suggestion?"
 msgstr ""
 
@@ -405,10 +405,6 @@ msgstr ""
 msgid "Oops, we weren't able to find \"{{name}}\". Verify spelling and try again."
 msgstr ""
 
-#: subclass.html:52
-msgid "Overview"
-msgstr ""
-
 #: leaderboard.html:112
 #: leaderboard.html:29
 msgid "Page {{page+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>"
@@ -423,10 +419,6 @@ msgstr ""
 msgid "Perk"
 msgstr ""
 
-#: subclass.html:63
-msgid "Perks &amp; Exotics"
-msgstr ""
-
 #: profile\_activity-history.html:12
 msgid "Placing"
 msgstr ""
@@ -435,13 +427,10 @@ msgstr ""
 msgid "Platform"
 msgstr ""
 
+#: faq.html:55
 #: shared\chart\elo.js:84
 #: shared\service\consts.js:81
 msgid "Platinum"
-msgstr ""
-
-#: faq.html:52
-msgid "Platinum: 1500-1699"
 msgstr ""
 
 #: layout\nav.html:22
@@ -518,13 +507,10 @@ msgstr ""
 msgid "Select a map"
 msgstr ""
 
+#: faq.html:53
 #: shared\chart\elo.js:114
 #: shared\service\consts.js:59
 msgid "Silver"
-msgstr ""
-
-#: faq.html:50
-msgid "Silver: 1100-1299"
 msgstr ""
 
 #: profile\_activity-history.html:1
@@ -599,7 +585,7 @@ msgstr ""
 msgid "The dedicated IB leaderboards will be unavailable until Bungie resolves this issue."
 msgstr ""
 
-#: faq.html:33
+#: faq.html:36
 msgid ""
 "The Elo rating system is a method for calculating the relative skill levels of players in\n"
 "            competitor-versus-competitor games."
@@ -720,6 +706,6 @@ msgstr ""
 msgid "Xbox"
 msgstr ""
 
-#: faq.html:64
+#: faq.html:67
 msgid "You can fire us an email at"
 msgstr ""

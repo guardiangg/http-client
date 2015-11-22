@@ -116,6 +116,7 @@ gulp.task('watch', ['build'], function() {
     gulp.watch(['./src/asset/less/**/*.less'], ['css']);
     gulp.watch(['./src/app/**/*.js'], ['js']);
     gulp.watch(['./src/po/*.po'], ['translate']);
+    gulp.watch(['src/index.html', 'src/view/**/*.html', 'src/app/**/*.js'], ['pot']);
     gulp.watch(templateFiles, ['templates']);
 });
 
@@ -187,7 +188,8 @@ gulp.task('robots', function() {
 });
 
 gulp.task('pot', function () {
-    return gulp.src(['src/index.html', 'src/view/**/*.html', 'src/app/**/*.js'])
+    return gulp
+        .src(['src/index.html', 'src/view/**/*.html', 'src/app/**/*.js'])
         .pipe(gettext.extract('template.pot', {
             // options to pass to angular-gettext-tools...
         }))
