@@ -9,19 +9,6 @@ msgstr ""
 msgid "'Nade"
 msgstr ""
 
-#: profile\_pgcr.html:35
-#: profile\_pgcr.html:38
-msgid "(Winner)"
-msgstr ""
-
-#: subclass.html:52
-msgid "{{subclass.label}} Overview"
-msgstr ""
-
-#: subclass.html:63
-msgid "{{subclass.label}} Perks &amp; Exotics"
-msgstr ""
-
 #: home.html:3
 msgid "<em>{{totalPlayers24|number}}</em> tracked in the past day"
 msgstr ""
@@ -418,6 +405,10 @@ msgstr ""
 msgid "Oops, we weren't able to find \"{{name}}\". Verify spelling and try again."
 msgstr ""
 
+#: subclass.html:52
+msgid "Overview"
+msgstr ""
+
 #: leaderboard.html:112
 #: leaderboard.html:29
 msgid "Page {{page+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>"
@@ -430,6 +421,10 @@ msgstr ""
 
 #: subclass.html:109
 msgid "Perk"
+msgstr ""
+
+#: subclass.html:63
+msgid "Perks &amp; Exotics"
 msgstr ""
 
 #: profile\_activity-history.html:12
@@ -713,6 +708,11 @@ msgstr ""
 #: subclass.html:135
 #: subclass.html:158
 msgid "Win%"
+msgstr ""
+
+#: profile\_pgcr.html:35
+#: profile\_pgcr.html:38
+msgid "Winner"
 msgstr ""
 
 #: layout\nav.html:71
