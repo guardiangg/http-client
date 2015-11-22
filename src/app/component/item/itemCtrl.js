@@ -12,7 +12,7 @@ app.controller('itemCtrl', [
     function ($rootScope, $scope, $state, $location, $stateParams, gamedata, consts) {
         $scope.filters = {};
         $scope.typeSlug = $stateParams.type;
-        $scope.type;
+        $scope.type = null;
         $scope.subTypeSlug = $stateParams.subType;
         $scope.subType = consts.itemSubTypeToId($scope.subTypeSlug);
         $scope.page = $stateParams.page;
@@ -53,7 +53,7 @@ app.controller('itemCtrl', [
 
         if ($scope.subType !== 0) {
             filters.subType = $scope.subType;
-        };
+        }
 
         gamedata
             .getPage('items', $scope.page, filters)

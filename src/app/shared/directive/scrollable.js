@@ -45,7 +45,7 @@ app.directive('scrollable', [
                         } else {
                             shadowR.removeClass('fadeOut').addClass('fadeIn');
                         }
-                    })
+                    });
 
                     $scroller = element.kinetic({
                         y: false,
@@ -58,7 +58,7 @@ app.directive('scrollable', [
                             }
                         }
                     });
-                }
+                };
 
                 scope.$on('scrollable-table.init', function() {
                     $timeout(init);
