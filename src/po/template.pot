@@ -621,8 +621,8 @@ msgstr ""
 #: subclass.html:65
 msgid ""
 "This data examines the last 7 days of PvP in Destiny for players using the {{subclass.label}} subclass.\n"
-"    The rolling sample provides an accurate look at what players are using and what's working. Select a mode on\n"
-"    the filter bar below to only map K/D and win rates in that mode."
+"    The rolling sample provides an accurate look at what players are using and what's working.\n"
+"    Select a mode on the filter bar below to only map K/D and win rates in that mode."
 msgstr ""
 
 #: layout\main.html:34
