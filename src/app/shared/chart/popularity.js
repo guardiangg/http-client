@@ -1,9 +1,9 @@
 var app = angular.module('app');
 
 app.factory('chart-popularity', [
-    'gettext',
+    'gettextCatalog',
 
-    function (gettext) {
+    function (gettextCatalog) {
         return {
             options: {
                 chart: {
@@ -13,7 +13,7 @@ app.factory('chart-popularity', [
                     enabled: false
                 },
                 title: {
-                    text: gettext('Subclass Popularity')
+                    text: gettextCatalog.getString('Subclass Popularity')
                 },
                 xAxis: {
                     type: 'category'

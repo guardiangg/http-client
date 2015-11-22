@@ -1,9 +1,9 @@
 var app = angular.module('app');
 
 app.factory('chart-kd', [
-    'gettext',
+    'gettextCatalog',
 
-    function(gettext) {
+    function(gettextCatalog) {
         return {
             options: {
                 chart: {
@@ -13,7 +13,7 @@ app.factory('chart-kd', [
                     enabled: false
                 },
                 title: {
-                    text: gettext('Kills / Deaths')
+                    text: gettextCatalog.getString('Kills / Deaths')
                 },
                 xAxis: {
                     type: 'category'
@@ -27,7 +27,7 @@ app.factory('chart-kd', [
                 },
                 tooltip : {
                     headerFormat : '',
-                        pointFormat : '<b>{point.name}</b>: {point.y:.2f} K:D'
+                        pointFormat : '<b>{point.name}</b>: {point.y:.2f} ' + gettextCatalog.getString('K:D')
                 }
             },
             series: [{

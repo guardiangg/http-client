@@ -2,9 +2,9 @@ var app = angular.module('app');
 
 app.factory('chart-weapon-spline', [
     'consts',
-    'gettext',
+    'gettextCatalog',
 
-    function (consts, gettext) {
+    function (consts, gettextCatalog) {
         return {
             options: {
                 credits: {
@@ -15,7 +15,7 @@ app.factory('chart-weapon-spline', [
                     zoomType: 'x'
                 },
                 title: {
-                    text: gettext('Kills by Weapon Type')
+                    text: gettextCatalog.getString('Kills by Weapon Type')
                 },
                 xAxis: {
                     type: 'datetime',
@@ -26,7 +26,7 @@ app.factory('chart-weapon-spline', [
                 },
                 yAxis: {
                     title: {
-                        text: gettext('Percentage of Total Kills')
+                        text: gettextCatalog.getString('Percentage of Total Kills')
                     },
                     min: 0,
                     minorGridLineWidth: 0,
