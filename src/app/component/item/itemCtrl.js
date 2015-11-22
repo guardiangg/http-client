@@ -1,6 +1,7 @@
 var app = angular.module('app');
 
 app.controller('itemCtrl', [
+    '$rootScope',
     '$scope',
     '$state',
     '$location',
@@ -8,7 +9,7 @@ app.controller('itemCtrl', [
     'gamedata',
     'consts',
 
-    function ($scope, $state, $location, $stateParams, gamedata, consts) {
+    function ($rootScope, $scope, $state, $location, $stateParams, gamedata, consts) {
         $scope.filters = {};
         $scope.typeSlug = $stateParams.type;
         $scope.type;
@@ -58,6 +59,17 @@ app.controller('itemCtrl', [
             .getPage('items', $scope.page, filters)
             .then(function(data) {
                 $scope.results = data;
+                $scope.columns = [];
+
+                _.each($scope.results.data, function(item) {
+                    _.each(item.stats, function(stat) {
+                        if (!_.find($scope.columns, function(col) { return col.name === stat.name })) {
+                            $scope.columns.push({ name: stat.name })
+                        }
+                    });
+                });
+
+                $scope.$emit('scrollable-table.init', true);
             });
 
         $scope.$watch('filters', function(value) {

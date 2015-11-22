@@ -8,15 +8,122 @@
     }
 }
 
-table.item-list {
-    tr {
-        td {
-            img {
-                border-radius: 2px;
-                width: 100%;
-                max-width: 42px;
-                max-height: 42px;
+div.item-list {
+    position: relative;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    table.item-list-fixed {
+        width: 240px;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        tr {
+            th {
+                border-right: 1px solid #666 !important;
+            }
+
+            td {
+                border-right: 1px solid #ccc !important;
             }
         }
     }
+
+    div.item-list-scrollable {
+        margin-left: 240px;
+
+        table {
+            tr {
+                th {
+                    cursor: default !important;
+                }
+
+                td {
+                    background: #F5F5F5;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    table {
+        tr {
+            th {
+                padding: 6px 3px;
+                background: #404040;
+                color: #fff;
+                text-align: center;
+                font-size: 11px;
+                white-space: nowrap;
+                min-width: 100px;
+                max-width: 100px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            td {
+                padding: 3px;
+                border: 1px solid #E7E7E7;
+                border-bottom: 1px solid #D4D4D4;
+                background: #fff;
+                height: 44px;
+                font-size: 12px;
+                white-space: nowrap;
+                position: relative;
+
+                img {
+                    border-radius: 2px;
+                    width: 100%;
+                    max-width: 32px;
+                    max-height: 32px;
+                    position: absolute;
+                    top: 6px;
+                    left: 4px;
+                }
+
+                .details {
+                    line-height: 14px;
+                    margin-left: 42px;
+
+                    a {
+                        font-size: 14px;
+                    }
+
+                    small {
+                        display: block;
+                        font-size: 0.9em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.quality-1 {
+    color: #6F6F6F;
+}
+
+.quality-2 {
+    color: #6F6F6F;
+}
+
+.quality-3 {
+    color: #3D9850;
+}
+
+.quality-4 {
+    color: #3A75BB;
+}
+
+.quality-5 {
+    color: #8B2DBB;
+}
+
+.quality-6 {
+    color: #D29D00;
 }

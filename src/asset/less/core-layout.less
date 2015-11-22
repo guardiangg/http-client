@@ -121,6 +121,36 @@ h3 {
 }
 
 ////
+// Scrollable
+////
+.scrollable {
+    position: relative;
+    overflow: hidden;
+}
+
+.scrollable-shadow {
+    content: "";
+    position: absolute;
+    top: 0px;
+    width: 15px;
+    height: 100%;
+
+    &.l {
+        -moz-box-shadow: inset 15px 0px 15px -15px rgba(0,0,0,0.8);
+        -webkit-box-shadow: inset 15px 0px 15px -15px rgba(0,0,0,0.8);
+        box-shadow: inset 15px 0px 15px -15px rgba(0,0,0,0.8);
+        left: 0px;
+    }
+
+    &.r {
+        -moz-box-shadow: inset -15px 0px 15px -15px rgba(0,0,0,0.8);
+        -webkit-box-shadow: inset -15px 0px 15px -15px rgba(0,0,0,0.8);
+        box-shadow: inset -15px 0px 15px -15px rgba(0,0,0,0.8);
+        right: 0px;
+    }
+}
+
+////
 // Notices
 ////
 .error {

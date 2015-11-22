@@ -11,26 +11,33 @@
            placeholder="Item name..."/>
 </div>
 
-<div class="table-responsive">
-    <table class="table table-striped item-list">
-        <thead>
+<div class="item-list">
+    <table class="item-list-fixed">
         <tr>
             <th translate>Name</th>
         </tr>
-        </thead>
-        <body>
         <tr ng-repeat="entity in results.data">
             <td>
                 <img ng-src="//bungie.net{{entity.icon}}">
-                <a ui-sref="app.itemDetailName({hash: entity.hash, name: entity.name})">
-                    <strong>{{ entity.name }}</strong>
-                </a><br/>
-                <small>{{ entity.typeName }}</small>
-            </td>
-            <td>
-                {{ entity.description }}
+                <div class="details">
+                    <a ui-sref="app.itemDetailName({hash: entity.hash, name: entity.name})" ng-class="'quality-' + entity.tier">{{entity.name}}</a>
+                    <small>{{entity.typeName}}</small>
+                </div>
             </td>
         </tr>
-        </body>
     </table>
+    <div class="item-list-scrollable" scrollable>
+        <table>
+            <tr>
+                <th ng-repeat="column in columns">{{column.name}}</th>
+            </tr>
+            <tr ng-repeat="entity in results.data">
+                <td ng-repeat="stat in entity.stats">
+                    <span ng-if="stat.min !== stat.max">{{stat.min}}-{{stat.max}}</span>
+                    <span ng-if="stat.min === stat.max && stat.min !== 0">{{stat.min}}</span>
+                    <span ng-if="stat.min === stat.max && stat.min === 0">-</span>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
