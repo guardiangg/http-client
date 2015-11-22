@@ -1,9 +1,9 @@
 var app = angular.module('app');
 
 app.factory('chart-subclass-win-rate', [
-    'gettext',
+    'gettextCatalog',
 
-    function (gettext) {
+    function (gettextCatalog) {
         return {
             options: {
                 chart: {
@@ -13,7 +13,7 @@ app.factory('chart-subclass-win-rate', [
                     enabled: false
                 },
                 title: {
-                    text: gettext('Win Rate by Mode')
+                    text: gettextCatalog.getString('Win Rate by Mode')
                 },
                 xAxis: {
                     gridLineWidth: 0,

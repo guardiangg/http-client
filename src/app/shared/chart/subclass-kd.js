@@ -1,9 +1,9 @@
 var app = angular.module('app');
 
 app.factory('chart-subclass-kd', [
-    'gettext',
+    'gettextCatalog',
 
-    function (gettext) {
+    function (gettextCatalog) {
         return {
             options: {
                 chart: {
@@ -13,7 +13,7 @@ app.factory('chart-subclass-kd', [
                     enabled: false
                 },
                 title: {
-                    text: gettext('K/D by Mode')
+                    text: gettextCatalog.getString('K/D by Mode')
                 },
                 xAxis: {
                     gridLineWidth: 0,
@@ -29,7 +29,7 @@ app.factory('chart-subclass-kd', [
                 },
                 tooltip: {
                     headerFormat: '',
-                    pointFormat: '<b>{point.name}</b>: {point.y:.2f} K:D'
+                    pointFormat: '<b>{point.name}</b>: {point.y:.2f} ' + gettextCatalog.getString('K:D')
                 }
             },
             series: [{

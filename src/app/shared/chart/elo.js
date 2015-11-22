@@ -2,9 +2,9 @@ var app = angular.module('app');
 
 app.factory('chart-elo', [
     'consts',
-    'gettext',
+    'gettextCatalog',
 
-    function (consts, gettext) {
+    function (consts, gettextCatalog) {
         return {
             options: {
                 chart: {
@@ -66,7 +66,7 @@ app.factory('chart-elo', [
                         {
                             color: consts.leagues.diamond.colors.band,
                             label: {
-                                text: gettext('Diamond').toUpperCase(),
+                                text: gettextCatalog.getString('Diamond').toUpperCase(),
                                 verticalAlign: 'top',
                                 y: 20,
                                 x: 10,
@@ -81,7 +81,7 @@ app.factory('chart-elo', [
                         {
                             color: consts.leagues.platinum.colors.band,
                             label: {
-                                text: gettext('Platinum').toUpperCase(),
+                                text: gettextCatalog.getString('Platinum').toUpperCase(),
                                 verticalAlign: 'top',
                                 y: 20,
                                 x: 10,
@@ -96,7 +96,7 @@ app.factory('chart-elo', [
                         {
                             color: consts.leagues.gold.colors.band,
                             label: {
-                                text: gettext('Gold').toUpperCase(),
+                                text: gettextCatalog.getString('Gold').toUpperCase(),
                                 verticalAlign: 'top',
                                 y: 20,
                                 x: 10,
@@ -111,7 +111,7 @@ app.factory('chart-elo', [
                         {
                             color: consts.leagues.silver.colors.band,
                             label: {
-                                text: gettext('Silver').toUpperCase(),
+                                text: gettextCatalog.getString('Silver').toUpperCase(),
                                 verticalAlign: 'top',
                                 y: 20,
                                 x: 10,
@@ -126,7 +126,7 @@ app.factory('chart-elo', [
                         {
                             color: consts.leagues.bronze.colors.band,
                             label: {
-                                text: gettext('Bronze').toUpperCase(),
+                                text: gettextCatalog.getString('Bronze').toUpperCase(),
                                 verticalAlign: 'top',
                                 y: 20,
                                 x: 10,

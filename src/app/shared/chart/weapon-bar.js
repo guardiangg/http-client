@@ -1,9 +1,9 @@
 var app = angular.module('app');
 
 app.factory('chart-weapon-bar', [
-    'gettext',
+    'gettextCatalog',
 
-    function (gettext) {
+    function (gettextCatalog) {
         return {
             options: {
                 credits: {
@@ -13,7 +13,7 @@ app.factory('chart-weapon-bar', [
                     type: 'column'
                 },
                 title: {
-                    text: gettext('Kills by Weapon Type')
+                    text: gettextCatalog.getString('Kills by Weapon Type')
                 },
                 xAxis: {
                     type: 'category',
@@ -22,7 +22,7 @@ app.factory('chart-weapon-bar', [
                 },
                 yAxis: {
                     title: {
-                        text: gettext('Percentage of Total Kills')
+                        text: gettextCatalog.getString('Percentage of Total Kills')
                     },
                     minorGridLineWidth: 0,
                     gridLineWidth: 0
@@ -41,7 +41,7 @@ app.factory('chart-weapon-bar', [
                 },
                 tooltip: {
                     headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total kills<br/>'
+                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> ' + gettextCatalog.getString('of total kills') + '<br/>'
                 }
             }
         };
