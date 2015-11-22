@@ -266,7 +266,7 @@ msgstr "Tytan"
 
 #: home.html:10
 msgid "Top {{platforms[platform]}} Guardians"
-msgstr "Top {{platforms[platform]}} Strażników"
+msgstr "Top Strażnicy {{platforms[platform]}} "
 
 #: index.html:128
 #: index.html:84
@@ -291,7 +291,7 @@ msgstr "Warlock"
 #: subclass.html:135
 #: subclass.html:158
 msgid "Win%"
-msgstr "Win%"
+msgstr "Zwycięstwa%"
 
 #. Short for grenade
 #: profile\_character.html:57
@@ -635,7 +635,7 @@ msgstr "Wczytywanie broni..."
 #: faq.html:18
 msgid "More technical users are invited to contribute on our\r\n"
 "            <a href=\"https://github.com/guardiangg/http-client\">GitHub repository</a>, we're open source!"
-msgstr "Zapraszamy uzdolnionych technicznie użytkowników do uczestnictwa w naszym repozytorium <a href=\"https://github.com/guardiangg/http-client\">GitHub repository</a>, jesteśmy open source!"
+msgstr "Zapraszamy uzdolnionych technicznie użytkowników do dołączenia do naszego repozytorium <a href=\"https://github.com/guardiangg/http-client\">GitHub repository</a>, jesteśmy open source!"
 
 #. Duplicate line, Format as you wish
 #: index.html:214
@@ -668,7 +668,7 @@ msgstr "Broń główna"
 
 #: weapon-stats.html:84
 msgid "Ranked as a percentage of all kills"
-msgstr "Ranking po wszystkich zabiciach"
+msgstr "Ranking po % wszystkich zabić"
 
 #: weapon-stats.html:37
 msgid "Refreshing map list..."
@@ -676,7 +676,7 @@ msgstr "Odświeżam listę map..."
 
 #: component\layout\layoutCtrl.js:15
 msgid "Search for a Guardian..."
-msgstr "Wyszukuję Strażnika..."
+msgstr "Wyszukaj Strażnika..."
 
 #: weapon-stats.html:25
 msgid "Select a game mode"
