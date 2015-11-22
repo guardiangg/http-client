@@ -684,37 +684,38 @@ msgstr "Salvage"
 #: shared\chart\kd.js:30
 #: shared\chart\subclass-kd.js:32
 msgid "K:D"
-msgstr ""
+msgstr "K:D"
 
 #: shared\chart\weapon-bar.js:44
 msgid "of total kills"
-msgstr ""
+msgstr "wszystkich zabić"
 
 #: subclass.html:65
 msgid "This data examines the last 7 days of PvP in Destiny for players using the {{subclass.label}} subclass.\n"
 "    The rolling sample provides an accurate look at what players are using and what's working.\n"
 "    Select a mode on the filter bar below to only map K/D and win rates in that mode."
-msgstr ""
+msgstr "Te dane pokazują graczy, którzy w ciągu ostatnich 7 dni używali subklasy {{subclass.label}}. Taki okres czasu powinien wystarczyć aby pokazać czego najczęściej używają gracze.\n"
+"Wybierz tryb na filtrze u dołu aby wybrać tylko K/D oraz procent zwycięstw w tym trybie."
 
 #: faq.html:18
 msgid "More technical users are invited to contribute on our\n"
 "            <a href=\"https://github.com/guardiangg/http-client\">GitHub repository</a>, we're open source!"
-msgstr ""
+msgstr "Uzdolnieni technicznie użytkownicy mogą dołączyć do naszego repozytorium <a href=\"https://github.com/guardiangg/http-client\">GitHub repository</a>, jesteśmy open source!"
 
 #: layout\main.html:34
 msgid "This page relies on one or more Bungie APIs to properly display. We weren't able to retrieve some data, so\n"
 "        as a result one or more areas of this page are temporarily disabled. Try again in a few minutes."
-msgstr ""
+msgstr "Ta strona jest oparta na jednym lub wielu API od Bungie aby mogła być poprawnie wyświetlona. Nie mogliśmy ściągnąć pewnych danych, więc część strony może być chwilowo wyłączona. Spróbuj ponownie za kilka minut."
 
 #: profile\_pgcr.html:35
 #: profile\_pgcr.html:38
 msgid "Winner"
-msgstr ""
+msgstr "Zwycięzca"
 
 #. Used in the line: From Wikipedia:
 #: faq.html:33
 msgid "From"
-msgstr ""
+msgstr "Źródło:"
 
 #: app.js:84
 msgid "Guardian.gg - Advanced Destiny Stats, Profiles and Leaderboards"
