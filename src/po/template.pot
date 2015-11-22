@@ -51,9 +51,9 @@ msgstr ""
 
 #: faq.html:37
 msgid ""
-"All players start at a baseline of 1200 points. You will take points from your opponent's Elo score by\r\n"
-"            defeating them, and vise versa. Defeating a more skilled opponent will yield higher points than if you beat up\r\n"
-"            on a weaker one. The higher the score, the more skilled the player. It is extremely difficult\r\n"
+"All players start at a baseline of 1200 points. You will take points from your opponent's Elo score by\n"
+"            defeating them, and vise versa. Defeating a more skilled opponent will yield higher points than if you beat up\n"
+"            on a weaker one. The higher the score, the more skilled the player. It is extremely difficult\n"
 "            to maintain a high Elo score, these players are regarded as the best of the best!"
 msgstr ""
 
@@ -154,7 +154,7 @@ msgstr ""
 
 #: faq.html:56
 msgid ""
-"Each mode you play has its own Elo rating and league categorization. Beyond that, Elo is account-wide, so in\r\n"
+"Each mode you play has its own Elo rating and league categorization. Beyond that, Elo is account-wide, so in\n"
 "            Control you'll have the same rating whether you're on your Titan, Warlock or Hunter."
 msgstr ""
 
@@ -205,7 +205,7 @@ msgstr ""
 
 #: faq.html:6
 msgid ""
-"GGG is the lovechild of a couple hardcore Destiny fans. If you like what we've done and want to show your\r\n"
+"GGG is the lovechild of a couple hardcore Destiny fans. If you like what we've done and want to show your\n"
 "        support, feel free to buy us a beer and/or pony!"
 msgstr ""
 
@@ -383,7 +383,7 @@ msgstr ""
 
 #: faq.html:18
 msgid ""
-"More technical users are invited to contribute on our\r\n"
+"More technical users are invited to contribute on our\n"
 "            <a href=\"https://github.com/guardiangg/http-client\">GitHub repository</a>, we're open source!"
 msgstr ""
 
@@ -538,8 +538,8 @@ msgstr ""
 
 #: faq.html:24
 msgid ""
-"Since the launch of the Taken King, we have aggregated data from every single match played. Our rankings\r\n"
-"            are updated in real-time and immediately available. If you have played Destiny recently, particularly in the\r\n"
+"Since the launch of the Taken King, we have aggregated data from every single match played. Our rankings\n"
+"            are updated in real-time and immediately available. If you have played Destiny recently, particularly in the\n"
 "            Crucible, you have a profile here - check it out!"
 msgstr ""
 
@@ -606,7 +606,7 @@ msgstr ""
 
 #: faq.html:33
 msgid ""
-"The Elo rating system is a method for calculating the relative skill levels of players in\r\n"
+"The Elo rating system is a method for calculating the relative skill levels of players in\n"
 "            competitor-versus-competitor games."
 msgstr ""
 
@@ -627,7 +627,7 @@ msgstr ""
 
 #: layout\main.html:34
 msgid ""
-"This page relies on one or more Bungie APIs to properly display. We weren't able to retrieve some data, so\r\n"
+"This page relies on one or more Bungie APIs to properly display. We weren't able to retrieve some data, so\n"
 "        as a result one or more areas of this page are temporarily disabled. Try again in a few minutes."
 msgstr ""
 
