@@ -427,12 +427,6 @@ app.service('consts', [
                     label: gettextCatalog.getString('Mask')
                 }
             },
-            stats: {
-                368428387: {
-                    name: 'attack',
-                    label: gettextCatalog.getString('Attack')
-                }
-            },
             item_list_types: {
                 standard: {
                     stat_columns: []
