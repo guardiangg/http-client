@@ -2,6 +2,15 @@
     <pagination data="results" name="'Items'|translate" callback="load" ng-if="results.data.length > 0" class="pull-right"></pagination>
 
     <!-- add bucket/tier filters here -->
+    <select class="form-control" ng-change="load(page)" ng-model="typeSlug">
+        <optgroup ng-repeat="parent in types" label="{{parent.label}}">
+            <option ng-repeat="(slug, type) in parent.types" value="{{slug}}">{{type.label}}</option>
+        </optgroup>
+    </select>&nbsp;
+
+    <select class="form-control" ng-change="load(page)" ng-model="subTypeSlug">
+        <option ng-repeat="subType in type.sub_types" value="{{subTypes[subType].name}}">{{subTypes[subType].label}}</option>
+    </select>&nbsp;
 
     <input type="text"
            ng-model="name"
@@ -20,7 +29,7 @@
             <td>
                 <img ng-src="//bungie.net{{entity.icon}}">
                 <div class="details">
-                    <a ui-sref="app.itemDetailName({hash: entity.hash, name: entity.name})" ng-class="'quality-' + entity.tier">{{entity.name}}</a>
+                    <a ui-sref="app.itemDetailName({hash: entity.hash, name: slugify(entity.name)})" ng-class="'quality-' + entity.tier">{{entity.name}}</a>
                     <small>{{entity.typeName}}</small>
                 </div>
             </td>
@@ -29,13 +38,13 @@
     <div class="item-list-scrollable" scrollable>
         <table>
             <tr>
-                <th ng-repeat="column in columns">{{column.name}}</th>
+                <th ng-repeat="col in columns">{{col.name}}</th>
             </tr>
             <tr ng-repeat="entity in results.data">
-                <td ng-repeat="stat in entity.stats">
-                    <span ng-if="stat.min !== stat.max">{{stat.min}}-{{stat.max}}</span>
-                    <span ng-if="stat.min === stat.max && stat.min !== 0">{{stat.min}}</span>
-                    <span ng-if="stat.min === stat.max && stat.min === 0">-</span>
+                <td ng-repeat="col in columns">
+                    <span ng-if="entity._stats[col.hash] && entity._stats[col.hash].min !== entity._stats[col.hash].max">{{entity._stats[col.hash].min}}-{{entity._stats[col.hash].max}}</span>
+                    <span ng-if="entity._stats[col.hash] && entity._stats[col.hash].min === entity._stats[col.hash].max && entity._stats[col.hash].min !== 0">{{entity._stats[col.hash].min}}</span>
+                    <span ng-if="!entity._stats[col.hash] || (entity._stats[col.hash].min === entity._stats[col.hash].max && entity._stats[col.hash].min === 0)">-</span>
                 </td>
             </tr>
         </table>

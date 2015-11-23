@@ -24,13 +24,14 @@ app.directive('scrollable', [
                     if ($scroller) {
                         $scroller.kinetic('detach');
                         $scroller.data('kinetic', false);
-                        console.log('detaching');
                     }
 
                     shadowL.addClass('fadeOut');
 
                     if (element.width() + element.scrollLeft() < element[0].scrollWidth) {
                         shadowR.addClass('fadeIn');
+                    } else {
+                        shadowR.addClass('fadeOut');
                     }
 
                     element.scroll(function(e) {

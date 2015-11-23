@@ -7,6 +7,18 @@ app.service('util', [
         return new function () {
             var urlRegex = /{(\w+)}/;
 
+            /**
+             * @see https://gist.github.com/mathewbyrne/1280286
+             */
+            this.slugify = function(str) {
+                return str.toString().toLowerCase()
+                    .replace(/\s+/g, '-')           // Replace spaces with -
+                    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+                    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+                    .replace(/^-+/, '')             // Trim - from start of text
+                    .replace(/-+$/, '');            // Trim - from end of text
+            };
+
             this.buildApiUrl = function (endpoint, tokens, params) {
                 return this.buildUrl(config.api + '/' + endpoint, tokens) + this.encodeQueryParams(params);
             };

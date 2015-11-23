@@ -8,7 +8,7 @@
     }
 }
 
-div.item-list {
+.item-list {
     position: relative;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -18,28 +18,38 @@ div.item-list {
     user-select: none;
 
     table.item-list-fixed {
-        width: 240px;
+        width: 220px;
         position: absolute;
+        z-index: 500;
         top: 0;
         left: 0;
 
         tr {
             th {
+                max-width: 220px;
+                min-width: 220px;
                 border-right: 1px solid #666 !important;
             }
 
             td {
+                max-width: 220px;
+                min-width: 220px;
                 border-right: 1px solid #ccc !important;
             }
         }
     }
 
     div.item-list-scrollable {
-        margin-left: 240px;
+        margin-left: 220px;
+        background: #EAEAEA;
 
         table {
+            border-right: 4px solid #E4E4E4;
+
             tr {
                 th {
+                    min-width: 100px;
+                    max-width: 100px;
                     cursor: default !important;
                 }
 
@@ -54,14 +64,13 @@ div.item-list {
     table {
         tr {
             th {
-                padding: 6px 3px;
+                height: 34px;
+                line-height: 34px;
                 background: #404040;
                 color: #fff;
                 text-align: center;
                 font-size: 11px;
                 white-space: nowrap;
-                min-width: 100px;
-                max-width: 100px;
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
@@ -89,6 +98,8 @@ div.item-list {
                 .details {
                     line-height: 14px;
                     margin-left: 42px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
 
                     a {
                         font-size: 14px;

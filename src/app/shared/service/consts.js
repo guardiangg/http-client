@@ -426,6 +426,55 @@ app.service('consts', [
                     name: 'mask',
                     label: gettextCatalog.getString('Mask')
                 }
+            },
+            stats: {
+                368428387: {
+                    name: 'attack',
+                    label: gettextCatalog.getString('Attack')
+                }
+            },
+            item_list_types: {
+                standard: {
+                    stat_columns: []
+                },
+                weapon: {
+                    stat_columns: [
+                        368428387, // Attack
+                        //2391494160, // Light
+                        3871231066, // Magazine
+                        925767036, // Energy
+                        4284893193, // Rate of fire
+                        2523465841, // Velocity
+                        2961396640, // Charge rate
+                        155624089, // Stability
+                        1240592695, // Range
+                        4043523819, // Impact
+                        3614673599, // Blast radius
+                        4188031367, // Reload speed
+                        3555269338, // Optics
+                        2762071195, // Efficiency
+                        1345609583, // Aim assist
+                        2715839340, // Recoil
+                        943549884, // Equip speed
+                        2837207746, // Speed
+                    ]
+                },
+                armor: {
+                    stat_columns: [
+                        3897883278, // Defense
+                        //2391494160, // Light
+                        144602215, // Intellect
+                        1735777505, // Discipline
+                        4244567218, // Strength
+                    ]
+                },
+                vehicle: {
+                    stat_columns: [
+                        1501155019, // Speed
+                        360359141, // Durability
+                        3017642079, // Boost
+                    ]
+                }
             }
         };
     }
