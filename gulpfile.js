@@ -33,6 +33,7 @@ var jsFiles = {
     vendor: [
         'underscore/underscore.js',
         'jquery/dist/jquery.js',
+
         'bootstrap/dist/js/bootstrap.min.js',
         'angular/angular.js',
         'angular-animate/angular-animate.js',
