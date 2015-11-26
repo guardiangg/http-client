@@ -59,15 +59,11 @@ app.controller('profileCtrl', [
                     $scope.loading.activityHistory = false;
 
                     $scope.infiniteScroll = false;
-                    //return api.getFireteam(mode, membershipId);
+
                 }, function(err) {
                     $scope.loading.activityHistory = false;
                     $scope.maintenance.activityHistory = true;
                 });
-            //.then(function(result) {
-            //    $scope.fireteam = result.data;
-            //    $scope.loading.fireteam = false;
-            //});
         };
 
         var load = function(platform, membershipId) {
@@ -89,6 +85,13 @@ app.controller('profileCtrl', [
                 $scope.maintenance.fireteam = false;
 
                 $scope.loadHistory(mode, platform, membershipId);
+
+                api
+                    .getFireteam(mode, membershipId)
+                    .then(function(result) {
+                        $scope.fireteam = result.data;
+                        $scope.loading.fireteam = false;
+                    });
             };
 
             $scope.loadInventory = function() {

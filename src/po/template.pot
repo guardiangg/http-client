@@ -27,7 +27,7 @@ msgstr ""
 
 #. Short for assists
 #: leaderboard.html:75
-#: profile\_activity-history.html:97
+#: profile\_activity-history.html:94
 #: profile\_pgcr.html:9
 msgid "A"
 msgstr ""
@@ -117,7 +117,7 @@ msgstr ""
 
 #. Short for deaths
 #: leaderboard.html:74
-#: profile\_activity-history.html:96
+#: profile\_activity-history.html:93
 #: profile\_pgcr.html:8
 msgid "D"
 msgstr ""
@@ -285,7 +285,7 @@ msgstr ""
 
 #. Short for kills
 #: leaderboard.html:73
-#: profile\_activity-history.html:95
+#: profile\_activity-history.html:92
 #: profile\_pgcr.html:7
 msgid "K"
 msgstr ""
@@ -297,7 +297,7 @@ msgstr ""
 
 #. Short for kills / deaths
 #: leaderboard.html:76
-#: profile\_activity-history.html:98
+#: profile\_activity-history.html:95
 #: profile\_pgcr.html:10
 #: subclass.html:110
 #: subclass.html:134
@@ -343,7 +343,11 @@ msgstr ""
 msgid "Loading Elo Data..."
 msgstr ""
 
-#: profile\_activity-history.html:87
+#: profile\_activity-history.html:68
+msgid "Loading Fireteam..."
+msgstr ""
+
+#: profile\_activity-history.html:84
 msgid "Loading Game History..."
 msgstr ""
 
@@ -359,7 +363,7 @@ msgstr ""
 msgid "Loading Weapons..."
 msgstr ""
 
-#: profile\_activity-history.html:93
+#: profile\_activity-history.html:90
 msgid "Map"
 msgstr ""
 
@@ -400,7 +404,7 @@ msgstr ""
 msgid "No Elo data exists for this player. This is either an error in our system, or the player pretty much never enters Crucible."
 msgstr ""
 
-#: profile\_activity-history.html:122
+#: profile\_activity-history.html:119
 msgid "No games have been played in this mode."
 msgstr ""
 
@@ -466,6 +470,10 @@ msgstr ""
 msgid "Real-time stats for <em>{{totalPlayers|number}}</em> Destiny players"
 msgstr ""
 
+#: profile\_activity-history.html:71
+msgid "Recent Fireteam"
+msgstr ""
+
 #: profile\_character.html:37
 msgid "Recovery"
 msgstr ""
@@ -497,7 +505,7 @@ msgstr ""
 msgid "Salvage"
 msgstr ""
 
-#: profile\_activity-history.html:94
+#: profile\_activity-history.html:91
 #: profile\_pgcr.html:6
 msgid "Score"
 msgstr ""
@@ -543,7 +551,7 @@ msgstr ""
 msgid "Special"
 msgstr ""
 
-#: profile\_activity-history.html:99
+#: profile\_activity-history.html:96
 #: profile\_pgcr.html:11
 msgid "Standing"
 msgstr ""
@@ -598,7 +606,7 @@ msgid ""
 "            competitor-versus-competitor games."
 msgstr ""
 
-#: profile\_activity-history.html:84
+#: profile\_activity-history.html:81
 msgid "The match history is unavailable due to an API error"
 msgstr ""
 
