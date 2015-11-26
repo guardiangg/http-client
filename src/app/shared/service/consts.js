@@ -113,6 +113,7 @@ app.service('consts', [
                 13: gettextCatalog.getString('Rumble'),
                 23: gettextCatalog.getString('Elimination'),
                 15: gettextCatalog.getString('Doubles'),
+                28: gettextCatalog.getString('Zone Control'),
                 19: gettextCatalog.getString('Iron Banner'),
                 14: gettextCatalog.getString('Trials of Osiris')
             },
