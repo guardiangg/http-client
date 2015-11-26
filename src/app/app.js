@@ -11,6 +11,8 @@ var app = angular.module(
         'angulartics',
         'angulartics.google.analytics',
 
+        'dc.endlessScroll',
+
         'gettext',
 
         'highcharts-ng',

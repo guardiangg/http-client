@@ -36,6 +36,7 @@ var jsFiles = {
         'bootstrap/dist/js/bootstrap.min.js',
         'angular/angular.js',
         'angular-animate/angular-animate.js',
+        'angular-endless-scroll/dist/angular-endless-scroll.js',
         'angular-filter/dist/angular-filter.js',
         'angular-loading-bar/src/loading-bar.js',
         'angular-gettext/dist/angular-gettext.js',
