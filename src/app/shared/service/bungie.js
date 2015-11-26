@@ -11,7 +11,7 @@ app.service('bungie', [
             var ENDPOINTS = {
                 account: '/{platform}/Account/{membershipId}/Summary/',
                 inventory: '/{platform}/Account/{membershipId}/Character/{characterId}/Inventory/?definitions=true&lc={locale}',
-                activityHistory: '/Stats/ActivityHistory/{platform}/{membershipId}/{characterId}/?mode={mode}&definitions=true&count=10&page={page}&lc={locale}',
+                activityHistory: '/Stats/ActivityHistory/{platform}/{membershipId}/{characterId}/?mode={mode}&definitions=true&count=25&page={page}&lc={locale}',
                 searchForPlayer: '/SearchDestinyPlayer/{platform}/{name}/',
                 pgcr: '/Stats/PostGameCarnageReport/{instanceId}/'
             };
