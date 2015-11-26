@@ -67,13 +67,13 @@ app.controller('profileCtrl', [
         };
 
         var load = function(platform, membershipId) {
-            $scope.activities = [];
-            $scope.page = 0;
-
             $scope.setMode = function(mode, force) {
                 if ($scope.mode == mode && !force) {
                     return;
                 }
+
+                $scope.activities = [];
+                $scope.page = 0;
 
                 $localStorage.profileMode = mode;
 
