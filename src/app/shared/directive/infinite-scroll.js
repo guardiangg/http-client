@@ -11,10 +11,16 @@ app.directive('infiniteScroll', [
             },
 
             link: function(scope, element) {
-                $window.addEventListener('scroll', function() {
+                var handler = function() {
                     if ($window.pageYOffset + $window.innerHeight >= element.height() + element.offset().top - 100)  {
                         scope.infiniteScroll();
                     }
+                };
+
+                $window.addEventListener('scroll', handler);
+
+                scope.$on('$destroy', function() {
+                    $window.removeEventListener('scroll', handler);
                 });
             }
         };
