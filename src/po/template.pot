@@ -82,7 +82,7 @@ msgid "Bravo"
 msgstr ""
 
 #: faq.html:52
-#: shared\chart\elo.js:129
+#: shared\chart\elo.js:132
 #: shared\service\consts.js:48
 msgid "Bronze"
 msgstr ""
@@ -132,7 +132,7 @@ msgid "Defender"
 msgstr ""
 
 #: faq.html:56
-#: shared\chart\elo.js:69
+#: shared\chart\elo.js:72
 #: shared\service\consts.js:92
 msgid "Diamond"
 msgstr ""
@@ -211,7 +211,7 @@ msgid "GitHub"
 msgstr ""
 
 #: faq.html:54
-#: shared\chart\elo.js:99
+#: shared\chart\elo.js:102
 #: shared\service\consts.js:70
 msgid "Gold"
 msgstr ""
@@ -220,7 +220,7 @@ msgstr ""
 msgid "Guardian"
 msgstr ""
 
-#: app.js:86
+#: app.js:84
 msgid "Guardian.gg - Advanced Destiny Stats, Profiles and Leaderboards"
 msgstr ""
 
@@ -435,7 +435,7 @@ msgid "Platform"
 msgstr ""
 
 #: faq.html:55
-#: shared\chart\elo.js:84
+#: shared\chart\elo.js:87
 #: shared\service\consts.js:81
 msgid "Platinum"
 msgstr ""
@@ -515,7 +515,7 @@ msgid "Select a map"
 msgstr ""
 
 #: faq.html:53
-#: shared\chart\elo.js:114
+#: shared\chart\elo.js:117
 #: shared\service\consts.js:59
 msgid "Silver"
 msgstr ""

@@ -11,7 +11,7 @@ app.service('bungie', [
             var ENDPOINTS = {
                 account: '/{platform}/Account/{membershipId}/Summary/',
                 inventory: '/{platform}/Account/{membershipId}/Character/{characterId}/Inventory/?definitions=true&lc={locale}',
-                activityHistory: '/Stats/ActivityHistory/{platform}/{membershipId}/{characterId}/?mode={mode}&definitions=true&lc={locale}',
+                activityHistory: '/Stats/ActivityHistory/{platform}/{membershipId}/{characterId}/?mode={mode}&definitions=true&count=10&page={page}&lc={locale}',
                 searchForPlayer: '/SearchDestinyPlayer/{platform}/{name}/',
                 pgcr: '/Stats/PostGameCarnageReport/{instanceId}/'
             };
@@ -45,12 +45,13 @@ app.service('bungie', [
                 });
             };
 
-            this.getActivityHistory = function(platform, membershipId, characterId, mode) {
+            this.getActivityHistory = function(platform, membershipId, characterId, mode, page) {
                 return this.get(ENDPOINTS.activityHistory, {
                     platform: platform,
                     membershipId: membershipId,
                     characterId: characterId,
                     mode: mode,
+                    page: page,
                     locale: gettextCatalog.getCurrentLanguage()
                 });
             };

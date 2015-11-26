@@ -19,12 +19,15 @@ app.factory('chart-elo', [
                 },
                 plotOptions: {
                     line: {
-                        connectNulls: true
+                        connectNulls: true,
+                        marker: {
+                            enabled: false
+                        }
                     }
                 },
                 tooltip: {
                     headerFormat: '',
-                    pointFormat: '<b>{point.x:%B %e}:</b> {point.y:.0f} Elo'
+                    pointFormat: '<b>{point.x:%B %e}:</b> {point.y:.0f} Elo',
                 },
                 xAxis: {
                     gridLineWidth: 0,
