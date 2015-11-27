@@ -36,11 +36,44 @@ app.controller('profileCtrl', [
             inventory: false
         };
 
+        $scope.loadHistory = function(mode, platform, membershipId) {
+            $scope.infiniteScroll = true;
+
+            bungie
+                .getActivityHistory(
+                    platform,
+                    membershipId,
+                    $scope.character.characterBase.characterId,
+                    mode,
+                    $scope.page++
+                )
+                .then(function(result) {
+                    var defs = result.data.Response.definitions.activities;
+                    var activities = result.data.Response.data.activities;
+
+                    _.each(activities, function(activity) {
+                        activity.definition = defs[activity.activityDetails.referenceId];
+                    });
+
+                    $scope.activities.push.apply($scope.activities, activities);
+                    $scope.loading.activityHistory = false;
+
+                    $scope.infiniteScroll = false;
+
+                }, function(err) {
+                    $scope.loading.activityHistory = false;
+                    $scope.maintenance.activityHistory = true;
+                });
+        };
+
         var load = function(platform, membershipId) {
             $scope.setMode = function(mode, force) {
                 if ($scope.mode == mode && !force) {
                     return;
                 }
+
+                $scope.activities = [];
+                $scope.page = 0;
 
                 $localStorage.profileMode = mode;
 
@@ -51,35 +84,14 @@ app.controller('profileCtrl', [
                 $scope.loading.fireteam = true;
                 $scope.maintenance.fireteam = false;
 
-                bungie
-                    .getActivityHistory(
-                        platform,
-                        membershipId,
-                        $scope.character.characterBase.characterId,
-                        mode
-                    )
+                $scope.loadHistory(mode, platform, membershipId);
+
+                api
+                    .getFireteam(mode, membershipId)
                     .then(function(result) {
-                        var defs = result.data.Response.definitions.activities;
-                        $scope.activities = result.data.Response.data.activities;
-
-                        if (typeof $scope.activities == "undefined") {
-                            $scope.activities = [];
-                        }
-
-                        _.each($scope.activities, function(activity) {
-                            activity.definition = defs[activity.activityDetails.referenceId];
-                        });
-
-                        $scope.loading.activityHistory = false;
-                        //return api.getFireteam(mode, membershipId);
-                    }, function(err) {
-                        $scope.loading.activityHistory = false;
-                        $scope.maintenance.activityHistory = true;
+                        $scope.fireteam = result.data;
+                        $scope.loading.fireteam = false;
                     });
-                    //.then(function(result) {
-                    //    $scope.fireteam = result.data;
-                    //    $scope.loading.fireteam = false;
-                    //});
             };
 
             $scope.loadInventory = function() {
@@ -265,7 +277,10 @@ app.controller('profileCtrl', [
                 $scope.name = response.data.Response[0].displayName;
                 $rootScope.title = $scope.name + ' - Destiny PvP Profile - Guardian.gg';
                 $scope.loading.name = false;
-                load(response.data.Response[0].membershipType, response.data.Response[0].membershipId);
+                $scope.membershipId = response.data.Response[0].membershipId;
+                $scope.platform = response.data.Response[0].membershipType;
+
+                load($scope.platform, $scope.membershipId);
             }, function(err) {
                 $scope.loading.name = false;
                 $scope.maintenance.name = true;
@@ -274,5 +289,9 @@ app.controller('profileCtrl', [
         $scope.$on('$destroy', function() {
             angular.element('body').find('.tooltip').remove();
         });
+
+        $scope.loadMoreHistory = function() {
+            $scope.loadHistory($scope.mode, $scope.platform, $scope.membershipId);
+        }
     }
 ]);

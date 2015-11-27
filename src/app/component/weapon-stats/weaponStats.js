@@ -9,9 +9,9 @@
                     {
                         mode: search.mode ? search.mode : 10,
                         platform: search.platform ? search.platform : 2,
-                        start: search.start,
-                        end: search.end,
-                        activity: search.activity ? search.activity : ''
+                        start: search.start ? search.start : '1970-01-01',
+                        end: search.end ? search.end : '2099-01-01',
+                        activity: search.activity ? search.activity : 0
                     }
                 )
             );
@@ -22,25 +22,32 @@
 
             return $http.get(
                 util.buildApiUrl(
-                    'weapon/type/top?mode={mode}&platform={platform}&start={start}&end={end}&activity={activity}',
+                    'weapon/type/top?mode={mode}&platform={platform}&start={start}&end={end}&activity={activity}&lc={lc}',
                     {
+                        lc: gettextCatalog.getCurrentLanguage(),
                         mode: search.mode ? search.mode : 10,
                         platform: search.platform ? search.platform : 2,
-                        start: search.start,
-                        end: search.end,
-                        activity: search.activity ? search.activity : ''
+                        start: search.start ? search.start : '1970-01-01',
+                        end: search.end ? search.end : '2099-01-01',
+                        activity: search.activity ? search.activity : 0
                     }
                 )
             );
         };
 
-        this.getActivitiesForMode = function(mode) {
+        this.getActivities = function() {
+            var search = $location.search();
+
             return $http.get(
                 util.buildApiUrl(
-                    'weapon/activities?mode={mode}&lc={lc}',
+                    'weapon/activities?mode={mode}&platform={platform}&start={start}&end={end}&activity={activity}&lc={lc}',
                     {
-                        mode: mode,
-                        lc: gettextCatalog.getCurrentLanguage()
+                        lc: gettextCatalog.getCurrentLanguage(),
+                        mode: search.mode ? search.mode : 10,
+                        platform: search.platform ? search.platform : 2,
+                        start: search.start ? search.start : '1970-01-01',
+                        end: search.end ? search.end : '2099-01-01',
+                        activity: search.activity ? search.activity : 0
                     }
                 )
             );

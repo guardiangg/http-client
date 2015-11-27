@@ -23,56 +23,47 @@
     </div>
 </div>
 
-<h2 translate>Match History</h2>
+<h2>
+    <div class="history-filters pull-right">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="modeSelector" data-toggle="dropdown" aria-haspopup="true">
+                <i class="fa fa-filter"></i> <strong translate>Game mode:</strong> {{modes[mode] || 'All'|translate}}
+            </button>
+            <ul class="dropdown-menu" area-labelledby="modeSelector">
+                <li><a href="javascript:;" ng-click="setMode(5)"><translate>All</translate></a></li>
+                <li role="seperator" class="divider"></li>
+                <li><a href="javascript:;" ng-click="setMode(19)"><i class="ggg ggg-iron-banner"></i> <translate>Iron Banner</translate></a></li>
+                <li><a href="javascript:;" ng-click="setMode(14)"><i class="ggg ggg-osiris"></i> <translate>Trials of Osiris</translate></a></li>
+                <li><a href="javascript:;" ng-click="setMode(10)"><i class="ggg ggg-control"></i> <translate>Control</translate></a></li>
+                <li><a href="javascript:;" ng-click="setMode(12)"><i class="ggg ggg-clash"></i> <translate>Clash</translate></a></li>
+                <li><a href="javascript:;" ng-click="setMode(24)"><i class="ggg ggg-rift"></i> <translate>Rift</translate></a></li>
+                <li><a href="javascript:;" ng-click="setMode(13)"><i class="ggg ggg-rumble"></i> <translate>Rumble</translate></a></li>
+                <li><a href="javascript:;" ng-click="setMode(23)"><i class="ggg ggg-elimination"></i> <translate>Elimination</translate></a></li>
+                <li><a href="javascript:;" ng-click="setMode(9)"><i class="ggg ggg-skirmish"></i> <translate>Skirmish</translate></a></li>
+                <li><a href="javascript:;" ng-click="setMode(11)"><i class="ggg ggg-salvage"></i> <translate>Salvage</translate></a></li>
+                <li><a href="javascript:;" ng-click="setMode(15)"><i class="ggg ggg-doubles"></i> <translate>Doubles</translate></a></li>
+                <li><a href="javascript:;" ng-click="setMode(28)"><i class="ggg ggg-control"></i> <translate>Zone Control</translate></a></li>
+            </ul>
+        </div>
+    </div>
+    <span translate>Match History</span>
+</h2>
 
-<div class="btn-group history-mode" role="group">
-    <a href="javascript:" ng-click="setMode(5)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 5}">
-        <translate>All</translate>
-    </a>
-    <a href="javascript:" ng-click="setMode(19)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 19}">
-        <i class="ggg ggg-iron-banner"></i> <translate>Iron Banner</translate>
-    </a>
-    <a href="javascript:" ng-click="setMode(14)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 14}">
-        <i class="ggg ggg-osiris"></i> <translate>Trials of Osiris</translate>
-    </a>
-    <a href="javascript:" ng-click="setMode(10)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 10}">
-        <i class="ggg ggg-control"></i> <translate>Control</translate>
-    </a>
-    <a href="javascript:" ng-click="setMode(12)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 12}">
-        <i class="ggg ggg-clash"></i> <translate>Clash</translate>
-    </a>
-    <a href="javascript:" ng-click="setMode(24)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 24}">
-        <i class="ggg ggg-rift"></i> <translate>Rift</translate>
-    </a>
-    <a href="javascript:" ng-click="setMode(13)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 13}">
-        <i class="ggg ggg-rumble"></i> <translate>Rumble</translate>
-    </a>
-    <a href="javascript:" ng-click="setMode(23)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 23}">
-        <i class="ggg ggg-elimination"></i> <translate>Elimination</translate>
-    </a>
-    <a href="javascript:" ng-click="setMode(9)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 9}">
-        <i class="ggg ggg-skirmish"></i> <translate>Skirmish</translate>
-    </a>
-    <a href="javascript:" ng-click="setMode(11)" class="btn btn-default btn-xs" ng-class="{'btn-primary': mode == 11}">
-        <i class="ggg ggg-salvage"></i> <translate>Salvage</translate>
-    </a>
-</div>
-
-<!--
-<div class="loading" ng-if="loading.fireteam">
+<div class="loading" ng-show="loading.fireteam">
     <i class="fa fa-cog fa-spin"></i> <translate>Loading Fireteam...</translate>
 </div>
-<div class="fireteam row" ng-if="fireteam.length > 0">
-    <div class="col-xs-12 title">Recently Played With</div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-2 list" ng-repeat="row in fireteam">
-        <a ui-sref="app.profile({name: row.name, platform: row.membershipType})">
-            {{ row.name }}
-        </a>
-        <small ng-if="row.clanTag">[{{ row.clanTag }}]</small>
+<div class="fireteam row" ng-show="fireteam.length > 0">
+    <h4 translate>Recent Fireteam</h4>
+    <div class="col-sm-2 member" ng-repeat="row in fireteam" ng-show="row.name != name">
+        <div class="details">
+            <a ui-sref="app.profile({name: row.name, platform: row.membershipType})" class="name">
+                {{ row.name }}
+            </a>
+            <span class="clan" ng-show="row.clanTag">[{{ row.clanTag }}]</span>
+            <span class="clan none" ng-show="!row.clanTag">[No Clan]</span>
+        </div>
     </div>
 </div>
--->
 
 <div class="empty" ng-show="maintenance.activityHistory">
     <i class="fa fa-warning"></i> <translate>The match history is unavailable due to an API error</translate>
@@ -80,8 +71,8 @@
 <div class="loading" ng-show="loading.activityHistory">
     <i class="fa fa-cog fa-spin"></i> <translate>Loading Game History...</translate>
 </div>
-<div class="table-responsive">
-    <table class="table table-striped history noselect" ng-show="activities && !loading.activityHistory">
+<div class="table-responsive" infinite-scroll="loadMoreHistory">
+    <table class="table table-striped history noselect" ng-if="activities && !loading.activityHistory">
         <tr>
             <th style="width:15%">Played</th>
             <th style="width:20%" class="hidden-xs" translate>Map</th>
@@ -93,7 +84,7 @@
             <th style="width:10%" class="text-center" translate>Standing</th>
             <th style="width:1%" class="text-center"></th>
         </tr>
-        <tr ng-repeat="activity in activities">
+        <tr ng-repeat="activity in activities track by activity.activityDetails.instanceId">
             <td class="clickable">{{ activity.period|ago }}</td>
             <td class="clickable hidden-xs">
                 <i class="ggg {{modeIcons[activity.activityDetails.mode]}}"></i> {{ activity.definition.activityName }}
@@ -109,7 +100,7 @@
                 {{ activity.values.standing.basic.displayValue }}
             </td>
             <td class="text-center external clickable">
-                <i class="fa fa-plus-square-o pgcr-toggle" pgcr instance-id="activity.activityDetails.instanceId" character-id="character.characterBase.characterId"></i>
+                <i class="fa fa-plus-square-o" pgcr instance-id="activity.activityDetails.instanceId" character-id="character.characterBase.characterId"></i>
             </td>
         </tr>
         <tr ng-if="activities.length == 0">

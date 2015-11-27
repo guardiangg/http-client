@@ -82,7 +82,7 @@ app
                     $rootScope.title = gettextCatalog.getString(toState.title) + ' - Guardian.gg';
                 } else {
                     $rootScope.title = gettextCatalog.getString(
-                        'Guardian.gg: Advanced Destiny Stats, Profiles and Leaderboards'
+                        'Guardian.gg - Advanced Destiny Stats, Profiles and Leaderboards'
                     );
                 }
             });

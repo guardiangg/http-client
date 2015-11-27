@@ -27,22 +27,22 @@ app.controller('weaponStatsCtrl', [
             start: moment().subtract(30, 'days').format('YYYY-MM-DD'),
             end: moment().subtract(1, 'days').format('YYYY-MM-DD'),
             mode: 10,
-            activity: ''
+            activity: 0
         }, $location.search());
 
         $scope.loadingActivities = false;
 
-        $scope.getActivitiesForMode = function(mode) {
+        $scope.getActivities = function() {
             $scope.loadingActivities = true;
-            $scope.filters.activity = '';
+            $scope.filters.activity = 0;
 
             weaponStats
-                .getActivitiesForMode(mode)
+                .getActivities()
                 .then(function(result) {
                     result.data.unshift({
                         name: '- ' + gettext('Any Map') + ' -',
                         icon: null,
-                        hash: ''
+                        hash: 0
                     });
 
                     $scope.activities = result.data;
@@ -111,7 +111,7 @@ app.controller('weaponStatsCtrl', [
         };
 
         if ($scope.filters.mode != null) {
-            $scope.getActivitiesForMode($scope.filters.mode);
+            $scope.getActivities();
         }
 
         if ($scope.filters.mode != null) {

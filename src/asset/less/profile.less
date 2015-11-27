@@ -394,10 +394,6 @@ tr.pgcr-wrapper {
     color: #5589B5;
 }
 
-.history td.clickable {
-    cursor: pointer;
-}
-
 .history td {
     font-size: 13px;
     padding: 5px !important;
@@ -423,17 +419,64 @@ tr.pgcr-wrapper {
     }
 }
 
-.fireteam {
-    background-color: #fff;
-    margin-bottom: 10px;
-    text-align: center;
+.history-filters {
+    margin-top: -5px;
+    margin-right: -5px;
 
-    .list {
-        text-overflow: ellipsis;
-        overflow: hidden;
+    .dropdown {
+        button {
+            font-size: 0.7em;
+            padding: 5px 6px 4px 6px;
+            background-color: #ecaa4a;
+            border-color: #ecaa4a;
+            color: #404040;
+        }
+    }
+}
+
+.fireteam {
+    margin: 0 0 15px 0;
+
+    h4 {
+        margin-top: 0;
+        margin-bottom: 5px;
+        font-weight: bold;
+        font-size: 0.95em;
+    }
+
+    .member {
+        padding: 0 5px 0 0;
+
+        .details {
+            text-align: center;
+            height: 40px;
+            padding: 8px 2px;
+            line-height: 12px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            background: #e8e8e8;
+            border-bottom: 1px solid #ccc;
+
+            a.name {
+                color: #175C96;
+                font-size: 0.9em;
+            }
+
+            span.clan {
+                display: block;
+                font-size: 0.8em;
+                color: #666;
+
+                &.none {
+                    color: #999;
+                }
+            }
+        }
     }
 
     .title {
+        margin: 0 0 10px 0;
+        text-align: left;
         font-size: 16px;
         font-weight: bold;
     }
