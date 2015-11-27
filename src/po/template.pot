@@ -33,6 +33,7 @@ msgid "Agility"
 msgstr ""
 
 #: profile\_activity-history.html:33
+#: shared\service\consts.js:353
 msgid "All"
 msgstr ""
 
@@ -56,8 +57,20 @@ msgstr ""
 msgid "Armor"
 msgstr ""
 
+#: shared\service\consts.js:236
+msgid "Arms"
+msgstr ""
+
+#: shared\service\consts.js:266
+msgid "Artifact"
+msgstr ""
+
 #: faq.html:47
 msgid "As your score rises and falls, you'll be categorized into leagues."
+msgstr ""
+
+#: shared\service\consts.js:377
+msgid "Auto Rifle"
 msgstr ""
 
 #: profile\_pgcr.html:32
@@ -65,7 +78,7 @@ msgid "Average Team Elo"
 msgstr ""
 
 #: layout\nav.html:142
-#: shared\service\consts.js:183
+#: shared\service\consts.js:196
 msgid "Bladedancer"
 msgstr ""
 
@@ -75,12 +88,20 @@ msgstr ""
 
 #: faq.html:52
 #: shared\chart\elo.js:132
-#: shared\service\consts.js:48
+#: shared\service\consts.js:61
 msgid "Bronze"
 msgstr ""
 
 #: layout\main.html:33
 msgid "Bungie API Error"
+msgstr ""
+
+#: shared\service\consts.js:413
+msgid "Camera"
+msgstr ""
+
+#: shared\service\consts.js:242
+msgid "Chest"
 msgstr ""
 
 #: search.html:4
@@ -90,17 +111,29 @@ msgstr ""
 #: layout\nav.html:40
 #: layout\nav.html:99
 #: profile\_activity-history.html:38
-#: shared\service\consts.js:111
+#: shared\service\consts.js:124
 #: subclass.html:83
 msgid "Clash"
+msgstr ""
+
+#: shared\service\consts.js:254
+msgid "Class Items"
+msgstr ""
+
+#: shared\service\consts.js:338
+msgid "Consumable"
 msgstr ""
 
 #: layout\nav.html:35
 #: layout\nav.html:94
 #: profile\_activity-history.html:37
-#: shared\service\consts.js:109
+#: shared\service\consts.js:122
 #: subclass.html:74
 msgid "Control"
+msgstr ""
+
+#: shared\service\consts.js:357
+msgid "Crucible"
 msgstr ""
 
 #: home.html:40
@@ -119,13 +152,13 @@ msgid "Data is updating..."
 msgstr ""
 
 #: layout\nav.html:146
-#: shared\service\consts.js:148
+#: shared\service\consts.js:161
 msgid "Defender"
 msgstr ""
 
 #: faq.html:56
 #: shared\chart\elo.js:72
-#: shared\service\consts.js:92
+#: shared\service\consts.js:105
 msgid "Diamond"
 msgstr ""
 
@@ -136,7 +169,7 @@ msgstr ""
 #: layout\nav.html:129
 #: layout\nav.html:70
 #: profile\_activity-history.html:44
-#: shared\service\consts.js:115
+#: shared\service\consts.js:128
 msgid "Doubles"
 msgstr ""
 
@@ -149,13 +182,25 @@ msgstr ""
 #: layout\nav.html:114
 #: layout\nav.html:55
 #: profile\_activity-history.html:41
-#: shared\service\consts.js:114
+#: shared\service\consts.js:127
 #: subclass.html:92
 msgid "Elimination"
 msgstr ""
 
+#: shared\service\consts.js:283
+msgid "Emblem"
+msgstr ""
+
+#: shared\service\consts.js:307
+msgid "Emote"
+msgstr ""
+
 #: weapon-stats.html:59
 msgid "End day"
+msgstr ""
+
+#: shared\service\consts.js:373
+msgid "Exotic"
 msgstr ""
 
 #: subclass.html:150
@@ -170,6 +215,7 @@ msgstr ""
 msgid "FAQ"
 msgstr ""
 
+#: directive\pagination.html:7
 #: leaderboard.html:103
 #: leaderboard.html:20
 msgid "First"
@@ -188,6 +234,10 @@ msgstr ""
 msgid "From"
 msgstr ""
 
+#: shared\service\consts.js:397
+msgid "Fusion Rifle"
+msgstr ""
+
 #: faq.html:6
 msgid ""
 "GGG is the lovechild of a couple hardcore Destiny fans. If you like what we've done and want to show your\r\n"
@@ -202,13 +252,17 @@ msgstr ""
 msgid "Games"
 msgstr ""
 
+#: shared\service\consts.js:260
+msgid "Ghost"
+msgstr ""
+
 #: layout\nav.html:179
 msgid "GitHub"
 msgstr ""
 
 #: faq.html:54
 #: shared\chart\elo.js:102
-#: shared\service\consts.js:70
+#: shared\service\consts.js:83
 msgid "Gold"
 msgstr ""
 
@@ -221,12 +275,24 @@ msgid "Guardian.gg - Advanced Destiny Stats, Profiles and Leaderboards"
 msgstr ""
 
 #: layout\nav.html:143
-#: shared\service\consts.js:173
+#: shared\service\consts.js:186
 msgid "Gunslinger"
+msgstr ""
+
+#: shared\service\consts.js:389
+msgid "Hand Cannon"
 msgstr ""
 
 #: weapon-stats.html:119
 msgid "Heavy"
+msgstr ""
+
+#: shared\service\consts.js:219
+msgid "Heavy Weapon"
+msgstr ""
+
+#: shared\service\consts.js:230
+msgid "Helmets"
 msgstr ""
 
 #: layout\nav.html:16
@@ -245,7 +311,7 @@ msgstr ""
 msgid "How do I get in touch if I have a question/suggestion?"
 msgstr ""
 
-#: shared\service\consts.js:137
+#: shared\service\consts.js:150
 #: subclass.html:15
 msgid "Hunter"
 msgstr ""
@@ -269,7 +335,8 @@ msgstr ""
 #: layout\nav.html:25
 #: layout\nav.html:84
 #: profile\_activity-history.html:35
-#: shared\service\consts.js:117
+#: shared\service\consts.js:130
+#: shared\service\consts.js:365
 #: subclass.html:77
 msgid "Iron Banner"
 msgstr ""
@@ -277,6 +344,10 @@ msgstr ""
 #: subclass.html:133
 #: subclass.html:156
 msgid "Item"
+msgstr ""
+
+#: item.html:2
+msgid "Items"
 msgstr ""
 
 #. Short for kills
@@ -314,6 +385,7 @@ msgstr ""
 msgid "Kills by Weapon Type"
 msgstr ""
 
+#: directive\pagination.html:32
 #: leaderboard.html:127
 #: leaderboard.html:44
 msgid "Last"
@@ -321,6 +393,10 @@ msgstr ""
 
 #: layout\nav.html:19
 msgid "Leaderboards"
+msgstr ""
+
+#: shared\service\consts.js:248
+msgid "Legs"
 msgstr ""
 
 #: subclass.html:152
@@ -359,12 +435,24 @@ msgstr ""
 msgid "Loading Weapons..."
 msgstr ""
 
+#: shared\service\consts.js:385
+msgid "Machine Gun"
+msgstr ""
+
 #: profile\_activity-history.html:78
 msgid "Map"
 msgstr ""
 
+#: shared\service\consts.js:429
+msgid "Mask"
+msgstr ""
+
 #: profile\_activity-history.html:49
 msgid "Match History"
+msgstr ""
+
+#: shared\service\consts.js:344
+msgid "Material"
 msgstr ""
 
 #: profile\_character.html:62
@@ -382,17 +470,19 @@ msgid ""
 msgstr ""
 
 #: home.html:21
+#: item.html:26
 #: leaderboard.html:71
 msgid "Name"
 msgstr ""
 
+#: directive\pagination.html:25
 #: leaderboard.html:120
 #: leaderboard.html:37
 msgid "Next"
 msgstr ""
 
 #: layout\nav.html:144
-#: shared\service\consts.js:178
+#: shared\service\consts.js:191
 msgid "Nightstalker"
 msgstr ""
 
@@ -406,6 +496,12 @@ msgstr ""
 
 #: search.html:12
 msgid "Oops, we weren't able to find \"{{name}}\". Verify spelling and try again."
+msgstr ""
+
+#: directive\pagination.html:16
+msgid ""
+"Page {{page+1|number}} of {{maxPages+1|number}}\r\n"
+"        <span>{{total|number}} {{name}}</span>"
 msgstr ""
 
 #: leaderboard.html:112
@@ -432,15 +528,16 @@ msgstr ""
 
 #: faq.html:55
 #: shared\chart\elo.js:87
-#: shared\service\consts.js:81
+#: shared\service\consts.js:94
 msgid "Platinum"
 msgstr ""
 
 #: layout\nav.html:22
-#: shared\service\consts.js:105
+#: shared\service\consts.js:118
 msgid "PlayStation"
 msgstr ""
 
+#: directive\pagination.html:14
 #: leaderboard.html:110
 #: leaderboard.html:27
 msgid "Prev"
@@ -448,6 +545,14 @@ msgstr ""
 
 #: weapon-stats.html:97
 msgid "Primary"
+msgstr ""
+
+#: shared\service\consts.js:207
+msgid "Primary Weapon"
+msgstr ""
+
+#: shared\service\consts.js:405
+msgid "Pulse Rifle"
 msgstr ""
 
 #: leaderboard.html:70
@@ -470,6 +575,10 @@ msgstr ""
 msgid "Recovery"
 msgstr ""
 
+#: shared\service\consts.js:369
+msgid "Reef"
+msgstr ""
+
 #: weapon-stats.html:37
 msgid "Refreshing map list..."
 msgstr ""
@@ -477,15 +586,19 @@ msgstr ""
 #: layout\nav.html:109
 #: layout\nav.html:50
 #: profile\_activity-history.html:39
-#: shared\service\consts.js:112
+#: shared\service\consts.js:125
 #: subclass.html:86
 msgid "Rift"
+msgstr ""
+
+#: shared\service\consts.js:393
+msgid "Rocket Launcher"
 msgstr ""
 
 #: layout\nav.html:104
 #: layout\nav.html:45
 #: profile\_activity-history.html:40
-#: shared\service\consts.js:113
+#: shared\service\consts.js:126
 #: subclass.html:89
 msgid "Rumble"
 msgstr ""
@@ -493,13 +606,17 @@ msgstr ""
 #: layout\nav.html:124
 #: layout\nav.html:65
 #: profile\_activity-history.html:43
-#: shared\service\consts.js:110
+#: shared\service\consts.js:123
 msgid "Salvage"
 msgstr ""
 
 #: profile\_activity-history.html:79
 #: profile\_pgcr.html:6
 msgid "Score"
+msgstr ""
+
+#: shared\service\consts.js:409
+msgid "Scout Rifle"
 msgstr ""
 
 #: component\layout\layoutCtrl.js:16
@@ -514,9 +631,25 @@ msgstr ""
 msgid "Select a map"
 msgstr ""
 
+#: shared\service\consts.js:289
+msgid "Shader"
+msgstr ""
+
+#: shared\service\consts.js:295
+msgid "Ship"
+msgstr ""
+
+#: shared\service\consts.js:381
+msgid "Shotgun"
+msgstr ""
+
+#: shared\service\consts.js:421
+msgid "Sidearm"
+msgstr ""
+
 #: faq.html:53
 #: shared\chart\elo.js:117
-#: shared\service\consts.js:59
+#: shared\service\consts.js:72
 msgid "Silver"
 msgstr ""
 
@@ -530,13 +663,29 @@ msgstr ""
 #: layout\nav.html:119
 #: layout\nav.html:60
 #: profile\_activity-history.html:42
-#: shared\service\consts.js:108
+#: shared\service\consts.js:121
 #: subclass.html:95
 msgid "Skirmish"
 msgstr ""
 
+#: shared\service\consts.js:401
+msgid "Sniper Rifle"
+msgstr ""
+
+#: shared\service\consts.js:301
+msgid "Sparrow"
+msgstr ""
+
 #: weapon-stats.html:108
 msgid "Special"
+msgstr ""
+
+#: shared\service\consts.js:417
+msgid "Special Orders"
+msgstr ""
+
+#: shared\service\consts.js:213
+msgid "Special Weapon"
 msgstr ""
 
 #: profile\_activity-history.html:84
@@ -549,13 +698,17 @@ msgid "Start day"
 msgstr ""
 
 #: layout\nav.html:150
-#: shared\service\consts.js:168
+#: shared\service\consts.js:181
 msgid "Stormcaller"
 msgstr ""
 
 #: layout\nav.html:147
-#: shared\service\consts.js:153
+#: shared\service\consts.js:166
 msgid "Striker"
+msgstr ""
+
+#: shared\service\consts.js:277
+msgid "Subclass"
 msgstr ""
 
 #: shared\chart\popularity.js:16
@@ -567,17 +720,21 @@ msgid "Subclasses"
 msgstr ""
 
 #: layout\nav.html:148
-#: shared\service\consts.js:143
+#: shared\service\consts.js:156
 msgid "Sunbreaker"
 msgstr ""
 
 #: layout\nav.html:151
-#: shared\service\consts.js:158
+#: shared\service\consts.js:171
 msgid "Sunsinger"
 msgstr ""
 
 #: profile\_character.html:52
 msgid "Super"
+msgstr ""
+
+#: shared\service\consts.js:425
+msgid "Sword"
 msgstr ""
 
 #: profile\_pgcr.html:3
@@ -619,7 +776,7 @@ msgstr ""
 msgid "This profile temporarily cannot be displayed. Too much data is missing by consequence of the current API issues."
 msgstr ""
 
-#: shared\service\consts.js:138
+#: shared\service\consts.js:151
 #: subclass.html:31
 msgid "Titan"
 msgstr ""
@@ -639,7 +796,7 @@ msgstr ""
 #: layout\nav.html:30
 #: layout\nav.html:89
 #: profile\_activity-history.html:36
-#: shared\service\consts.js:118
+#: shared\service\consts.js:131
 #: subclass.html:80
 msgid "Trials of Osiris"
 msgstr ""
@@ -654,12 +811,16 @@ msgstr ""
 msgid "Use%"
 msgstr ""
 
+#: shared\service\consts.js:361
+msgid "Vanguard"
+msgstr ""
+
 #: layout\nav.html:152
-#: shared\service\consts.js:163
+#: shared\service\consts.js:176
 msgid "Voidwalker"
 msgstr ""
 
-#: shared\service\consts.js:136
+#: shared\service\consts.js:149
 #: subclass.html:47
 msgid "Warlock"
 msgstr ""
@@ -701,7 +862,7 @@ msgid "Winner"
 msgstr ""
 
 #: layout\nav.html:81
-#: shared\service\consts.js:104
+#: shared\service\consts.js:117
 msgid "Xbox"
 msgstr ""
 
@@ -712,7 +873,7 @@ msgstr ""
 #: layout\nav.html:134
 #: layout\nav.html:75
 #: profile\_activity-history.html:45
-#: shared\service\consts.js:116
+#: shared\service\consts.js:129
 msgid "Zone Control"
 msgstr ""
 
