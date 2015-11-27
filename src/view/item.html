@@ -1,15 +1,29 @@
 <div class="filters">
     <pagination data="results" name="'Items'|translate" callback="load" ng-if="results.data.length > 0" class="pull-right"></pagination>
 
-    <!-- add bucket/tier filters here -->
-    <select class="form-control" ng-change="load(page)" ng-model="typeSlug">
-        <optgroup ng-repeat="parent in types" label="{{parent.label}}">
-            <option ng-repeat="(slug, type) in parent.types" value="{{slug}}">{{type.label}}</option>
+    <select class="form-control" ng-change="resetFilter.secondary(); load()" ng-model="typeSlugs.primary">
+        <optgroup label="{{'Active Gear'|translate}}">
+            <option ng-repeat="type in typeLists.primary|filter:{group: 'equip_stat'}" value="{{type.slug}}">{{type.label}}</option>
+        </optgroup>
+        <optgroup label="{{'Passive Gear'|translate}}">
+            <option ng-repeat="type in typeLists.primary|filter:{group: 'equip_passive'}" value="{{type.slug}}">{{type.label}}</option>
+        </optgroup>
+        <optgroup label="{{'Inventory'|translate}}">
+            <option ng-repeat="type in typeLists.primary|filter:{group: 'inventory'}" value="{{type.slug}}">{{type.label}}</option>
+        </optgroup>
+        <optgroup label="{{'Special Event'|translate}}">
+            <option ng-repeat="type in typeLists.primary|filter:{group: 'event'}" value="{{type.slug}}">{{type.label}}</option>
         </optgroup>
     </select>&nbsp;
 
-    <select class="form-control" ng-change="load(page)" ng-model="subTypeSlug">
-        <option ng-repeat="subType in type.sub_types" value="{{subTypes[subType].name}}">{{subTypes[subType].label}}</option>
+    <select class="form-control" ng-change="resetFilter.tertiary(); load()" ng-model="typeSlugs.secondary" ng-show="typeSlugs.primary && typeLists.secondary && typeLists.secondary.length > 0">
+        <option value=""></option>
+        <option ng-repeat="type in typeLists.secondary" value="{{type.slug}}">{{type.label}}</option>
+    </select>&nbsp;
+
+    <select class="form-control" ng-change="load()" ng-model="typeSlugs.tertiary" ng-show="typeSlugs.secondary && typeLists.tertiary && typeLists.tertiary.length > 0">
+        <option value=""></option>
+        <option ng-repeat="type in typeLists.tertiary" value="{{type.slug}}">{{type.label}}</option>
     </select>&nbsp;
 
     <input type="text"
@@ -25,7 +39,7 @@
         <tr>
             <th translate>Name</th>
         </tr>
-        <tr ng-repeat="entity in results.data">
+        <tr ng-repeat="entity in results.data|limitTo: 15">
             <td>
                 <img ng-src="//bungie.net{{entity.icon}}">
                 <div class="details">
@@ -40,7 +54,7 @@
             <tr>
                 <th ng-repeat="col in columns">{{col.name}}</th>
             </tr>
-            <tr ng-repeat="entity in results.data">
+            <tr ng-repeat="entity in results.data|limitTo: 15">
                 <td ng-repeat="col in columns">
                     <span ng-if="entity._stats[col.hash] && entity._stats[col.hash].min !== entity._stats[col.hash].max">{{entity._stats[col.hash].min}}-{{entity._stats[col.hash].max}}</span>
                     <span ng-if="entity._stats[col.hash] && entity._stats[col.hash].min === entity._stats[col.hash].max && entity._stats[col.hash].min !== 0">{{entity._stats[col.hash].min}}</span>

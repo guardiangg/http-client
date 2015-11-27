@@ -12,6 +12,14 @@ app.config([
         });
         $locationProvider.hashPrefix('!');
 
+        $urlRouterProvider.rule(function ($injector, $location) {
+            var path = $location.path();
+            if (path[path.length - 1] === '/') {
+                var newPath = path.substr(0, path.length - 1);
+                return newPath;
+            }
+        });
+
         $stateProvider
             .state('app', {
                 abstract: true,
@@ -49,7 +57,12 @@ app.config([
                 templateUrl: 'subclass.html'
             })
             .state('app.items', {
-                url: 'items/{type:[a-z-]+}/{subType:[a-z-]+}/{page:[0-9]+}',
+                url: 'items/{primary:[a-z-]+}/{secondary:[a-z-]+}/{tertiary:[a-z-]+}',
+                params: {
+                    primary: { value: null, squash: true },
+                    secondary: { value: null, squash: true },
+                    tertiary: { value: null, squash: true }
+                },
                 controller: 'itemCtrl',
                 templateUrl: 'item.html'
             })

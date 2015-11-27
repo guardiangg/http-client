@@ -5,17 +5,14 @@ app.service('consts', [
 
     function (gettextCatalog) {
         return {
-            itemSubTypeToId: function(name) {
-                var result;
+            getItemCategoryBySlug: function(slug, list) {
+                if (!list) {
+                    list = this.item_category_list;
+                }
 
-                _.find(this.item_sub_types, function(type, id) {
-                    if (type.name.toLowerCase().trim() == name.toLowerCase().trim()) {
-                        result = parseInt(id);
-                        return true;
-                    }
+                return _.find(list, function(cat) {
+                    return cat.slug == slug;
                 });
-
-                return result;
             },
 
             subclassToId: function(name) {
@@ -197,238 +194,331 @@ app.service('consts', [
                     color: '#3EB9FD'
                 }
             },
-            item_types: {
-                weapon: {
-                    label: 'Weapon',
-                    types: {
-                        primary: {
+            item_category_list: [
+                {
+                    slug: 'weapon',
+                    list_type: 'weapon',
+                    group: 'equip_stat',
+                    label: gettextCatalog.getString('Weapon'),
+                    category: 1,
+                    children: [
+                        {
+                            slug: 'primary',
                             list_type: 'weapon',
-                            bucket: 1498876634,
                             label: gettextCatalog.getString('Primary Weapon'),
-                            sub_types: [0, 6, 7, 9, 11, 12, 13, 14]
-                        },
-                        special: {
+                            category: 2,
+                            children: [
+                                {
+                                    slug: 'auto-rifle',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Auto Rifle'),
+                                    category: 5,
+                                    children: []
+                                },
+                                {
+                                    slug: 'fusion-rifle',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Fusion Rifle'),
+                                    category: 9,
+                                    children: []
+                                },
+                                {
+                                    slug: 'hand-cannon',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Hand Cannon'),
+                                    category: 6,
+                                    children: []
+                                },
+                                {
+                                    slug: 'pulse-rifle',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Pulse Rifle'),
+                                    category: 7,
+                                    children: []
+                                },
+                                {
+                                    slug: 'scout-rifle',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Scout Rifle'),
+                                    category: 8,
+                                    children: []
+                                },
+                                {
+                                    slug: 'shotgun',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Shotgun'),
+                                    category: 11,
+                                    children: []
+                                },
+                                {
+                                    slug: 'sniper-rifle',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Sniper Rifle'),
+                                    category: 10,
+                                    children: []
+                                }
+                            ]
+                        }, // primary
+                        {
+                            slug: 'special',
                             list_type: 'weapon',
-                            bucket: 2465295065,
                             label: gettextCatalog.getString('Special Weapon'),
-                            sub_types: [0, 7, 11, 12, 17]
-                        },
-                        heavy: {
+                            category: 3,
+                            children: [
+                                {
+                                    slug: 'fusion-rifle',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Fusion Rifle'),
+                                    category: 9,
+                                    children: []
+                                },
+                                {
+                                    slug: 'shotgun',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Shotgun'),
+                                    category: 11,
+                                    children: []
+                                },
+                                {
+                                    slug: 'sidearm',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Sidearm'),
+                                    category: 14,
+                                    children: []
+                                },
+                                {
+                                    slug: 'sniper-rifle',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Sniper Rifle'),
+                                    category: 10,
+                                    children: []
+                                }
+                            ]
+                        }, // special
+                        {
+                            slug: 'heavy',
                             list_type: 'weapon',
-                            bucket: 953998645,
                             label: gettextCatalog.getString('Heavy Weapon'),
-                            sub_types: [0, 11, 8, 10, 18]
-                        }
-                    }
-                },
-                armor: {
-                    label: 'Armor',
-                    types: {
-                        head: {
+                            category: 4,
+                            children: [
+                                {
+                                    slug: 'fusion-rifle',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Fusion Rifle'),
+                                    category: 9,
+                                    children: []
+                                },
+                                {
+                                    slug: 'machine-gun',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Machine Gun'),
+                                    category: 12,
+                                    children: []
+                                },
+                                {
+                                    slug: 'rocket-launcher',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Rocket Launcher'),
+                                    category: 13,
+                                    children: []
+                                },
+                                {
+                                    slug: 'sword',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Sword'),
+                                    category: 54,
+                                    children: []
+                                }
+                            ]
+                        } // heavy
+                    ]
+                }, // weapon
+                {
+                    slug: 'armor',
+                    list_type: 'armor',
+                    group: 'equip_stat',
+                    label: gettextCatalog.getString('Armor'),
+                    category: 20,
+                    children: [
+                        {
+                            slug: 'helmet',
                             list_type: 'armor',
-                            bucket: 3448274439,
-                            label: gettextCatalog.getString('Helmets'),
-                            sub_types: [0, 19]
+                            label: gettextCatalog.getString('Helmet'),
+                            category: 45,
+                            children: []
                         },
-                        arm: {
+                        {
+                            slug: 'arms',
                             list_type: 'armor',
-                            bucket: 3551918588,
                             label: gettextCatalog.getString('Arms'),
-                            sub_types: [0]
+                            category: 46,
+                            children: []
                         },
-                        chest: {
+                        {
+                            slug: 'chest',
                             list_type: 'armor',
-                            bucket: 14239492,
                             label: gettextCatalog.getString('Chest'),
-                            sub_types: [0]
+                            category: 47,
+                            children: []
                         },
-                        leg: {
+                        {
+                            slug: 'legs',
                             list_type: 'armor',
-                            bucket: 20886954,
                             label: gettextCatalog.getString('Legs'),
-                            sub_types: [0]
+                            category: 48,
+                            children: []
                         },
-                        class: {
+                        {
+                            slug: 'class-item',
                             list_type: 'armor',
-                            bucket: 1585787867,
-                            label: gettextCatalog.getString('Class Items'),
-                            sub_types: [0]
+                            label: gettextCatalog.getString('Class Item'),
+                            category: 49,
+                            children: []
                         },
-                        ghost: {
+                        {
+                            slug: 'artifact',
                             list_type: 'armor',
-                            bucket: 4023194814,
-                            label: gettextCatalog.getString('Ghost'),
-                            sub_types: [0]
-                        },
-                        artifact: {
-                            list_type: 'armor',
-                            bucket: 434908299,
                             label: gettextCatalog.getString('Artifact'),
-                            sub_types: [0]
+                            category: 38,
+                            children: []
+                        },
+                        {
+                            slug: 'ghost',
+                            list_type: 'armor',
+                            label: gettextCatalog.getString('Ghost'),
+                            category: 39,
+                            children: []
+                        },
+                    ]
+                }, // armor
+                {
+                    slug: 'subclass',
+                    list_type: 'standard',
+                    group: 'equip_stat',
+                    label: gettextCatalog.getString('Subclass'),
+                    category: 50,
+                    children: []
+                },
+                {
+                    slug: 'emblem',
+                    list_type: 'standard',
+                    group: 'equip_passive',
+                    label: gettextCatalog.getString('Emblem'),
+                    category: 19,
+                    children: []
+                },
+                {
+                    slug: 'emote',
+                    list_type: 'standard',
+                    group: 'equip_passive',
+                    label: gettextCatalog.getString('Emote'),
+                    category: 44,
+                    children: []
+                },
+                {
+                    slug: 'shader',
+                    list_type: 'standard',
+                    group: 'equip_passive',
+                    label: gettextCatalog.getString('Shader'),
+                    category: 41,
+                    children: []
+                },
+                {
+                    slug: 'ship',
+                    list_type: 'standard',
+                    group: 'equip_passive',
+                    label: gettextCatalog.getString('Ship'),
+                    category: 42,
+                    children: [
+                        {
+                            slug: 'schematic',
+                            list_type: 'standard',
+                            label: gettextCatalog.getString('Ship Schematic'),
+                            category: 51,
+                            children: []
+                        },
+                    ]
+                },
+                {
+                    slug: 'sparrow',
+                    list_type: 'sparrow',
+                    group: 'equip_passive',
+                    label: gettextCatalog.getString('Sparrow'),
+                    category: 43,
+                    children: []
+                },
+                {
+                    slug: 'bounty',
+                    list_type: 'standard',
+                    group: 'inventory',
+                    label: gettextCatalog.getString('Bounty'),
+                    category: 26,
+                    children: [
+                        {
+                            slug: 'vanguard',
+                            list_type: 'standard',
+                            label: gettextCatalog.getString('Vanguard'),
+                            category: 27,
+                            children: []
+                        },
+                        {
+                            slug: 'crucible',
+                            list_type: 'standard',
+                            label: gettextCatalog.getString('Crucible'),
+                            category: 28,
+                            children: []
                         }
-                    }
+                    ]
                 },
-                other_equippable: {
-                    label: 'Other Equippable',
-                    types: {
-                        subclass: {
-                            list_type: 'standard',
-                            bucket: 3284755031,
-                            label: gettextCatalog.getString('Subclass'),
-                            sub_types: [0]
-                        },
-                        emblem: {
-                            list_type: 'standard',
-                            bucket: 4274335291,
-                            label: gettextCatalog.getString('Emblem'),
-                            sub_types: [0]
-                        },
-                        shader: {
-                            list_type: 'standard',
-                            bucket: 2973005342,
-                            label: gettextCatalog.getString('Shader'),
-                            sub_types: [0]
-                        },
-                        ship: {
-                            list_type: 'standard',
-                            bucket: 284967655,
-                            label: gettextCatalog.getString('Ship'),
-                            sub_types: [0]
-                        },
-                        sparrow: {
-                            list_type: 'vehicle',
-                            bucket: 2025709351,
-                            label: gettextCatalog.getString('Sparrow'),
-                            sub_types: [0]
-                        },
-                        emote: {
-                            list_type: 'standard',
-                            bucket: 3054419239,
-                            label: gettextCatalog.getString('Emote'),
-                            sub_types: [0]
-                        }
-                    }
+                {
+                    slug: 'consumable',
+                    list_type: 'standard',
+                    group: 'inventory',
+                    label: gettextCatalog.getString('Consumable'),
+                    category: 35,
+                    children: []
                 },
-                inventory: {
-                    label: 'Inventory',
-                    types: {
-                        //temporary: {
-                        //    bucket: 2197472680,
-                        //    label: gettextCatalog.getString('Temporary'),
-                        //    sub_types: []
-                        //},
-                        //bounty: {
-                        //    bucket: 2197472680,
-                        //    label: gettextCatalog.getString('Bounty'),
-                        //    sub_types: [1, 2, 3, 4, 5]
-                        //},
-                        //quest: {
-                        //    bucket: 1801258597,
-                        //    label: gettextCatalog.getString('Quest'),
-                        //    sub_types: []
-                        //},
-                        //mission: {
-                        //    bucket: 375726501,
-                        //    label: gettextCatalog.getString('Mission Key Item'),
-                        //    sub_types: []
-                        //},
-                        consumable: {
-                            list_type: 'standard',
-                            bucket: 1469714392,
-                            label: gettextCatalog.getString('Consumable'),
-                            sub_types: [0]
-                        },
-                        material: {
-                            list_type: 'standard',
-                            bucket: 3865314626,
-                            label: gettextCatalog.getString('Material'),
-                            sub_types: [0]
-                        }
-                    }
-                }
-            },
-            item_sub_types: {
-                0: {
-                    name: 'all',
-                    label: gettextCatalog.getString('All')
+                {
+                    slug: 'currency',
+                    list_type: 'standard',
+                    group: 'inventory',
+                    label: gettextCatalog.getString('Currency'),
+                    category: 18,
+                    children: []
                 },
-                1: {
-                    name: 'crucible',
-                    label: gettextCatalog.getString('Crucible')
+                {
+                    slug: 'engram',
+                    list_type: 'standard',
+                    group: 'inventory',
+                    label: gettextCatalog.getString('Engram'),
+                    category: 34,
+                    children: []
                 },
-                2: {
-                    name: 'vanguard',
-                    label: gettextCatalog.getString('Vanguard')
+                {
+                    slug: 'material',
+                    list_type: 'standard',
+                    group: 'inventory',
+                    label: gettextCatalog.getString('Material'),
+                    category: 40,
+                    children: []
                 },
-                3: {
-                    name: 'iron-banner',
-                    label: gettextCatalog.getString('Iron Banner')
+                {
+                    slug: 'mission-key',
+                    list_type: 'standard',
+                    group: 'inventory',
+                    label: gettextCatalog.getString('Mission Key Item'),
+                    category: 37,
+                    children: []
                 },
-                4: {
-                    name: 'reef',
-                    label: gettextCatalog.getString('Reef')
+                {
+                    slug: 'mask',
+                    list_type: 'standard',
+                    group: 'event',
+                    label: gettextCatalog.getString('Halloween Mask'),
+                    category: 55,
+                    children: []
                 },
-                5: {
-                    name: 'exotic',
-                    label: gettextCatalog.getString('Exotic')
-                },
-                6: {
-                    name: 'auto-rifle',
-                    label: gettextCatalog.getString('Auto Rifle')
-                },
-                7: {
-                    name: 'shotgun',
-                    label: gettextCatalog.getString('Shotgun')
-                },
-                8: {
-                    name: 'machine-gun',
-                    label: gettextCatalog.getString('Machine Gun')
-                },
-                9: {
-                    name: 'hand-cannon',
-                    label: gettextCatalog.getString('Hand Cannon')
-                },
-                10: {
-                    name: 'rocket-launcher',
-                    label: gettextCatalog.getString('Rocket Launcher')
-                },
-                11: {
-                    name: 'fusion-rifle',
-                    label: gettextCatalog.getString('Fusion Rifle')
-                },
-                12: {
-                    name: 'sniper-rifle',
-                    label: gettextCatalog.getString('Sniper Rifle')
-                },
-                13: {
-                    name: 'pulse-rifle',
-                    label: gettextCatalog.getString('Pulse Rifle')
-                },
-                14: {
-                    name: 'scout-rifle',
-                    label: gettextCatalog.getString('Scout Rifle')
-                },
-                15: {
-                    name: 'camera',
-                    label: gettextCatalog.getString('Camera')
-                },
-                16: {
-                    name: 'crm',
-                    label: gettextCatalog.getString('Special Orders')
-                },
-                17: {
-                    name: 'sidearm',
-                    label: gettextCatalog.getString('Sidearm')
-                },
-                18: {
-                    name: 'sword',
-                    label: gettextCatalog.getString('Sword')
-                },
-                19: {
-                    name: 'mask',
-                    label: gettextCatalog.getString('Mask')
-                }
-            },
+            ],
             item_list_types: {
                 standard: {
                     stat_columns: []
@@ -464,7 +554,7 @@ app.service('consts', [
                         4244567218, // Strength
                     ]
                 },
-                vehicle: {
+                sparrow: {
                     stat_columns: [
                         1501155019, // Speed
                         360359141, // Durability

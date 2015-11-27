@@ -12,58 +12,103 @@ app.controller('itemCtrl', [
 
     function ($rootScope, $scope, $state, $location, $stateParams, gamedata, consts, util) {
         $scope.filters = {};
-        $scope.typeSlug = $stateParams.type;
-        $scope.type = null;
-        $scope.subTypeSlug = $stateParams.subType;
-        $scope.subType = consts.itemSubTypeToId($scope.subTypeSlug);
-        $scope.page = $stateParams.page;
+        $scope.page = 0;
 
-        $scope.types = consts.item_types;
-        $scope.subTypes = consts.item_sub_types;
+        var itemTypeNotFound = function() {
+            $scope.filterError = true;
+        };
 
-        _.each(consts.item_types, function(parent) {
-            if (parent.types[$scope.typeSlug]) {
-                $scope.type = parent.types[$scope.typeSlug];
-            }
-        });
+        var categories = [],
+            primaryType,
+            secondaryType,
+            tertiaryType,
+            listType;
 
-        if (!$scope.type || !_.contains($scope.type.sub_types, $scope.subType)) {
-            console.log('no route match, handle error here');
+        $scope.typeLists = {
+            primary: [],
+            secondary: false,
+            tertiary: false
+        };
+
+        $scope.typeSlugs = {
+            primary: $stateParams.primary,
+            secondary: $stateParams.secondary,
+            tertiary: $stateParams.tertiary
+        };
+
+        $scope.typeLists.primary = consts.item_category_list;
+        primaryType = consts.getItemCategoryBySlug($stateParams.primary);
+        if (!primaryType) {
+            return itemTypeNotFound();
+        } else {
+            categories.push(primaryType.category);
+            listType = primaryType.list_type;
+            $scope.typeLists.secondary = primaryType.children;
         }
 
-        $scope.load = function(page) {
-            if (page === $scope.page &&
-                $scope.typeSlug === $stateParams.type &&
-                $scope.subTypeSlug === $stateParams.subType
-            ) {
-                return;
-            }
-
-            if ($scope.subTypeSlug === $stateParams.subType && $scope.typeSlug !== $stateParams.type) {
-                $scope.subTypeSlug = 'all';
-            }
-
-            var href = $state.href(
-                'app.items',
-                {
-                    page: page,
-                    type: $scope.typeSlug,
-                    subType: $scope.subTypeSlug
+        if ($stateParams.secondary) {
+            secondaryType = consts.getItemCategoryBySlug($stateParams.secondary, primaryType.children);
+            if (!secondaryType) {
+                return itemTypeNotFound();
+            } else {
+                if (secondaryType.ignore_parent_category) {
+                    categories = [secondaryType.category];
+                } else {
+                    categories.push(secondaryType.category);
                 }
-            );
+                listType = secondaryType.list_type;
+                $scope.typeLists.tertiary = secondaryType.children;
+            }
+        }
 
+        if ($stateParams.tertiary) {
+            tertiaryType = consts.getItemCategoryBySlug($stateParams.tertiary, secondaryType.children);
+            if (!tertiaryType) {
+                return itemTypeNotFound();
+            } else {
+                if (tertiaryType.ignore_parent_category) {
+                    categories = [tertiaryType.category];
+                } else {
+                    categories.push(tertiaryType.category);
+                }
+                listType = tertiaryType.list_type;
+            }
+        }
+
+        $scope.load = function() {
+            var options = {
+                primary: $scope.typeSlugs.primary,
+                secondary: null,
+                tertiary: null
+            };
+
+            if ($scope.typeSlugs.secondary) {
+                options.secondary = $scope.typeSlugs.secondary;
+            };
+
+            if ($scope.typeSlugs.tertiary) {
+                options.tertiary = $scope.typeSlugs.tertiary;
+            };
+
+            var href = $state.href('app.items', options);
             $location.url(href);
         };
 
-        var filters = {
-            bucket: $scope.type.bucket
+        $scope.resetFilter = {
+            secondary: function() {
+                $scope.typeSlugs.secondary = null;
+                $scope.typeSlugs.tertiary = null;
+            },
+            tertiary: function() {
+                $scope.typeSlugs.tertiary = null;
+            }
         };
 
-        if ($scope.subType !== 0) {
-            filters.subType = $scope.subType;
-        }
+        var filters = {
+            category: categories.join(',')
+        };
 
-        $scope.list = consts.item_list_types[$scope.type.list_type];
+        $scope.list = consts.item_list_types[listType];
         $scope.columns = [];
         $scope.slugify = util.slugify;
 
