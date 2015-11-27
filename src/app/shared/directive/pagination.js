@@ -23,7 +23,7 @@ app.directive('pagination', [
                     };
 
                     $scope.page     = $scope.data.page;
-                    $scope.maxPages = Math.floor($scope.data.totalItems / $scope.data.pageCount) - 1;
+                    $scope.maxPages = Math.ceil($scope.data.totalItems / $scope.data.pageCount) - 1;
                     $scope.total    = $scope.data.totalItems;
                 }
             ],

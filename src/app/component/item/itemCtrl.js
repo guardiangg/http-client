@@ -11,6 +11,8 @@ app.controller('itemCtrl', [
     'util',
 
     function ($rootScope, $scope, $state, $location, $stateParams, gamedata, consts, util) {
+        var rawData,
+            perPage = 25;
         $scope.filters = {};
         $scope.page = 0;
 
@@ -112,12 +114,22 @@ app.controller('itemCtrl', [
         $scope.columns = [];
         $scope.slugify = util.slugify;
 
+        $scope.page = function(p) {
+            $scope.results.data = getFilteredData().slice(p * perPage, (p * perPage) + perPage);
+        };
+
+        var getFilteredData = function() {
+            return _.sortBy(rawData, 'name');
+        };
+
         gamedata
             .getPage('items', $scope.page, filters)
             .then(function(data) {
-                $scope.results = data;
+                rawData = data.data;
 
-                _.each($scope.results.data, function(item) {
+                // Re-map the stats so the object key is the stat hash, this makes it easier to display the
+                // appropriate stat under the stat column, which is not in the same order as the item stat array
+                _.each(rawData, function(item) {
                     item._stats = {};
 
                     _.each(item.stats, function(stat) {
@@ -125,6 +137,7 @@ app.controller('itemCtrl', [
                             return e.hash == stat.hash;
                         });
 
+                        // If the stat exists in the list view template, add the column
                         if (!exists && _.contains($scope.list.stat_columns, stat.hash)) {
                             $scope.columns.push(stat);
                         }
@@ -133,6 +146,7 @@ app.controller('itemCtrl', [
                     });
                 });
 
+                // Give the client some guidance on the intended order of the stat columns
                 _.each($scope.list.stat_columns, function(col, idx) {
                     var exists = _.find($scope.columns, function(e) {
                         return e.hash == col;
@@ -142,6 +156,15 @@ app.controller('itemCtrl', [
                         exists.index = idx;
                     }
                 });
+
+                var items = getFilteredData().slice(0, perPage);
+
+                $scope.results = {
+                    page: 0,
+                    data: items,
+                    pageCount: perPage,
+                    totalItems: rawData.length
+                };
 
                 $scope.columns = _.sortBy($scope.columns, 'index');
 

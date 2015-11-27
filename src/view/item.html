@@ -1,5 +1,5 @@
 <div class="filters">
-    <pagination data="results" name="'Items'|translate" callback="load" ng-if="results.data.length > 0" class="pull-right"></pagination>
+    <pagination data="results" name="'Items'|translate" callback="page" ng-if="results.data.length > 0" class="pull-right"></pagination>
 
     <select class="form-control" ng-change="resetFilter.secondary(); load()" ng-model="typeSlugs.primary">
         <optgroup label="{{'Active Gear'|translate}}">
@@ -39,11 +39,11 @@
         <tr>
             <th translate>Name</th>
         </tr>
-        <tr ng-repeat="entity in results.data|limitTo: 15">
+        <tr ng-repeat="entity in results.data track by entity.hash">
             <td>
                 <img ng-src="//bungie.net{{entity.icon}}">
                 <div class="details">
-                    <a ui-sref="app.itemDetailName({hash: entity.hash, name: slugify(entity.name)})" ng-class="'quality-' + entity.tier">{{entity.name}}</a>
+                    <a ui-sref="app.itemDetailName({hash: entity.hash, name: slugify(entity.name)})" ng-class="'quality-' + entity.tier">{{::entity.name}}</a>
                     <small>{{entity.typeName}}</small>
                 </div>
             </td>
@@ -54,7 +54,7 @@
             <tr>
                 <th ng-repeat="col in columns">{{col.name}}</th>
             </tr>
-            <tr ng-repeat="entity in results.data|limitTo: 15">
+            <tr ng-repeat="entity in results.data track by entity.hash">
                 <td ng-repeat="col in columns">
                     <span ng-if="entity._stats[col.hash] && entity._stats[col.hash].min !== entity._stats[col.hash].max">{{entity._stats[col.hash].min}}-{{entity._stats[col.hash].max}}</span>
                     <span ng-if="entity._stats[col.hash] && entity._stats[col.hash].min === entity._stats[col.hash].max && entity._stats[col.hash].min !== 0">{{entity._stats[col.hash].min}}</span>

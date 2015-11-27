@@ -33,10 +33,9 @@
                 $http
                     .get(
                         util.buildApiUrl(
-                            'gamedata/{type}?offset={offset}&lc={lc}{filters}',
+                            'gamedata/{type}?lc={lc}{filters}',
                             {
                                 type: type,
-                                offset: page * PAGE_SIZE,
                                 lc: gettextCatalog.getCurrentLanguage(),
                                 filters: filterStr
                             }
