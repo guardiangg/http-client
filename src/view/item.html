@@ -74,7 +74,7 @@
                 </th>
             </tr>
             <tr ng-repeat="entity in results.data track by entity.hash">
-                <td ng-repeat="col in columns">
+                <td ng-repeat="col in columns" ng-class="{'active-sort': listService.sortColumn == '_stats.' + col.hash + '.max'}">
                     <span ng-if="entity._stats[col.hash] && entity._stats[col.hash].min !== entity._stats[col.hash].max">{{entity._stats[col.hash].min}}-{{entity._stats[col.hash].max}}</span>
                     <span ng-if="entity._stats[col.hash] && entity._stats[col.hash].min === entity._stats[col.hash].max && entity._stats[col.hash].min !== 0">{{entity._stats[col.hash].min}}</span>
                     <span ng-if="!entity._stats[col.hash] || (entity._stats[col.hash].min === entity._stats[col.hash].max && entity._stats[col.hash].min === 0)">-</span>
