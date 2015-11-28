@@ -1,5 +1,5 @@
 <div class="filters">
-    <pagination data="results" name="'Items'|translate" callback="page" ng-if="results.data.length > 0" class="pull-right"></pagination>
+    <pagination data="results" name="'Items'|translate" callback="listService.setPage" ng-if="results.data.length > 0" class="pull-right"></pagination>
 
     <select class="form-control" ng-change="listService.filterByType('primary', filters.type.primary)" ng-model="filters.type.primary">
         <optgroup label="{{'Active Gear'|translate}}">

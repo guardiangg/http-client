@@ -143,10 +143,10 @@ app.factory('itemListFactory', [
              * @param {integer} p
              */
             this.setPage = function(p) {
-                var offset = p * this.perPage;
-                var limit = offset + this.perPage;
-                this.filteredData = this.data.slice(offset, limit);
-                notifyObservers();
+                var offset = p * self.perPage;
+                var limit = offset + self.perPage;
+                self.filteredData = self.data.slice(offset, limit);
+                self.notifyObservers();
             };
 
             /**
