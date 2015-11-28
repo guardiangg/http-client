@@ -16,7 +16,7 @@ app.config([
             var path = $location.path();
             if (path[path.length - 1] === '/') {
                 var newPath = path.substr(0, path.length - 1);
-                return newPath;
+                $location.path(newPath);
             }
         });
 
@@ -56,14 +56,14 @@ app.config([
                 controller: 'subclassCtrl',
                 templateUrl: 'subclass.html'
             })
-            .state('app.items', {
+            .state('app.itemList', {
                 url: 'items/{primary:[a-z-]+}/{secondary:[a-z-]+}/{tertiary:[a-z-]+}',
                 params: {
                     primary: { value: null, squash: true },
                     secondary: { value: null, squash: true },
                     tertiary: { value: null, squash: true }
                 },
-                controller: 'itemCtrl',
+                controller: 'itemListCtrl',
                 templateUrl: 'item.html'
             })
             .state('app.itemDetail', {

@@ -1,7 +1,7 @@
 <div class="filters">
     <pagination data="results" name="'Items'|translate" callback="page" ng-if="results.data.length > 0" class="pull-right"></pagination>
 
-    <select class="form-control" ng-change="resetFilter.secondary(); load()" ng-model="typeSlugs.primary">
+    <select class="form-control" ng-change="listService.filterByType('primary', filters.type.primary)" ng-model="filters.type.primary">
         <optgroup label="{{'Active Gear'|translate}}">
             <option ng-repeat="type in typeLists.primary|filter:{group: 'equip_stat'}" value="{{type.slug}}">{{type.label}}</option>
         </optgroup>
@@ -16,15 +16,22 @@
         </optgroup>
     </select>&nbsp;
 
-    <select class="form-control" ng-change="resetFilter.tertiary(); load()" ng-model="typeSlugs.secondary" ng-show="typeSlugs.primary && typeLists.secondary && typeLists.secondary.length > 0">
+    <select class="form-control" ng-change="listService.filterByType('secondary', filters.type.secondary)" ng-model="filters.type.secondary" ng-show="filters.type.primary && typeLists.secondary && typeLists.secondary.length > 0">
         <option value=""></option>
         <option ng-repeat="type in typeLists.secondary" value="{{type.slug}}">{{type.label}}</option>
     </select>&nbsp;
 
-    <select class="form-control" ng-change="load()" ng-model="typeSlugs.tertiary" ng-show="typeSlugs.secondary && typeLists.tertiary && typeLists.tertiary.length > 0">
+    <select class="form-control" ng-change="listService.filterByType('tertiary', filters.type.tertiary)" ng-model="filters.type.tertiary" ng-show="filters.type.secondary && typeLists.tertiary && typeLists.tertiary.length > 0">
         <option value=""></option>
         <option ng-repeat="type in typeLists.tertiary" value="{{type.slug}}">{{type.label}}</option>
     </select>&nbsp;
+
+    <select class="form-control" ng-change="load()" ng-model="filters.class">
+        <option value=""></option>
+        <option value="0">Titan</option>
+        <option value="1">Hunter</option>
+        <option value="2">Warlock</option>
+    </select>
 
     <input type="text"
            ng-model="name"
