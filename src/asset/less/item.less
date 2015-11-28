@@ -50,7 +50,7 @@
                 th {
                     min-width: 100px;
                     max-width: 100px;
-                    cursor: default !important;
+                    cursor: pointer !important;
                 }
 
                 td {
@@ -64,6 +64,7 @@
     table {
         tr {
             th {
+                cursor: pointer;
                 height: 34px;
                 line-height: 34px;
                 background: #404040;
@@ -73,6 +74,43 @@
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+
+                .sort {
+                    position: relative;
+                    display: inline-block;
+                    height: 8px;
+                    width: 20px;
+
+                    i {
+                        position: absolute;
+                        left: 0;
+
+                        &.fa-sort-asc {
+                            top: -1px;
+                            opacity: 0.4;
+                        }
+
+                        &.fa-sort-desc {
+                            opacity: 0.4;
+                        }
+                    }
+
+                    &.active-asc {
+                        i {
+                            &.fa-sort-asc {
+                                opacity: 1;
+                            }
+                        }
+                    }
+
+                    &.active-desc {
+                        i {
+                            &.fa-sort-desc {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
             }
 
             td {

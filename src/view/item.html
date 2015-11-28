@@ -44,7 +44,13 @@
 <div class="item-list">
     <table class="item-list-fixed">
         <tr>
-            <th translate ng-click="listService.sortBy('name')">Name</th>
+            <th translate ng-click="listService.sortBy('name')">
+                Name
+                <div class="sort" ng-class="{'active-asc': listService.sortColumn == 'name' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'name' && listService.sortDirection == 'desc'}">
+                    <i class="fa fa-sort-asc"></i>
+                    <i class="fa fa-sort-desc"></i>
+                </div>
+            </th>
         </tr>
         <tr ng-repeat="entity in results.data track by entity.hash">
             <td>
@@ -59,7 +65,13 @@
     <div class="item-list-scrollable" scrollable>
         <table>
             <tr>
-                <th ng-repeat="col in columns" ng-click="listService.sortBy('_stats.' + col.hash + '.max')">{{col.name}}</th>
+                <th ng-repeat="col in columns" ng-click="listService.sortBy('_stats.' + col.hash + '.max')">
+                    {{col.name}}
+                    <div class="sort" ng-class="{'active-asc': listService.sortColumn == '_stats.' + col.hash + '.max' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == '_stats.' + col.hash + '.max' && listService.sortDirection == 'desc'}">
+                        <i class="fa fa-sort-asc"></i>
+                        <i class="fa fa-sort-desc"></i>
+                    </div>
+                </th>
             </tr>
             <tr ng-repeat="entity in results.data track by entity.hash">
                 <td ng-repeat="col in columns">
