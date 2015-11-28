@@ -487,17 +487,9 @@ msgid ""
 msgstr ""
 
 #: home.html:21
+#: item.html:48
 #: leaderboard.html:71
 msgid "Name"
-msgstr ""
-
-#: item.html:47
-msgid ""
-"Name\r\n"
-"                <div class=\"sort\" ng-class=\"{'active-asc': listService.sortColumn == 'name' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'name' && listService.sortDirection == 'desc'}\">\r\n"
-"                    <i class=\"fa fa-sort-asc\"></i>\r\n"
-"                    <i class=\"fa fa-sort-desc\"></i>\r\n"
-"                </div>"
 msgstr ""
 
 #: directive\pagination.html:25

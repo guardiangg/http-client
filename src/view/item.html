@@ -44,8 +44,8 @@
 <div class="item-list">
     <table class="item-list-fixed">
         <tr>
-            <th translate ng-click="listService.sortBy('name')">
-                Name
+            <th ng-click="listService.sortBy('name')">
+                <span translate>Name</span>
                 <div class="sort" ng-class="{'active-asc': listService.sortColumn == 'name' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'name' && listService.sortDirection == 'desc'}">
                     <i class="fa fa-sort-asc"></i>
                     <i class="fa fa-sort-desc"></i>
