@@ -38,7 +38,8 @@ app.factory('itemListFactory', [
                     primary: null,
                     secondary: null,
                     tertiary: null
-                }
+                },
+                name: null
             };
 
             /**
@@ -87,6 +88,20 @@ app.factory('itemListFactory', [
 
             var csFiltersActive = {};
             var csFilters = {
+                sort: {
+                    key: 's',
+                    filter: function(value) {
+                        var parts = value.split(':');
+                        if (parts.length !== 2 || (parts[1] !== 'asc' && parts[1] !== 'desc')) {
+                            return;
+                        }
+
+                        self.sortColumn = parts[0];
+                        self.sortDirection = parts[1];
+
+                        return self.filteredData;
+                    }
+                },
                 name: {
                     key: 'n',
                     filter: function(value) {
@@ -99,6 +114,7 @@ app.factory('itemListFactory', [
                         });
 
                         self.filteredData = data;
+                        self.filters.name = value;
 
                         return self.filteredData;
                     }
@@ -205,6 +221,12 @@ app.factory('itemListFactory', [
                     this.sortDirection = col == 'name' ? 'asc' : 'desc';
                 }
 
+                if (col !== 'name') {
+                    $location.search(csFilters.sort.key, this.sortColumn + ':' + this.sortDirection);
+                } else {
+                    $location.search(csFilters.sort.key, null);
+                }
+
                 self.filterData();
             };
 
@@ -303,6 +325,14 @@ app.factory('itemListFactory', [
                             if (exists) {
                                 exists.index = idx;
                             }
+                        });
+
+                        _.each($location.search(), function (value, key) {
+                            _.each(csFilters, function(f, type) {
+                                if (f.key == key) {
+                                    csFiltersActive[type] = f.filter;
+                                }
+                            });
                         });
 
                         self.page = 0;
