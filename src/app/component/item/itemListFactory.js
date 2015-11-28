@@ -228,6 +228,9 @@ app.factory('itemListFactory', [
 
                         for (var i = 0; i < sortParts.length; i++) {
                             value = value[sortParts[i].toString()];
+                            if (typeof value === 'undefined') {
+                                return 0;
+                            }
                         }
 
                         // Sort numeric columns
