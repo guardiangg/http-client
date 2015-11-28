@@ -26,7 +26,11 @@ app.directive('scrollable', [
                         $scroller.data('kinetic', false);
                     }
 
-                    shadowL.addClass('fadeOut');
+                    if (element.scrollLeft() === 0) {
+                        shadowL.removeClass('fadeIn').addClass('fadeOut');
+                    } else {
+                        shadowL.removeClass('fadeOut').addClass('fadeIn');
+                    }
 
                     if (element.width() + element.scrollLeft() < element[0].scrollWidth) {
                         shadowR.removeClass('fadeOut').addClass('fadeIn');
