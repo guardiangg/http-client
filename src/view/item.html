@@ -44,7 +44,7 @@
 <div class="item-list">
     <table class="item-list-fixed">
         <tr>
-            <th translate>Name</th>
+            <th translate ng-click="listService.sortBy('name')">Name</th>
         </tr>
         <tr ng-repeat="entity in results.data track by entity.hash">
             <td>
@@ -59,7 +59,7 @@
     <div class="item-list-scrollable" scrollable>
         <table>
             <tr>
-                <th ng-repeat="col in columns">{{col.name}}</th>
+                <th ng-repeat="col in columns" ng-click="listService.sortBy('_stats.' + col.hash + '.max')">{{col.name}}</th>
             </tr>
             <tr ng-repeat="entity in results.data track by entity.hash">
                 <td ng-repeat="col in columns">

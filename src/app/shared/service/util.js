@@ -19,6 +19,10 @@ app.service('util', [
                     .replace(/-+$/, '');            // Trim - from end of text
             };
 
+            this.isNumeric = function (n) {
+                return !isNaN(parseFloat(n)) && isFinite(n);
+            }
+
             this.buildApiUrl = function (endpoint, tokens, params) {
                 return this.buildUrl(config.api + '/' + endpoint, tokens) + this.encodeQueryParams(params);
             };

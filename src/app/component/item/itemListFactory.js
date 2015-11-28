@@ -4,21 +4,29 @@ app.factory('itemListFactory', [
     '$state',
     '$location',
     'gamedata',
+    'util',
     'consts',
 
-    function ($state, $location, gamedata, consts) {
+    function ($state, $location, gamedata, util, consts) {
         return function () {
-            var self = this;
+            var self = this,
+                observerCallbacks = [],
+                types = {
+                    primary: null,
+                    secondary: null,
+                    tertiary: null
+                };
 
             this.errors = [];
             this.page = 0;
             this.perPage = 25;
-
             this.rawData = [];
             this.filteredData = [];
             this.filteredDataTotal = 0;
             this.columns = [];
             this.categories = [];
+            this.sortColumn = 'name';
+            this.sortDirection = 'asc';
             this.listType = 'standard';
             this.typeLists = {
                 primary: consts.item_category_list,
@@ -33,22 +41,21 @@ app.factory('itemListFactory', [
                 }
             };
 
-            var observerCallbacks = [];
-
+            /**
+             * Registers a callback that is fired each time the list is updated (all data updates, filters, sorting)
+             * @param {func} callback
+             */
             this.registerObserverCallback = function(callback) {
                 observerCallbacks.push(callback);
             };
 
+            /**
+             * Notifies all registered observer callbacks
+             */
             this.notifyObservers = function() {
                 _.each(observerCallbacks, function(callback) {
                     callback();
                 })
-            };
-
-            var types = {
-                primary: null,
-                secondary: null,
-                tertiary: null
             };
 
             /**
@@ -98,6 +105,11 @@ app.factory('itemListFactory', [
                 }
             };
 
+            /**
+             * Filters the set of items by the 'name' column, always use debounce of at least 500 when accepting
+             * text inputs that call this function on ng-change.
+             * @param {string} value
+             */
             this.filterByName = function(value) {
                 if (!value) {
                     $location.search(csFilters.name.key, null);
@@ -108,23 +120,6 @@ app.factory('itemListFactory', [
                 }
 
                 self.filterData();
-            };
-
-            this.filterData = function() {
-                self.filteredData = self.rawData;
-
-                _.each(csFiltersActive, function(filter, type) {
-                    var value = $location.search()[csFilters[type].key];
-                    value && filter(value);
-                });
-
-                var offset = self.page * self.perPage;
-                var limit = offset + self.perPage;
-
-                self.filteredDataTotal = self.filteredData.length;
-                self.filteredData = self.filteredData.slice(offset, limit);
-
-                self.notifyObservers();
             };
 
             /**
@@ -198,6 +193,64 @@ app.factory('itemListFactory', [
             };
 
             /**
+             * Sorts the set of data based on the column. Accepts a string notation of the object, for example
+             * { _stats: { 12345: { max: 50 } } } would be '_stats.12345.max'
+             * @param col
+             */
+            this.sortBy = function(col) {
+                if (col == this.sortColumn) {
+                    this.sortDirection = this.sortDirection == 'asc' ? 'desc' : 'asc';
+                } else {
+                    this.sortColumn = col;
+                    this.sortDirection = col == 'name' ? 'asc' : 'desc';
+                }
+
+                self.filterData();
+            };
+
+            /**
+             * Iterates all active filters and sorts the data, this should be run each time a filter or set of filters
+             * has been applied. Observer callbacks are fired once the data is ready.
+             */
+            this.filterData = function() {
+                self.filteredData = self.rawData;
+
+                _.each(csFiltersActive, function(filter, type) {
+                    var value = $location.search()[csFilters[type].key];
+                    value && filter(value);
+                });
+
+                var sortParts = this.sortColumn.split('.');
+                self.filteredData = _(self.filteredData).chain()
+                    .sortBy('name')
+                    .sortBy(function(obj) {
+                        var value = obj;
+
+                        for (var i = 0; i < sortParts.length; i++) {
+                            value = value[sortParts[i].toString()];
+                        }
+
+                        // Sort numeric columns
+                        if (!value || util.isNumeric(value)) {
+                            return self.sortDirection == 'asc' ? value : -value;
+
+                            // Sort alpha columns
+                        } else {
+                            return self.sortDirection == 'asc' ? value.charCodeAt() : value.charCodeAt() * -1;
+                        }
+                    })
+                    .value();
+
+                var offset = self.page * self.perPage;
+                var limit = offset + self.perPage;
+
+                self.filteredDataTotal = self.filteredData.length;
+                self.filteredData = self.filteredData.slice(offset, limit);
+
+                self.notifyObservers();
+            };
+
+            /**
              * Returns a list of params to send when making an API call
              * @returns {{category: (string|*)}}
              */
@@ -223,6 +276,8 @@ app.factory('itemListFactory', [
                             item._stats = {};
 
                             _.each(item.stats, function(stat) {
+                                stat.hash = stat.hash.toString();
+
                                 var exists = _.find(self.columns, function(e) {
                                     return e.hash == stat.hash;
                                 });
@@ -232,7 +287,7 @@ app.factory('itemListFactory', [
                                     self.columns.push(stat);
                                 }
 
-                                item._stats[stat.hash] = stat;
+                                item._stats[stat.hash.toString()] = stat;
                             });
                         });
 
