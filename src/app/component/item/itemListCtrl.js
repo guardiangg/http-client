@@ -19,9 +19,10 @@ app.controller('itemListCtrl', [
                 page: listService.page,
                 data: listService.filteredData,
                 pageCount: listService.perPage,
-                totalItems: listService.data.length
+                totalItems: listService.filteredDataTotal
             };
 
+            $scope.columns = listService.columns;
             $scope.filters = listService.filters;
             $scope.typeLists = listService.typeLists;
 

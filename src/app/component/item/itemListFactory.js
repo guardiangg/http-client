@@ -14,8 +14,9 @@ app.factory('itemListFactory', [
             this.page = 0;
             this.perPage = 25;
 
-            this.data = [];
+            this.rawData = [];
             this.filteredData = [];
+            this.filteredDataTotal = 0;
             this.columns = [];
             this.categories = [];
             this.listType = 'standard';
@@ -75,6 +76,55 @@ app.factory('itemListFactory', [
 
                 var href = $state.href('app.itemList', options);
                 $location.url(href);
+            };
+
+            var csFiltersActive = {};
+            var csFilters = {
+                name: {
+                    key: 'n',
+                    filter: function(value) {
+                        var data = [];
+
+                        _.each(self.filteredData, function(i) {
+                            if (i.name.indexOf(value) > -1) {
+                                data.push(i);
+                            }
+                        });
+
+                        self.filteredData = data;
+
+                        return self.filteredData;
+                    }
+                }
+            };
+
+            this.filterByName = function(value) {
+                if (!value) {
+                    $location.search(csFilters.name.key, null);
+                    delete csFiltersActive.name;
+                } else {
+                    $location.search(csFilters.name.key, value);
+                    csFiltersActive.name = csFilters.name.filter;
+                }
+
+                self.filterData();
+            };
+
+            this.filterData = function() {
+                self.filteredData = self.rawData;
+
+                _.each(csFiltersActive, function(filter, type) {
+                    var value = $location.search()[csFilters[type].key];
+                    value && filter(value);
+                });
+
+                var offset = self.page * self.perPage;
+                var limit = offset + self.perPage;
+
+                self.filteredDataTotal = self.filteredData.length;
+                self.filteredData = self.filteredData.slice(offset, limit);
+
+                self.notifyObservers();
             };
 
             /**
@@ -143,10 +193,8 @@ app.factory('itemListFactory', [
              * @param {integer} p
              */
             this.setPage = function(p) {
-                var offset = p * self.perPage;
-                var limit = offset + self.perPage;
-                self.filteredData = self.data.slice(offset, limit);
-                self.notifyObservers();
+                self.page = p;
+                self.filterData();
             };
 
             /**
@@ -166,12 +214,12 @@ app.factory('itemListFactory', [
                 gamedata
                     .getPage('items', this.page, this.getApiParams())
                     .then(function(data) {
-                        self.data = data.data;
-                        var statColumns = consts.item_list_types[self.listType];
+                        self.rawData = data.data;
+                        var statColumns = consts.item_list_types[self.listType].stat_columns;
 
                         // Re-map the stats so the object key is the stat hash, this makes it easier to display the
                         // appropriate stat under the stat column, which is not in the same order as the item stat array
-                        _.each(self.data, function(item) {
+                        _.each(self.rawData, function(item) {
                             item._stats = {};
 
                             _.each(item.stats, function(stat) {
@@ -200,7 +248,7 @@ app.factory('itemListFactory', [
                         });
 
                         self.page = 0;
-                        self.filteredData = self.data.slice(0, self.perPage);
+                        self.filterData();
                         self.columns = _.sortBy(self.columns, 'index');
                         self.notifyObservers();
                     });

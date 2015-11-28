@@ -26,7 +26,7 @@
         <option ng-repeat="type in typeLists.tertiary" value="{{type.slug}}">{{type.label}}</option>
     </select>&nbsp;
 
-    <select class="form-control" ng-change="load()" ng-model="filters.class">
+    <select class="form-control" ng-change="listService.filterByClass(filters.class)" ng-model="filters.class">
         <option value=""></option>
         <option value="0">Titan</option>
         <option value="1">Hunter</option>
@@ -34,9 +34,9 @@
     </select>
 
     <input type="text"
-           ng-model="name"
+           ng-model="filters.name"
            ng-model-options="{debounce: 500}"
-           ng-change="search(name)"
+           ng-change="listService.filterByName(filters.name)"
            class="form-control filter-name"
            placeholder="Item name..."/>
 </div>
