@@ -237,7 +237,7 @@ app.factory('itemListFactory', [
                         if (!value || util.isNumeric(value)) {
                             return self.sortDirection == 'asc' ? value : -value;
 
-                            // Sort alpha columns
+                        // Sort alpha columns
                         } else {
                             return self.sortDirection == 'asc' ? value.charCodeAt() : value.charCodeAt() * -1;
                         }
