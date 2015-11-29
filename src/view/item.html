@@ -17,6 +17,7 @@
                ng-change="listService.filterByName(filters.name)"
                class="form-control filter-name half-size"
                placeholder="Item name..."/>
+        <span class="reset" ng-show="filters.name" ng-click="listService.removeFilter('name')"><i class="fa fa-close"></i></span>
     </div>
 
     <div class="filter">
@@ -43,6 +44,7 @@
             <option value=""></option>
             <option ng-repeat="type in typeLists.secondary" value="{{type.slug}}">{{type.label}}</option>
         </select>
+        <span class="reset" ng-show="filters.type.secondary" ng-click="listService.filterByType('secondary', null)"><i class="fa fa-close"></i></span>
     </div>
 
     <div class="filter" ng-show="filters.type.secondary && typeLists.tertiary && typeLists.tertiary.length > 0">
@@ -51,6 +53,7 @@
             <option value=""></option>
             <option ng-repeat="type in typeLists.tertiary" value="{{type.slug}}">{{type.label}}</option>
         </select>
+        <span class="reset" ng-show="filters.type.tertiary" ng-click="listService.filterByType('tertiary', null)"><i class="fa fa-close"></i></span>
     </div>
 
     <div class="filter">
@@ -61,6 +64,7 @@
             <option value="1">Hunter</option>
             <option value="2">Warlock</option>
         </select>
+        <span class="reset" ng-show="filters.class" ng-click="listService.removeFilter('class')"><i class="fa fa-close"></i></span>
     </div>
 
     <div class="clear"></div>

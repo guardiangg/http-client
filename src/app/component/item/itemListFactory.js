@@ -122,6 +122,20 @@ app.factory('itemListFactory', [
             };
 
             /**
+             *
+             * @param type
+             */
+            this.removeFilter = function(type) {
+                if (csFiltersActive[type]) {
+                    $location.search(csFilters[type].key, null);
+                    self.filters[type] = null;
+                    delete csFiltersActive[type];
+
+                    self.filterData();
+                }
+            };
+
+            /**
              * Filters the set of items by the 'name' column, always use debounce of at least 500 when accepting
              * text inputs that call this function on ng-change.
              * @param {string} value
