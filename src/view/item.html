@@ -1,48 +1,78 @@
+<h2 translate>Items</h2>
+
 <div class="filters">
-    <pagination data="results" name="'Items'|translate" callback="listService.setPage" ng-if="results.data.length > 0" class="pull-right"></pagination>
+    <div class="medrec pull-right" style="width:320px;height:250px;background:#e4e4e4;"></div>
 
-    <select class="form-control" ng-change="listService.filterByType('primary', filters.type.primary)" ng-model="filters.type.primary">
-        <optgroup label="{{'Active Gear'|translate}}">
-            <option ng-repeat="type in typeLists.primary|filter:{group: 'equip_stat'}" value="{{type.slug}}">{{type.label}}</option>
-        </optgroup>
-        <optgroup label="{{'Passive Gear'|translate}}">
-            <option ng-repeat="type in typeLists.primary|filter:{group: 'equip_passive'}" value="{{type.slug}}">{{type.label}}</option>
-        </optgroup>
-        <optgroup label="{{'Inventory'|translate}}">
-            <option ng-repeat="type in typeLists.primary|filter:{group: 'inventory'}" value="{{type.slug}}">{{type.label}}</option>
-        </optgroup>
-        <optgroup label="{{'Special Event'|translate}}">
-            <option ng-repeat="type in typeLists.primary|filter:{group: 'event'}" value="{{type.slug}}">{{type.label}}</option>
-        </optgroup>
-    </select>&nbsp;
+    <h3 translate>Add Filters</h3>
+    <div class="help">
+        <i class="fa fa-info-circle"></i>
+        <span translate>The page URL gets updated with any filters you add. Share it, or come back to it later easily!</span>
+    </div>
 
-    <select class="form-control" ng-change="listService.filterByType('secondary', filters.type.secondary)" ng-model="filters.type.secondary" ng-show="filters.type.primary && typeLists.secondary && typeLists.secondary.length > 0">
-        <option value=""></option>
-        <option ng-repeat="type in typeLists.secondary" value="{{type.slug}}">{{type.label}}</option>
-    </select>&nbsp;
+    <div class="filter">
+        <label translate>Name</label>
+        <input type="text"
+               ng-model="filters.name"
+               ng-model-options="{debounce: 500}"
+               ng-change="listService.filterByName(filters.name)"
+               class="form-control filter-name half-size"
+               placeholder="Item name..."/>
+    </div>
 
-    <select class="form-control" ng-change="listService.filterByType('tertiary', filters.type.tertiary)" ng-model="filters.type.tertiary" ng-show="filters.type.secondary && typeLists.tertiary && typeLists.tertiary.length > 0">
-        <option value=""></option>
-        <option ng-repeat="type in typeLists.tertiary" value="{{type.slug}}">{{type.label}}</option>
-    </select>&nbsp;
+    <div class="filter">
+        <label translate>Primary type</label>
+        <select class="form-control" ng-change="listService.filterByType('primary', filters.type.primary)" ng-model="filters.type.primary">
+            <optgroup label="{{'Active Gear'|translate}}">
+                <option ng-repeat="type in typeLists.primary|filter:{group: 'equip_stat'}" value="{{type.slug}}">{{type.label}}</option>
+            </optgroup>
+            <optgroup label="{{'Passive Gear'|translate}}">
+                <option ng-repeat="type in typeLists.primary|filter:{group: 'equip_passive'}" value="{{type.slug}}">{{type.label}}</option>
+            </optgroup>
+            <optgroup label="{{'Inventory'|translate}}">
+                <option ng-repeat="type in typeLists.primary|filter:{group: 'inventory'}" value="{{type.slug}}">{{type.label}}</option>
+            </optgroup>
+            <optgroup label="{{'Special Event'|translate}}">
+                <option ng-repeat="type in typeLists.primary|filter:{group: 'event'}" value="{{type.slug}}">{{type.label}}</option>
+            </optgroup>
+        </select>
+    </div>
 
-    <select class="form-control" ng-change="listService.filterByClass(filters.class)" ng-model="filters.class">
-        <option value=""></option>
-        <option value="0">Titan</option>
-        <option value="1">Hunter</option>
-        <option value="2">Warlock</option>
-    </select>
+    <div class="filter" ng-show="filters.type.primary && typeLists.secondary && typeLists.secondary.length > 0">
+        <label translate>Sub-type</label>
+        <select class="form-control" ng-change="listService.filterByType('secondary', filters.type.secondary)" ng-model="filters.type.secondary">
+            <option value=""></option>
+            <option ng-repeat="type in typeLists.secondary" value="{{type.slug}}">{{type.label}}</option>
+        </select>
+    </div>
 
-    <input type="text"
-           ng-model="filters.name"
-           ng-model-options="{debounce: 500}"
-           ng-change="listService.filterByName(filters.name)"
-           class="form-control filter-name"
-           placeholder="Item name..."/>
+    <div class="filter" ng-show="filters.type.secondary && typeLists.tertiary && typeLists.tertiary.length > 0">
+        <label translate>Sub-type #2</label>
+        <select class="form-control" ng-change="listService.filterByType('tertiary', filters.type.tertiary)" ng-model="filters.type.tertiary">
+            <option value=""></option>
+            <option ng-repeat="type in typeLists.tertiary" value="{{type.slug}}">{{type.label}}</option>
+        </select>
+    </div>
+
+    <div class="filter">
+        <label translate>Class</label>
+        <select class="form-control half-size" ng-change="listService.filterByClass(filters.class)" ng-model="filters.class">
+            <option value=""></option>
+            <option value="0">Titan</option>
+            <option value="1">Hunter</option>
+            <option value="2">Warlock</option>
+        </select>
+    </div>
+
+    <div class="clear"></div>
 </div>
 
 <div class="loading" ng-show="!listLoaded">
     <i class="fa fa-cog fa-spin"></i> <translate>Loading items, please wait...</translate>
+</div>
+
+<div class="pagination-bar top" ng-show="results.data.length > 0">
+    <pagination data="results" name="'Items'|translate" callback="listService.setPage" class="pull-right"></pagination>
+    <div class="clear"></div>
 </div>
 
 <div class="item-list" ng-show="listLoaded">
@@ -100,4 +130,9 @@
             </tbody>
         </table>
     </div>
+</div>
+
+<div class="pagination-bar bottom" ng-show="results.data.length > 0">
+    <pagination data="results" name="'Items'|translate" callback="listService.setPage" class="pull-right"></pagination>
+    <div class="clear"></div>
 </div>

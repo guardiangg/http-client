@@ -1,0 +1,79 @@
+.filters {
+    padding: 10px;
+    margin-bottom: 15px;
+    background: #fff;
+
+    .help {
+        display: block;
+        font-size: 0.8em;
+        color: #666;
+        margin-bottom: 15px;
+    }
+
+    .filter {
+        margin-bottom: 5px;
+
+        label {
+            width: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 13px;
+            vertical-align: middle;
+        }
+
+        select, input[type="text"] {
+            width: 325px;
+            height: 28px;
+            font-size: 13px;
+            vertical-align: middle;
+
+            &.half-size {
+                width: 160px;
+            }
+        }
+
+        select {
+            display: inline-block;
+            padding: 2px;
+        }
+
+        input[type="text"] {
+            display: inline-block;
+            padding: 6px;
+        }
+    }
+
+    .page-info {
+        padding: 4px 8px;
+        font-size: 12px;
+        line-height: 12px;
+        background-color: #414141;
+        color: #fff;
+
+        span {
+            display: block;
+            font-size: 11px;
+            color: #cdcdcd;
+        }
+    }
+
+    .btn-disabled {
+        cursor: default;
+    }
+
+    .filter-platform {
+        display: inline-block;
+        width: 150px;
+    }
+
+    .filter-mode {
+        display: inline-block;
+        width: 150px;
+    }
+
+    .filter-name {
+        display: inline-block;
+        width: 200px;
+    }
+}

@@ -38,6 +38,7 @@ app.controller('itemListCtrl', [
         listService.load();
 
         $scope.listLoaded = false;
+        $scope.filters = listService.filters;
         $scope.listService = listService;
         $scope.slugify = util.slugify;
     }
