@@ -24,7 +24,7 @@ msgstr ""
 msgid "A"
 msgstr ""
 
-#: item.html:26
+#: item.html:31
 msgid "Active Gear"
 msgstr ""
 
@@ -124,7 +124,7 @@ msgstr ""
 msgid "Clash"
 msgstr ""
 
-#: item.html:60
+#: item.html:65
 msgid "Class"
 msgstr ""
 
@@ -354,7 +354,7 @@ msgstr ""
 msgid "Insufficient weapon data was found for this game mode in the last 7 days."
 msgstr ""
 
-#: item.html:32
+#: item.html:37
 msgid "Inventory"
 msgstr ""
 
@@ -372,8 +372,8 @@ msgid "Item"
 msgstr ""
 
 #: item.html:1
-#: item.html:140
-#: item.html:78
+#: item.html:146
+#: item.html:84
 msgid "Items"
 msgstr ""
 
@@ -462,7 +462,11 @@ msgstr ""
 msgid "Loading Weapons..."
 msgstr ""
 
-#: item.html:74
+#: item.html:13
+msgid "Loading filters..."
+msgstr ""
+
+#: item.html:80
 msgid "Loading items, please wait..."
 msgstr ""
 
@@ -501,8 +505,8 @@ msgid ""
 msgstr ""
 
 #: home.html:21
-#: item.html:13
-#: item.html:87
+#: item.html:18
+#: item.html:93
 #: leaderboard.html:71
 msgid "Name"
 msgstr ""
@@ -541,7 +545,7 @@ msgstr ""
 msgid "Page {{page+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>"
 msgstr ""
 
-#: item.html:29
+#: item.html:34
 msgid "Passive Gear"
 msgstr ""
 
@@ -587,7 +591,7 @@ msgstr ""
 msgid "Primary Weapon"
 msgstr ""
 
-#: item.html:24
+#: item.html:29
 msgid "Primary type"
 msgstr ""
 
@@ -722,7 +726,7 @@ msgstr ""
 msgid "Special"
 msgstr ""
 
-#: item.html:35
+#: item.html:40
 msgid "Special Event"
 msgstr ""
 
@@ -749,11 +753,11 @@ msgstr ""
 msgid "Striker"
 msgstr ""
 
-#: item.html:42
+#: item.html:47
 msgid "Sub-type"
 msgstr ""
 
-#: item.html:51
+#: item.html:56
 msgid "Sub-type #2"
 msgstr ""
 
