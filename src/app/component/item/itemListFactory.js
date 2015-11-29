@@ -108,7 +108,7 @@ app.factory('itemListFactory', [
                         var data = [];
 
                         _.each(self.filteredData, function(i) {
-                            if (i.name.indexOf(value) > -1) {
+                            if (i.name.toLowerCase().indexOf(value.toLowerCase()) > -1) {
                                 data.push(i);
                             }
                         });
