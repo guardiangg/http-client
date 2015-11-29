@@ -41,7 +41,11 @@
            placeholder="Item name..."/>
 </div>
 
-<div class="item-list">
+<div class="loading" ng-show="!listLoaded">
+    <i class="fa fa-cog fa-spin"></i> <translate>Loading items, please wait...</translate>
+</div>
+
+<div class="item-list" ng-show="listLoaded">
     <table class="item-list-fixed" fixed-header>
         <thead>
             <tr>

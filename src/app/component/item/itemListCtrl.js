@@ -27,6 +27,8 @@ app.controller('itemListCtrl', [
             $scope.typeLists = listService.typeLists;
 
             $scope.$emit('scrollable-table.init', true);
+
+            $scope.listLoaded = true;
         });
 
         listService.setPrimaryType($stateParams.primary);
@@ -35,6 +37,7 @@ app.controller('itemListCtrl', [
 
         listService.load();
 
+        $scope.listLoaded = false;
         $scope.listService = listService;
         $scope.slugify = util.slugify;
     }

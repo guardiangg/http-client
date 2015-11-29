@@ -76,10 +76,10 @@ app.factory('itemListFactory', [
                     options.secondary = null;
                     options.tertiary = null;
                 } else if (type == 'secondary') {
-                    options.secondary = value;
+                    options.secondary = value ? value : null;
                     options.tertiary = null;
-                } else {
-                    options.tertiary = value;
+                } else if (type == 'tertiary') {
+                    options.tertiary = value ? value : null;
                 }
 
                 var href = $state.href('app.itemList', options);

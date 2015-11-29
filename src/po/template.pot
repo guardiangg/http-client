@@ -452,6 +452,10 @@ msgstr ""
 msgid "Loading Weapons..."
 msgstr ""
 
+#: item.html:45
+msgid "Loading items, please wait..."
+msgstr ""
+
 #: shared\service\consts.js:314
 msgid "Machine Gun"
 msgstr ""
@@ -487,7 +491,7 @@ msgid ""
 msgstr ""
 
 #: home.html:21
-#: item.html:49
+#: item.html:53
 #: leaderboard.html:71
 msgid "Name"
 msgstr ""
