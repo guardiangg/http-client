@@ -42,44 +42,58 @@
 </div>
 
 <div class="item-list">
-    <table class="item-list-fixed">
-        <tr>
-            <th ng-click="listService.sortBy('name')">
-                <span translate>Name</span>
-                <div class="sort" ng-class="{'active-asc': listService.sortColumn == 'name' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'name' && listService.sortDirection == 'desc'}">
-                    <i class="fa fa-sort-asc"></i>
-                    <i class="fa fa-sort-desc"></i>
-                </div>
-            </th>
-        </tr>
-        <tr ng-repeat="entity in results.data track by entity.hash">
-            <td>
-                <img ng-src="//bungie.net{{entity.icon}}">
-                <div class="details">
-                    <a ui-sref="app.itemDetailName({hash: entity.hash, name: slugify(entity.name)})" ng-class="'quality-' + entity.tier">{{::entity.name}}</a>
-                    <small>{{entity.typeName}}</small>
-                </div>
-            </td>
-        </tr>
-    </table>
-    <div class="item-list-scrollable" scrollable>
-        <table>
+    <table class="item-list-fixed" fixed-header>
+        <thead>
             <tr>
-                <th ng-repeat="col in columns" ng-click="listService.sortBy('_stats.' + col.hash + '.max')">
-                    {{col.name}}
-                    <div class="sort" ng-class="{'active-asc': listService.sortColumn == '_stats.' + col.hash + '.max' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == '_stats.' + col.hash + '.max' && listService.sortDirection == 'desc'}">
+                <th ng-click="listService.sortBy('name')">
+                    <span translate>Name</span>
+                    <div class="sort" ng-class="{'active-asc': listService.sortColumn == 'name' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'name' && listService.sortDirection == 'desc'}">
                         <i class="fa fa-sort-asc"></i>
                         <i class="fa fa-sort-desc"></i>
                     </div>
                 </th>
             </tr>
+        </thead>
+        <tbody>
+            <tr class="spacer">
+                <td></td>
+            </tr>
             <tr ng-repeat="entity in results.data track by entity.hash">
-                <td ng-repeat="col in columns" ng-class="{'active-sort': listService.sortColumn == '_stats.' + col.hash + '.max'}">
-                    <span ng-if="entity._stats[col.hash] && entity._stats[col.hash].min !== entity._stats[col.hash].max">{{entity._stats[col.hash].min}}-{{entity._stats[col.hash].max}}</span>
-                    <span ng-if="entity._stats[col.hash] && entity._stats[col.hash].min === entity._stats[col.hash].max && entity._stats[col.hash].min !== 0">{{entity._stats[col.hash].min}}</span>
-                    <span ng-if="!entity._stats[col.hash] || (entity._stats[col.hash].min === entity._stats[col.hash].max && entity._stats[col.hash].min === 0)">-</span>
+                <td>
+                    <img ng-src="//bungie.net{{entity.icon}}">
+                    <div class="details">
+                        <a ui-sref="app.itemDetailName({hash: entity.hash, name: slugify(entity.name)})" ng-class="'quality-' + entity.tier">{{::entity.name}}</a>
+                        <small>{{entity.typeName}}</small>
+                    </div>
                 </td>
             </tr>
+        </tbody>
+    </table>
+    <div class="item-list-scrollable" scrollable>
+        <table fixed-header>
+            <thead>
+                <tr>
+                    <th ng-repeat="col in columns" ng-click="listService.sortBy('_stats.' + col.hash + '.max')">
+                        {{col.name}}
+                        <div class="sort" ng-class="{'active-asc': listService.sortColumn == '_stats.' + col.hash + '.max' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == '_stats.' + col.hash + '.max' && listService.sortDirection == 'desc'}">
+                            <i class="fa fa-sort-asc"></i>
+                            <i class="fa fa-sort-desc"></i>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="spacer">
+                    <td colspan="{{columns.length}}"></td>
+                </tr>
+                <tr ng-repeat="entity in results.data track by entity.hash">
+                    <td ng-repeat="col in columns" ng-class="{'active-sort': listService.sortColumn == '_stats.' + col.hash + '.max'}">
+                        <span ng-if="entity._stats[col.hash] && entity._stats[col.hash].min !== entity._stats[col.hash].max">{{entity._stats[col.hash].min}}-{{entity._stats[col.hash].max}}</span>
+                        <span ng-if="entity._stats[col.hash] && entity._stats[col.hash].min === entity._stats[col.hash].max && entity._stats[col.hash].min !== 0">{{entity._stats[col.hash].min}}</span>
+                        <span ng-if="!entity._stats[col.hash] || (entity._stats[col.hash].min === entity._stats[col.hash].max && entity._stats[col.hash].min === 0)">-</span>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </div>

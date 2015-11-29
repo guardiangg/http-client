@@ -54,6 +54,8 @@
                 }
 
                 td {
+                    min-width: 100px;
+                    max-width: 100px;
                     background: #F5F5F5;
                     text-align: center;
                 }
@@ -62,6 +64,18 @@
     }
 
     table {
+        thead {
+            z-index: 500;
+        }
+
+        tr.spacer {
+            display: none;
+
+            td {
+                height: 34px;
+            }
+        }
+
         tr {
             th {
                 cursor: pointer;
