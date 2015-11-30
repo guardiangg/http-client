@@ -16,7 +16,7 @@ app.config([
             var path = $location.path();
             if (path[path.length - 1] === '/') {
                 var newPath = path.substr(0, path.length - 1);
-                $location.path(newPath);
+                $location.path(newPath).replace();
             }
         });
 
