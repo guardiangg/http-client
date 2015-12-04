@@ -60,7 +60,7 @@ app
                 $state.go('app.home', { locale: locale });
             } else if (locale !== match[1]) {
                 $log.debug('selected locale does not match url, updating url to match...');
-                $state.go($state.current.name ? $state.current.name : 'app.home', { locale: locale });
+                locale = match[1];
             }
 
             gettextCatalog.setCurrentLanguage(locale);
