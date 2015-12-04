@@ -5,8 +5,9 @@
 
             return $http.get(
                 util.buildApiUrl(
-                    'weapon/top?mode={mode}&platform={platform}&start={start}&end={end}&activity={activity}',
+                    'weapon/top?mode={mode}&platform={platform}&start={start}&end={end}&activity={activity}&lc={lc}',
                     {
+                        lc: gettextCatalog.getCurrentLanguage(),
                         mode: search.mode ? search.mode : 10,
                         platform: search.platform ? search.platform : 2,
                         start: search.start ? search.start : '1970-01-01',
