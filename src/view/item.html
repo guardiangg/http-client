@@ -82,6 +82,10 @@
             </select>
             <span class="reset" ng-show="filters.class" ng-click="listService.removeFilter('class')"><i class="fa fa-close"></i></span>
         </div>
+
+        <div class="filter options">
+            <a href="javascript:;" ng-click="listService.resetFilters()"><i class="fa fa-close"></i> <span translate>Reset Filters</span></a>
+        </div>
     </div>
 
     <div class="clear"></div>
@@ -91,12 +95,17 @@
     <i class="fa fa-cog fa-spin"></i> <translate>Loading items, please wait...</translate>
 </div>
 
+<div class="no-results" ng-show="listLoaded && results.data.length == 0">
+    <h3 translate>No items were found</h3>
+    <span translate>Try updating your filters, there are no items matching your criteria.</span>
+</div>
+
 <div class="pagination-bar top" ng-show="results.data.length > 0">
     <pagination data="results" name="'Items'|translate" callback="listService.setPage" class="pull-right"></pagination>
     <div class="clear"></div>
 </div>
 
-<div class="item-list" ng-show="listLoaded">
+<div class="item-list" ng-show="listLoaded && results.data.length > 0">
     <table class="item-list-fixed" fixed-header>
         <thead>
             <tr>
@@ -115,7 +124,7 @@
             </tr>
             <tr ng-repeat="entity in results.data track by entity.hash">
                 <td>
-                    <img ng-src="//bungie.net{{entity.icon}}">
+                    <a ui-sref="app.itemDetailName({hash: entity.hash, name: slugify(entity.name)})" ng-class="'quality-' + entity.tier"><img ng-src="//bungie.net{{entity.icon}}"></a>
                     <div class="details">
                         <a ui-sref="app.itemDetailName({hash: entity.hash, name: slugify(entity.name)})" ng-class="'quality-' + entity.tier">{{::entity.name}}</a>
                         <small>{{entity.typeName}}</small>
@@ -156,7 +165,7 @@
                 </tr>
                 <tr ng-repeat="entity in results.data track by entity.hash">
                     <td ng-class="{'active-sort': listService.sortColumn == 'tier'}">
-                        {{tiers[entity.tier].label}}
+                        <span class="quality-{{entity.tier}}">{{tiers[entity.tier].label}}</span>
                     </td>
                     <td class="source">
                         <span ng-repeat="source in entity._sources|orderBy:'label'" class="list-reward" tooltip="{{source.label}}" data-toggle="tooltip">

@@ -177,10 +177,29 @@ app.factory('itemListFactory', [
             };
 
             /**
-             *
-             * @param type
+             * Resets all clientside filters
+             */
+            this.resetFilters = function() {
+                self.page = 0;
+                $location.search('p', null);
+
+                _.each(csFiltersActive, function(filter, type) {
+                    $location.search(csFilters[type].key, null);
+                    self.filters[type] = null;
+                    delete csFiltersActive[type];
+                });
+
+                self.filterData();
+            };
+
+            /**
+             * Removes a clientside filter by type
+             * @param {string} type
              */
             this.removeFilter = function(type) {
+                self.page = 0;
+                $location.search('p', null);
+
                 if (csFiltersActive[type]) {
                     $location.search(csFilters[type].key, null);
                     self.filters[type] = null;
@@ -196,6 +215,9 @@ app.factory('itemListFactory', [
              * @param {string} value
              */
             this.filterByName = function(value) {
+                self.page = 0;
+                $location.search('p', null);
+
                 if (!value) {
                     $location.search(csFilters.name.key, null);
                     delete csFiltersActive.name;
@@ -212,6 +234,9 @@ app.factory('itemListFactory', [
              * @param {string} value
              */
             this.filterBySource = function(value) {
+                self.page = 0;
+                $location.search('p', null);
+
                 if (!value) {
                     $location.search(csFilters.source.key, null);
                     delete csFiltersActive.source;
@@ -228,6 +253,9 @@ app.factory('itemListFactory', [
              * @param {string} value
              */
             this.filterByClass = function(value) {
+                self.page = 0;
+                $location.search('p', null);
+
                 if (!value) {
                     $location.search(csFilters.class.key, null);
                     delete csFiltersActive.class;
@@ -306,6 +334,13 @@ app.factory('itemListFactory', [
              */
             this.setPage = function(p) {
                 self.page = p;
+
+                if (p > 0) {
+                    $location.search('p', p);
+                } else {
+                    $location.search('p', null);
+                }
+
                 self.filterData();
             };
 
@@ -315,6 +350,9 @@ app.factory('itemListFactory', [
              * @param col
              */
             this.sortBy = function(col) {
+                self.page = 0;
+                $location.search('p', null);
+
                 if (col == this.sortColumn) {
                     this.sortDirection = this.sortDirection == 'asc' ? 'desc' : 'asc';
                 } else {
@@ -437,7 +475,14 @@ app.factory('itemListFactory', [
                             }
                         });
 
+                        self.page = 0;
+
+                        // Set defaults from query string
                         _.each($location.search(), function (value, key) {
+                            if (key == 'p') {
+                                self.page = parseInt(value);
+                            }
+
                             _.each(csFilters, function(f, type) {
                                 if (f.key == key) {
                                     csFiltersActive[type] = f.filter;
@@ -445,7 +490,6 @@ app.factory('itemListFactory', [
                             });
                         });
 
-                        self.page = 0;
                         self.filterData();
                         self.statColumns = _.sortBy(self.statColumns, 'index');
                         self.notifyObservers();

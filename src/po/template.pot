@@ -458,8 +458,8 @@ msgid "Item"
 msgstr ""
 
 #: item.html:1
-#: item.html:181
-#: item.html:95
+#: item.html:104
+#: item.html:190
 msgid "Items"
 msgstr ""
 
@@ -504,7 +504,7 @@ msgstr ""
 msgid "Last"
 msgstr ""
 
-#: item.html:148
+#: item.html:157
 msgid "Last Patched"
 msgstr ""
 
@@ -560,7 +560,7 @@ msgstr ""
 msgid "Loading filters..."
 msgstr ""
 
-#: item.html:91
+#: item.html:95
 msgid "Loading items, please wait..."
 msgstr ""
 
@@ -615,7 +615,7 @@ msgid "Multi-Location Vendor"
 msgstr ""
 
 #: home.html:21
-#: item.html:104
+#: item.html:113
 #: item.html:18
 #: leaderboard.html:71
 msgid "Name"
@@ -642,6 +642,10 @@ msgstr ""
 
 #: profile\_activity-history.html:107
 msgid "No games have been played in this mode."
+msgstr ""
+
+#: item.html:99
+msgid "No items were found"
 msgstr ""
 
 #: shared\service\consts.js:663
@@ -793,6 +797,10 @@ msgstr ""
 msgid "Refreshing map list..."
 msgstr ""
 
+#: item.html:87
+msgid "Reset Filters"
+msgstr ""
+
 #: layout\nav.html:109
 #: layout\nav.html:50
 #: profile\_activity-history.html:39
@@ -892,7 +900,7 @@ msgstr ""
 msgid "Sniper Rifle"
 msgstr ""
 
-#: item.html:138
+#: item.html:147
 #: item.html:65
 msgid "Source"
 msgstr ""
@@ -1033,7 +1041,7 @@ msgstr ""
 msgid "This profile temporarily cannot be displayed. Too much data is missing by consequence of the current API issues."
 msgstr ""
 
-#: item.html:131
+#: item.html:140
 msgid ""
 "Tier\r\n"
 "                        <div class=\"sort\" ng-class=\"{'active-asc': listService.sortColumn == 'tier' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'tier' && listService.sortDirection == 'desc'}\">\r\n"
@@ -1074,6 +1082,10 @@ msgstr ""
 #: shared\service\consts.js:633
 #: subclass.html:80
 msgid "Trials of Osiris"
+msgstr ""
+
+#: item.html:100
+msgid "Try updating your filters, there are no items matching your criteria."
 msgstr ""
 
 #: shared\service\consts.js:207
