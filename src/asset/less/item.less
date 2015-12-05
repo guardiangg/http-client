@@ -56,8 +56,33 @@
                 td {
                     min-width: 100px;
                     max-width: 100px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
                     background: #F5F5F5;
                     text-align: center;
+                }
+
+                th.source {
+                    min-width: 280px;
+                    max-width: 280px;
+                }
+
+                td.source {
+                    min-width: 280px;
+                    max-width: 280px;
+                    text-align: left;
+
+                    .list-reward {
+                        width: 32px;
+                        height: 32px;
+                        display: inline-block;
+                        margin-right: 2px;
+
+                        i {
+                            border-radius: 2px;
+                        }
+                    }
                 }
             }
         }

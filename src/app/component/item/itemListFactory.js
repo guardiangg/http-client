@@ -23,7 +23,7 @@ app.factory('itemListFactory', [
             this.rawData = [];
             this.filteredData = [];
             this.filteredDataTotal = 0;
-            this.columns = [];
+            this.statColumns = [];
             this.categories = [];
             this.sortColumn = 'name';
             this.sortDirection = 'asc';
@@ -86,6 +86,9 @@ app.factory('itemListFactory', [
                 $location.url(href);
             };
 
+            /**
+             * Clientside Filtering
+             */
             var csFiltersActive = {};
             var csFilters = {
                 sort: {
@@ -118,6 +121,58 @@ app.factory('itemListFactory', [
 
                         return self.filteredData;
                     }
+                },
+                tier: {
+                    key: 't',
+                    filter: function(value) {
+                        var tiers = value.split(':');
+                        var data = [];
+
+                        _.each(self.filteredData, function(i) {
+                            if (i.tier.indexOf(value.toLowerCase()) > -1) {
+                                data.push(i);
+                            }
+                        });
+
+                        self.filteredData = data;
+                        self.filters.name = value;
+
+                        return self.filteredData;
+                    }
+                },
+                class: {
+                    key: 'c',
+                    filter: function(value) {
+                        var data = [];
+
+                        _.each(self.filteredData, function(i) {
+                            if (parseInt(i.class) === parseInt(value)) {
+                                data.push(i);
+                            }
+                        });
+
+                        self.filteredData = data;
+                        self.filters.class = value;
+
+                        return self.filteredData;
+                    }
+                },
+                source: {
+                    key: 'x',
+                    filter: function(value) {
+                        var data = [];
+
+                        _.each(self.filteredData, function(i) {
+                            if (i.rewardSources && (i.rewardSources.indexOf(parseInt(value)) > -1 || i.rewardSources.indexOf(value) > -1)) {
+                                data.push(i);
+                            }
+                        });
+
+                        self.filteredData = data;
+                        self.filters.source = value;
+
+                        return self.filteredData;
+                    }
                 }
             };
 
@@ -147,6 +202,38 @@ app.factory('itemListFactory', [
                 } else {
                     $location.search(csFilters.name.key, value);
                     csFiltersActive.name = csFilters.name.filter;
+                }
+
+                self.filterData();
+            };
+
+            /**
+             * Filters the set of items by a source type, expects the reward source hash
+             * @param {string} value
+             */
+            this.filterBySource = function(value) {
+                if (!value) {
+                    $location.search(csFilters.source.key, null);
+                    delete csFiltersActive.source;
+                } else {
+                    $location.search(csFilters.source.key, value);
+                    csFiltersActive.source = csFilters.source.filter;
+                }
+
+                self.filterData();
+            };
+
+            /**
+             * Filters the set of items by the class id
+             * @param {string} value
+             */
+            this.filterByClass = function(value) {
+                if (!value) {
+                    $location.search(csFilters.class.key, null);
+                    delete csFiltersActive.class;
+                } else {
+                    $location.search(csFilters.class.key, value);
+                    csFiltersActive.class = csFilters.class.filter;
                 }
 
                 self.filterData();
@@ -313,26 +400,35 @@ app.factory('itemListFactory', [
                         // appropriate stat under the stat column, which is not in the same order as the item stat array
                         _.each(self.rawData, function(item) {
                             item._stats = {};
+                            item._sources = [];
 
                             _.each(item.stats, function(stat) {
                                 stat.hash = stat.hash.toString();
 
-                                var exists = _.find(self.columns, function(e) {
+                                var exists = _.find(self.statColumns, function(e) {
                                     return e.hash == stat.hash;
                                 });
 
                                 // If the stat exists in the list view template, add the column
                                 if (!exists && _.contains(statColumns, stat.hash)) {
-                                    self.columns.push(stat);
+                                    self.statColumns.push(stat);
                                 }
 
                                 item._stats[stat.hash.toString()] = stat;
+                            });
+
+                            // Remove reward sources that don't exist
+                            _.each(item.rewardSources, function(source, i) {
+                                var source = gamedata.getRewardSourceByHash(source);
+                                if (source) {
+                                    item._sources.push(source);
+                                }
                             });
                         });
 
                         // Give the client some guidance on the intended order of the stat columns
                         _.each(statColumns, function(col, idx) {
-                            var exists = _.find(self.columns, function(e) {
+                            var exists = _.find(self.statColumns, function(e) {
                                 return e.hash == col;
                             });
 
@@ -351,7 +447,7 @@ app.factory('itemListFactory', [
 
                         self.page = 0;
                         self.filterData();
-                        self.columns = _.sortBy(self.columns, 'index');
+                        self.statColumns = _.sortBy(self.statColumns, 'index');
                         self.notifyObservers();
                     });
             }

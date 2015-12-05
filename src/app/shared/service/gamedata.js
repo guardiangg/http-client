@@ -1,6 +1,22 @@
 (function() {
-    var Gamedata = function($q, $http, gettextCatalog, util) {
+    var Gamedata = function($q, $http, gettextCatalog, util, consts) {
         var PAGE_SIZE = 100;
+
+        this.getRewardSourceByHash = function(hash) {
+            var entity = false;
+
+            _.each(consts.reward_sources, function(group) {
+                var match = _.find(group.sources, function(source) {
+                    return source.hash.toString() == hash.toString();
+                });
+
+                if (match) {
+                    entity = match;
+                }
+            });
+
+            return entity;
+        };
 
         this.get = function(type, hash) {
             return $q(function(resolve, reject) {
@@ -59,9 +75,10 @@
         '$http',
         'gettextCatalog',
         'util',
+        'consts',
 
-        function ($q, $http, gettextCatalog, util) {
-            return new Gamedata($q, $http, gettextCatalog, util);
+        function ($q, $http, gettextCatalog, util, consts) {
+            return new Gamedata($q, $http, gettextCatalog, util, consts);
         }
     ]);
 })();

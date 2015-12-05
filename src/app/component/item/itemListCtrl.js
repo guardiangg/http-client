@@ -4,9 +4,10 @@ app.controller('itemListCtrl', [
     '$scope',
     '$stateParams',
     'util',
+    'consts',
     'itemListFactory',
 
-    function ($scope, $stateParams, util, itemListFactory) {
+    function ($scope, $stateParams, util, consts, itemListFactory) {
         var listService = new itemListFactory();
 
         listService.registerObserverCallback(function() {
@@ -22,7 +23,7 @@ app.controller('itemListCtrl', [
                 totalItems: listService.filteredDataTotal
             };
 
-            $scope.columns = listService.columns;
+            $scope.statColumns = listService.statColumns;
             $scope.filters = listService.filters;
             $scope.typeLists = listService.typeLists;
 
@@ -38,8 +39,10 @@ app.controller('itemListCtrl', [
         listService.load();
 
         $scope.listLoaded = false;
+        $scope.slugify = util.slugify;
         $scope.filters = listService.filters;
         $scope.listService = listService;
-        $scope.slugify = util.slugify;
+        $scope.sources = consts.reward_sources;
+        $scope.tiers = consts.item_tiers;
     }
 ]);

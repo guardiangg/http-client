@@ -62,6 +62,17 @@
         </div>
 
         <div class="filter">
+            <label translate>Source</label>
+            <select class="form-control" ng-change="listService.filterBySource(filters.source)" ng-model="filters.source">
+                <option value=""></option>
+                <optgroup label="{{group.label}}" ng-repeat="group in sources">
+                    <option ng-repeat="source in group.sources|orderBy:'label'" value="{{source.hash}}">{{source.label}}</option>
+                </optgroup>
+            </select>
+            <span class="reset" ng-show="filters.source" ng-click="listService.removeFilter('source')"><i class="fa fa-close"></i></span>
+        </div>
+
+        <div class="filter">
             <label translate>Class</label>
             <select class="form-control half-size" ng-change="listService.filterByClass(filters.class)" ng-model="filters.class">
                 <option value=""></option>
@@ -117,24 +128,48 @@
         <table fixed-header>
             <thead>
                 <tr>
-                    <th ng-repeat="col in columns" ng-click="listService.sortBy('_stats.' + col.hash + '.max')">
+                    <th translate ng-click="listService.sortBy('tier')">
+                        Tier
+                        <div class="sort" ng-class="{'active-asc': listService.sortColumn == 'tier' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'tier' && listService.sortDirection == 'desc'}">
+                            <i class="fa fa-sort-asc"></i>
+                            <i class="fa fa-sort-desc"></i>
+                        </div>
+                    </th>
+                    <th translate class="source">
+                        Source
+                    </th>
+                    <th ng-repeat="col in statColumns" ng-click="listService.sortBy('_stats.' + col.hash + '.max')">
                         {{col.name}}
                         <div class="sort" ng-class="{'active-asc': listService.sortColumn == '_stats.' + col.hash + '.max' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == '_stats.' + col.hash + '.max' && listService.sortDirection == 'desc'}">
                             <i class="fa fa-sort-asc"></i>
                             <i class="fa fa-sort-desc"></i>
                         </div>
                     </th>
+                    <th translate class="patch">
+                        Last Patched
+                    </th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="spacer">
-                    <td colspan="{{columns.length}}"></td>
+                    <td colspan="{{statColumns.length + 2}}"></td>
                 </tr>
                 <tr ng-repeat="entity in results.data track by entity.hash">
-                    <td ng-repeat="col in columns" ng-class="{'active-sort': listService.sortColumn == '_stats.' + col.hash + '.max'}">
+                    <td ng-class="{'active-sort': listService.sortColumn == 'tier'}">
+                        {{tiers[entity.tier].label}}
+                    </td>
+                    <td class="source">
+                        <span ng-repeat="source in entity._sources|orderBy:'label'" class="list-reward" tooltip="{{source.label}}" data-toggle="tooltip">
+                            <i class="ggg-source ggg-source-{{source.hash}}"></i>
+                        </span>
+                    </td>
+                    <td ng-repeat="col in statColumns" ng-class="{'active-sort': listService.sortColumn == '_stats.' + col.hash + '.max'}">
                         <span ng-if="entity._stats[col.hash] && entity._stats[col.hash].min !== entity._stats[col.hash].max">{{entity._stats[col.hash].min}}-{{entity._stats[col.hash].max}}</span>
                         <span ng-if="entity._stats[col.hash] && entity._stats[col.hash].min === entity._stats[col.hash].max && entity._stats[col.hash].min !== 0">{{entity._stats[col.hash].min}}</span>
                         <span ng-if="!entity._stats[col.hash] || (entity._stats[col.hash].min === entity._stats[col.hash].max && entity._stats[col.hash].min === 0)">-</span>
+                    </td>
+                    <td class="patch">
+                        {{entity.version|ago}}
                     </td>
                 </tr>
             </tbody>
