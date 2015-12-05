@@ -194,6 +194,32 @@ app.service('consts', [
                     color: '#3EB9FD'
                 }
             },
+            item_tiers: {
+                1: {
+                    label: gettextCatalog.getString('Basic'),
+                    color: '#C1BBB2'
+                },
+                2: {
+                    label: gettextCatalog.getString('Common'),
+                    color: '#C1BBB2'
+                },
+                3: {
+                    label: gettextCatalog.getString('Uncommon'),
+                    color: '#366F42'
+                },
+                4: {
+                    label: gettextCatalog.getString('Rare'),
+                    color: '#5076A3'
+                },
+                5: {
+                    label: gettextCatalog.getString('Legendary'),
+                    color: '#522F65'
+                },
+                6: {
+                    label: gettextCatalog.getString('Exotic'),
+                    color: '#C6A72F'
+                }
+            },
             item_category_list: [
                 {
                     slug: 'weapon',
@@ -561,7 +587,224 @@ app.service('consts', [
                         "3017642079", // Boost
                     ]
                 }
-            }
+            },
+            reward_sources: [
+                {
+                    label: gettextCatalog.getString('Activities'),
+                    sources: [
+                        {
+                            hash: "1882189853",
+                            label: gettextCatalog.getString('Crucible')
+                        },
+                        {
+                            hash: "478645002",
+                            label: gettextCatalog.getString('Iron Banner')
+                        },
+                        {
+                            hash: "36493462",
+                            label: gettextCatalog.getString('Prison of Elders')
+                        },
+                        {
+                            hash: "3107502809",
+                            label: gettextCatalog.getString('Raid - Crota\'s End')
+                        },
+                        {
+                            hash: "3551688287",
+                            label: gettextCatalog.getString('Raid - King\'s Fall')
+                        },
+                        {
+                            hash: "686593720",
+                            label: gettextCatalog.getString('Raid - Vault of Glass')
+                        },
+                        {
+                            hash: "3870113141",
+                            label: gettextCatalog.getString('Strike')
+                        },
+                        {
+                            hash: "3116705946",
+                            label: gettextCatalog.getString('Strike - Heroic')
+                        },
+                        {
+                            hash: "113998144",
+                            label: gettextCatalog.getString('Strike - Nightfall')
+                        },
+                        {
+                            hash: "3413298620",
+                            label: gettextCatalog.getString('Trials of Osiris')
+                        },
+                    ]
+                },
+                {
+                    label: gettextCatalog.getString('Expansion Pack'),
+                    sources: [
+                        {
+                            hash: "460228854",
+                            label: gettextCatalog.getString('The Taken King')
+                        },
+                    ]
+                },
+                {
+                    label: gettextCatalog.getString('Outdoor Zone'),
+                    sources: [
+                        {
+                            hash: "2644169369",
+                            label: gettextCatalog.getString('Oryx\'s Dreadnaught')
+                        },
+                        {
+                            hash: "2861499388",
+                            label: gettextCatalog.getString('Meridian Bay')
+                        },
+                        {
+                            hash: "3405266230",
+                            label: gettextCatalog.getString('Patrol')
+                        },
+                        {
+                            hash: "1391763834",
+                            label: gettextCatalog.getString('Ocean of Storms')
+                        },
+                        {
+                            hash: "1835600269",
+                            label: gettextCatalog.getString('Old Russia')
+                        },
+                        {
+                            hash: "1396812895",
+                            label: gettextCatalog.getString('Ishtar Sink')
+                        },
+                    ]
+                },
+                {
+                    label: gettextCatalog.getString('Reef Vendor'),
+                    sources: [
+                        {
+                            hash: "3286066462",
+                            label: gettextCatalog.getString('Queen\'s Wrath')
+                        },
+                        {
+                            hash: "482203941",
+                            label: gettextCatalog.getString('Disciple of Osiris')
+                        },
+                        {
+                            hash: "3523074641",
+                            label: gettextCatalog.getString('Variks')
+                        },
+                    ]
+                },
+                {
+                    label: gettextCatalog.getString('Tower Vendor'),
+                    sources: [
+                        {
+                            hash: "2859308742",
+                            label: gettextCatalog.getString('Future War Cult')
+                        },
+                        {
+                            hash: "3080587303",
+                            label: gettextCatalog.getString('Dead Orbit')
+                        },
+                        {
+                            hash: "1963381593",
+                            label: gettextCatalog.getString('New Monarchy')
+                        },
+                        {
+                            hash: "2770509343",
+                            label: gettextCatalog.getString('Lord Saladin')
+                        },
+                        {
+                            hash: "3496730577",
+                            label: gettextCatalog.getString('Vanguard Quartermaster')
+                        },
+                        {
+                            hash: "709638738",
+                            label: gettextCatalog.getString('Titan Vanguard')
+                        },
+                        {
+                            hash: "866383853",
+                            label: gettextCatalog.getString('Hunter Vanguard')
+                        },
+                        {
+                            hash: "4074277503",
+                            label: gettextCatalog.getString('Warlock Vanguard')
+                        },
+                        {
+                            hash: "2155337848",
+                            label: gettextCatalog.getString('Eververse')
+                        },
+                        {
+                            hash: "1662396737",
+                            label: gettextCatalog.getString('Crota\'s Bane')
+                        },
+                        {
+                            hash: "299200664",
+                            label: gettextCatalog.getString('Gunsmith')
+                        },
+                        {
+                            hash: "3498761033",
+                            label: gettextCatalog.getString('The Speaker')
+                        },
+                        {
+                            hash: "3660582080",
+                            label: gettextCatalog.getString('Shipwright')
+                        },
+                        {
+                            hash: "3672389432",
+                            label: gettextCatalog.getString('Guardian Outfitter')
+                        },
+                        {
+                            hash: "1257353826",
+                            label: gettextCatalog.getString('Crucible Handler')
+                        },
+                        {
+                            hash: "1587918730",
+                            label: gettextCatalog.getString('Crucible Quartermaster')
+                        },
+                    ]
+                },
+                {
+                    label: gettextCatalog.getString('Multi-Location Vendor'),
+                    sources: [
+                        {
+                            hash: "2975148657",
+                            label: gettextCatalog.getString('Bounty Tracker')
+                        },
+                        {
+                            hash: "1141011754",
+                            label: gettextCatalog.getString('Cryptarch')
+                        },
+                        {
+                            hash: "941581325",
+                            label: gettextCatalog.getString('Xûr, Agent of the Nine')
+                        },
+                    ]
+                },
+                {
+                    label: gettextCatalog.getString('Miscellaneous'),
+                    sources: [
+                        {
+                            hash: "831813627",
+                            label: gettextCatalog.getString('Character Creation')
+                        },
+                        {
+                            hash: "1011133026",
+                            label: gettextCatalog.getString('Exotic Weapon Bounty')
+                        },
+                        {
+                            hash: "846654930",
+                            label: gettextCatalog.getString('Public Events')
+                        },
+                        {
+                            hash: "541934873",
+                            label: gettextCatalog.getString('Various Sources')
+                        },
+                        {
+                            hash: "1391763834",
+                            label: gettextCatalog.getString('Evolved From Another Item')
+                        },
+                        {
+                            hash: "1920307024",
+                            label: gettextCatalog.getString('Quest')
+                        },
+                    ]
+                },
+            ]
         };
     }
 ]);
