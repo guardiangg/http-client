@@ -517,9 +517,8 @@ app.factory('itemListFactory', [
                             });
                         });
 
-                        self.filterData();
                         self.statColumns = _.sortBy(self.statColumns, 'index');
-                        self.notifyObservers();
+                        self.filterData();
                     });
             }
         };
