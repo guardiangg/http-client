@@ -24,7 +24,7 @@ msgstr ""
 msgid "A"
 msgstr ""
 
-#: item.html:31
+#: item.html:42
 msgid "Active Gear"
 msgstr ""
 
@@ -32,7 +32,7 @@ msgstr ""
 msgid "Activities"
 msgstr ""
 
-#: item.html:6
+#: item.html:17
 msgid "Add Filters"
 msgstr ""
 
@@ -89,7 +89,7 @@ msgstr ""
 msgid "Average Team Elo"
 msgstr ""
 
-#: item.html:94
+#: item.html:105
 #: shared\service\consts.js:199
 msgid "Basic"
 msgstr ""
@@ -141,7 +141,7 @@ msgstr ""
 msgid "Clash"
 msgstr ""
 
-#: item.html:76
+#: item.html:87
 msgid "Class"
 msgstr ""
 
@@ -149,7 +149,7 @@ msgstr ""
 msgid "Class Item"
 msgstr ""
 
-#: item.html:93
+#: item.html:104
 #: shared\service\consts.js:203
 msgid "Common"
 msgstr ""
@@ -215,7 +215,7 @@ msgstr ""
 msgid "Defender"
 msgstr ""
 
-#: item.html:156
+#: item.html:167
 msgid "Description"
 msgstr ""
 
@@ -278,7 +278,7 @@ msgstr ""
 msgid "Evolved From Another Item"
 msgstr ""
 
-#: item.html:89
+#: item.html:100
 #: shared\service\consts.js:219
 msgid "Exotic"
 msgstr ""
@@ -442,7 +442,7 @@ msgstr ""
 msgid "Insufficient weapon data was found for this game mode in the last 7 days."
 msgstr ""
 
-#: item.html:37
+#: item.html:48
 msgid "Inventory"
 msgstr ""
 
@@ -465,8 +465,8 @@ msgid "Item"
 msgstr ""
 
 #: item.html:1
-#: item.html:117
-#: item.html:219
+#: item.html:128
+#: item.html:230
 msgid "Items"
 msgstr ""
 
@@ -511,7 +511,7 @@ msgstr ""
 msgid "Last"
 msgstr ""
 
-#: item.html:176
+#: item.html:187
 msgid ""
 "Last Patch\r\n"
 "                        <div class=\"sort\" ng-class=\"{'active-asc': listService.sortColumn == 'version' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'version' && listService.sortDirection == 'desc'}\">\r\n"
@@ -524,7 +524,7 @@ msgstr ""
 msgid "Leaderboards"
 msgstr ""
 
-#: item.html:90
+#: item.html:101
 #: shared\service\consts.js:215
 msgid "Legendary"
 msgstr ""
@@ -569,11 +569,11 @@ msgstr ""
 msgid "Loading Weapons..."
 msgstr ""
 
-#: item.html:13
+#: item.html:24
 msgid "Loading filters..."
 msgstr ""
 
-#: item.html:108
+#: item.html:119
 msgid "Loading items, please wait..."
 msgstr ""
 
@@ -628,8 +628,8 @@ msgid "Multi-Location Vendor"
 msgstr ""
 
 #: home.html:21
-#: item.html:126
-#: item.html:18
+#: item.html:137
+#: item.html:29
 #: leaderboard.html:71
 msgid "Name"
 msgstr ""
@@ -657,7 +657,7 @@ msgstr ""
 msgid "No games have been played in this mode."
 msgstr ""
 
-#: item.html:112
+#: item.html:123
 msgid "No items were found"
 msgstr ""
 
@@ -692,7 +692,7 @@ msgstr ""
 msgid "Page {{page+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>"
 msgstr ""
 
-#: item.html:34
+#: item.html:45
 msgid "Passive Gear"
 msgstr ""
 
@@ -734,7 +734,7 @@ msgstr ""
 msgid "Prev"
 msgstr ""
 
-#: item.html:153
+#: item.html:164
 msgid "Preview"
 msgstr ""
 
@@ -746,7 +746,7 @@ msgstr ""
 msgid "Primary Weapon"
 msgstr ""
 
-#: item.html:29
+#: item.html:40
 msgid "Primary type"
 msgstr ""
 
@@ -790,7 +790,7 @@ msgstr ""
 msgid "Ranked as a percentage of all kills"
 msgstr ""
 
-#: item.html:91
+#: item.html:102
 #: shared\service\consts.js:211
 msgid "Rare"
 msgstr ""
@@ -815,7 +815,7 @@ msgstr ""
 msgid "Refreshing map list..."
 msgstr ""
 
-#: item.html:100
+#: item.html:111
 msgid "Reset Filters"
 msgstr ""
 
@@ -918,8 +918,8 @@ msgstr ""
 msgid "Sniper Rifle"
 msgstr ""
 
-#: item.html:166
-#: item.html:65
+#: item.html:177
+#: item.html:76
 msgid "Source"
 msgstr ""
 
@@ -931,7 +931,7 @@ msgstr ""
 msgid "Special"
 msgstr ""
 
-#: item.html:40
+#: item.html:51
 msgid "Special Event"
 msgstr ""
 
@@ -970,11 +970,11 @@ msgstr ""
 msgid "Striker"
 msgstr ""
 
-#: item.html:47
+#: item.html:58
 msgid "Sub-type"
 msgstr ""
 
-#: item.html:56
+#: item.html:67
 msgid "Sub-type #2"
 msgstr ""
 
@@ -1034,7 +1034,7 @@ msgstr ""
 msgid "The match history is unavailable due to an API error"
 msgstr ""
 
-#: item.html:9
+#: item.html:20
 msgid "The page URL gets updated with any filters you add. Share it, or come back to it later easily!"
 msgstr ""
 
@@ -1059,7 +1059,7 @@ msgstr ""
 msgid "This profile temporarily cannot be displayed. Too much data is missing by consequence of the current API issues."
 msgstr ""
 
-#: item.html:159
+#: item.html:170
 msgid ""
 "Tier\r\n"
 "                        <div class=\"sort\" ng-class=\"{'active-asc': listService.sortColumn == 'tier' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'tier' && listService.sortDirection == 'desc'}\">\r\n"
@@ -1068,7 +1068,7 @@ msgid ""
 "                        </div>"
 msgstr ""
 
-#: item.html:87
+#: item.html:98
 msgid "Tiers"
 msgstr ""
 
@@ -1106,11 +1106,11 @@ msgstr ""
 msgid "Trials of Osiris"
 msgstr ""
 
-#: item.html:113
+#: item.html:124
 msgid "Try updating your filters, there are no items matching your criteria."
 msgstr ""
 
-#: item.html:92
+#: item.html:103
 #: shared\service\consts.js:207
 msgid "Uncommon"
 msgstr ""
