@@ -31,8 +31,9 @@ app.directive('scrollable', [
                 });
 
                 var init = function() {
-                    // Reset no-scroll class
+                    // Reset styles
                     element.removeClass('no-scroll');
+                    shadowL.css('left', element.css('margin-left'));
 
                     if (!element.hasClass('scrollable')) {
                         element.addClass('scrollable')

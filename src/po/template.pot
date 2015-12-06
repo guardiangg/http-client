@@ -89,7 +89,7 @@ msgstr ""
 msgid "Average Team Elo"
 msgstr ""
 
-#: item.html:93
+#: item.html:94
 #: shared\service\consts.js:199
 msgid "Basic"
 msgstr ""
@@ -149,7 +149,7 @@ msgstr ""
 msgid "Class Item"
 msgstr ""
 
-#: item.html:92
+#: item.html:93
 #: shared\service\consts.js:203
 msgid "Common"
 msgstr ""
@@ -215,7 +215,7 @@ msgstr ""
 msgid "Defender"
 msgstr ""
 
-#: item.html:154
+#: item.html:156
 msgid "Description"
 msgstr ""
 
@@ -278,7 +278,7 @@ msgstr ""
 msgid "Evolved From Another Item"
 msgstr ""
 
-#: item.html:88
+#: item.html:89
 #: shared\service\consts.js:219
 msgid "Exotic"
 msgstr ""
@@ -465,8 +465,8 @@ msgid "Item"
 msgstr ""
 
 #: item.html:1
-#: item.html:115
-#: item.html:217
+#: item.html:117
+#: item.html:219
 msgid "Items"
 msgstr ""
 
@@ -511,7 +511,7 @@ msgstr ""
 msgid "Last"
 msgstr ""
 
-#: item.html:174
+#: item.html:176
 msgid ""
 "Last Patch\r\n"
 "                        <div class=\"sort\" ng-class=\"{'active-asc': listService.sortColumn == 'version' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'version' && listService.sortDirection == 'desc'}\">\r\n"
@@ -524,7 +524,7 @@ msgstr ""
 msgid "Leaderboards"
 msgstr ""
 
-#: item.html:89
+#: item.html:90
 #: shared\service\consts.js:215
 msgid "Legendary"
 msgstr ""
@@ -573,7 +573,7 @@ msgstr ""
 msgid "Loading filters..."
 msgstr ""
 
-#: item.html:106
+#: item.html:108
 msgid "Loading items, please wait..."
 msgstr ""
 
@@ -628,7 +628,7 @@ msgid "Multi-Location Vendor"
 msgstr ""
 
 #: home.html:21
-#: item.html:124
+#: item.html:126
 #: item.html:18
 #: leaderboard.html:71
 msgid "Name"
@@ -657,7 +657,7 @@ msgstr ""
 msgid "No games have been played in this mode."
 msgstr ""
 
-#: item.html:110
+#: item.html:112
 msgid "No items were found"
 msgstr ""
 
@@ -734,7 +734,7 @@ msgstr ""
 msgid "Prev"
 msgstr ""
 
-#: item.html:151
+#: item.html:153
 msgid "Preview"
 msgstr ""
 
@@ -790,7 +790,7 @@ msgstr ""
 msgid "Ranked as a percentage of all kills"
 msgstr ""
 
-#: item.html:90
+#: item.html:91
 #: shared\service\consts.js:211
 msgid "Rare"
 msgstr ""
@@ -815,7 +815,7 @@ msgstr ""
 msgid "Refreshing map list..."
 msgstr ""
 
-#: item.html:98
+#: item.html:100
 msgid "Reset Filters"
 msgstr ""
 
@@ -918,7 +918,7 @@ msgstr ""
 msgid "Sniper Rifle"
 msgstr ""
 
-#: item.html:164
+#: item.html:166
 #: item.html:65
 msgid "Source"
 msgstr ""
@@ -1059,7 +1059,7 @@ msgstr ""
 msgid "This profile temporarily cannot be displayed. Too much data is missing by consequence of the current API issues."
 msgstr ""
 
-#: item.html:157
+#: item.html:159
 msgid ""
 "Tier\r\n"
 "                        <div class=\"sort\" ng-class=\"{'active-asc': listService.sortColumn == 'tier' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'tier' && listService.sortDirection == 'desc'}\">\r\n"
@@ -1106,11 +1106,11 @@ msgstr ""
 msgid "Trials of Osiris"
 msgstr ""
 
-#: item.html:111
+#: item.html:113
 msgid "Try updating your filters, there are no items matching your criteria."
 msgstr ""
 
-#: item.html:91
+#: item.html:92
 #: shared\service\consts.js:207
 msgid "Uncommon"
 msgstr ""

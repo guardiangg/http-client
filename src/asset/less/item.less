@@ -8,6 +8,19 @@
     }
 }
 
+.item-list-ad {
+    width: 320px;
+    height: 250px;
+    background: #ccc;
+
+    @media (max-width: 767px) {
+        &.pull-right {
+            margin: 0 auto 15px auto;
+            float: none !important;
+        }
+    }
+}
+
 .item-list {
     position: relative;
     -webkit-touch-callout: none;
@@ -24,17 +37,31 @@
         top: 0;
         left: 0;
 
+        @media (max-width: 480px) {
+            width: 140px;
+        }
+
         tr {
             th {
                 max-width: 220px;
                 min-width: 220px;
                 border-right: 1px solid #666 !important;
+
+                @media (max-width: 480px) {
+                    max-width: 140px;
+                    min-width: 140px;
+                }
             }
 
             td {
                 max-width: 220px;
                 min-width: 220px;
                 border-right: 1px solid #ccc !important;
+
+                @media (max-width: 480px) {
+                    max-width: 140px;
+                    min-width: 140px;
+                }
             }
         }
     }
@@ -42,6 +69,10 @@
     div.item-list-scrollable {
         margin-left: 220px;
         background: #EAEAEA;
+
+        @media (max-width: 480px) {
+            margin-left: 140px;
+        }
 
         &.no-scroll {
             table {
@@ -224,6 +255,14 @@
                     left: 4px;
                 }
 
+                @media (max-width: 480px) {
+                    img {
+                        top: 10px;
+                        max-width: 22px;
+                        max-height: 22px;
+                    }
+                }
+
                 .details {
                     line-height: 14px;
                     margin-left: 42px;
@@ -238,56 +277,81 @@
                         display: block;
                         font-size: 0.9em;
                     }
+
+                    @media (max-width: 480px) {
+                        margin-left: 28px;
+
+                        a {
+                            font-size: 12px;
+                        }
+                    }
                 }
             }
         }
     }
 }
 
-span.tier-selector {
+.tier-selectors {
     display: inline-block;
-    padding: 2px 4px;
-    border: 1px solid #E8E8E8;
-    border-radius: 2px;
-    margin-right: 2px;
-    font-size: 0.8em;
-    cursor: pointer;
-    color: #989898;
 
-    &.active {
-        color: #fff;
+    @media (max-width: 767px) {
+        display: block;
+    }
 
-        &.tier-1 {
-            border-color: #8C8C8C;
-            background-color: #8C8C8C;
+    span.tier-selector {
+        display: inline-block;
+        padding: 2px 4px;
+        border: 1px solid #E8E8E8;
+        border-radius: 2px;
+        margin-right: 2px;
+        font-size: 0.8em;
+        cursor: pointer;
+        color: #989898;
+
+        @media (max-width: 767px) {
+            width: 31%;
+            padding: 8px;
+            margin-bottom: 4px;
+            background: #fff;
+            border: 1px solid #fff;
         }
 
-        &.tier-2 {
-            border-color: #6F6F6F;
-            background-color: #6F6F6F;
-        }
+        &.active {
+            color: #fff;
 
-        &.tier-3 {
-            border-color: #3D9850;
-            background-color: #3D9850;
-        }
+            &.tier-1 {
+                border-color: #8C8C8C;
+                background-color: #8C8C8C;
+            }
 
-        &.tier-4 {
-            border-color: #3A75BB;
-            background-color: #3A75BB;
-        }
+            &.tier-2 {
+                border-color: #6F6F6F;
+                background-color: #6F6F6F;
+            }
 
-        &.tier-5 {
-            border-color: #8B2DBB;
-            background-color: #8B2DBB;
-        }
+            &.tier-3 {
+                border-color: #3D9850;
+                background-color: #3D9850;
+            }
 
-        &.tier-6 {
-            border-color: #D29D00;
-            background-color: #D29D00;
+            &.tier-4 {
+                border-color: #3A75BB;
+                background-color: #3A75BB;
+            }
+
+            &.tier-5 {
+                border-color: #8B2DBB;
+                background-color: #8B2DBB;
+            }
+
+            &.tier-6 {
+                border-color: #D29D00;
+                background-color: #D29D00;
+            }
         }
     }
 }
+
 
 .quality-1 {
     color: #6F6F6F;
