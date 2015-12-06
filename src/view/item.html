@@ -1,7 +1,18 @@
 <h2 translate>Items</h2>
 
 <div class="filters">
-    <div class="medrec pull-right" style="width:320px;height:250px;background:#e4e4e4;"></div>
+    <div class="item-list-ad pull-right">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- GGG-Item-ListView -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4988741679097321"
+             data-ad-slot="8827079895"
+             data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
 
     <h3 translate>Add Filters</h3>
     <div class="help">
@@ -19,10 +30,10 @@
             <input type="text"
                    ng-model="filters.name"
                    ng-model-options="{debounce: 500}"
-                   ng-change="listService.filterByName(filters.name)"
+                   ng-change="listService.filterBy('name', filters.name)"
                    class="form-control filter-name half-size"
                    placeholder="Item name..."/>
-            <span class="reset" ng-show="filters.name" ng-click="listService.removeFilter('name')"><i class="fa fa-close"></i></span>
+            <span class="reset hidden-xs" ng-show="filters.name" ng-click="listService.removeFilter('name')"><i class="fa fa-close"></i></span>
         </div>
 
         <div class="filter">
@@ -49,7 +60,7 @@
                 <option value=""></option>
                 <option ng-repeat="type in typeLists.secondary" value="{{type.slug}}">{{type.label}}</option>
             </select>
-            <span class="reset" ng-show="filters.type.secondary" ng-click="listService.filterByType('secondary', null)"><i class="fa fa-close"></i></span>
+            <span class="reset hidden-xs" ng-show="filters.type.secondary" ng-click="listService.filterByType('secondary', null)"><i class="fa fa-close"></i></span>
         </div>
 
         <div class="filter" ng-show="filters.type.secondary && typeLists.tertiary && typeLists.tertiary.length > 0">
@@ -58,29 +69,42 @@
                 <option value=""></option>
                 <option ng-repeat="type in typeLists.tertiary" value="{{type.slug}}">{{type.label}}</option>
             </select>
-            <span class="reset" ng-show="filters.type.tertiary" ng-click="listService.filterByType('tertiary', null)"><i class="fa fa-close"></i></span>
+            <span class="reset hidden-xs" ng-show="filters.type.tertiary" ng-click="listService.filterByType('tertiary', null)"><i class="fa fa-close"></i></span>
         </div>
 
         <div class="filter">
             <label translate>Source</label>
-            <select class="form-control" ng-change="listService.filterBySource(filters.source)" ng-model="filters.source">
+            <select class="form-control" ng-change="listService.filterBy('source', filters.source)" ng-model="filters.source">
                 <option value=""></option>
                 <optgroup label="{{group.label}}" ng-repeat="group in sources">
                     <option ng-repeat="source in group.sources|orderBy:'label'" value="{{source.hash}}">{{source.label}}</option>
                 </optgroup>
             </select>
-            <span class="reset" ng-show="filters.source" ng-click="listService.removeFilter('source')"><i class="fa fa-close"></i></span>
+            <span class="reset hidden-xs" ng-show="filters.source" ng-click="listService.removeFilter('source')"><i class="fa fa-close"></i></span>
         </div>
 
         <div class="filter">
             <label translate>Class</label>
-            <select class="form-control half-size" ng-change="listService.filterByClass(filters.class)" ng-model="filters.class">
+            <select class="form-control half-size" ng-change="listService.filterBy('class', filters.class)" ng-model="filters.class">
                 <option value=""></option>
                 <option value="0">Titan</option>
                 <option value="1">Hunter</option>
                 <option value="2">Warlock</option>
             </select>
-            <span class="reset" ng-show="filters.class" ng-click="listService.removeFilter('class')"><i class="fa fa-close"></i></span>
+            <span class="reset hidden-xs" ng-show="filters.class" ng-click="listService.removeFilter('class')"><i class="fa fa-close"></i></span>
+        </div>
+
+        <div class="filter">
+            <label translate>Tiers</label>
+            <div class="tier-selectors">
+                <span class="tier-selector tier-6" ng-class="{active: filters.tiers.indexOf('6') > -1}" ng-click="listService.filterByTier(6)" translate>Exotic</span>
+                <span class="tier-selector tier-5" ng-class="{active: filters.tiers.indexOf('5') > -1}" ng-click="listService.filterByTier(5)" translate>Legendary</span>
+                <span class="tier-selector tier-4" ng-class="{active: filters.tiers.indexOf('4') > -1}" ng-click="listService.filterByTier(4)" translate>Rare</span>
+                <span class="tier-selector tier-3" ng-class="{active: filters.tiers.indexOf('3') > -1}" ng-click="listService.filterByTier(3)" translate>Uncommon</span>
+                <span class="tier-selector tier-2" ng-class="{active: filters.tiers.indexOf('2') > -1}" ng-click="listService.filterByTier(2)" translate>Common</span>
+                <span class="tier-selector tier-1" ng-class="{active: filters.tiers.indexOf('1') > -1}" ng-click="listService.filterByTier(1)" translate>Basic</span>
+                <span class="reset hidden-xs" ng-show="filters.tiers.length > 0" ng-click="listService.removeFilter('tiers')"><i class="fa fa-close"></i></span>
+            </div>
         </div>
 
         <div class="filter options">
@@ -137,8 +161,11 @@
         <table fixed-header>
             <thead>
                 <tr>
-                    <th class="emblem-bg" translate ng-show="isEmblem">
+                    <th class="emblem-bg no-sort" translate ng-show="isEmblem">
                         Preview
+                    </th>
+                    <th class="description no-sort" translate ng-show="!hideDescription">
+                        Description
                     </th>
                     <th translate ng-click="listService.sortBy('tier')">
                         Tier
@@ -147,7 +174,7 @@
                             <i class="fa fa-sort-desc"></i>
                         </div>
                     </th>
-                    <th translate class="source">
+                    <th translate class="source no-sort">
                         Source
                     </th>
                     <th ng-repeat="col in statColumns" ng-click="listService.sortBy('_stats.' + col.hash + '.max')">
@@ -157,17 +184,24 @@
                             <i class="fa fa-sort-desc"></i>
                         </div>
                     </th>
-                    <th translate class="patch">
-                        Last Patched
+                    <th translate class="patch" ng-click="listService.sortBy('version')">
+                        Last Patch
+                        <div class="sort" ng-class="{'active-asc': listService.sortColumn == 'version' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'version' && listService.sortDirection == 'desc'}">
+                            <i class="fa fa-sort-asc"></i>
+                            <i class="fa fa-sort-desc"></i>
+                        </div>
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="spacer">
-                    <td colspan="{{statColumns.length + 2}}"></td>
+                    <td colspan="{{statColumns.length + 5}}"></td>
                 </tr>
                 <tr ng-repeat="entity in results.data track by entity.hash">
                     <td class="emblem-bg" ng-show="isEmblem" ng-style="{ 'background-image': 'url(//bungie.net' + entity.secondaryIcon + ')'}">
+                    </td>
+                    <td class="description" ng-show="!hideDescription">
+                        {{entity.description}}
                     </td>
                     <td ng-class="{'active-sort': listService.sortColumn == 'tier'}">
                         <span class="quality-{{entity.tier}}">{{tiers[entity.tier].label}}</span>
@@ -182,8 +216,9 @@
                         <span ng-if="entity._stats[col.hash] && entity._stats[col.hash].min === entity._stats[col.hash].max && entity._stats[col.hash].min !== 0">{{entity._stats[col.hash].min}}</span>
                         <span ng-if="!entity._stats[col.hash] || (entity._stats[col.hash].min === entity._stats[col.hash].max && entity._stats[col.hash].min === 0)">-</span>
                     </td>
-                    <td class="patch">
-                        {{entity.version|ago}}
+                    <td class="patch" ng-class="{'active-sort': listService.sortColumn == 'version'}">
+                        <span ng-show="entity.version != '0000-00-00 00:00:00'">{{entity.version|ago}}</span>
+                        <span ng-show="entity.version == '0000-00-00 00:00:00'">-</span>
                     </td>
                 </tr>
             </tbody>

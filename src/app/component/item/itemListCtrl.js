@@ -1,13 +1,14 @@
 var app = angular.module('app');
 
 app.controller('itemListCtrl', [
+    '$rootScope',
     '$scope',
     '$stateParams',
     'util',
     'consts',
     'itemListFactory',
 
-    function ($scope, $stateParams, util, consts, itemListFactory) {
+    function ($rootScope, $scope, $stateParams, util, consts, itemListFactory) {
         var listService = new itemListFactory();
 
         listService.registerObserverCallback(function() {
@@ -28,14 +29,22 @@ app.controller('itemListCtrl', [
             $scope.typeLists = listService.typeLists;
             $scope.isEmblem = listService.categories.indexOf(19) > -1;
 
+            _.each([1, 19, 20, 41, 43], function(cat) {
+                if (listService.categories.indexOf(cat) > -1) {
+                    $scope.hideDescription = true;
+                }
+            });
+
             $scope.$emit('scrollable-table.init', true);
 
             $scope.listLoaded = true;
+            $rootScope.title = listService.seoTitle;
         });
 
         listService.setPrimaryType($stateParams.primary);
         listService.setSecondaryType($stateParams.secondary);
         listService.setTertiaryType($stateParams.tertiary);
+        $rootScope.title = listService.seoTitle;
 
         listService.load();
 

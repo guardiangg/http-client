@@ -3,6 +3,10 @@
     margin-bottom: 15px;
     background: #fff;
 
+    @media (max-width: 767px) {
+        background: #EDEDED;
+    }
+
     .help {
         display: block;
         font-size: 0.8em;
@@ -13,9 +17,25 @@
     .filter {
         margin-bottom: 5px;
 
+        @media (max-width: 767px) {
+            margin-bottom: 15px;
+        }
+
         &.options {
             margin-top: 10px;
             font-size: 0.85em;
+
+            @media (max-width: 767px) {
+                font-size: 1em;
+
+                a {
+                    background-color: #7B0000;
+                    color: #fff;
+                    border-radius: 2px;
+                    padding: 6px;
+                    height: 32px;
+                }
+            }
 
             a {
                 text-decoration: none;
@@ -37,14 +57,25 @@
             font-size: 13px;
             vertical-align: middle;
 
+            @media screen and (min-width: 768px) and (max-width: 991px) {
+                width: 240px !important;
+                display: inline-block !important;
+            }
+
             &.half-size {
                 width: 160px;
+
+                @media screen and (min-width: 768px) and (max-width: 991px) {
+                    width: 160px !important;
+                }
             }
         }
 
         select {
             display: inline-block;
             padding: 2px;
+
+
         }
 
         input[type="text"] {
@@ -57,7 +88,6 @@
             cursor: pointer;
             padding: 4px;
         }
-
     }
 
     .page-info {
