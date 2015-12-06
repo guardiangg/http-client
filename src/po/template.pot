@@ -459,7 +459,7 @@ msgstr ""
 
 #: item.html:1
 #: item.html:104
-#: item.html:195
+#: item.html:190
 msgid "Items"
 msgstr ""
 
@@ -504,7 +504,7 @@ msgstr ""
 msgid "Last"
 msgstr ""
 
-#: item.html:160
+#: item.html:157
 msgid "Last Patched"
 msgstr ""
 
@@ -721,10 +721,6 @@ msgstr ""
 msgid "Prev"
 msgstr ""
 
-#: item.html:140
-msgid "Preview"
-msgstr ""
-
 #: weapon-stats.html:97
 msgid "Primary"
 msgstr ""
@@ -904,7 +900,7 @@ msgstr ""
 msgid "Sniper Rifle"
 msgstr ""
 
-#: item.html:150
+#: item.html:147
 #: item.html:65
 msgid "Source"
 msgstr ""
@@ -1045,7 +1041,7 @@ msgstr ""
 msgid "This profile temporarily cannot be displayed. Too much data is missing by consequence of the current API issues."
 msgstr ""
 
-#: item.html:143
+#: item.html:140
 msgid ""
 "Tier\r\n"
 "                        <div class=\"sort\" ng-class=\"{'active-asc': listService.sortColumn == 'tier' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'tier' && listService.sortDirection == 'desc'}\">\r\n"
