@@ -137,6 +137,9 @@
         <table fixed-header>
             <thead>
                 <tr>
+                    <th class="emblem-bg" translate ng-show="isEmblem">
+                        Preview
+                    </th>
                     <th translate ng-click="listService.sortBy('tier')">
                         Tier
                         <div class="sort" ng-class="{'active-asc': listService.sortColumn == 'tier' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'tier' && listService.sortDirection == 'desc'}">
@@ -164,6 +167,8 @@
                     <td colspan="{{statColumns.length + 2}}"></td>
                 </tr>
                 <tr ng-repeat="entity in results.data track by entity.hash">
+                    <td class="emblem-bg" ng-show="isEmblem" ng-style="{ 'background-image': 'url(//bungie.net' + entity.secondaryIcon + ')'}">
+                    </td>
                     <td ng-class="{'active-sort': listService.sortColumn == 'tier'}">
                         <span class="quality-{{entity.tier}}">{{tiers[entity.tier].label}}</span>
                     </td>

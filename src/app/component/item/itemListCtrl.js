@@ -26,6 +26,7 @@ app.controller('itemListCtrl', [
             $scope.statColumns = listService.statColumns;
             $scope.filters = listService.filters;
             $scope.typeLists = listService.typeLists;
+            $scope.isEmblem = listService.categories.indexOf(19) > -1;
 
             $scope.$emit('scrollable-table.init', true);
 
