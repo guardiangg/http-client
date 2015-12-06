@@ -139,13 +139,21 @@ app.directive('statFilter', [
                     });
 
                     if (defaultHash && defaultOp) {
-                        filters[defaultHash] = {};
-                        filters[defaultHash][defaultOp] = defaultValue;
-                        select.val(defaultHash);
-                        operator.val(defaultOp);
-                        value.val(parseInt(defaultValue));
+                        var exists = _.find(stats, function(stat) {
+                            return stat.hash == defaultHash;
+                        });
 
-                        scope.callback(filters);
+                        if (!exists) {
+                            destroy();
+                        } else {
+                            filters[defaultHash] = {};
+                            filters[defaultHash][defaultOp] = defaultValue;
+                            select.val(defaultHash);
+                            operator.val(defaultOp);
+                            value.val(parseInt(defaultValue));
+
+                            scope.callback(filters);
+                        }
                     }
 
                     reset.bind('click', destroy);
