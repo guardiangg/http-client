@@ -51,6 +51,10 @@
                     min-width: 100px;
                     max-width: 100px;
                     cursor: pointer !important;
+
+                    &.no-sort {
+                        cursor: default !important;
+                    }
                 }
 
                 td {
@@ -61,6 +65,21 @@
                     text-overflow: ellipsis;
                     background: #F5F5F5;
                     text-align: center;
+                }
+
+                th.description {
+                    min-width: 436px;
+                    max-width: 436px;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                }
+
+                td.description {
+                    text-align: left;
+                    min-width: 436px;
+                    max-width: 436px;
+                    padding-left: 10px;
+                    padding-right: 10px;
                 }
 
                 th.emblem-bg {
@@ -215,6 +234,51 @@
                     }
                 }
             }
+        }
+    }
+}
+
+span.tier-selector {
+    display: inline-block;
+    padding: 2px 4px;
+    border: 1px solid #E8E8E8;
+    border-radius: 2px;
+    margin-right: 2px;
+    font-size: 0.8em;
+    cursor: pointer;
+    color: #989898;
+
+    &.active {
+        color: #fff;
+
+        &.tier-1 {
+            border-color: #8C8C8C;
+            background-color: #8C8C8C;
+        }
+
+        &.tier-2 {
+            border-color: #6F6F6F;
+            background-color: #6F6F6F;
+        }
+
+        &.tier-3 {
+            border-color: #3D9850;
+            background-color: #3D9850;
+        }
+
+        &.tier-4 {
+            border-color: #3A75BB;
+            background-color: #3A75BB;
+        }
+
+        &.tier-5 {
+            border-color: #8B2DBB;
+            background-color: #8B2DBB;
+        }
+
+        &.tier-6 {
+            border-color: #D29D00;
+            background-color: #D29D00;
         }
     }
 }

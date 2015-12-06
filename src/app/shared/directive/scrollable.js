@@ -17,6 +17,19 @@ app.directive('scrollable', [
                 shadowR.insertAfter(element);
 
                 var init = function() {
+                    var viewport = element.width();
+                    var leftPos = element.scrollLeft();
+
+                    // Scroll horizontally to the active column on load (if it's out of view)
+                    var activeColumn = $('.active-sort');
+                    if (activeColumn.length > 0) {
+                        var columnOffset = activeColumn[0].offsetLeft;
+                        var diff = columnOffset - leftPos;
+                        if (diff > viewport) {
+                            element[0].scrollLeft += (diff - viewport);
+                        }
+                    }
+
                     if (!element.hasClass('scrollable')) {
                         element.addClass('scrollable')
                     }

@@ -39,7 +39,10 @@ app.factory('itemListFactory', [
                     secondary: null,
                     tertiary: null
                 },
-                name: null
+                name: null,
+                class: null,
+                source: null,
+                tiers: []
             };
 
             /**
@@ -82,8 +85,10 @@ app.factory('itemListFactory', [
                     options.tertiary = value ? value : null;
                 }
 
+                var params = $location.search();
+
                 var href = $state.href('app.itemList', options);
-                $location.url(href);
+                $location.url(href).search(params);
             };
 
             /**
@@ -122,20 +127,20 @@ app.factory('itemListFactory', [
                         return self.filteredData;
                     }
                 },
-                tier: {
+                tiers: {
                     key: 't',
                     filter: function(value) {
                         var tiers = value.split(':');
                         var data = [];
 
                         _.each(self.filteredData, function(i) {
-                            if (i.tier.indexOf(value.toLowerCase()) > -1) {
+                            if (tiers.indexOf(i.tier.toString()) > -1) {
                                 data.push(i);
                             }
                         });
 
                         self.filteredData = data;
-                        self.filters.name = value;
+                        self.filters.tiers = tiers;
 
                         return self.filteredData;
                     }
@@ -183,9 +188,19 @@ app.factory('itemListFactory', [
                 self.page = 0;
                 $location.search('p', null);
 
+                self.sortColumn = 'name';
+                self.sortDirection = 'asc';
+                $location.search('s', null);
+
                 _.each(csFiltersActive, function(filter, type) {
                     $location.search(csFilters[type].key, null);
-                    self.filters[type] = null;
+
+                    if (typeof self.filters[type] == 'object') {
+                        self.filters[type] = [];
+                    } else {
+                        self.filters[type] = null;
+                    }
+
                     delete csFiltersActive[type];
                 });
 
@@ -202,7 +217,13 @@ app.factory('itemListFactory', [
 
                 if (csFiltersActive[type]) {
                     $location.search(csFilters[type].key, null);
-                    self.filters[type] = null;
+
+                    if (typeof self.filters[type] == 'object') {
+                        self.filters[type] = [];
+                    } else {
+                        self.filters[type] = null;
+                    }
+
                     delete csFiltersActive[type];
 
                     self.filterData();
@@ -210,58 +231,59 @@ app.factory('itemListFactory', [
             };
 
             /**
-             * Filters the set of items by the 'name' column, always use debounce of at least 500 when accepting
-             * text inputs that call this function on ng-change.
+             * Sets a supported clientside filter. Only to be used with setting a basic string value.
+             * @param {string} type
              * @param {string} value
              */
-            this.filterByName = function(value) {
+            this.filterBy = function(type, value) {
+                if (!csFilters[type]) {
+                    return;
+                }
+
                 self.page = 0;
                 $location.search('p', null);
 
                 if (!value) {
-                    $location.search(csFilters.name.key, null);
-                    delete csFiltersActive.name;
+                    self.filters[type] = null;
+                    $location.search(csFilters[type].key, null);
+                    delete csFiltersActive[type];
                 } else {
-                    $location.search(csFilters.name.key, value);
-                    csFiltersActive.name = csFilters.name.filter;
+                    $location.search(csFilters[type].key, value);
+                    csFiltersActive[type] = csFilters[type].filter;
                 }
 
                 self.filterData();
             };
 
             /**
-             * Filters the set of items by a source type, expects the reward source hash
+             * Filters the set of items by tier (quality)
              * @param {string} value
              */
-            this.filterBySource = function(value) {
+            this.filterByTier = function(value) {
                 self.page = 0;
                 $location.search('p', null);
 
-                if (!value) {
-                    $location.search(csFilters.source.key, null);
-                    delete csFiltersActive.source;
+                var tiers = $location.search()[csFilters.tiers.key];
+                if (tiers) {
+                    tiers = tiers.split(':');
                 } else {
-                    $location.search(csFilters.source.key, value);
-                    csFiltersActive.source = csFilters.source.filter;
+                    tiers = [];
                 }
 
-                self.filterData();
-            };
-
-            /**
-             * Filters the set of items by the class id
-             * @param {string} value
-             */
-            this.filterByClass = function(value) {
-                self.page = 0;
-                $location.search('p', null);
-
-                if (!value) {
-                    $location.search(csFilters.class.key, null);
-                    delete csFiltersActive.class;
+                var position = tiers.indexOf(value.toString());
+                if (position > -1) {
+                    tiers.splice(position, 1);
                 } else {
-                    $location.search(csFilters.class.key, value);
-                    csFiltersActive.class = csFilters.class.filter;
+                    tiers.push(value);
+                }
+
+                if (tiers.length === 0) {
+                    self.filters.tiers = [];
+                    $location.search(csFilters.tiers.key, null);
+                    delete csFiltersActive.tiers;
+                } else {
+                    $location.search(csFilters.tiers.key, tiers.join(':'));
+                    csFiltersActive.tiers = csFilters.tiers.filter;
                 }
 
                 self.filterData();
@@ -398,9 +420,14 @@ app.factory('itemListFactory', [
                         if (!value || util.isNumeric(value)) {
                             return self.sortDirection == 'asc' ? value : -value;
 
-                        // Sort alpha columns
+                        // Sort alpha/date columns
                         } else {
-                            return self.sortDirection == 'asc' ? value.charCodeAt() : value.charCodeAt() * -1;
+                            if (moment(value, 'YYYY-MM-DD H:mm:ss', true).isValid()) {
+                                var time = new Date(value).getTime();
+                                return self.sortDirection == 'asc' ? time : -time;
+                            } else {
+                                return self.sortDirection == 'asc' ? value.charCodeAt() : value.charCodeAt() * -1;
+                            }
                         }
                     })
                     .value();

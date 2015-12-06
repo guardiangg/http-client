@@ -28,6 +28,12 @@ app.controller('itemListCtrl', [
             $scope.typeLists = listService.typeLists;
             $scope.isEmblem = listService.categories.indexOf(19) > -1;
 
+            _.each([1, 19, 20, 41, 43], function(cat) {
+                if (listService.categories.indexOf(cat) > -1) {
+                    $scope.hideDescription = true;
+                }
+            });
+
             $scope.$emit('scrollable-table.init', true);
 
             $scope.listLoaded = true;
