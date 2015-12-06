@@ -215,7 +215,7 @@ msgstr ""
 msgid "Defender"
 msgstr ""
 
-#: item.html:167
+#: item.html:172
 msgid "Description"
 msgstr ""
 
@@ -465,8 +465,8 @@ msgid "Item"
 msgstr ""
 
 #: item.html:1
-#: item.html:128
-#: item.html:230
+#: item.html:133
+#: item.html:235
 msgid "Items"
 msgstr ""
 
@@ -511,7 +511,7 @@ msgstr ""
 msgid "Last"
 msgstr ""
 
-#: item.html:187
+#: item.html:192
 msgid ""
 "Last Patch\r\n"
 "                        <div class=\"sort\" ng-class=\"{'active-asc': listService.sortColumn == 'version' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'version' && listService.sortDirection == 'desc'}\">\r\n"
@@ -573,7 +573,7 @@ msgstr ""
 msgid "Loading filters..."
 msgstr ""
 
-#: item.html:119
+#: item.html:124
 msgid "Loading items, please wait..."
 msgstr ""
 
@@ -628,7 +628,7 @@ msgid "Multi-Location Vendor"
 msgstr ""
 
 #: home.html:21
-#: item.html:137
+#: item.html:142
 #: item.html:29
 #: leaderboard.html:71
 msgid "Name"
@@ -657,7 +657,7 @@ msgstr ""
 msgid "No games have been played in this mode."
 msgstr ""
 
-#: item.html:123
+#: item.html:128
 msgid "No items were found"
 msgstr ""
 
@@ -734,7 +734,7 @@ msgstr ""
 msgid "Prev"
 msgstr ""
 
-#: item.html:164
+#: item.html:169
 msgid "Preview"
 msgstr ""
 
@@ -815,7 +815,7 @@ msgstr ""
 msgid "Refreshing map list..."
 msgstr ""
 
-#: item.html:111
+#: item.html:116
 msgid "Reset Filters"
 msgstr ""
 
@@ -918,7 +918,7 @@ msgstr ""
 msgid "Sniper Rifle"
 msgstr ""
 
-#: item.html:177
+#: item.html:182
 #: item.html:76
 msgid "Source"
 msgstr ""
@@ -946,6 +946,10 @@ msgstr ""
 
 #: weapon-stats.html:49
 msgid "Start day"
+msgstr ""
+
+#: item.html:111
+msgid "Stat Ranges"
 msgstr ""
 
 #: layout\nav.html:150
@@ -1059,7 +1063,7 @@ msgstr ""
 msgid "This profile temporarily cannot be displayed. Too much data is missing by consequence of the current API issues."
 msgstr ""
 
-#: item.html:170
+#: item.html:175
 msgid ""
 "Tier\r\n"
 "                        <div class=\"sort\" ng-class=\"{'active-asc': listService.sortColumn == 'tier' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'tier' && listService.sortDirection == 'desc'}\">\r\n"
@@ -1106,7 +1110,7 @@ msgstr ""
 msgid "Trials of Osiris"
 msgstr ""
 
-#: item.html:124
+#: item.html:129
 msgid "Try updating your filters, there are no items matching your criteria."
 msgstr ""
 

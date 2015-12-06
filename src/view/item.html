@@ -107,6 +107,11 @@
             </div>
         </div>
 
+        <div class="filter" ng-show="statColumns.length > 0">
+            <label translate>Stat Ranges</label>
+            <stat-filter stats="statColumns" callback="listService.filterByStat" filter="filters.stats"></stat-filter>
+        </div>
+
         <div class="filter options">
             <a href="javascript:;" ng-click="listService.resetFilters()"><i class="fa fa-close"></i> <span translate>Reset Filters</span></a>
         </div>

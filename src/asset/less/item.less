@@ -8,9 +8,42 @@
     }
 }
 
+.filters {
+    .filter {
+        .stat-filter {
+            margin-bottom: 5px;
+
+            .stat-type {
+                display: inline-block !important;
+                width: 150px !important;
+                margin-right: 5px !important;
+
+                @media (max-width: 480px) {
+                    width: 130px !important;
+                }
+            }
+
+            .stat-operator {
+                display: inline-block !important;
+                width: 50px !important;
+                margin-right: 5px !important;
+
+                @media (max-width: 480px) {
+                    width: 40px !important;
+                }
+            }
+
+            .stat-value {
+                display: inline-block !important;
+                width: 75px !important;
+            }
+        }
+    }
+}
+
 .item-list-ad {
-    width: 320px;
-    height: 250px;
+    width: 336px;
+    height: 280px;
 
     @media (max-width: 767px) {
         width: auto;
