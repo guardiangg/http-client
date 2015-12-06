@@ -17,6 +17,9 @@ app.directive('scrollable', [
                 shadowR.insertAfter(element);
 
                 var init = function() {
+                    // Reset no-scroll class
+                    element.removeClass('no-scroll');
+
                     var viewport = element.width();
                     var leftPos = element.scrollLeft();
 
@@ -45,10 +48,16 @@ app.directive('scrollable', [
                         shadowL.removeClass('fadeOut').addClass('fadeIn');
                     }
 
-                    if (element.width() + element.scrollLeft() < element[0].scrollWidth) {
+                    if ((element.width() + element.scrollLeft()) < element[0].scrollWidth) {
                         shadowR.removeClass('fadeOut').addClass('fadeIn');
                     } else {
                         shadowR.removeClass('fadeIn').addClass('fadeOut');
+
+                        // If the scroll position is 0 here, we can assume the table is not scrollable
+                        // Add a class so we can hack out the cursor that indicates the table is scrollable
+                        if (element.scrollLeft() == 0) {
+                            element.addClass('no-scroll');
+                        }
                     }
 
                     element.scroll(function(e) {
@@ -79,10 +88,17 @@ app.directive('scrollable', [
                 };
 
                 scope.$on('scrollable-table.init', function() {
-                    $timeout(init);
+                    $timeout(init, 500);
                 });
 
-                init();
+                var delayedObserver;
+                window.onresize = function(event) {
+                    if (delayedObserver) {
+                        $timeout.cancel(delayedObserver);
+                    }
+
+                    delayedObserver = $timeout(init, 750);
+                }
             }
         };
     }
