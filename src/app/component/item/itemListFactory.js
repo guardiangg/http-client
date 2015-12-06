@@ -17,6 +17,7 @@ app.factory('itemListFactory', [
                     tertiary: null
                 };
 
+            this.seoTitle = 'Items - Guardian.gg';
             this.errors = [];
             this.page = 0;
             this.perPage = 25;
@@ -301,6 +302,7 @@ app.factory('itemListFactory', [
                     return;
                 }
 
+                this.seoTitle = types.primary.label + ' List - Items - Guardian.gg';
                 this.categories.push(types.primary.category);
                 this.listType = types.primary.list_type;
                 this.typeLists.secondary = types.primary.children;
@@ -323,6 +325,7 @@ app.factory('itemListFactory', [
                     return;
                 }
 
+                this.seoTitle = types.secondary.label + ' List - Items - Guardian.gg';
                 this.categories.push(types.secondary.category);
                 this.listType = types.secondary.list_type;
                 this.typeLists.tertiary = types.secondary.children;
@@ -345,6 +348,7 @@ app.factory('itemListFactory', [
                     return;
                 }
 
+                this.seoTitle = types.tertiary.label + ' List - Items - Guardian.gg';
                 this.categories.push(types.tertiary.category);
                 this.listType = types.tertiary.list_type;
                 this.filters.type.tertiary = value;
