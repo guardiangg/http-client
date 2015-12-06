@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.factory('chart-elo', [
+app.factory('chart-profile-elo', [
     'consts',
     'gettextCatalog',
 
@@ -33,8 +33,7 @@ app.factory('chart-elo', [
                     gridLineWidth: 0,
                     minorGridLineWidth: 0,
                     type: 'datetime',
-                    minTickInterval: 3600 * 1000 * 24,
-                    min: +new Date('2015-10-12')
+                    minTickInterval: 3600 * 1000 * 24
                 },
                 yAxis: {
                     gridLineWidth: 0,

@@ -27,7 +27,7 @@ msgstr ""
 
 #. Short for assists
 #: leaderboard.html:75
-#: profile\_activity-history.html:82
+#: profile\_activity-history.html:83
 #: profile\_pgcr.html:9
 msgid "A"
 msgstr ""
@@ -40,7 +40,7 @@ msgstr ""
 msgid "Agility"
 msgstr ""
 
-#: profile\_activity-history.html:33
+#: profile\_activity-history.html:34
 msgid "All"
 msgstr ""
 
@@ -82,7 +82,7 @@ msgid "Bravo"
 msgstr ""
 
 #: faq.html:52
-#: shared\chart\elo.js:132
+#: shared\chart\profile-elo.js:131
 #: shared\service\consts.js:48
 msgid "Bronze"
 msgstr ""
@@ -97,7 +97,7 @@ msgstr ""
 
 #: layout\nav.html:40
 #: layout\nav.html:99
-#: profile\_activity-history.html:38
+#: profile\_activity-history.html:39
 #: shared\service\consts.js:111
 #: subclass.html:83
 msgid "Clash"
@@ -105,7 +105,7 @@ msgstr ""
 
 #: layout\nav.html:35
 #: layout\nav.html:94
-#: profile\_activity-history.html:37
+#: profile\_activity-history.html:38
 #: shared\service\consts.js:109
 #: subclass.html:74
 msgid "Control"
@@ -117,7 +117,7 @@ msgstr ""
 
 #. Short for deaths
 #: leaderboard.html:74
-#: profile\_activity-history.html:81
+#: profile\_activity-history.html:82
 #: profile\_pgcr.html:8
 msgid "D"
 msgstr ""
@@ -132,7 +132,7 @@ msgid "Defender"
 msgstr ""
 
 #: faq.html:56
-#: shared\chart\elo.js:72
+#: shared\chart\profile-elo.js:71
 #: shared\service\consts.js:92
 msgid "Diamond"
 msgstr ""
@@ -143,7 +143,7 @@ msgstr ""
 
 #: layout\nav.html:129
 #: layout\nav.html:70
-#: profile\_activity-history.html:44
+#: profile\_activity-history.html:45
 #: shared\service\consts.js:115
 msgid "Doubles"
 msgstr ""
@@ -156,7 +156,7 @@ msgstr ""
 
 #: layout\nav.html:114
 #: layout\nav.html:55
-#: profile\_activity-history.html:41
+#: profile\_activity-history.html:42
 #: shared\service\consts.js:114
 #: subclass.html:92
 msgid "Elimination"
@@ -196,7 +196,7 @@ msgstr ""
 msgid "From"
 msgstr ""
 
-#: profile\_activity-history.html:30
+#: profile\_activity-history.html:31
 msgid "Game mode:"
 msgstr ""
 
@@ -215,7 +215,7 @@ msgid "GitHub"
 msgstr ""
 
 #: faq.html:54
-#: shared\chart\elo.js:102
+#: shared\chart\profile-elo.js:101
 #: shared\service\consts.js:70
 msgid "Gold"
 msgstr ""
@@ -276,7 +276,7 @@ msgstr ""
 
 #: layout\nav.html:25
 #: layout\nav.html:84
-#: profile\_activity-history.html:35
+#: profile\_activity-history.html:36
 #: shared\service\consts.js:117
 #: subclass.html:77
 msgid "Iron Banner"
@@ -289,7 +289,7 @@ msgstr ""
 
 #. Short for kills
 #: leaderboard.html:73
-#: profile\_activity-history.html:80
+#: profile\_activity-history.html:81
 #: profile\_pgcr.html:7
 msgid "K"
 msgstr ""
@@ -301,7 +301,7 @@ msgstr ""
 
 #. Short for kills / deaths
 #: leaderboard.html:76
-#: profile\_activity-history.html:83
+#: profile\_activity-history.html:84
 #: profile\_pgcr.html:10
 #: subclass.html:110
 #: subclass.html:134
@@ -347,11 +347,11 @@ msgstr ""
 msgid "Loading Elo Data..."
 msgstr ""
 
-#: profile\_activity-history.html:53
+#: profile\_activity-history.html:54
 msgid "Loading Fireteam..."
 msgstr ""
 
-#: profile\_activity-history.html:72
+#: profile\_activity-history.html:73
 msgid "Loading Game History..."
 msgstr ""
 
@@ -367,11 +367,11 @@ msgstr ""
 msgid "Loading Weapons..."
 msgstr ""
 
-#: profile\_activity-history.html:78
+#: profile\_activity-history.html:79
 msgid "Map"
 msgstr ""
 
-#: profile\_activity-history.html:49
+#: profile\_activity-history.html:50
 msgid "Match History"
 msgstr ""
 
@@ -404,11 +404,11 @@ msgstr ""
 msgid "Nightstalker"
 msgstr ""
 
-#: profile\_activity-history.html:21
+#: profile\_activity-history.html:22
 msgid "No Elo data exists for this player. This is either an error in our system, or the player pretty much never enters Crucible."
 msgstr ""
 
-#: profile\_activity-history.html:107
+#: profile\_activity-history.html:108
 msgid "No games have been played in this mode."
 msgstr ""
 
@@ -443,7 +443,7 @@ msgid "Platform"
 msgstr ""
 
 #: faq.html:55
-#: shared\chart\elo.js:87
+#: shared\chart\profile-elo.js:86
 #: shared\service\consts.js:81
 msgid "Platinum"
 msgstr ""
@@ -474,7 +474,7 @@ msgstr ""
 msgid "Real-time stats for <em>{{totalPlayers|number}}</em> Destiny players"
 msgstr ""
 
-#: profile\_activity-history.html:56
+#: profile\_activity-history.html:57
 msgid "Recent Fireteam"
 msgstr ""
 
@@ -488,7 +488,7 @@ msgstr ""
 
 #: layout\nav.html:109
 #: layout\nav.html:50
-#: profile\_activity-history.html:39
+#: profile\_activity-history.html:40
 #: shared\service\consts.js:112
 #: subclass.html:86
 msgid "Rift"
@@ -496,7 +496,7 @@ msgstr ""
 
 #: layout\nav.html:104
 #: layout\nav.html:45
-#: profile\_activity-history.html:40
+#: profile\_activity-history.html:41
 #: shared\service\consts.js:113
 #: subclass.html:89
 msgid "Rumble"
@@ -504,12 +504,12 @@ msgstr ""
 
 #: layout\nav.html:124
 #: layout\nav.html:65
-#: profile\_activity-history.html:43
+#: profile\_activity-history.html:44
 #: shared\service\consts.js:110
 msgid "Salvage"
 msgstr ""
 
-#: profile\_activity-history.html:79
+#: profile\_activity-history.html:80
 #: profile\_pgcr.html:6
 msgid "Score"
 msgstr ""
@@ -527,7 +527,7 @@ msgid "Select a map"
 msgstr ""
 
 #: faq.html:53
-#: shared\chart\elo.js:117
+#: shared\chart\profile-elo.js:116
 #: shared\service\consts.js:59
 msgid "Silver"
 msgstr ""
@@ -545,7 +545,7 @@ msgstr ""
 
 #: layout\nav.html:119
 #: layout\nav.html:60
-#: profile\_activity-history.html:42
+#: profile\_activity-history.html:43
 #: shared\service\consts.js:108
 #: subclass.html:95
 msgid "Skirmish"
@@ -555,7 +555,7 @@ msgstr ""
 msgid "Special"
 msgstr ""
 
-#: profile\_activity-history.html:84
+#: profile\_activity-history.html:85
 #: profile\_pgcr.html:11
 msgid "Standing"
 msgstr ""
@@ -610,7 +610,7 @@ msgid ""
 "            competitor-versus-competitor games."
 msgstr ""
 
-#: profile\_activity-history.html:69
+#: profile\_activity-history.html:70
 msgid "The match history is unavailable due to an API error"
 msgstr ""
 
@@ -654,7 +654,7 @@ msgstr ""
 
 #: layout\nav.html:30
 #: layout\nav.html:89
-#: profile\_activity-history.html:36
+#: profile\_activity-history.html:37
 #: shared\service\consts.js:118
 #: subclass.html:80
 msgid "Trials of Osiris"
@@ -731,7 +731,7 @@ msgstr ""
 
 #: layout\nav.html:134
 #: layout\nav.html:75
-#: profile\_activity-history.html:45
+#: profile\_activity-history.html:46
 #: shared\service\consts.js:116
 msgid "Zone Control"
 msgstr ""
