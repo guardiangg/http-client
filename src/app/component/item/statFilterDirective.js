@@ -79,8 +79,8 @@ app.directive('statFilter', [
                             selectedHash = $(this).val();
                             selectedOp = operator.val();
 
-                            operator.show();
-                            value.show();
+                            operator.attr('style', 'display: inline-block !important');
+                            value.attr('style', 'display: inline-block !important');
                             reset.show();
 
                             if (!childSpawned) {
@@ -150,8 +150,8 @@ app.directive('statFilter', [
 
                     reset.bind('click', destroy);
 
-                    !defaultOp && operator.hide();
-                    !defaultValue && value.hide();
+                    !defaultOp && operator.attr('style', 'display: none !important');
+                    !defaultValue && value.attr('style', 'display: none !important');
                     !defaultValue && reset.hide();
 
                     wrapper.append(select);
