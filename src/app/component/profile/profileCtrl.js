@@ -18,7 +18,8 @@ app.controller('profileCtrl', [
         $scope.modes = consts.modes;
         $scope.modeIcons = consts.modeIcons;
         $scope.classes = consts.classes;
-        $scope.chart = charts.get('elo');
+        $scope.eloChart = charts.get('profile-elo');
+        $scope.kdChart = charts.get('profile-kd');
         $scope.loading = {
             activityHistory: true,
             elo: true,
@@ -71,6 +72,14 @@ app.controller('profileCtrl', [
                 if ($scope.mode == mode && !force) {
                     return;
                 }
+
+                _.each($scope.eloChart.series, function(series, index) {
+                    series.visible = mode == 5 || mode == index;
+                });
+
+                _.each($scope.kdChart.series, function(series, index) {
+                    series.visible = mode == 5 || mode == index;
+                });
 
                 $scope.activities = [];
                 $scope.page = 0;
@@ -220,30 +229,42 @@ app.controller('profileCtrl', [
                 });
 
             $scope.loading.eloHistory = true;
+            $scope.loading.character = true;
+            $scope.maintenance.character = false;
+
             api
                 .getEloChart(membershipId)
                 .then(function(result) {
                     _.each(result.data, function(row) {
-                        if (!$scope.chart.series[row.mode]) {
-                            $scope.chart.series[row.mode] = {
+                        if (!$scope.eloChart.series[row.mode]) {
+                            $scope.eloChart.series[row.mode] = {
                                 data: [],
                                 name: $scope.modes[row.mode],
                                 lineWidth: 2
                             }
                         }
-                        $scope.chart.series[row.mode].data.push(row);
+                        $scope.eloChart.series[row.mode].data.push(row);
                     });
 
-                    $scope.chartEmpty = Object.keys($scope.chart.series).length == 0;
+                    $scope.eloChartEmpty = Object.keys($scope.eloChart.series).length == 0;
 
+                    return api.getKdChart(membershipId);
+                })
+                .then(function(result) {
+                    _.each(result.data, function(row) {
+                        if (!$scope.kdChart.series[row.mode]) {
+                            $scope.kdChart.series[row.mode] = {
+                                data: [],
+                                name: $scope.modes[row.mode],
+                                lineWidth: 2
+                            }
+                        }
+                        $scope.kdChart.series[row.mode].data.push(row);
+                    });
+                    
                     $scope.loading.eloHistory = false;
-                });
-
-            $scope.loading.character = true;
-            $scope.maintenance.character = false;
-
-            bungie
-                .getAccount(platform, membershipId)
+                    return bungie.getAccount(platform, membershipId);
+                })
                 .then(function(response) {
                     $scope.characters = response.data.Response.data.characters;
 

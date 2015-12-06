@@ -7,19 +7,17 @@ var series     = require('stream-series'),
     jeditor    = require('gulp-json-editor'),
     inject     = require('gulp-inject'),
     less       = require('gulp-less'),
+    merge      = require('merge-stream'),
     minifyCSS  = require('gulp-minify-css'),
     minifyHTML = require('gulp-minify-html'),
     rename     = require('gulp-rename'),
     rev        = require('gulp-rev'),
+    template   = require('gulp-template-compile'),
     watch      = require('gulp-watch'),
     uglify     = require('gulp-uglify'),
     util       = require('gulp-util');
 
 var isProd = !!util.env.prod;
-
-var cssFiles = [
-    './src/asset/less/guardian.less'
-];
 
 var jsFiles = {
     site: [
@@ -29,6 +27,12 @@ var jsFiles = {
         'app/routes.js',
         'app/shared/**/*.js',
         'app/component/**/*.js'
+    ],
+    tooltip: [
+        'bower_components/opentip/lib/opentip.js',
+        'bower_components/opentip/lib/adapter-native.js',
+        'bower_components/underscore/underscore.js',
+        'src/tooltip/tooltip.js'
     ],
     vendor: [
         'underscore/underscore.js',
@@ -73,7 +77,21 @@ var templateFiles = ['./src/view/**/*.html'];
 
 var cssCallback = function() {
     var stream = gulp
-        .src(cssFiles)
+        .src('./src/asset/less/guardian.less')
+        .pipe(less());
+
+    if (isProd) {
+        stream = stream
+            .pipe(rev())
+            .pipe(minifyCSS());
+    }
+
+    return stream.pipe(gulp.dest('./build/asset/css'));
+};
+
+var cssTooltipCallback = function() {
+    var stream = gulp
+        .src('./src/tooltip/less/tooltip.less')
         .pipe(less());
 
     if (isProd) {
@@ -98,9 +116,23 @@ var jsCallback = function() {
     return stream.pipe(gulp.dest('./build/app'));
 };
 
+var jsTooltipCallback = function() {
+    var stream = gulp.src(jsFiles.tooltip);
+    var tStream = gulp.src('src/tooltip/item.html').pipe(template()).pipe(concat('template.js'));
+
+    stream = merge(stream, tStream);
+
+    if (isProd) {
+        stream = stream
+            .pipe(concat('tooltip.js'))
+            .pipe(uglify());
+    }
+
+    return stream.pipe(gulp.dest('./build/asset/js'));
+};
+
 var jsVendorCallback = function() {
-    var stream = gulp
-        .src(jsFiles.vendor, { cwd: './bower_components' });
+    var stream = gulp.src(jsFiles.vendor, { cwd: './bower_components' });
 
     if (isProd) {
         stream = stream
@@ -114,12 +146,15 @@ var jsVendorCallback = function() {
 
 gulp.task('build', ['config', 'robots', 'image', 'font', 'index']);
 
-gulp.task('watch', ['build'], function() {
+gulp.task('watch', ['build', 'tooltip'], function() {
     gulp.watch(['./src/index.html'], ['index']);
     gulp.watch(['./src/asset/less/**/*.less'], ['css']);
     gulp.watch(['./src/app/**/*.js'], ['js']);
+    gulp.watch(['./src/tooltip/**/*.js'], ['jsTooltip']);
     gulp.watch(['./src/po/*.po'], ['translate']);
     gulp.watch(['src/index.html', 'src/view/**/*.html', 'src/app/**/*.js'], ['pot']);
+    gulp.watch(['src/tooltip/**/*.html'], ['tooltip']);
+    gulp.watch(['src/tooltip/less/tooltip.less'], ['cssTooltip']);
     gulp.watch(templateFiles, ['templates']);
 });
 
@@ -163,7 +198,8 @@ gulp.task('index', ['js', 'jsVendor', 'css', 'translate'], function() {
         .src('./src/index.html')
         .pipe(inject(cssCallback(), {ignorePath: '/build', removeTags: true, name: 'app'}))
         .pipe(inject(jsVendorCallback(), {ignorePath: '/build', removeTags: true, name: 'vendor'}))
-        .pipe(inject(jsCallback(), {ignorePath: '/build', removeTags: true, name:'app'}));
+        .pipe(inject(jsCallback(), {ignorePath: '/build', removeTags: true, name:'app'}))
+        .pipe(inject(jsTooltipCallback(), {ignorePath: '/build', removeTags: true, name: 'tooltip'}));
 
     if (isProd) {
         stream = stream.pipe(minifyHTML());
@@ -172,11 +208,28 @@ gulp.task('index', ['js', 'jsVendor', 'css', 'translate'], function() {
     return stream.pipe(gulp.dest('./build'))
 });
 
+gulp.task('tooltip', ['cssTooltip', 'jsTooltip'], function() {
+    var stream = gulp
+        .src('./src/tooltip/test.html')
+        .pipe(inject(cssTooltipCallback(), {ignorePath: '/build', removeTags: true, name: 'tooltip'}))
+        .pipe(inject(jsTooltipCallback(), {ignorePath: '/build', removeTags: true, name: 'tooltip'}));
+
+    if (isProd) {
+        stream = stream.pipe(minifyHTML());
+    }
+
+    return stream.pipe(gulp.dest('./build'))
+});
+
+gulp.task('jsTooltip', jsTooltipCallback);
+
 gulp.task('jsVendor', jsVendorCallback);
 
 gulp.task('js', ['templates'], jsCallback);
 
 gulp.task('css', cssCallback);
+
+gulp.task('cssTooltip', cssTooltipCallback);
 
 gulp.task('image', function() {
     return gulp.src('./src/asset/image/**/*').pipe(gulp.dest('./build/asset/image'));
