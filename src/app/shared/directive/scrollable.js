@@ -53,7 +53,7 @@ app.directive('scrollable', [
                         var diff = columnOffset - leftPos;
 
                         if (diff > viewport) {
-                            element[0].scrollLeft = (diff - viewport);
+                            element[0].scrollLeft += (diff - viewport) + activeColumn.outerWidth();
                             newInstance = false;
                         }
                     }
