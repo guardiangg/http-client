@@ -43,7 +43,8 @@ app.factory('itemListFactory', [
                 name: null,
                 class: null,
                 source: null,
-                tiers: []
+                tiers: [],
+                stats: {}
             };
 
             /**
@@ -142,6 +143,76 @@ app.factory('itemListFactory', [
 
                         self.filteredData = data;
                         self.filters.tiers = tiers;
+
+                        return self.filteredData;
+                    }
+                },
+                stats: {
+                    key: 'st',
+                    filter: function(value) {
+                        var stats = value.split(';');
+                        var statFilter = {};
+                        var data = self.filteredData;
+
+                        _.each(stats, function(stat) {
+                            var parts = stat.split(':');
+                            if (parts.length != 3) {
+                                return;
+                            }
+
+                            var hash = parts[0];
+                            var op = parts[1];
+                            var value = parseInt(parts[2]);
+
+                            if (!statFilter[hash]) {
+                                statFilter[hash] = {};
+                            }
+
+                            statFilter[hash][op] = parts[2];
+                        });
+
+                        data = _.filter(data, function(item) {
+                            for (var hash in statFilter) {
+                                if (!item._stats[hash]) {
+                                    return false;
+                                }
+                            }
+
+                            return true;
+                        });
+
+                        data = _.filter(data, function(item) {
+                            for (var hash in statFilter) {
+                                for (var op in statFilter[hash]) {
+                                    var value = statFilter[hash][op];
+
+                                    if (op == 'gt' && item._stats[hash].max <= value) {
+                                        return false;
+                                    }
+
+                                    if (op == 'gte' && item._stats[hash].max < value) {
+                                        return false;
+                                    }
+
+                                    if (op == 'e' && (item._stats[hash].max != value && item._stats[hash].min != value)) {
+                                        return false;
+                                    }
+
+                                    if (op == 'lt' && item._stats[hash].min > value) {
+                                        return false;
+                                    }
+
+                                    if (op == 'lte' && item._stats[hash].min >= value) {
+                                        return false;
+                                    }
+                                }
+                            }
+
+                            return true;
+                        });
+
+                        self.filteredData = data;
+                        self.filters.stats = statFilter;
 
                         return self.filteredData;
                     }
@@ -285,6 +356,33 @@ app.factory('itemListFactory', [
                 } else {
                     $location.search(csFilters.tiers.key, tiers.join(':'));
                     csFiltersActive.tiers = csFilters.tiers.filter;
+                }
+
+                self.filterData();
+            };
+
+            /**
+             * Filters the set of items by stats
+             * @param {object} obj
+             */
+            this.filterByStat = function(obj) {
+                self.page = 0;
+                $location.search('p', null);
+
+                if (Object.keys(obj).length == 0) {
+                    self.filters.stats = {};
+                    $location.search(csFilters.stats.key, null);
+                    delete csFiltersActive.stats;
+                } else {
+                    var statStrs = [];
+                    _.each(obj, function(ops, hash) {
+                        _.each(ops, function(value, op) {
+                            statStrs.push([hash, op, value].join(':'));
+                        });
+                    });
+
+                    $location.search(csFilters.stats.key, statStrs.join(';'));
+                    csFiltersActive.stats = csFilters.stats.filter;
                 }
 
                 self.filterData();
