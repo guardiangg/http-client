@@ -203,6 +203,10 @@ app.service('consts', [
                 'shader': 2973005342,
                 'emblem': 4274335291,
                 'emote': 3054419239
+            },
+            srl_maps: {
+                1478347980: gettextCatalog.getString('Campus Martius'),
+                2243240710: gettextCatalog.getString('Infinite Descent')
             }
         };
     }
