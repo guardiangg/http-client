@@ -14,16 +14,8 @@
     </div>
 
     <h2>Stats</h2>
-    <div ng-repeat="stat in entity.stats">
-        <img ng-src="//bungie.net{{ stat.icon }}" style="background-color: #000">
-        <div>{{stat.name}}</div>
-        <small>{{stat.description}}</small>
-    </div>
+    <stat-bars stats="entity.stats"></stat-bars>
 
     <h2>Perks</h2>
-    <div ng-repeat="perk in entity.perks">
-        <img ng-src="//bungie.net{{ perk.icon }}" style="background-color: #000">
-        <div>{{perk.name}}</div>
-        <small>{{perk.description}}</small>
-    </div>
+    <talent-grid perks="entity.perks"></talent-grid>
 </section>
