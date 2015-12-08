@@ -9,7 +9,7 @@ msgstr ""
 msgid "'Nade"
 msgstr ""
 
-#: layout\main.html:46
+#: layout\main.html:50
 msgid "<em>Internal error code: {{apiError}}</em>"
 msgstr ""
 
@@ -87,7 +87,7 @@ msgstr ""
 msgid "Bronze"
 msgstr ""
 
-#: layout\main.html:41
+#: layout\main.html:45
 msgid "Bungie API Error"
 msgstr ""
 
@@ -637,7 +637,7 @@ msgid ""
 "    Select a mode on the filter bar below to only map K/D and win rates in that mode."
 msgstr ""
 
-#: layout\main.html:42
+#: layout\main.html:46
 msgid ""
 "This page relies on one or more Bungie APIs to properly display. We weren't able to retrieve some data, so\r\n"
 "        as a result one or more areas of this page are temporarily disabled. Try again in a few minutes."
