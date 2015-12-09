@@ -1,8 +1,8 @@
-<h2 translate>SRL Records <span class="subtext">limited event, ends Dec 29th, 2015</span></h2>
+<h2 translate ng-show="srl.length > 0">SRL Records <span class="subtext">limited event, ends Dec 29th, 2015</span></h2>
 <div class="loading" ng-show="loading.srl">
     <i class="fa fa-cog fa-spin"></i> <translate>Loading best SRL times...</translate>
 </div>
-<div class="srl-times row" ng-show="!loading.srl">
+<div class="srl-times row" ng-show="!loading.srl && srl.length > 0">
     <div class="col-sm-6 map" ng-repeat="race in srl">
         <div class="name">
             {{srlMaps[race.activityHash]}}
