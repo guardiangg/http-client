@@ -1,3 +1,27 @@
+<h2 translate>SRL Records <span class="subtext">limited event, ends Dec 29th, 2015</span></h2>
+<div class="loading" ng-show="loading.srl">
+    <i class="fa fa-cog fa-spin"></i> <translate>Loading best SRL times...</translate>
+</div>
+<div class="srl-times row" ng-show="!loading.srl">
+    <div class="col-sm-6 map" ng-repeat="race in srl">
+        <div class="name">
+            {{srlMaps[race.activityHash]}}
+        </div>
+        <div class="row srl-stats">
+            <div class="col-sm-6 stat">
+                <span class="value">{{race.time|timeTrial}}</span>
+                <span class="type" translate>Best Time</span>
+            </div>
+            <div class="col-sm-6 stat">
+                <span class="value">{{race.gates|number}}</span>
+                <span class="type" translate>Best Gates</span>
+            </div>
+        </div>
+        <div class="rank" ng-if="e.rank > 0"><span translate>Ranked</span> #{{e.rank|number}}</div>
+        <div class="rank" ng-if="!e.rank || e.rank <= 0"><span translate>Not Ranked</span></div>
+    </div>
+</div>
+
 <h2>Elo <span translate class="subtext">since "The Taken King" launch (Sept. 15, 2015)</span></h2>
 <div class="loading" ng-if="loading.elo || loading.eloHistory">
     <i class="fa fa-cog fa-spin"></i> <translate>Loading Elo Data...</translate>
