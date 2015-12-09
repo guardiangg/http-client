@@ -125,7 +125,8 @@ app.service('consts', [
                 15: gettextCatalog.getString('Doubles'),
                 28: gettextCatalog.getString('Zone Control'),
                 19: gettextCatalog.getString('Iron Banner'),
-                14: gettextCatalog.getString('Trials of Osiris')
+                14: gettextCatalog.getString('Trials of Osiris'),
+                29: gettextCatalog.getString('SRL')
             },
             modeIcons: {
                 9: 'ggg-skirmish',
@@ -140,7 +141,8 @@ app.service('consts', [
                 24: 'ggg-rift',
                 26: 'ggg-clash',
                 27: 'ggg-rumble',
-                28: 'ggg-control'
+                28: 'ggg-control',
+                29: 'ggg-srl'
             },
             classes: {
                 2271682572: gettextCatalog.getString('Warlock'),
@@ -193,6 +195,30 @@ app.service('consts', [
                     label: gettextCatalog.getString('Bladedancer'),
                     color: '#3EB9FD'
                 }
+            },
+            buckets: {
+                'subclass': 3284755031,
+                'primary': 1498876634,
+                'special': 2465295065,
+                'heavy': 953998645,
+                'head': 3448274439,
+                'arm': 3551918588,
+                'chest': 14239492,
+                'leg': 20886954,
+                'ghost': 4023194814,
+                'class': 1585787867,
+                'artifact': 434908299,
+                'ship': 284967655,
+                'vehicle': 2025709351,
+                'consumable': 1469714392,
+                'material': 3865314626,
+                'shader': 2973005342,
+                'emblem': 4274335291,
+                'emote': 3054419239
+            },
+            srl_maps: {
+                1478347980: gettextCatalog.getString('Campus Martius'),
+                2243240710: gettextCatalog.getString('Infinite Descent')
             },
             item_tiers: {
                 1: {

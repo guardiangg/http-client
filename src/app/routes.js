@@ -81,6 +81,11 @@ app.config([
                 controller: 'profileCtrl',
                 templateUrl: 'profile.html'
             })
+            .state('app.srl', {
+                url: 'srl/{platform:[0-9]+}/{map:[0-9-]+}/{page:[0-9]+}',
+                controller: 'srlCtrl',
+                templateUrl: 'srl.html'
+            })
             .state('app.leaderboard-platform-mode-name', {
                 url: 'leaderboard/{platform}/{mode}/{name}',
                 controller: 'leaderboardCtrl',

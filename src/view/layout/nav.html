@@ -16,13 +16,13 @@
             <li><a ui-sref="app.home()" translate>Home</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <translate>Leaderboards</translate> <span class="caret"></span>
+                    <translate>Elo Rankings</translate> <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
                     <li class="dropdown-header"><i class="ggg ggg-platform-ps"></i>&nbsp;<translate>PlayStation</translate></li>
                     <li>
-                        <a ui-sref="app.leaderboard-platform-mode({platform: 2, mode: 19})">
-                            <i class="ggg ggg-iron-banner"></i>&nbsp;<translate>Iron Banner</translate>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 2, mode: 29})">
+                            <i class="ggg ggg-srl"></i>&nbsp;<translate>SRL</translate>
                         </a>
                     </li>
                     <li>
@@ -80,8 +80,8 @@
 
                     <li class="dropdown-header"><i class="ggg ggg-platform-xbox"></i>&nbsp;<translate>Xbox</translate></li>
                     <li>
-                        <a ui-sref="app.leaderboard-platform-mode({platform: 1, mode: 19})">
-                            <i class="ggg ggg-iron-banner"></i>&nbsp;<translate>Iron Banner</translate>
+                        <a ui-sref="app.leaderboard-platform-mode({platform: 1, mode: 29})">
+                            <i class="ggg ggg-srl"></i>&nbsp;<translate>SRL</translate>
                         </a>
                     </li>
                     <li>
@@ -137,8 +137,22 @@
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><translate>Subclasses</translate> <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><translate>SRL Time Trials</translate> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
+                    <li class="dropdown-header"><i class="ggg ggg-platform-ps"></i>&nbsp;<translate>PlayStation</translate></li>
+                    <li><a ui-sref="app.srl({platform: 2, map: 1478347980, page: 0})" translate>Campus Martius</a></li>
+                    <li><a ui-sref="app.srl({platform: 2, map: 2243240710, page: 0})" translate>Infinite Descent</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header"><i class="ggg ggg-platform-xbox"></i>&nbsp;<translate>Xbox</translate></li>
+                    <li><a ui-sref="app.srl({platform: 1, map: 1478347980, page: 0})" translate>Campus Martius</a></li>
+                    <li><a ui-sref="app.srl({platform: 1, map: 2243240710, page: 0})" translate>Infinite Descent</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><translate>Stats</translate> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a ui-sref="app.weapon-stats" translate>Weapons</a></li>
+                    <li class="divider"></li>
                     <li><a ui-sref="app.subclass({subclass: 'bladedancer'})"><translate>Bladedancer</translate></a></li>
                     <li><a ui-sref="app.subclass({subclass: 'gunslinger'})"><translate>Gunslinger</translate></a></li>
                     <li><a ui-sref="app.subclass({subclass: 'nightstalker'})"><translate>Nightstalker</translate></a></li>
@@ -153,7 +167,6 @@
                 </ul>
             </li>
             <!--<li><a ui-sref="app.items" translate>Items</a></li>-->
-            <li><a ui-sref="app.weapon-stats" translate>Weapon Stats</a></li>
             <li><a ui-sref="app.faq" translate="">FAQ</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">

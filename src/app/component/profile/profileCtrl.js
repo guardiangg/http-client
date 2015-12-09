@@ -17,6 +17,7 @@ app.controller('profileCtrl', [
         $scope.mode = $localStorage.profileMode ? $localStorage.profileMode : 5;
         $scope.modes = consts.modes;
         $scope.modeIcons = consts.modeIcons;
+        $scope.srlMaps = consts.srl_maps;
         $scope.classes = consts.classes;
         $scope.eloChart = charts.get('profile-elo');
         $scope.kdChart = charts.get('profile-kd');
@@ -27,7 +28,8 @@ app.controller('profileCtrl', [
             fireteam: true,
             name: true,
             character: true,
-            inventory: true
+            inventory: true,
+            srl: true
         };
         $scope.maintenance = {
             activityHistory: false,
@@ -229,6 +231,7 @@ app.controller('profileCtrl', [
                 });
 
             $scope.loading.eloHistory = true;
+            $scope.loading.srl = true;
             $scope.loading.character = true;
             $scope.maintenance.character = false;
 
@@ -247,6 +250,12 @@ app.controller('profileCtrl', [
                     });
 
                     $scope.eloChartEmpty = Object.keys($scope.eloChart.series).length == 0;
+
+                    return api.getSrl(membershipId);
+                })
+                .then(function(result) {
+                    $scope.srl = result.data;
+                    $scope.loading.srl = false;
 
                     return api.getKdChart(membershipId);
                 })

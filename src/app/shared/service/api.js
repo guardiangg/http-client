@@ -27,7 +27,9 @@ app.service('api',[
                 eloHistory: 'elo/history/{membershipIds}?start={start}&end={end}&mode={mode}',
 
                 subclassExotics: 'subclass/{subclassId}/exotics?mode={mode}&start={start}&end={end}&lc={lc}',
-                subclassPerks: 'subclass/{subclassId}/perks?mode={mode}&start={start}&end={end}&lc={lc}'
+                subclassPerks: 'subclass/{subclassId}/perks?mode={mode}&start={start}&end={end}&lc={lc}',
+
+                srl: 'srl/{membershipId}'
             };
 
             this.getFireteam = function(mode, membershipId) {
@@ -103,6 +105,14 @@ app.service('api',[
             this.getKdChart = function(membershipId) {
                 return $http.get(
                     util.buildApiUrl(endpoints.chart.kdHistory, {
+                        membershipId: membershipId
+                    })
+                );
+            };
+
+            this.getSrl = function(membershipId) {
+                return $http.get(
+                    util.buildApiUrl(endpoints.srl, {
                         membershipId: membershipId
                     })
                 );

@@ -1,3 +1,27 @@
+<h2 translate ng-show="srl.length > 0">SRL Records <span class="subtext">limited event, ends Dec 29th, 2015</span></h2>
+<div class="loading" ng-show="loading.srl">
+    <i class="fa fa-cog fa-spin"></i> <translate>Loading best SRL times...</translate>
+</div>
+<div class="srl-times row" ng-show="!loading.srl && srl.length > 0">
+    <div class="col-sm-6 map" ng-repeat="race in srl">
+        <div class="name">
+            {{srlMaps[race.activityHash]}}
+        </div>
+        <div class="row srl-stats">
+            <div class="col-sm-6 stat">
+                <span class="value">{{race.time|timeTrial}}</span>
+                <span class="type" translate>Best Time</span>
+            </div>
+            <div class="col-sm-6 stat">
+                <span class="value">{{race.gates|number}}</span>
+                <span class="type" translate>Best Gates</span>
+            </div>
+        </div>
+        <div class="rank" ng-if="race.rank > 0"><span translate>Ranked</span> #{{race.rank|number}}</div>
+        <div class="rank" ng-if="!race.rank || race.rank <= 0"><span translate>Not Ranked</span></div>
+    </div>
+</div>
+
 <h2>Elo <span translate class="subtext">since "The Taken King" launch (Sept. 15, 2015)</span></h2>
 <div class="loading" ng-if="loading.elo || loading.eloHistory">
     <i class="fa fa-cog fa-spin"></i> <translate>Loading Elo Data...</translate>
@@ -33,6 +57,7 @@
             <ul class="dropdown-menu" area-labelledby="modeSelector">
                 <li><a href="javascript:;" ng-click="setMode(5)"><translate>All</translate></a></li>
                 <li role="seperator" class="divider"></li>
+                <li><a href="javascript:;" ng-click="setMode(29)"><i class="ggg ggg-srl"></i> <translate>SRL</translate></a></li>
                 <li><a href="javascript:;" ng-click="setMode(19)"><i class="ggg ggg-iron-banner"></i> <translate>Iron Banner</translate></a></li>
                 <li><a href="javascript:;" ng-click="setMode(14)"><i class="ggg ggg-osiris"></i> <translate>Trials of Osiris</translate></a></li>
                 <li><a href="javascript:;" ng-click="setMode(10)"><i class="ggg ggg-control"></i> <translate>Control</translate></a></li>

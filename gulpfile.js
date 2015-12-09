@@ -64,6 +64,7 @@ var jsFiles = {
         'highcharts-ng/dist/highcharts-ng.js',
 
         'moment/moment.js',
+        'moment-duration-format/lib/moment-duration-format.js',
         'moment/locale/fr.js',
         'moment/locale/es.js',
         'moment/locale/de.js',

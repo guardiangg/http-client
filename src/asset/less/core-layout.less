@@ -178,9 +178,35 @@ h3 {
     margin-bottom: 15px;
     color: #fff;
 
+    p:last-child {
+        margin-bottom: 0;
+    }
+
     h3 {
         color: #fff;
         font-weight: bold;
+    }
+}
+
+.warning {
+    background: #EDAB4A;
+    padding: 15px;
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 0.9em;
+
+    p {
+        margin-bottom: 5px;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+    h3 {
+        color: #fff;
+        font-weight: bold;
+        margin-bottom: 5px;
     }
 }
 
@@ -380,18 +406,6 @@ input[type="color"]:focus,
 ////
 // Font Family
 ////
-@font-face {
-    font-family: "destiny";
-    src:url("../font/destiny.eot");
-    src:url("../font/destiny.eot?#iefix") format("embedded-opentype"),
-    url("../font/destiny.woff") format("woff"),
-    url("../font/destiny.ttf") format("truetype"),
-    url("../font/destiny.svg#destiny") format("svg");
-    font-weight: normal;
-    font-style: normal;
-
-}
-
 [data-ggg]:before {
     font-family: "destiny" !important;
     content: attr(data-ggg);
@@ -423,97 +437,100 @@ input[type="color"]:focus,
 }
 
 .ggg-osiris:before {
-    content: "b";
+    content: "\62";
 }
 .ggg-platform-ps:before {
-    content: "d";
+    content: "\64";
 }
 .ggg-platform-xbox:before {
-    content: "a";
+    content: "\61";
 }
 .ggg-clash:before {
-    content: "c";
+    content: "\63";
 }
 .ggg-control:before {
-    content: "e";
+    content: "\65";
 }
 .ggg-rumble:before {
-    content: "f";
+    content: "\66";
 }
 .ggg-salvage:before {
-    content: "g";
+    content: "\67";
 }
 .ggg-doubles:before {
-    content: "h";
+    content: "\68";
 }
 .ggg-skirmish:before {
-    content: "i";
+    content: "\69";
 }
 .ggg-prison-skolas:before {
-    content: "j";
+    content: "\6a";
 }
 .ggg-elimination:before {
-    content: "k";
+    content: "\6b";
 }
 .ggg-strike-heroic:before {
-    content: "l";
+    content: "\6c";
 }
 .ggg-social:before {
-    content: "m";
+    content: "\6d";
 }
 .ggg-story:before {
-    content: "n";
+    content: "\6e";
 }
 .ggg-iron-banner:before {
-    content: "o";
+    content: "\6f";
 }
 .ggg-nightfall:before {
-    content: "p";
+    content: "\70";
 }
 .ggg-story-heroic:before {
-    content: "q";
+    content: "\71";
 }
 .ggg-strike:before {
-    content: "r";
+    content: "\72";
 }
 .ggg-patrol:before {
-    content: "s";
+    content: "\73";
 }
 .ggg-prison-32:before {
-    content: "t";
+    content: "\74";
 }
 .ggg-prison-34:before {
-    content: "u";
+    content: "\75";
 }
 .ggg-prison:before {
-    content: "v";
+    content: "\76";
 }
 .ggg-quest:before {
-    content: "w";
+    content: "\77";
 }
 .ggg-raid:before {
-    content: "x";
+    content: "\78";
 }
 .ggg-bravo:before {
-    content: "y";
+    content: "\79";
 }
 .ggg-alpha:before {
-    content: "B";
+    content: "\42";
 }
 .ggg-discipline:before {
-    content: "z";
+    content: "\7a";
 }
 .ggg-intellect:before {
-    content: "A";
+    content: "\41";
 }
 .ggg-strength:before {
-    content: "C";
+    content: "\43";
 }
 .ggg-rift:before {
-    content: "D";
+    content: "\44";
 }
 .ggg-grimoire:before {
-    content: "E";
+    content: "\45";
+}
+.ggg-srl:before {
+    content: "\46";
 }
 
 ////
