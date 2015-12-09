@@ -57,7 +57,7 @@
     <table class="table table-striped leaderboard leaderboard-full" ng-if="!loading.srl">
         <tr>
             <th class="text-center" style="width:1%" translate>Rank</th>
-            <th style="width:30%" translate>Name</th>
+            <th style="width:50%" translate>Name</th>
             <th class="text-center" style="width:10%" translate>Best Time</th>
             <th class="text-center hidden-xs" style="width:10%" translate>Best Gates</th>
         </tr>
@@ -67,7 +67,7 @@
         <tr ng-class="{highlight: (row.name|lowercase) == highlight}" ng-repeat="row in results.data | orderBy:'rank' track by $index">
             <td class="text-center">{{ (page * pageCount) + $index + 1|number }}</td>
             <td><a ui-sref="app.profile({platform: platform, name: row.name})">{{ row.name }}</a></td>
-            <td class="text-center">{{ row.time }}</td>
+            <td class="text-center">{{ row.time|timeTrial }}</td>
             <td class="text-center hidden-xs">{{ row.gates|number }}</td>
         </tr>
     </table>

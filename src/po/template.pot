@@ -72,7 +72,7 @@ msgstr ""
 msgid "Best Time"
 msgstr ""
 
-#: layout\nav.html:142
+#: layout\nav.html:156
 #: shared\service\consts.js:185
 msgid "Bladedancer"
 msgstr ""
@@ -91,6 +91,8 @@ msgstr ""
 msgid "Bungie API Error"
 msgstr ""
 
+#: layout\nav.html:143
+#: layout\nav.html:147
 #: shared\service\consts.js:210
 msgid "Campus Martius"
 msgstr ""
@@ -130,7 +132,7 @@ msgstr ""
 msgid "Data is updating..."
 msgstr ""
 
-#: layout\nav.html:146
+#: layout\nav.html:160
 #: shared\service\consts.js:150
 msgid "Defender"
 msgstr ""
@@ -141,7 +143,7 @@ msgstr ""
 msgid "Diamond"
 msgstr ""
 
-#: layout\nav.html:163
+#: layout\nav.html:176
 msgid "Donate"
 msgstr ""
 
@@ -166,6 +168,10 @@ msgstr ""
 msgid "Elimination"
 msgstr ""
 
+#: layout\nav.html:19
+msgid "Elo Rankings"
+msgstr ""
+
 #: weapon-stats.html:59
 msgid "End day"
 msgstr ""
@@ -178,7 +184,7 @@ msgstr ""
 msgid "Exotic Weapons"
 msgstr ""
 
-#: layout\nav.html:157
+#: layout\nav.html:170
 msgid "FAQ"
 msgstr ""
 
@@ -189,7 +195,7 @@ msgstr ""
 msgid "First"
 msgstr ""
 
-#: layout\nav.html:174
+#: layout\nav.html:187
 msgid "Follow"
 msgstr ""
 
@@ -216,7 +222,7 @@ msgstr ""
 msgid "Games"
 msgstr ""
 
-#: layout\nav.html:179
+#: layout\nav.html:192
 msgid "GitHub"
 msgstr ""
 
@@ -234,7 +240,7 @@ msgstr ""
 msgid "Guardian.gg - Advanced Destiny Stats, Profiles and Leaderboards"
 msgstr ""
 
-#: layout\nav.html:143
+#: layout\nav.html:157
 #: shared\service\consts.js:175
 msgid "Gunslinger"
 msgstr ""
@@ -268,6 +274,8 @@ msgstr ""
 msgid "Inactive"
 msgstr ""
 
+#: layout\nav.html:144
+#: layout\nav.html:148
 #: shared\service\consts.js:211
 msgid "Infinite Descent"
 msgstr ""
@@ -335,10 +343,6 @@ msgstr ""
 #: srl.html:107
 #: srl.html:32
 msgid "Last"
-msgstr ""
-
-#: layout\nav.html:19
-msgid "Leaderboards"
 msgstr ""
 
 #: subclass.html:152
@@ -412,7 +416,7 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: layout\nav.html:144
+#: layout\nav.html:158
 #: shared\service\consts.js:180
 msgid "Nightstalker"
 msgstr ""
@@ -459,6 +463,7 @@ msgstr ""
 msgid "Platinum"
 msgstr ""
 
+#: layout\nav.html:142
 #: layout\nav.html:22
 #: shared\service\consts.js:105
 msgid "PlayStation"
@@ -523,6 +528,10 @@ msgstr ""
 msgid "SRL"
 msgstr ""
 
+#: layout\nav.html:140
+msgid "SRL Time Trials"
+msgstr ""
+
 #: layout\nav.html:124
 #: layout\nav.html:65
 #: profile\_activity-history.html:45
@@ -581,12 +590,16 @@ msgstr ""
 msgid "Start day"
 msgstr ""
 
-#: layout\nav.html:150
+#: layout\nav.html:152
+msgid "Stats"
+msgstr ""
+
+#: layout\nav.html:164
 #: shared\service\consts.js:170
 msgid "Stormcaller"
 msgstr ""
 
-#: layout\nav.html:147
+#: layout\nav.html:161
 #: shared\service\consts.js:155
 msgid "Striker"
 msgstr ""
@@ -595,16 +608,12 @@ msgstr ""
 msgid "Subclass Popularity"
 msgstr ""
 
-#: layout\nav.html:140
-msgid "Subclasses"
-msgstr ""
-
-#: layout\nav.html:148
+#: layout\nav.html:162
 #: shared\service\consts.js:145
 msgid "Sunbreaker"
 msgstr ""
 
-#: layout\nav.html:151
+#: layout\nav.html:165
 #: shared\service\consts.js:160
 msgid "Sunsinger"
 msgstr ""
@@ -687,7 +696,7 @@ msgstr ""
 msgid "Use%"
 msgstr ""
 
-#: layout\nav.html:152
+#: layout\nav.html:166
 #: shared\service\consts.js:165
 msgid "Voidwalker"
 msgstr ""
@@ -705,12 +714,12 @@ msgstr ""
 msgid "We're crunching the numbers based on your filters, this may take a moment."
 msgstr ""
 
-#: layout\nav.html:156
-msgid "Weapon Stats"
-msgstr ""
-
 #: weapon-stats.html:2
 msgid "Weapon stat collection was re-started Oct. 29th, 2015. Historical data is unavailable at this time."
+msgstr ""
+
+#: layout\nav.html:154
+msgid "Weapons"
 msgstr ""
 
 #: faq.html:31
@@ -733,6 +742,7 @@ msgstr ""
 msgid "Winner"
 msgstr ""
 
+#: layout\nav.html:146
 #: layout\nav.html:81
 #: shared\service\consts.js:104
 msgid "Xbox"

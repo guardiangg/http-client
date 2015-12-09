@@ -34,7 +34,7 @@ app.controller('srlCtrl', [
         $scope.maps = consts.srl_maps;
         $scope.platforms = consts.platforms;
 
-        $rootScope.title = $scope.mapName + ' - SRL Leaderboards - ' + $scope.platforms[$scope.platform] + ' - Guardian.gg';
+        $rootScope.title = $scope.mapName + ' - Best SRL Times - ' + $scope.platforms[$scope.platform] + ' - Guardian.gg';
 
         $scope.load = function(platform, map, page, update) {
             if (!platform || !map) {
