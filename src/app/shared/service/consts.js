@@ -115,7 +115,8 @@ app.service('consts', [
                 15: gettextCatalog.getString('Doubles'),
                 28: gettextCatalog.getString('Zone Control'),
                 19: gettextCatalog.getString('Iron Banner'),
-                14: gettextCatalog.getString('Trials of Osiris')
+                14: gettextCatalog.getString('Trials of Osiris'),
+                29: gettextCatalog.getString('SRL')
             },
             modeIcons: {
                 9: 'ggg-skirmish',
@@ -130,7 +131,8 @@ app.service('consts', [
                 24: 'ggg-rift',
                 26: 'ggg-clash',
                 27: 'ggg-rumble',
-                28: 'ggg-control'
+                28: 'ggg-control',
+                29: 'ggg-srl'
             },
             classes: {
                 2271682572: gettextCatalog.getString('Warlock'),
