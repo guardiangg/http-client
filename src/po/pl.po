@@ -9,7 +9,7 @@ msgstr ""
 
 #. Short for assists
 #: leaderboard.html:75
-#: profile\_activity-history.html:91
+#: profile\_activity-history.html:108
 #: profile\_pgcr.html:9
 msgid "A"
 msgstr "A"
@@ -19,21 +19,21 @@ msgid "Advanced Destiny Stats"
 msgstr "Zaawansowane statystki Destiny"
 
 #. Doesn't need a translation
-#: layout\nav.html:122
-#: shared\service\consts.js:181
+#: layout\nav.html:156
+#: shared\service\consts.js:185
 msgid "Bladedancer"
 msgstr "Bladedancer"
 
 #: faq.html:52
-#: shared\chart\elo.js:129
+#: shared\chart\profile-elo.js:131
 #: shared\service\consts.js:48
 msgid "Bronze"
 msgstr "Brąz"
 
 #. Doesn't need a translation
 #: layout\nav.html:40
-#: layout\nav.html:89
-#: profile\_activity-history.html:42
+#: layout\nav.html:99
+#: profile\_activity-history.html:64
 #: shared\service\consts.js:111
 #: subclass.html:83
 msgid "Clash"
@@ -41,8 +41,8 @@ msgstr "Clash"
 
 #. Doesn't need a translation
 #: layout\nav.html:35
-#: layout\nav.html:84
-#: profile\_activity-history.html:39
+#: layout\nav.html:94
+#: profile\_activity-history.html:63
 #: shared\service\consts.js:109
 #: subclass.html:74
 msgid "Control"
@@ -50,41 +50,43 @@ msgstr "Control"
 
 #. Short for deaths
 #: leaderboard.html:74
-#: profile\_activity-history.html:90
+#: profile\_activity-history.html:107
 #: profile\_pgcr.html:8
 msgid "D"
 msgstr "D"
 
 #. Doesn't need a translation
-#: layout\nav.html:126
-#: shared\service\consts.js:146
+#: layout\nav.html:160
+#: shared\service\consts.js:150
 msgid "Defender"
 msgstr "Defender"
 
 #: faq.html:56
-#: shared\chart\elo.js:69
+#: shared\chart\profile-elo.js:71
 #: shared\service\consts.js:92
 msgid "Diamond"
 msgstr "Diament"
 
-#: layout\nav.html:143
+#: layout\nav.html:176
 msgid "Donate"
 msgstr "Wesprzyj nas"
 
-#: layout\nav.html:104
+#: layout\nav.html:114
 #: layout\nav.html:55
-#: profile\_activity-history.html:51
+#: profile\_activity-history.html:67
 #: shared\service\consts.js:114
 #: subclass.html:92
 msgid "Elimination"
 msgstr "Eliminacja"
 
-#: layout\nav.html:137
+#: layout\nav.html:170
 msgid "FAQ"
 msgstr "FAQ"
 
 #: leaderboard.html:103
 #: leaderboard.html:20
+#: srl.html:8
+#: srl.html:83
 msgid "First"
 msgstr "Pierwszy"
 
@@ -93,14 +95,14 @@ msgid "Games"
 msgstr "Gry"
 
 #: faq.html:54
-#: shared\chart\elo.js:99
+#: shared\chart\profile-elo.js:101
 #: shared\service\consts.js:70
 msgid "Gold"
 msgstr "Złoto"
 
 #. Doesn't need a translation
-#: layout\nav.html:123
-#: shared\service\consts.js:171
+#: layout\nav.html:157
+#: shared\service\consts.js:175
 msgid "Gunslinger"
 msgstr "Gunslinger"
 
@@ -109,29 +111,27 @@ msgid "Home"
 msgstr "Strona Głowna"
 
 #. Doesn't need a translation
-#: shared\service\consts.js:135
+#: shared\service\consts.js:139
 #: subclass.html:15
 msgid "Hunter"
 msgstr "Hunter"
 
-#: layout\nav.html:25
-#: layout\nav.html:74
-#: profile\_activity-history.html:33
-#: shared\service\consts.js:115
+#: profile\_activity-history.html:61
+#: shared\service\consts.js:117
 #: subclass.html:77
 msgid "Iron Banner"
 msgstr "Iron Banner"
 
 #. Short for kills
 #: leaderboard.html:73
-#: profile\_activity-history.html:89
+#: profile\_activity-history.html:106
 #: profile\_pgcr.html:7
 msgid "K"
 msgstr "K"
 
 #. Short for kills / deaths
 #: leaderboard.html:76
-#: profile\_activity-history.html:92
+#: profile\_activity-history.html:109
 #: profile\_pgcr.html:10
 #: subclass.html:110
 #: subclass.html:134
@@ -141,18 +141,16 @@ msgstr "K/D"
 
 #: leaderboard.html:127
 #: leaderboard.html:44
+#: srl.html:107
+#: srl.html:32
 msgid "Last"
 msgstr "Ostatni"
 
-#: layout\nav.html:19
-msgid "Leaderboards"
-msgstr "Rankingi"
-
-#: profile\_activity-history.html:3
+#: profile\_activity-history.html:27
 msgid "Loading Elo Data..."
 msgstr "Wczytuję dane Elo..."
 
-#: profile\_activity-history.html:26
+#: profile\_activity-history.html:75
 msgid "Match History"
 msgstr "Historia Meczy"
 
@@ -162,101 +160,109 @@ msgstr "Więcej"
 
 #: home.html:21
 #: leaderboard.html:71
+#: srl.html:60
 msgid "Name"
 msgstr "Nick"
 
 #: leaderboard.html:120
 #: leaderboard.html:37
+#: srl.html:100
+#: srl.html:25
 msgid "Next"
 msgstr "Następny"
 
-#: layout\nav.html:124
-#: shared\service\consts.js:176
+#: layout\nav.html:158
+#: shared\service\consts.js:180
 msgid "Nightstalker"
 msgstr "Nightstalker"
 
 #: leaderboard.html:112
 #: leaderboard.html:29
+#: srl.html:17
+#: srl.html:92
 msgid "Page {{page+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>"
 msgstr "Strona {{page+1|number}} z {{pageTotal+1|number}}<span>\n"
 "{{total|number}} Strażników</span>"
 
-#: profile\_activity-history.html:12
+#: profile\_activity-history.html:36
 msgid "Placing"
 msgstr "Umieszczam"
 
 #: faq.html:55
-#: shared\chart\elo.js:84
+#: shared\chart\profile-elo.js:86
 #: shared\service\consts.js:81
 msgid "Platinum"
 msgstr "Platyna"
 
 #: leaderboard.html:110
 #: leaderboard.html:27
+#: srl.html:15
+#: srl.html:90
 msgid "Prev"
 msgstr "Poprzedni"
 
 #: leaderboard.html:70
+#: srl.html:59
 msgid "Rank"
 msgstr "Ranga"
 
+#: layout\nav.html:109
 #: layout\nav.html:50
-#: layout\nav.html:99
-#: profile\_activity-history.html:45
+#: profile\_activity-history.html:65
 #: shared\service\consts.js:112
 #: subclass.html:86
 msgid "Rift"
 msgstr "Rift"
 
+#: layout\nav.html:104
 #: layout\nav.html:45
-#: layout\nav.html:94
-#: profile\_activity-history.html:48
+#: profile\_activity-history.html:66
 #: shared\service\consts.js:113
 #: subclass.html:89
 msgid "Rumble"
 msgstr "Rumble"
 
 #: faq.html:53
-#: shared\chart\elo.js:114
+#: shared\chart\profile-elo.js:116
 #: shared\service\consts.js:59
 msgid "Silver"
 msgstr "Srebro"
 
-#: profile\_activity-history.html:1
+#: profile\_activity-history.html:25
 msgid "since \"The Taken King\" launch (Sept. 15, 2015)"
 msgstr "od premiery \"The Taken King\" (15 Września 2015r.)"
 
 #. Doesn't need a translation
-#: layout\nav.html:109
+#: layout\nav.html:119
 #: layout\nav.html:60
-#: profile\_activity-history.html:54
+#: profile\_activity-history.html:68
 #: shared\service\consts.js:108
 #: subclass.html:95
 msgid "Skirmish"
 msgstr "Skirmish"
 
 #. Doesn't need a translation
-#: layout\nav.html:130
-#: shared\service\consts.js:166
+#: layout\nav.html:164
+#: shared\service\consts.js:170
 msgid "Stormcaller"
 msgstr "Stormcaller"
 
-#: layout\nav.html:127
-#: shared\service\consts.js:151
+#: layout\nav.html:161
+#: shared\service\consts.js:155
 msgid "Striker"
 msgstr "Striker"
 
-#: layout\nav.html:128
-#: shared\service\consts.js:141
+#: layout\nav.html:162
+#: shared\service\consts.js:145
 msgid "Sunbreaker"
 msgstr "Sunbreaker"
 
-#: layout\nav.html:131
-#: shared\service\consts.js:156
+#: layout\nav.html:165
+#: shared\service\consts.js:160
 msgid "Sunsinger"
 msgstr "Sunsinger"
 
-#: shared\service\consts.js:136
+#: shared\service\consts.js:140
 #: subclass.html:31
 msgid "Titan"
 msgstr "Tytan"
@@ -266,19 +272,19 @@ msgid "Top {{platforms[platform]}} Guardians"
 msgstr "Top Strażnicy {{platforms[platform]}} "
 
 #: layout\nav.html:30
-#: layout\nav.html:79
-#: profile\_activity-history.html:36
-#: shared\service\consts.js:116
+#: layout\nav.html:89
+#: profile\_activity-history.html:62
+#: shared\service\consts.js:118
 #: subclass.html:80
 msgid "Trials of Osiris"
 msgstr "Trials Of Osiris"
 
-#: layout\nav.html:132
-#: shared\service\consts.js:161
+#: layout\nav.html:166
+#: shared\service\consts.js:165
 msgid "Voidwalker"
 msgstr "Voidwalker"
 
-#: shared\service\consts.js:134
+#: shared\service\consts.js:138
 #: subclass.html:47
 msgid "Warlock"
 msgstr "Warlock"
@@ -300,7 +306,7 @@ msgid "Agility"
 msgstr "Agility"
 
 #. If the translation is too long then change it to "All", it should be understandable
-#: profile\_activity-history.html:30
+#: profile\_activity-history.html:58
 msgid "All"
 msgstr "Wszystkie"
 
@@ -332,7 +338,7 @@ msgstr "Średni wskaźnik Elo drużyny"
 msgid "Bravo"
 msgstr "Bravo"
 
-#: layout\main.html:33
+#: layout\main.html:40
 msgid "Bungie API Error"
 msgstr "Błąd API Bungie"
 
@@ -380,7 +386,7 @@ msgstr "Jak mogę się z wami skontaktować jeśli mam pytania/sugestie?"
 msgid "Loading Characters..."
 msgstr "Wczytywanie postaci..."
 
-#: profile\_activity-history.html:81
+#: profile\_activity-history.html:98
 msgid "Loading Game History..."
 msgstr "Wczytywanie historii gier..."
 
@@ -388,7 +394,7 @@ msgstr "Wczytywanie historii gier..."
 msgid "Loading Items..."
 msgstr "Wczytywanie przedmiotów..."
 
-#: profile\_activity-history.html:87
+#: profile\_activity-history.html:104
 msgid "Map"
 msgstr "Mapa"
 
@@ -396,11 +402,11 @@ msgstr "Mapa"
 msgid "Melee"
 msgstr "Atak wręcz"
 
-#: profile\_activity-history.html:21
+#: profile\_activity-history.html:46
 msgid "No Elo data exists for this player. This is either an error in our system, or the player pretty much never enters Crucible."
 msgstr "Brak danych Elo dla tego gracza. To bład wyszukiwania lub błąd systemu, lub gracz ten nie gra w trybie Crucible."
 
-#: profile\_activity-history.html:116
+#: profile\_activity-history.html:133
 msgid "No games have been played in this mode."
 msgstr "Brak rozegranych gier w tym trybie."
 
@@ -412,7 +418,7 @@ msgstr "Oops, nie znaleźliśmy \"{{name}}\". Verify spelling and try again."
 msgid "Recovery"
 msgstr "Recovery"
 
-#: profile\_activity-history.html:88
+#: profile\_activity-history.html:105
 #: profile\_pgcr.html:6
 msgid "Score"
 msgstr "Wynik"
@@ -424,7 +430,7 @@ msgid "Since the launch of the Taken King, we have aggregated data from every si
 "            Crucible, you have a profile here - check it out!"
 msgstr "Od premiery The Taken King zbieraliśmy dane z każdej rozegranej gry. Nasze rankingi są aktualizowane w czasie rzeczywistym. Jeśli grałeś ostatni w Destiny, w tryb Crucible to masz tu swój profil - sprawdź go!"
 
-#: profile\_activity-history.html:93
+#: profile\_activity-history.html:110
 #: profile\_pgcr.html:11
 msgid "Standing"
 msgstr "Pozycja"
@@ -495,7 +501,7 @@ msgstr "Egzotyczny pancerz"
 msgid "Exotic Weapons"
 msgstr "Egzotyczne bronie"
 
-#: layout\nav.html:159
+#: layout\nav.html:192
 msgid "GitHub"
 msgstr "GitHub"
 
@@ -558,6 +564,7 @@ msgstr "Perki"
 msgid "Platform"
 msgstr "Platforma"
 
+#: layout\nav.html:142
 #: layout\nav.html:22
 #: shared\service\consts.js:105
 msgid "PlayStation"
@@ -595,10 +602,6 @@ msgstr "Broń specjalna"
 msgid "Start day"
 msgstr "Dzień rozpoczęcia"
 
-#: layout\nav.html:120
-msgid "Subclasses"
-msgstr "Subklasy"
-
 #: weapon-stats.html:88
 msgid "There is no data matching your filters."
 msgstr "Brak danych dla Twojego filtru wyszukiwań."
@@ -625,10 +628,6 @@ msgstr "Wykorzystanie%"
 msgid "We're crunching the numbers based on your filters, this may take a moment."
 msgstr "Przegryzamy dane na podstawie twojego filtrowania, to może chwilę potrwać."
 
-#: layout\nav.html:136
-msgid "Weapon Stats"
-msgstr "Statystyki broni"
-
 #: weapon-stats.html:2
 msgid "Weapon stat collection was re-started Oct. 29th, 2015. Historical data is unavailable at this time."
 msgstr "Kolekcja statystyk broni została zrestartowana 29 Października 2015. Historyczne dane nie są teraz dostępne."
@@ -637,7 +636,8 @@ msgstr "Kolekcja statystyk broni została zrestartowana 29 Października 2015. H
 msgid "Win Rate by Mode"
 msgstr "% Zwycięstw wg. trybu"
 
-#: layout\nav.html:71
+#: layout\nav.html:146
+#: layout\nav.html:81
 #: shared\service\consts.js:104
 msgid "Xbox"
 msgstr "Xbox"
@@ -650,15 +650,15 @@ msgstr "Przegląd {{subclass.label}}"
 msgid "{{subclass.label}} Perks &amp; Exotics"
 msgstr "Perki &amp; Egzotyki {{subclass.label}}"
 
-#: layout\main.html:38
+#: layout\main.html:45
 msgid "<em>Internal error code: {{apiError}}</em>"
 msgstr "<em> Błąd wewnętrzny: {{apiError}}</em>"
 
-#: layout\nav.html:154
+#: layout\nav.html:187
 msgid "Follow"
 msgstr "Śledź nas"
 
-#: profile\_activity-history.html:13
+#: profile\_activity-history.html:37
 msgid "Inactive"
 msgstr "Nieaktywny"
 
@@ -666,7 +666,7 @@ msgstr "Nieaktywny"
 msgid "The dedicated IB leaderboards will be unavailable until Bungie resolves this issue."
 msgstr "Dedykowane rankingi dla IB nie będą dostępne dopóki Bungie nie naprawi problemu."
 
-#: profile\_activity-history.html:78
+#: profile\_activity-history.html:95
 msgid "The match history is unavailable due to an API error"
 msgstr "Historia meczy jest niedostępna z powodu błędu API,"
 
@@ -674,9 +674,9 @@ msgstr "Historia meczy jest niedostępna z powodu błędu API,"
 msgid "This profile temporarily cannot be displayed. Too much data is missing by consequence of the current API issues."
 msgstr "Ten profil nie mógł być wyświetlony. Brakuje zbyt dużo danych z powodu problemów z obecnym API"
 
-#: layout\nav.html:114
+#: layout\nav.html:124
 #: layout\nav.html:65
-#: profile\_activity-history.html:57
+#: profile\_activity-history.html:69
 #: shared\service\consts.js:110
 msgid "Salvage"
 msgstr "Salvage"
@@ -702,7 +702,7 @@ msgid "More technical users are invited to contribute on our\n"
 "            <a href=\"https://github.com/guardiangg/http-client\">GitHub repository</a>, we're open source!"
 msgstr "Uzdolnieni technicznie użytkownicy mogą dołączyć do naszego repozytorium <a href=\"https://github.com/guardiangg/http-client\">GitHub repository</a>, jesteśmy open source!"
 
-#: layout\main.html:34
+#: layout\main.html:41
 msgid "This page relies on one or more Bungie APIs to properly display. We weren't able to retrieve some data, so\n"
 "        as a result one or more areas of this page are temporarily disabled. Try again in a few minutes."
 msgstr "Ta strona jest oparta na jednym lub wielu API od Bungie aby mogła być poprawnie wyświetlona. Nie mogliśmy ściągnąć pewnych danych, więc część strony może być chwilowo wyłączona. Spróbuj ponownie za kilka minut."
@@ -720,4 +720,91 @@ msgstr "Źródło:"
 #: app.js:84
 msgid "Guardian.gg - Advanced Destiny Stats, Profiles and Leaderboards"
 msgstr "Guardian.gg - Zaawansowane statystyki Destiny, Profile i Rankingi"
+
+#: layout\nav.html:129
+#: layout\nav.html:70
+#: profile\_activity-history.html:70
+#: shared\service\consts.js:115
+msgid "Doubles"
+msgstr "Doubles"
+
+#: layout\nav.html:134
+#: layout\nav.html:75
+#: profile\_activity-history.html:71
+#: shared\service\consts.js:116
+msgid "Zone Control"
+msgstr "Zone Control"
+
+#: profile\_activity-history.html:79
+msgid "Loading Fireteam..."
+msgstr "Wczytywanie drużyn..."
+
+#: profile\_activity-history.html:82
+msgid "Recent Fireteam"
+msgstr "Ostatnie drużyny..."
+
+#: profile\_activity-history.html:17
+#: srl.html:62
+msgid "Best Gates"
+msgstr "Najwięcej bramek"
+
+#: profile\_activity-history.html:13
+#: srl.html:61
+msgid "Best Time"
+msgstr "Najlepszy czas"
+
+#: layout\nav.html:143
+#: layout\nav.html:147
+#: shared\service\consts.js:210
+msgid "Campus Martius"
+msgstr "Campus Martius"
+
+#: layout\nav.html:19
+msgid "Elo Rankings"
+msgstr "Ranking Elo"
+
+#: profile\_activity-history.html:55
+msgid "Game mode:"
+msgstr "Tryb gry:"
+
+#: layout\nav.html:144
+#: layout\nav.html:148
+#: shared\service\consts.js:211
+msgid "Infinite Descent"
+msgstr "Infinite Descent"
+
+#: profile\_activity-history.html:3
+msgid "Loading best SRL times..."
+msgstr "Wczytuję najlepsze czasy SRL"
+
+#: profile\_activity-history.html:21
+msgid "Not Ranked"
+msgstr "Brak pozycji w rankingu"
+
+#: profile\_activity-history.html:20
+msgid "Ranked"
+msgstr "Ranking"
+
+#: layout\nav.html:25
+#: layout\nav.html:84
+#: profile\_activity-history.html:60
+#: shared\service\consts.js:119
+msgid "SRL"
+msgstr "SRL"
+
+#: profile\_activity-history.html:1
+msgid "SRL Records <span class=\"subtext\">limited event, ends Dec 29th, 2015</span>"
+msgstr "Rekordy SRL <span class=\"subtext\"> limitowane wydarzenie, kończy się 29 Grudnia 2015</span>"
+
+#: layout\nav.html:140
+msgid "SRL Time Trials"
+msgstr "Próba czasu SRL"
+
+#: layout\nav.html:152
+msgid "Stats"
+msgstr "Statystyki"
+
+#: layout\nav.html:154
+msgid "Weapons"
+msgstr "Bronie"
 
