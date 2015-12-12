@@ -4,10 +4,10 @@
         <th style="width:15%" translate>Guardian</th>
         <th style="width:8%" class="text-center">Elo</th>
         <th style="width:8%" class="text-center" translate>Score</th>
-        <th style="width:5%" class="text-center" translate>K</th>
-        <th style="width:5%" class="text-center" translate>D</th>
-        <th style="width:5%" class="text-center" translate>A</th>
-        <th style="width:5%" class="text-center" translate>K/D</th>
+        <th style="width:5%" class="text-center" translate ng-show="mode != 29">K</th>
+        <th style="width:5%" class="text-center" translate ng-show="mode != 29">D</th>
+        <th style="width:5%" class="text-center" translate ng-show="mode != 29">A</th>
+        <th style="width:5%" class="text-center" translate ng-show="mode != 29">K/D</th>
         <th style="width:10%" class="text-center" translate>Standing</th>
     </tr>
     <tr ng-repeat="entry in players" ng-class="characterId == entry.characterId ? 'highlight' : ''">
@@ -20,11 +20,12 @@
             </a>
         </td>
         <td class="text-center">{{ entry.elo.elo || '-' }}</td>
-        <td class="text-center">{{ entry.values.score.basic.displayValue }}</td>
-        <td class="text-center">{{ entry.values.kills.basic.displayValue }}</td>
-        <td class="text-center">{{ entry.values.deaths.basic.displayValue }}</td>
-        <td class="text-center">{{ entry.values.assists.basic.displayValue }}</td>
-        <td class="text-center">{{ entry.values.killsDeathsRatio.basic.displayValue }}</td>
+        <td class="text-center" ng-show="mode == 29">{{ entry.values.raceCompletionMilliseconds.basic.displayValue }}</td>
+        <td class="text-center" ng-show="mode != 29">{{ entry.values.score.basic.displayValue }}</td>
+        <td class="text-center" ng-show="mode != 29">{{ entry.values.kills.basic.displayValue }}</td>
+        <td class="text-center" ng-show="mode != 29">{{ entry.values.deaths.basic.displayValue }}</td>
+        <td class="text-center" ng-show="mode != 29">{{ entry.values.assists.basic.displayValue }}</td>
+        <td class="text-center" ng-show="mode != 29">{{ entry.values.killsDeathsRatio.basic.displayValue }}</td>
         <td class="text-center">{{ entry.values.standing.basic.displayValue }}</td>
     </tr>
     <tr class="fairness" ng-if="teamElo.alpha > 0 && teamElo.bravo > 0">

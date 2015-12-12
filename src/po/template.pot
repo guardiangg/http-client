@@ -18,7 +18,7 @@ msgid "<em>{{totalPlayers24|number}}</em> tracked in the past day"
 msgstr ""
 
 #. Short for assists
-#: leaderboard.html:75
+#: leaderboard.html:63
 #: profile\_activity-history.html:108
 #: profile\_pgcr.html:9
 msgid "A"
@@ -44,7 +44,7 @@ msgid ""
 "            to maintain a high Elo score, these players are regarded as the best of the best!"
 msgstr ""
 
-#: profile\_pgcr.html:34
+#: profile\_pgcr.html:35
 msgid "Alpha"
 msgstr ""
 
@@ -60,7 +60,7 @@ msgstr ""
 msgid "As your score rises and falls, you'll be categorized into leagues."
 msgstr ""
 
-#: profile\_pgcr.html:32
+#: profile\_pgcr.html:33
 msgid "Average Team Elo"
 msgstr ""
 
@@ -74,12 +74,12 @@ msgstr ""
 msgid "Best Time"
 msgstr ""
 
-#: layout\nav.html:156
+#: layout\nav.html:166
 #: shared\service\consts.js:185
 msgid "Bladedancer"
 msgstr ""
 
-#: profile\_pgcr.html:37
+#: profile\_pgcr.html:38
 msgid "Bravo"
 msgstr ""
 
@@ -93,8 +93,8 @@ msgstr ""
 msgid "Bungie API Error"
 msgstr ""
 
-#: layout\nav.html:143
-#: layout\nav.html:147
+#: layout\nav.html:153
+#: layout\nav.html:157
 #: shared\service\consts.js:210
 msgid "Campus Martius"
 msgstr ""
@@ -103,16 +103,16 @@ msgstr ""
 msgid "Choose your platform"
 msgstr ""
 
-#: layout\nav.html:40
-#: layout\nav.html:99
+#: layout\nav.html:109
+#: layout\nav.html:45
 #: profile\_activity-history.html:64
 #: shared\service\consts.js:111
 #: subclass.html:83
 msgid "Clash"
 msgstr ""
 
-#: layout\nav.html:35
-#: layout\nav.html:94
+#: layout\nav.html:104
+#: layout\nav.html:40
 #: profile\_activity-history.html:63
 #: shared\service\consts.js:109
 #: subclass.html:74
@@ -124,7 +124,7 @@ msgid "Crucible Class Breakdown"
 msgstr ""
 
 #. Short for deaths
-#: leaderboard.html:74
+#: leaderboard.html:62
 #: profile\_activity-history.html:107
 #: profile\_pgcr.html:8
 msgid "D"
@@ -134,7 +134,7 @@ msgstr ""
 msgid "Data is updating..."
 msgstr ""
 
-#: layout\nav.html:160
+#: layout\nav.html:170
 #: shared\service\consts.js:150
 msgid "Defender"
 msgstr ""
@@ -145,12 +145,12 @@ msgstr ""
 msgid "Diamond"
 msgstr ""
 
-#: layout\nav.html:176
+#: layout\nav.html:186
 msgid "Donate"
 msgstr ""
 
-#: layout\nav.html:129
-#: layout\nav.html:70
+#: layout\nav.html:139
+#: layout\nav.html:75
 #: profile\_activity-history.html:70
 #: shared\service\consts.js:115
 msgid "Doubles"
@@ -162,8 +162,8 @@ msgid ""
 "            Control you'll have the same rating whether you're on your Titan, Warlock or Hunter."
 msgstr ""
 
-#: layout\nav.html:114
-#: layout\nav.html:55
+#: layout\nav.html:124
+#: layout\nav.html:60
 #: profile\_activity-history.html:67
 #: shared\service\consts.js:114
 #: subclass.html:92
@@ -186,18 +186,18 @@ msgstr ""
 msgid "Exotic Weapons"
 msgstr ""
 
-#: layout\nav.html:170
+#: layout\nav.html:180
 msgid "FAQ"
 msgstr ""
 
-#: leaderboard.html:103
-#: leaderboard.html:20
+#: leaderboard.html:8
+#: leaderboard.html:91
 #: srl.html:8
-#: srl.html:83
+#: srl.html:86
 msgid "First"
 msgstr ""
 
-#: layout\nav.html:187
+#: layout\nav.html:197
 msgid "Follow"
 msgstr ""
 
@@ -220,11 +220,11 @@ msgstr ""
 msgid "Game mode:"
 msgstr ""
 
-#: leaderboard.html:78
+#: leaderboard.html:66
 msgid "Games"
 msgstr ""
 
-#: layout\nav.html:192
+#: layout\nav.html:202
 msgid "GitHub"
 msgstr ""
 
@@ -242,7 +242,7 @@ msgstr ""
 msgid "Guardian.gg - Advanced Destiny Stats, Profiles and Leaderboards"
 msgstr ""
 
-#: layout\nav.html:157
+#: layout\nav.html:167
 #: shared\service\consts.js:175
 msgid "Gunslinger"
 msgstr ""
@@ -276,8 +276,8 @@ msgstr ""
 msgid "Inactive"
 msgstr ""
 
-#: layout\nav.html:144
-#: layout\nav.html:148
+#: layout\nav.html:154
+#: layout\nav.html:158
 #: shared\service\consts.js:211
 msgid "Infinite Descent"
 msgstr ""
@@ -294,6 +294,8 @@ msgstr ""
 msgid "Insufficient weapon data was found for this game mode in the last 7 days."
 msgstr ""
 
+#: layout\nav.html:35
+#: layout\nav.html:99
 #: profile\_activity-history.html:61
 #: shared\service\consts.js:117
 #: subclass.html:77
@@ -306,14 +308,14 @@ msgid "Item"
 msgstr ""
 
 #. Short for kills
-#: leaderboard.html:73
+#: leaderboard.html:61
 #: profile\_activity-history.html:106
 #: profile\_pgcr.html:7
 msgid "K"
 msgstr ""
 
 #. Short for kills / deaths
-#: leaderboard.html:76
+#: leaderboard.html:64
 #: profile\_activity-history.html:109
 #: profile\_pgcr.html:10
 #: subclass.html:110
@@ -340,9 +342,9 @@ msgstr ""
 msgid "Kills by Weapon Type"
 msgstr ""
 
-#: leaderboard.html:127
-#: leaderboard.html:44
-#: srl.html:107
+#: leaderboard.html:115
+#: leaderboard.html:32
+#: srl.html:110
 #: srl.html:32
 msgid "Last"
 msgstr ""
@@ -410,19 +412,19 @@ msgid ""
 msgstr ""
 
 #: home.html:21
-#: leaderboard.html:71
+#: leaderboard.html:59
 #: srl.html:60
 msgid "Name"
 msgstr ""
 
-#: leaderboard.html:120
-#: leaderboard.html:37
-#: srl.html:100
+#: leaderboard.html:108
+#: leaderboard.html:25
+#: srl.html:103
 #: srl.html:25
 msgid "Next"
 msgstr ""
 
-#: layout\nav.html:158
+#: layout\nav.html:168
 #: shared\service\consts.js:180
 msgid "Nightstalker"
 msgstr ""
@@ -431,7 +433,7 @@ msgstr ""
 msgid "No Elo data exists for this player. This is either an error in our system, or the player pretty much never enters Crucible."
 msgstr ""
 
-#: profile\_activity-history.html:133
+#: profile\_activity-history.html:134
 msgid "No games have been played in this mode."
 msgstr ""
 
@@ -443,10 +445,10 @@ msgstr ""
 msgid "Oops, we weren't able to find \"{{name}}\". Verify spelling and try again."
 msgstr ""
 
-#: leaderboard.html:112
-#: leaderboard.html:29
+#: leaderboard.html:100
+#: leaderboard.html:17
 #: srl.html:17
-#: srl.html:92
+#: srl.html:95
 msgid "Page {{page+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>"
 msgstr ""
 
@@ -473,16 +475,16 @@ msgstr ""
 msgid "Platinum"
 msgstr ""
 
-#: layout\nav.html:142
+#: layout\nav.html:152
 #: layout\nav.html:22
 #: shared\service\consts.js:105
 msgid "PlayStation"
 msgstr ""
 
-#: leaderboard.html:110
-#: leaderboard.html:27
+#: leaderboard.html:15
+#: leaderboard.html:98
 #: srl.html:15
-#: srl.html:90
+#: srl.html:93
 msgid "Prev"
 msgstr ""
 
@@ -490,7 +492,7 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
-#: leaderboard.html:70
+#: leaderboard.html:58
 #: srl.html:59
 msgid "Rank"
 msgstr ""
@@ -519,16 +521,16 @@ msgstr ""
 msgid "Refreshing map list..."
 msgstr ""
 
-#: layout\nav.html:109
-#: layout\nav.html:50
+#: layout\nav.html:119
+#: layout\nav.html:55
 #: profile\_activity-history.html:65
 #: shared\service\consts.js:112
 #: subclass.html:86
 msgid "Rift"
 msgstr ""
 
-#: layout\nav.html:104
-#: layout\nav.html:45
+#: layout\nav.html:114
+#: layout\nav.html:50
 #: profile\_activity-history.html:66
 #: shared\service\consts.js:113
 #: subclass.html:89
@@ -536,7 +538,7 @@ msgid "Rumble"
 msgstr ""
 
 #: layout\nav.html:25
-#: layout\nav.html:84
+#: layout\nav.html:89
 #: profile\_activity-history.html:60
 #: shared\service\consts.js:119
 msgid "SRL"
@@ -546,12 +548,12 @@ msgstr ""
 msgid "SRL Records <span class=\"subtext\">limited event, ends Dec 29th, 2015</span>"
 msgstr ""
 
-#: layout\nav.html:140
+#: layout\nav.html:150
 msgid "SRL Time Trials"
 msgstr ""
 
-#: layout\nav.html:124
-#: layout\nav.html:65
+#: layout\nav.html:134
+#: layout\nav.html:70
 #: profile\_activity-history.html:69
 #: shared\service\consts.js:110
 msgid "Salvage"
@@ -587,8 +589,8 @@ msgid ""
 "            Crucible, you have a profile here - check it out!"
 msgstr ""
 
-#: layout\nav.html:119
-#: layout\nav.html:60
+#: layout\nav.html:129
+#: layout\nav.html:65
 #: profile\_activity-history.html:68
 #: shared\service\consts.js:108
 #: subclass.html:95
@@ -608,16 +610,16 @@ msgstr ""
 msgid "Start day"
 msgstr ""
 
-#: layout\nav.html:152
+#: layout\nav.html:162
 msgid "Stats"
 msgstr ""
 
-#: layout\nav.html:164
+#: layout\nav.html:174
 #: shared\service\consts.js:170
 msgid "Stormcaller"
 msgstr ""
 
-#: layout\nav.html:161
+#: layout\nav.html:171
 #: shared\service\consts.js:155
 msgid "Striker"
 msgstr ""
@@ -626,12 +628,12 @@ msgstr ""
 msgid "Subclass Popularity"
 msgstr ""
 
-#: layout\nav.html:162
+#: layout\nav.html:172
 #: shared\service\consts.js:145
 msgid "Sunbreaker"
 msgstr ""
 
-#: layout\nav.html:165
+#: layout\nav.html:175
 #: shared\service\consts.js:160
 msgid "Sunsinger"
 msgstr ""
@@ -648,10 +650,6 @@ msgstr ""
 msgid ""
 "The Elo rating system is a method for calculating the relative skill levels of players in\r\n"
 "            competitor-versus-competitor games."
-msgstr ""
-
-#: leaderboard.html:8
-msgid "The dedicated IB leaderboards will be unavailable until Bungie resolves this issue."
 msgstr ""
 
 #: profile\_activity-history.html:95
@@ -697,7 +695,7 @@ msgid "Top {{platforms[platform]}} Guardians"
 msgstr ""
 
 #: layout\nav.html:30
-#: layout\nav.html:89
+#: layout\nav.html:94
 #: profile\_activity-history.html:62
 #: shared\service\consts.js:118
 #: subclass.html:80
@@ -714,7 +712,7 @@ msgstr ""
 msgid "Use%"
 msgstr ""
 
-#: layout\nav.html:166
+#: layout\nav.html:176
 #: shared\service\consts.js:165
 msgid "Voidwalker"
 msgstr ""
@@ -736,7 +734,7 @@ msgstr ""
 msgid "Weapon stat collection was re-started Oct. 29th, 2015. Historical data is unavailable at this time."
 msgstr ""
 
-#: layout\nav.html:154
+#: layout\nav.html:164
 msgid "Weapons"
 msgstr ""
 
@@ -748,20 +746,20 @@ msgstr ""
 msgid "Win Rate by Mode"
 msgstr ""
 
-#: leaderboard.html:77
+#: leaderboard.html:65
 #: subclass.html:111
 #: subclass.html:135
 #: subclass.html:158
 msgid "Win%"
 msgstr ""
 
-#: profile\_pgcr.html:35
-#: profile\_pgcr.html:38
+#: profile\_pgcr.html:36
+#: profile\_pgcr.html:39
 msgid "Winner"
 msgstr ""
 
-#: layout\nav.html:146
-#: layout\nav.html:81
+#: layout\nav.html:156
+#: layout\nav.html:86
 #: shared\service\consts.js:104
 msgid "Xbox"
 msgstr ""
@@ -770,8 +768,8 @@ msgstr ""
 msgid "You can fire us an email at"
 msgstr ""
 
-#: layout\nav.html:134
-#: layout\nav.html:75
+#: layout\nav.html:144
+#: layout\nav.html:80
 #: profile\_activity-history.html:71
 #: shared\service\consts.js:116
 msgid "Zone Control"
@@ -785,7 +783,7 @@ msgstr ""
 msgid "since \"The Taken King\" launch (Sept. 15, 2015)"
 msgstr ""
 
-#: profile\_pgcr.html:36
+#: profile\_pgcr.html:37
 msgid "vs."
 msgstr ""
 

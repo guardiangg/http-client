@@ -42,6 +42,10 @@ app.controller('profileCtrl', [
         $scope.loadHistory = function(mode, platform, membershipId) {
             $scope.infiniteScroll = true;
 
+            if (!$scope.character) {
+                return;
+            }
+
             bungie
                 .getActivityHistory(
                     platform,

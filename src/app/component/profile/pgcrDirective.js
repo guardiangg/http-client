@@ -42,6 +42,7 @@ app.directive('pgcr', [
                         .then(function(response) {
                             var data = response.data.Response.data;
 
+                            scope.mode = data.activityDetails.mode;
                             scope.players = data.entries;
                             var membershipIds = [];
                             _.each(scope.players, function(player) {

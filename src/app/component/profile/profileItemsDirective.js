@@ -36,6 +36,10 @@ app.directive('profileItems', [
                         item = item.items[0];
                         item.definition = scope.definitions.items[item.itemHash];
 
+                        if (!item.definition) {
+                            return;
+                        }
+
                         if (scope.isExotic && item.definition.tierType != 6) {
                             return;
                         }
@@ -51,6 +55,7 @@ app.directive('profileItems', [
 
                 var getPerks = function(item) {
                     var perks = [];
+
                     var talentGrid = scope.definitions.talentGrids[item.definition.talentGridHash];
 
                     _.each(talentGrid.nodes, function(node, nodeIdx) {
