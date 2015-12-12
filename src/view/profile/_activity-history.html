@@ -115,14 +115,15 @@
             <td class="clickable hidden-xs">
                 <i class="ggg {{modeIcons[activity.activityDetails.mode]}}"></i> {{ activity.definition.activityName }}
             </td>
-            <td class="text-center clickable">{{ activity.values.score.basic.displayValue }}</td>
+            <td class="text-center clickable" ng-show="activity.activityDetails.mode == 29">{{ activity.values.raceCompletionMilliseconds.basic.displayValue }}</td>
+            <td class="text-center clickable" ng-show="activity.activityDetails.mode != 29">{{ activity.values.score.basic.displayValue }}</td>
             <td class="text-center clickable">{{ activity.values.kills.basic.displayValue }}</td>
             <td class="text-center clickable">{{ activity.values.deaths.basic.displayValue }}</td>
             <td class="text-center clickable hidden-xs">{{ activity.values.assists.basic.displayValue }}</td>
             <td class="text-center clickable" ng-class="activity.values.killsDeathsRatio.basic.value < 1 ? 'kd negative' : 'kd positive'">
                 {{ activity.values.killsDeathsRatio.basic.displayValue }}
             </td>
-            <td class="text-center clickable" ng-class="activity.values.standing.basic.displayValue == 'Defeat' ? 'standing negative' : 'standing positive'">
+            <td class="text-center clickable" ng-class="activity.values.standing.basic.value == 0 || activity.values.standing.basic.displayValue == '1' ? 'standing positive' : 'standing negative'">
                 {{ activity.values.standing.basic.displayValue }}
             </td>
             <td class="text-center external clickable">

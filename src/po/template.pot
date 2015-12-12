@@ -9,20 +9,12 @@ msgstr ""
 msgid "'Nade"
 msgstr ""
 
-#: subclass.html:52
-msgid "{{subclass.label}} Overview"
-msgstr ""
-
-#: subclass.html:63
-msgid "{{subclass.label}} Perks &amp; Exotics"
+#: layout\main.html:45
+msgid "<em>Internal error code: {{apiError}}</em>"
 msgstr ""
 
 #: home.html:3
 msgid "<em>{{totalPlayers24|number}}</em> tracked in the past day"
-msgstr ""
-
-#: layout\main.html:45
-msgid "<em>Internal error code: {{apiError}}</em>"
 msgstr ""
 
 #. Short for assists
@@ -46,13 +38,13 @@ msgstr ""
 
 #: faq.html:40
 msgid ""
-"All players start at a baseline of 1200 points. You will take points from your opponent's Elo score by\n"
-"            defeating them, and vise versa. Defeating a more skilled opponent will yield higher points than if you beat up\n"
-"            on a weaker one. The higher the score, the more skilled the player. It is extremely difficult\n"
+"All players start at a baseline of 1200 points. You will take points from your opponent's Elo score by\r\n"
+"            defeating them, and vise versa. Defeating a more skilled opponent will yield higher points than if you beat up\r\n"
+"            on a weaker one. The higher the score, the more skilled the player. It is extremely difficult\r\n"
 "            to maintain a high Elo score, these players are regarded as the best of the best!"
 msgstr ""
 
-#: profile\_pgcr.html:34
+#: profile\_pgcr.html:35
 msgid "Alpha"
 msgstr ""
 
@@ -68,7 +60,7 @@ msgstr ""
 msgid "As your score rises and falls, you'll be categorized into leagues."
 msgstr ""
 
-#: profile\_pgcr.html:32
+#: profile\_pgcr.html:33
 msgid "Average Team Elo"
 msgstr ""
 
@@ -87,7 +79,7 @@ msgstr ""
 msgid "Bladedancer"
 msgstr ""
 
-#: profile\_pgcr.html:37
+#: profile\_pgcr.html:38
 msgid "Bravo"
 msgstr ""
 
@@ -166,7 +158,7 @@ msgstr ""
 
 #: faq.html:59
 msgid ""
-"Each mode you play has its own Elo rating and league categorization. Beyond that, Elo is account-wide, so in\n"
+"Each mode you play has its own Elo rating and league categorization. Beyond that, Elo is account-wide, so in\r\n"
 "            Control you'll have the same rating whether you're on your Titan, Warlock or Hunter."
 msgstr ""
 
@@ -218,18 +210,18 @@ msgstr ""
 msgid "From"
 msgstr ""
 
+#: faq.html:6
+msgid ""
+"GGG is the lovechild of a couple hardcore Destiny fans. If you like what we've done and want to show your\r\n"
+"        support, feel free to buy us a beer and/or pony!"
+msgstr ""
+
 #: profile\_activity-history.html:55
 msgid "Game mode:"
 msgstr ""
 
 #: leaderboard.html:78
 msgid "Games"
-msgstr ""
-
-#: faq.html:6
-msgid ""
-"GGG is the lovechild of a couple hardcore Destiny fans. If you like what we've done and want to show your\n"
-"        support, feel free to buy us a beer and/or pony!"
 msgstr ""
 
 #: layout\nav.html:192
@@ -320,11 +312,6 @@ msgstr ""
 msgid "K"
 msgstr ""
 
-#: shared\chart\kd.js:30
-#: shared\chart\subclass-kd.js:32
-msgid "K:D"
-msgstr ""
-
 #. Short for kills / deaths
 #: leaderboard.html:76
 #: profile\_activity-history.html:109
@@ -337,6 +324,11 @@ msgstr ""
 
 #: shared\chart\subclass-kd.js:16
 msgid "K/D by Mode"
+msgstr ""
+
+#: shared\chart\kd.js:30
+#: shared\chart\subclass-kd.js:32
+msgid "K:D"
 msgstr ""
 
 #: shared\chart\kd.js:16
@@ -357,10 +349,6 @@ msgstr ""
 
 #: subclass.html:152
 msgid "Loading Armor..."
-msgstr ""
-
-#: profile\_activity-history.html:3
-msgid "Loading best SRL times..."
 msgstr ""
 
 #: profile\_character.html:2
@@ -395,6 +383,10 @@ msgstr ""
 msgid "Loading Weapons..."
 msgstr ""
 
+#: profile\_activity-history.html:3
+msgid "Loading best SRL times..."
+msgstr ""
+
 #: profile\_activity-history.html:104
 msgid "Map"
 msgstr ""
@@ -413,7 +405,7 @@ msgstr ""
 
 #: faq.html:18
 msgid ""
-"More technical users are invited to contribute on our\n"
+"More technical users are invited to contribute on our\r\n"
 "            <a href=\"https://github.com/guardiangg/http-client\">GitHub repository</a>, we're open source!"
 msgstr ""
 
@@ -439,16 +431,12 @@ msgstr ""
 msgid "No Elo data exists for this player. This is either an error in our system, or the player pretty much never enters Crucible."
 msgstr ""
 
-#: profile\_activity-history.html:133
+#: profile\_activity-history.html:134
 msgid "No games have been played in this mode."
 msgstr ""
 
 #: profile\_activity-history.html:21
 msgid "Not Ranked"
-msgstr ""
-
-#: shared\chart\weapon-bar.js:44
-msgid "of total kills"
 msgstr ""
 
 #: search.html:12
@@ -547,6 +535,21 @@ msgstr ""
 msgid "Rumble"
 msgstr ""
 
+#: layout\nav.html:25
+#: layout\nav.html:84
+#: profile\_activity-history.html:60
+#: shared\service\consts.js:119
+msgid "SRL"
+msgstr ""
+
+#: profile\_activity-history.html:1
+msgid "SRL Records <span class=\"subtext\">limited event, ends Dec 29th, 2015</span>"
+msgstr ""
+
+#: layout\nav.html:140
+msgid "SRL Time Trials"
+msgstr ""
+
 #: layout\nav.html:124
 #: layout\nav.html:65
 #: profile\_activity-history.html:69
@@ -577,14 +580,10 @@ msgstr ""
 msgid "Silver"
 msgstr ""
 
-#: profile\_activity-history.html:25
-msgid "since \"The Taken King\" launch (Sept. 15, 2015)"
-msgstr ""
-
 #: faq.html:24
 msgid ""
-"Since the launch of the Taken King, we have aggregated data from every single match played. Our rankings\n"
-"            are updated in real-time and immediately available. If you have played Destiny recently, particularly in the\n"
+"Since the launch of the Taken King, we have aggregated data from every single match played. Our rankings\r\n"
+"            are updated in real-time and immediately available. If you have played Destiny recently, particularly in the\r\n"
 "            Crucible, you have a profile here - check it out!"
 msgstr ""
 
@@ -598,21 +597,6 @@ msgstr ""
 
 #: weapon-stats.html:108
 msgid "Special"
-msgstr ""
-
-#: layout\nav.html:25
-#: layout\nav.html:84
-#: profile\_activity-history.html:60
-#: shared\service\consts.js:119
-msgid "SRL"
-msgstr ""
-
-#: profile\_activity-history.html:1
-msgid "SRL Records <span class=\"subtext\">limited event, ends Dec 29th, 2015</span>"
-msgstr ""
-
-#: layout\nav.html:140
-msgid "SRL Time Trials"
 msgstr ""
 
 #: profile\_activity-history.html:110
@@ -660,14 +644,14 @@ msgstr ""
 msgid "Team"
 msgstr ""
 
-#: leaderboard.html:8
-msgid "The dedicated IB leaderboards will be unavailable until Bungie resolves this issue."
-msgstr ""
-
 #: faq.html:36
 msgid ""
-"The Elo rating system is a method for calculating the relative skill levels of players in\n"
+"The Elo rating system is a method for calculating the relative skill levels of players in\r\n"
 "            competitor-versus-competitor games."
+msgstr ""
+
+#: leaderboard.html:8
+msgid "The dedicated IB leaderboards will be unavailable until Bungie resolves this issue."
 msgstr ""
 
 #: profile\_activity-history.html:95
@@ -680,14 +664,14 @@ msgstr ""
 
 #: subclass.html:65
 msgid ""
-"This data examines the last 7 days of PvP in Destiny for players using the {{subclass.label}} subclass.\n"
-"    The rolling sample provides an accurate look at what players are using and what's working.\n"
+"This data examines the last 7 days of PvP in Destiny for players using the {{subclass.label}} subclass.\r\n"
+"    The rolling sample provides an accurate look at what players are using and what's working.\r\n"
 "    Select a mode on the filter bar below to only map K/D and win rates in that mode."
 msgstr ""
 
 #: layout\main.html:41
 msgid ""
-"This page relies on one or more Bungie APIs to properly display. We weren't able to retrieve some data, so\n"
+"This page relies on one or more Bungie APIs to properly display. We weren't able to retrieve some data, so\r\n"
 "        as a result one or more areas of this page are temporarily disabled. Try again in a few minutes."
 msgstr ""
 
@@ -704,12 +688,12 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: home.html:10
-msgid "Top {{platforms[platform]}} Guardians"
-msgstr ""
-
 #: weapon-stats.html:83
 msgid "Top Weapons"
+msgstr ""
+
+#: home.html:10
+msgid "Top {{platforms[platform]}} Guardians"
 msgstr ""
 
 #: layout\nav.html:30
@@ -733,10 +717,6 @@ msgstr ""
 #: layout\nav.html:166
 #: shared\service\consts.js:165
 msgid "Voidwalker"
-msgstr ""
-
-#: profile\_pgcr.html:36
-msgid "vs."
 msgstr ""
 
 #: shared\service\consts.js:138
@@ -775,8 +755,8 @@ msgstr ""
 msgid "Win%"
 msgstr ""
 
-#: profile\_pgcr.html:35
-#: profile\_pgcr.html:38
+#: profile\_pgcr.html:36
+#: profile\_pgcr.html:39
 msgid "Winner"
 msgstr ""
 
@@ -795,4 +775,24 @@ msgstr ""
 #: profile\_activity-history.html:71
 #: shared\service\consts.js:116
 msgid "Zone Control"
+msgstr ""
+
+#: shared\chart\weapon-bar.js:44
+msgid "of total kills"
+msgstr ""
+
+#: profile\_activity-history.html:25
+msgid "since \"The Taken King\" launch (Sept. 15, 2015)"
+msgstr ""
+
+#: profile\_pgcr.html:37
+msgid "vs."
+msgstr ""
+
+#: subclass.html:52
+msgid "{{subclass.label}} Overview"
+msgstr ""
+
+#: subclass.html:63
+msgid "{{subclass.label}} Perks &amp; Exotics"
 msgstr ""
