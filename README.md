@@ -10,8 +10,7 @@ Contributions of any level are welcome. Our short term road map is available on 
 bug reports from anybody though, [open an issue](https://github.com/guardiangg/http-client/issues?q=is:open%20is:issue) 
 if you want to chat about it!
 
-If you want to contribute, fork the repository and make all submissions in the form of pull requests. New features 
-should be submitted to the `develop` branch. Bug fixes on production code can be submitted to `master`
+If you want to contribute, fork the repository and make all submissions in the form of pull requests.
 
 ## Coding Style
 Contributions are expected to remain under a consistent coding style.
