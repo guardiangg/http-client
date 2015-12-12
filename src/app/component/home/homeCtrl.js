@@ -18,7 +18,7 @@ app.controller('homeCtrl', [
         $scope.kd = charts.get('kd');
 
         leaderboardApi
-            .getFeatured([10,29,14,24])
+            .getFeatured([10,29,14,19])
             .then(function(result) {
                 $scope.featured = result.data;
                 _.each($scope.featured, function(platform) {
