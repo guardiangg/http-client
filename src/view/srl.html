@@ -67,7 +67,10 @@
         <tr ng-class="{highlight: (row.name|lowercase) == highlight}" ng-repeat="row in results.data | orderBy:'rank' track by $index">
             <td class="text-center">{{ (page * pageCount) + $index + 1|number }}</td>
             <td><a ui-sref="app.profile({platform: platform, name: row.name})">{{ row.name }}</a></td>
-            <td class="text-center">{{ row.time|timeTrial }}</td>
+            <td class="text-center">
+                {{ row.time|timeTrial }}
+                <a target="_blank" ng-show="row.instanceId" href="https://www.bungie.net/en/Legend/PGCR?instanceId={{ row.instanceId }}" class="srl-proof"><i class="fa fa-external-link"></i></a>
+            </td>
             <td class="text-center hidden-xs">{{ row.gates|number }}</td>
         </tr>
     </table>

@@ -193,7 +193,7 @@ msgstr ""
 #: leaderboard.html:8
 #: leaderboard.html:91
 #: srl.html:8
-#: srl.html:83
+#: srl.html:86
 msgid "First"
 msgstr ""
 
@@ -344,7 +344,7 @@ msgstr ""
 
 #: leaderboard.html:115
 #: leaderboard.html:32
-#: srl.html:107
+#: srl.html:110
 #: srl.html:32
 msgid "Last"
 msgstr ""
@@ -419,7 +419,7 @@ msgstr ""
 
 #: leaderboard.html:108
 #: leaderboard.html:25
-#: srl.html:100
+#: srl.html:103
 #: srl.html:25
 msgid "Next"
 msgstr ""
@@ -448,7 +448,7 @@ msgstr ""
 #: leaderboard.html:100
 #: leaderboard.html:17
 #: srl.html:17
-#: srl.html:92
+#: srl.html:95
 msgid "Page {{page+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>"
 msgstr ""
 
@@ -484,7 +484,7 @@ msgstr ""
 #: leaderboard.html:15
 #: leaderboard.html:98
 #: srl.html:15
-#: srl.html:90
+#: srl.html:93
 msgid "Prev"
 msgstr ""
 
