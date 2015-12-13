@@ -81,7 +81,7 @@
             var url = opts.apiUrl + '/' + hashes.join(';');
 
             fetch(url, function(result) {
-                if (result.constructor !== Object) {
+                if (result.constructor !== Array) {
                     debug('invalid result');
                     return;
                 }
