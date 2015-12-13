@@ -4,11 +4,12 @@ app.controller('itemListCtrl', [
     '$rootScope',
     '$scope',
     '$stateParams',
+    '$timeout',
     'util',
     'consts',
     'itemListFactory',
 
-    function ($rootScope, $scope, $stateParams, util, consts, itemListFactory) {
+    function ($rootScope, $scope, $stateParams, $timeout, util, consts, itemListFactory) {
         var listService = new itemListFactory();
 
         listService.registerObserverCallback(function() {
@@ -39,6 +40,10 @@ app.controller('itemListCtrl', [
 
             $scope.listLoaded = true;
             $rootScope.title = listService.seoTitle;
+
+            $timeout(function() {
+                window.gggTips.run();
+            });
         });
 
         listService.setPrimaryType($stateParams.primary);
