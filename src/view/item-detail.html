@@ -1,21 +1,69 @@
-<section class="item-details">
-    <div class="header">
-        <h1>{{ entity.name }}</h1>
-        <img ng-src="//bungie.net{{ entity.icon }}">
-        <div class="tier">{{ entity.tierTypeName }}</div>
-        <p>{{ entity.description }}</p>
+<div class="item-details">
+
+    <div class="quick-facts">
+
+        <div class="section">
+            <h3 translate>Sources</h3>
+            <ul class="sources">
+                <li class="source" ng-repeat="source in entity.sources">
+                    <div class="icon">
+                        <img ng-src="//bungie.net{{ source.icon }}">
+                    </div>
+                    <div class="info">
+                        <span class="name">{{source.name}}</span>
+                        <span class="description">{{source.description}}</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
     </div>
+
+    <div class="details">
+
+        <div class="header">
+            <div class="icon">
+                <img ng-src="//bungie.net{{ entity.icon }}">
+            </div>
+            <div class="info">
+                <h1>{{ entity.name }}</h1>
+                <span class="type">{{ tiers[entity.tier].label }} {{ entity.typeName }}</span>
+                <span class="lore">{{ entity.description }}</span>
+            </div>
+        </div>
+
+        <div class="stat-bars">
+            <div class="stat" ng-repeat="stat in entity._displayStats">
+                <div class="name">{{ stat.name }}</div>
+                <div class="bar">
+                    <div class="fill-min" ng-show="stat.min != stat.max" ng-style="{width: ((stat.min * 100) / 100) + '%'}"></div>
+                    <div class="fill-max" ng-show="stat.min != stat.max" ng-style="{width: ((stat.max * 100) / 100) + '%'}"></div>
+                    <div class="fill" ng-show="stat.min == stat.max" ng-style="{width: ((stat.min * 100) / 100) + '%'}"></div>
+                </div>
+                <div class="value">
+                    <span ng-show="stat.min != stat.max">{{ stat.min }}-{{ stat.max }}</span>
+                    <span ng-show="stat.min == stat.max">{{ stat.min }}</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="clear"></div>
+
+</div>
+
+<!--
+<section class="item-details">
 
     <h2>Sources</h2>
-    <div ng-repeat="source in entity.rewardSources">
-        <img ng-src="//bungie.net{{ source.icon }}" style="background-color: #000">
-        <div>{{source.name}}</div>
-        <small>{{source.description}}</small>
-    </div>
+
 
     <h2>Stats</h2>
+
     <stat-bars stats="entity.stats"></stat-bars>
 
     <h2>Perks</h2>
     <talent-grid perks="entity.perks"></talent-grid>
 </section>
+-->

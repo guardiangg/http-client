@@ -23,7 +23,7 @@ app.config([
         $stateProvider
             .state('app', {
                 abstract: true,
-                url: '/{locale}/',
+                url: '/{locale}',
                 params: {
                     locale: [
                         'gettextCatalog',
@@ -43,21 +43,21 @@ app.config([
                 templateUrl: 'home.html'
             })
             .state('app.faq', {
-                url: 'faq',
+                url: '/faq',
                 templateUrl: 'faq.html'
             })
             .state('app.search', {
-                url: 'search/{name}',
+                url: '/search/{name}',
                 controller: 'searchCtrl',
                 templateUrl: 'search.html'
             })
             .state('app.subclass', {
-                url: 'subclass/{subclass:[a-z]+}',
+                url: '/subclass/{subclass:[a-z]+}',
                 controller: 'subclassCtrl',
                 templateUrl: 'subclass.html'
             })
             .state('app.itemList', {
-                url: 'items/{primary:[a-z-]+}/{secondary:[a-z-]+}/{tertiary:[a-z-]+}',
+                url: '/items/{primary:[a-z-]+}/{secondary:[a-z-]+}/{tertiary:[a-z-]+}',
                 params: {
                     primary: { value: null, squash: true },
                     secondary: { value: null, squash: true },
@@ -67,47 +67,47 @@ app.config([
                 templateUrl: 'item.html'
             })
             .state('app.itemDetail', {
-                url: 'items/{hash:[0-9]+}',
+                url: '/items/{hash:[0-9]+}',
                 controller: 'itemDetailCtrl',
                 templateUrl: 'item-detail.html'
             })
             .state('app.itemDetailName', {
-                url: 'items/{hash:[0-9]+}/{name}',
+                url: '/items/{hash:[0-9]+}/{name}',
                 controller: 'itemDetailCtrl',
                 templateUrl: 'item-detail.html'
             })
             .state('app.profile', {
-                url: 'profile/{platform}/{name}',
+                url: '/profile/{platform}/{name}',
                 controller: 'profileCtrl',
                 templateUrl: 'profile.html'
             })
             .state('app.srl', {
-                url: 'srl/{platform:[0-9]+}/{map:[0-9-]+}/{page:[0-9]+}',
+                url: '/srl/{platform:[0-9]+}/{map:[0-9-]+}/{page:[0-9]+}',
                 controller: 'srlCtrl',
                 templateUrl: 'srl.html'
             })
             .state('app.leaderboard-platform-mode-name', {
-                url: 'leaderboard/{platform}/{mode}/{name}',
+                url: '/leaderboard/{platform}/{mode}/{name}',
                 controller: 'leaderboardCtrl',
                 templateUrl: 'leaderboard.html'
             })
             .state('app.leaderboard-platform-mode', {
-                url: 'leaderboard/{platform}/{mode}',
+                url: '/leaderboard/{platform}/{mode}',
                 controller: 'leaderboardCtrl',
                 templateUrl: 'leaderboard.html'
             })
             .state('app.leaderboard-platform', {
-                url: 'leaderboard/{platform}',
+                url: '/leaderboard/{platform}',
                 controller: 'leaderboardCtrl',
                 templateUrl: 'leaderboard.html'
             })
             .state('app.leaderboard', {
-                url: 'leaderboard',
+                url: '/leaderboard',
                 controller: 'leaderboardCtrl',
                 templateUrl: 'leaderboard.html'
             })
             .state('app.weapon-stats', {
-                url: 'weapon-stats',
+                url: '/weapon-stats',
                 controller: 'weaponStatsCtrl',
                 templateUrl: 'weapon-stats.html'
             });

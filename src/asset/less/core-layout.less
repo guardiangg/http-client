@@ -368,6 +368,111 @@ input[type="color"]:focus,
     border: none;
 }
 
+.nav {
+    .dropdown {
+        .dropdown-menu {
+            &.wide {
+                > li {
+                    min-width: 148px;
+                    float: left;
+                    list-style-type: none;
+
+                    @media (max-width:991px) {
+                        float: none;
+                    }
+
+                    &:first-child {
+                        margin-left: 3px;
+                    }
+
+                    ul {
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+                        font-size: 14px;
+                        text-align: left;
+
+                        li {
+                            &.heading {
+                                cursor: default;
+                                padding: 3px 20px;
+                                font-size: 0.8em;
+                                color: #999;
+                            }
+
+                            a {
+                                text-decoration: none;
+                                display: block;
+                                padding: 3px 20px;
+                                clear: both;
+                                font-weight: normal;
+                                line-height: 1.42857143;
+                                color: #333333;
+                                white-space: nowrap;
+
+                                &.primary {
+                                }
+
+                                &.sub {
+                                    font-size: 0.8em;
+                                }
+
+                                &:hover {
+                                    background: #eeeeee;
+                                }
+                            }
+                        }
+                    }
+
+                    @media (max-width:991px) {
+                        ul {
+                            li {
+                                &.heading {
+                                    margin-top: 10px;
+                                }
+                            }
+                        }
+
+                        &:first-child {
+                            ul {
+                                li {
+                                    &.heading {
+                                        margin-top: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.wide-2 {
+                min-width: 310px;
+
+                @media (max-width:991px) {
+                    min-width: 160px;
+                }
+            }
+
+            &.wide-3 {
+                min-width: 450px;
+
+                @media (max-width:991px) {
+                    min-width: 160px;
+                }
+            }
+
+            &.wide-4 {
+                min-width: 600px;
+
+                @media (max-width:991px) {
+                    min-width: 160px;
+                }
+            }
+        }
+    }
+}
+
 ////
 // Search
 ////

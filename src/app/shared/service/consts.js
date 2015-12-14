@@ -614,6 +614,38 @@ app.service('consts', [
                     ]
                 }
             },
+            stats: {
+                display: [
+                    "4284893193", // Rate of fire
+                    "2961396640", // Charge rate
+                    "3614673599", // Blast radius
+                    "2523465841", // Velocity
+                    "2837207746", // Speed
+                    "4043523819", // Impact
+                    "1240592695", // Range
+                    "155624089", // Stability
+                    "4188031367", // Reload speed
+                    "2762071195", // Efficiency
+                    "209426660", // Defense
+                    "925767036", // Energy
+                    "360359141", // Durability
+                    "3017642079", // Boost
+                ],
+                hidden: [
+                    "3555269338", // Optics
+                    "1345609583", // Aim assist
+                    "2715839340", // Recoil
+                    "943549884", // Equip speed
+                ],
+                armor: [
+                    "144602215", // Intellect
+                    "1735777505", // Discipline
+                    "4244567218", // Strength
+                ],
+                magazine: "3871231066",
+                attack: "368428387",
+                defense: "3897883278"
+            },
             reward_sources: [
                 {
                     label: gettextCatalog.getString('Activities'),
