@@ -32,6 +32,55 @@
             </div>
         </div>
 
+        <div class="primary-stats">
+
+            <div class="stat" ng-show="entity._primaryStats.attack">
+                <div class="icon">
+                    <i class="ggg ggg-void"></i>
+                </div>
+                <div class="info">
+                    <span class="value" ng-show="entity._primaryStats.attack.min != entity._primaryStats.attack.max">
+                        {{ entity._primaryStats.attack.min }}-{{ entity._primaryStats.attack.max }}
+                    </span>
+                    <span class="value" ng-show="entity._primaryStats.attack.min == entity._primaryStats.attack.max">
+                        {{ entity._primaryStats.attack.min }}
+                    </span>
+                    <span class="name">{{ entity._primaryStats.attack.name }}</span>
+                </div>
+            </div>
+
+            <div class="stat" ng-show="entity._primaryStats.defense">
+                <div class="icon">
+                    <i class="ggg ggg-defense"></i>
+                </div>
+                <div class="info">
+                    <span class="value" ng-show="entity._primaryStats.defense.min != entity._primaryStats.defense.max">
+                        {{ entity._primaryStats.defense.min }}-{{ entity._primaryStats.defense.max }}
+                    </span>
+                    <span class="value" ng-show="entity._primaryStats.defense.min == entity._primaryStats.defense.max">
+                        {{ entity._primaryStats.defense.min }}
+                    </span>
+                    <span class="name">{{ entity._primaryStats.defense.name }}</span>
+                </div>
+            </div>
+
+            <div class="stat" ng-show="entity._primaryStats.magazine">
+                <div class="icon">
+                    <i class="ggg ggg-magazine"></i>
+                </div>
+                <div class="info">
+                    <span class="value" ng-show="entity._primaryStats.magazine.min != entity._primaryStats.magazine.max">
+                        {{ entity._primaryStats.magazine.min }}-{{ entity._primaryStats.magazine.max }}
+                    </span>
+                    <span class="value" ng-show="entity._primaryStats.magazine.min == entity._primaryStats.magazine.max">
+                        {{ entity._primaryStats.magazine.min }}
+                    </span>
+                    <span class="name">{{ entity._primaryStats.magazine.name }}</span>
+                </div>
+            </div>
+
+        </div>
+
         <div class="stat-bars">
             <div class="stat" ng-repeat="stat in entity._displayStats">
                 <div class="name">{{ stat.name }}</div>
