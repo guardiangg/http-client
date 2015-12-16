@@ -55,9 +55,6 @@ app
             var regex = new RegExp("^\/(" + Object.keys(consts.languages).join('|') + ")\/");
             var match = $location.path().match(regex);
 
-            console.log(match);
-            console.log(locale);
-
             if (!match) {
                 $log.debug('no url locale set, redirecting to: ' + locale);
                 $state.go('app.home', { locale: locale });
