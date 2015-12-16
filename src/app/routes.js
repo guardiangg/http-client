@@ -54,7 +54,10 @@ app.config([
                 templateUrl: 'item.html'
             })
             .state('app.profile', {
-                url: 'profile/{platform}/{name}',
+                url: 'profile/{platform}/{name}/{mode}',
+                params: {
+                    mode: { value: null, squash: true }
+                },
                 controller: 'profileCtrl',
                 templateUrl: 'profile.html'
             })

@@ -39,9 +39,8 @@
             <div class="league" ng-style="{ 'background-color': e.league.colors.line }">{{e.league.label}}</div>
         </div>
     </div>
-    <div class="chart" ng-if="!loading.eloHistory && !chartEmpty">
+    <div class="chart" ng-if="!loading.eloHistory && !eloChartEmpty">
         <highchart config="eloChart" style="height: 300px;"></highchart>
-        <!--<highchart config="kdChart" style="height: 300px;"></highchart>-->
     </div>
     <div ng-if="!loading.eloHistory && !loading.elo && elos.length == 0 && chartEmpty" class="empty" translate>
         No Elo data exists for this player. This is either an error in our system, or the player pretty much never enters Crucible.

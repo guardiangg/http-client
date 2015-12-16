@@ -35,14 +35,25 @@ app.factory('chart-profile-kd', [
                     type: 'datetime',
                     minTickInterval: 3600 * 1000 * 24
                 },
-                yAxis: {
-                    gridLineWidth: 0,
-                    minorGridLineWidth: 0,
-                    title: {
-                        margin: 20,
-                        text: 'K:D'
+                yAxis: [
+                    {
+                        gridLineWidth: 0,
+                        minorGridLineWidth: 0,
+                        title: {
+                            margin: 20,
+                            text: 'K:D'
+                        }
+                    },
+                    {
+                        gridLineWidth: 0,
+                        minorGridLineWidth: 0,
+                        opposite: true,
+                        title: {
+                            margin: 20,
+                            text: 'K:D'
+                        }
                     }
-                }
+                ]
             },
             series: {}
         };

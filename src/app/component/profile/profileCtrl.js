@@ -3,6 +3,7 @@ var app = angular.module('app');
 app.controller('profileCtrl', [
     '$rootScope',
     '$scope',
+    '$state',
     '$stateParams',
     '$location',
     '$localStorage',
@@ -12,15 +13,23 @@ app.controller('profileCtrl', [
     'charts',
     'auditFactory',
 
-    function ($rootScope, $scope, $stateParams, $location, $localStorage, api, bungie, consts, charts, auditFactory) {
+    function ($rootScope, $scope, $state, $stateParams, $location, $localStorage, api, bungie, consts, charts, auditFactory) {
+        if (!$stateParams.mode) {
+            $state.go('app.profile', {
+                platform: $stateParams.platform,
+                name: $stateParams.name,
+                mode: $localStorage.profileMode ? $localStorage.profileMode : 5
+            });
+            return;
+        }
+
         //var audit = new auditFactory($scope);
-        $scope.mode = $localStorage.profileMode ? $localStorage.profileMode : 5;
+        $scope.mode = $stateParams.mode;
         $scope.modes = consts.modes;
         $scope.modeIcons = consts.modeIcons;
         $scope.srlMaps = consts.srl_maps;
         $scope.classes = consts.classes;
         $scope.eloChart = charts.get('profile-elo');
-        $scope.kdChart = charts.get('profile-kd');
         $scope.loading = {
             activityHistory: true,
             elo: true,
@@ -73,128 +82,147 @@ app.controller('profileCtrl', [
                 });
         };
 
-        var load = function(platform, membershipId) {
-            $scope.setMode = function(mode, force) {
-                if ($scope.mode == mode && !force) {
-                    return;
+        $scope.setMode = function(mode) {
+            $state.transitionTo(
+                'app.profile',
+                {
+                    platform: $stateParams.platform,
+                    name: $stateParams.name,
+                    mode: mode
+                },
+                {
+                    reload: false,
+                    notify: false
                 }
+            );
 
-                _.each($scope.eloChart.series, function(series, index) {
-                    series.visible = mode == 5 || mode == index;
+            setMode(mode);
+        };
+
+        var setMode = function(mode, force) {
+            if ($scope.mode == mode && !force) {
+                return;
+            }
+
+            $scope.eloChartEmpty = true;
+
+            _.each($scope.eloChart.series, function(series) {
+                series.visible = mode == series.mode;
+
+                if (series.mode == mode && series.data.length > 0) {
+                    $scope.eloChartEmpty = false;
+                }
+            });
+
+            $scope.activities = [];
+            $scope.page = 0;
+
+            $localStorage.profileMode = mode;
+
+            $scope.mode = mode;
+
+            $scope.loading.activityHistory = true;
+            $scope.maintenance.activityHistory = false;
+            $scope.loading.fireteam = true;
+            $scope.maintenance.fireteam = false;
+
+            $scope.loadHistory(mode, $scope.platform, $scope.membershipId);
+
+            api
+                .getFireteam(mode, $scope.membershipId)
+                .then(function(result) {
+                    $scope.fireteam = result.data;
+                    $scope.loading.fireteam = false;
                 });
+        };
 
-                _.each($scope.kdChart.series, function(series, index) {
-                    series.visible = mode == 5 || mode == index;
-                });
+        $scope.loadInventory = function() {
+            $scope.loading.inventory = true;
+            $scope.maintenance.inventory = false;
 
-                $scope.activities = [];
-                $scope.page = 0;
-
-                $localStorage.profileMode = mode;
-
-                $scope.mode = mode;
-
-                $scope.loading.activityHistory = true;
-                $scope.maintenance.activityHistory = false;
-                $scope.loading.fireteam = true;
-                $scope.maintenance.fireteam = false;
-
-                $scope.loadHistory(mode, platform, membershipId);
-
-                api
-                    .getFireteam(mode, membershipId)
-                    .then(function(result) {
-                        $scope.fireteam = result.data;
-                        $scope.loading.fireteam = false;
-                    });
-            };
-
-            $scope.loadInventory = function() {
-                $scope.loading.inventory = true;
-                $scope.maintenance.inventory = false;
-
-                bungie
-                    .getInventory(
-                    platform,
-                    membershipId,
+            bungie
+                .getInventory(
+                    $scope.platform,
+                    $scope.membershipId,
                     $scope.character.characterBase.characterId
                 )
-                    .then(function(response) {
-                        $scope.items = response.data.Response.data.buckets.Equippable;
-                        $scope.definitions = response.data.Response.definitions;
-                        //audit.setLoadout($scope.items);
-                        //audit.setDefinitions($scope.definitions);
-                        $scope.loading.inventory = false;
-                    }, function(err) {
-                        $scope.loading.inventory = false;
-                        $scope.maintenance.inventory = true;
-                    });
-            };
-
-            $scope.changeCharacter = function(index) {
-                if (index == $scope.characterIndex) {
-                    return;
-                }
-
-                $scope.characterIndex = index;
-                $scope.character = $scope.characters[$scope.characterIndex];
-                //audit.setCharacter($scope.character);
-
-                $scope.setMode($scope.mode, true);
-                $scope.loadInventory();
-            };
-
-            $scope.statToTier = function(stat) {
-                var normalized = Math.floor(stat / 60);
-                if (normalized > 5) {
-                    return 5;
-                } else {
-                    return normalized;
-                }
-            };
-
-            $scope.getSuperCooldown = function(stat, items) {
-                var tiers = {};
-                var subClass = _.find(items, function(i) {
-                    return i.bucketHash == consts.buckets['subclass'];
+                .then(function(response) {
+                    $scope.items = response.data.Response.data.buckets.Equippable;
+                    $scope.definitions = response.data.Response.definitions;
+                    //audit.setLoadout($scope.items);
+                    //audit.setDefinitions($scope.definitions);
+                    $scope.loading.inventory = false;
+                }, function(err) {
+                    $scope.loading.inventory = false;
+                    $scope.maintenance.inventory = true;
                 });
-                if (subClass) {
-                    if ([3658182170,2007186000,2455559914,4143670657].indexOf(subClass.items[0].itemHash) > -1 ) {
-                        tiers = {
-                            0: '5:00',
-                            1: '4:46',
-                            2: '4:31',
-                            3: '4:15',
-                            4: '3:58',
-                            5: '3:40'
-                        };
-                    } else {
-                        tiers = {
-                            0: '5:30',
-                            1: '5:14',
-                            2: '4:57',
-                            3: '4:39',
-                            4: '4:20',
-                            5: '4:00'
-                        };
-                    }
-                    return tiers[$scope.statToTier(stat)];
+        };
+
+        $scope.changeCharacter = function(index) {
+            if (index == $scope.characterIndex) {
+                return;
+            }
+
+            $scope.characterIndex = index;
+            $scope.character = $scope.characters[$scope.characterIndex];
+            //audit.setCharacter($scope.character);
+
+            setMode($scope.mode, true);
+            $scope.loadInventory();
+        };
+
+        $scope.statToTier = function(stat) {
+            var normalized = Math.floor(stat / 60);
+            if (normalized > 5) {
+                return 5;
+            } else {
+                return normalized;
+            }
+        };
+
+        $scope.getSuperCooldown = function(stat, items) {
+            var tiers = {};
+            var subClass = _.find(items, function(i) {
+                return i.bucketHash == consts.buckets['subclass'];
+            });
+            if (subClass) {
+                if ([3658182170,2007186000,2455559914,4143670657].indexOf(subClass.items[0].itemHash) > -1 ) {
+                    tiers = {
+                        0: '5:00',
+                        1: '4:46',
+                        2: '4:31',
+                        3: '4:15',
+                        4: '3:58',
+                        5: '3:40'
+                    };
+                } else {
+                    tiers = {
+                        0: '5:30',
+                        1: '5:14',
+                        2: '4:57',
+                        3: '4:39',
+                        4: '4:20',
+                        5: '4:00'
+                    };
                 }
-            };
-
-            $scope.getUtilityCooldown = function(stat) {
-                var tiers = {
-                    0: '1:00',
-                    1: '0:55',
-                    2: '0:49',
-                    3: '0:42',
-                    4: '0:34',
-                    5: '0:25'
-                };
-
                 return tiers[$scope.statToTier(stat)];
+            }
+        };
+
+        $scope.getUtilityCooldown = function(stat) {
+            var tiers = {
+                0: '1:00',
+                1: '0:55',
+                2: '0:49',
+                3: '0:42',
+                4: '0:34',
+                5: '0:25'
             };
 
+            return tiers[$scope.statToTier(stat)];
+        };
+
+        var load = function(platform, membershipId) {
             $scope.loading.elo = true;
             api
                 .getEloByMembershipId(membershipId)
@@ -241,19 +269,75 @@ app.controller('profileCtrl', [
 
             api
                 .getEloChart(membershipId)
-                .then(function(result) {
-                    _.each(result.data, function(row) {
-                        if (!$scope.eloChart.series[row.mode]) {
-                            $scope.eloChart.series[row.mode] = {
-                                data: [],
-                                name: $scope.modes[row.mode],
-                                lineWidth: 2
-                            }
+                .then(function(eloResult) {
+                    var elo = {};
+                    var kd = {};
+                    var highest = {mode: null, elo: 0};
+
+                    _.each(eloResult.data, function(row) {
+                        if (!elo[row.mode]) {
+                            elo[row.mode] = [];
                         }
-                        $scope.eloChart.series[row.mode].data.push(row);
+                        elo[row.mode].push({ x: row.x, y: row.y });
+
+                        if (row.y > highest.elo) {
+                            highest.elo = row.y;
+                            highest.mode = row.mode;
+                        }
                     });
 
-                    $scope.eloChartEmpty = Object.keys($scope.eloChart.series).length == 0;
+                    api
+                        .getKdChart(membershipId)
+                        .then(function(kdResult) {
+                            _.each(kdResult.data, function(row) {
+                                if (!kd[row.mode]) {
+                                    kd[row.mode] = [];
+                                }
+                                kd[row.mode].push({ x: row.x, y: row.y });
+                            });
+
+                            $scope.eloChart.series = [];
+
+                            _.each(elo, function(data, mode) {
+                                $scope.eloChart.series.push({
+                                    mode: mode,
+                                    data: data,
+                                    name: 'Elo',
+                                    color: '#404040',
+                                    visible: false
+                                });
+
+                                if (kd[mode]) {
+                                    $scope.eloChart.series.push({
+                                        mode: mode,
+                                        data: kd[mode],
+                                        name: 'K:D',
+                                        color: '#ecaa4a',
+                                        yAxis: 1,
+                                        visible: false
+                                    });
+                                }
+                            });
+
+                            $scope.eloChart.series.push({
+                                mode: 5,
+                                data: kd[highest.mode],
+                                name: $scope.modes[highest.mode] + ' K:D',
+                                color: '#ecaa4a',
+                                yAxis: 1,
+                                visible: false
+                            });
+
+                            $scope.eloChart.series.push({
+                                mode: 5,
+                                data: elo[highest.mode],
+                                name: $scope.modes[highest.mode] + ' Elo',
+                                color: '#404040',
+                                visible: false
+                            });
+
+                            $scope.loading.eloHistory = false;
+                        });
 
                     return api.getSrl(membershipId);
                 })
@@ -261,21 +345,6 @@ app.controller('profileCtrl', [
                     $scope.srl = result.data;
                     $scope.loading.srl = false;
 
-                    return api.getKdChart(membershipId);
-                })
-                .then(function(result) {
-                    _.each(result.data, function(row) {
-                        if (!$scope.kdChart.series[row.mode]) {
-                            $scope.kdChart.series[row.mode] = {
-                                data: [],
-                                name: $scope.modes[row.mode],
-                                lineWidth: 2
-                            }
-                        }
-                        $scope.kdChart.series[row.mode].data.push(row);
-                    });
-                    
-                    $scope.loading.eloHistory = false;
                     return bungie.getAccount(platform, membershipId);
                 })
                 .then(function(response) {
