@@ -246,7 +246,7 @@ msgstr ""
 msgid "Guardian"
 msgstr ""
 
-#: app.js:84
+#: app.js:87
 msgid "Guardian.gg - Advanced Destiny Stats, Profiles and Leaderboards"
 msgstr ""
 
