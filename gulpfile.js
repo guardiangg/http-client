@@ -68,7 +68,7 @@ var jsFiles = {
     ]
 };
 
-var templateFiles = ['./src/view/**/*.html'];
+var templateFiles = ['./src/app/**/*.html'];
 
 var cssCallback = function() {
     var stream = gulp
@@ -118,7 +118,7 @@ gulp.task('watch', ['build'], function() {
     gulp.watch(['./src/asset/less/**/*.less'], ['css']);
     gulp.watch(['./src/app/**/*.js'], ['js']);
     gulp.watch(['./src/po/*.po'], ['translate']);
-    gulp.watch(['src/index.html', 'src/view/**/*.html', 'src/app/**/*.js'], ['pot']);
+    gulp.watch(['src/index.html', 'src/app/**/*.html', 'src/app/**/*.js'], ['pot']);
     gulp.watch(templateFiles, ['templates']);
 });
 
@@ -191,7 +191,7 @@ gulp.task('robots', function() {
 
 gulp.task('pot', function () {
     return gulp
-        .src(['src/index.html', 'src/view/**/*.html', 'src/app/**/*.js'])
+        .src(['src/index.html', 'src/app/**/*.html', 'src/app/**/*.js'])
         .pipe(gettext.extract('template.pot', {
             // options to pass to angular-gettext-tools...
         }))
@@ -204,3 +204,5 @@ gulp.task('translate', function () {
         .pipe(gettext.compile())
         .pipe(gulp.dest('src/i18n/'));
 });
+
+gulp.task('default', ['build']);
