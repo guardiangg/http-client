@@ -40,12 +40,12 @@ var jsFiles = {
         'angular-filter/dist/angular-filter.js',
         'angular-loading-bar/src/loading-bar.js',
         'angular-gettext/dist/angular-gettext.js',
-        'angular-smooth-scroll/angular-smooth-scroll.js',
+        'ng-smooth-scroll/dist/angular-smooth-scroll.min.js',
         'angular-toastr/dist/angular-toastr.js',
         'angular-toastr/dist/angular-toastr.tpls.js',
         'angular-sanitize/angular-sanitize.js',
         'angular-ui-router/release/angular-ui-router.js',
-        'angular-ui-select/dist/select.js',
+        'ui-select/dist/select.js',
         'angularjs-datepicker/src/js/angular-datepicker.js',
         'angular-tooltips/dist/angular-tooltips.min.js',
         'angulartics/dist/angulartics.min.js',
@@ -99,7 +99,7 @@ var jsCallback = function() {
 
 var jsVendorCallback = function() {
     var stream = gulp
-        .src(jsFiles.vendor, { cwd: './bower_components' });
+        .src(jsFiles.vendor, { cwd: './node_modules' });
 
     if (isProd) {
         stream = stream
