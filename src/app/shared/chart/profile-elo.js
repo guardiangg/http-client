@@ -29,7 +29,17 @@ app.factory('chart-profile-elo', [
                     }
                 },
                 tooltip: {
-                    shared: true
+                    shared: true,
+                    formatter: function() {
+                        var s = '<b>'+ Highcharts.dateFormat('%A, %b %e, %Y', this.x)+'</b><br/>';
+                        s += '<span style="color:' + this.points[0].series.color + '">\u25CF</span>';
+                        s += this.points[0].series.name + ': ' + '<strong>' + this.points[0].y + '</strong>';
+                        s += '<br>';
+                        s += '<span style="color:' + this.points[1].series.color + '">\u25CF</span>';
+                        s += this.points[1].series.name + ': ' + '<strong>' +  (Math.round(this.points[1].y * 100) / 100) + '</strong>';
+
+                        return s;
+                    }
                 },
                 xAxis: {
                     gridLineWidth: 0,
