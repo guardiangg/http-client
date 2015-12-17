@@ -12,7 +12,7 @@ app.directive('profileItems', [
                 definitions: '=',
                 slots: '@'
             },
-            templateUrl: 'profile-items.html',
+            templateUrl: 'component/profile/profile-items.html',
 
             link: function (scope, element) {
                 var init = function() {

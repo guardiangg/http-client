@@ -26,7 +26,7 @@ app.directive('pagination', [
                     d && init();
                 }, true);
             },
-            templateUrl: 'directive/pagination.html'
+            templateUrl: 'shared/directive/pagination/pagination.html'
         };
     }
 ]);

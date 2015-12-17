@@ -34,9 +34,9 @@ app.controller('layoutCtrl', [
         };
 
         $scope.changeLanguage = function(lang) {
+            var current = gettextCatalog.getCurrentLanguage();
             $localStorage.locale = lang;
-            $state.go($state.current.name, { locale: lang });
-            $window.location.reload();
+            $window.location = $location.absUrl().replace('/' + current + '/', '/' + lang + '/');
         };
 
         $scope.searchForPlayer = function(name) {

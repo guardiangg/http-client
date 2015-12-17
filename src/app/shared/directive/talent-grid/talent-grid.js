@@ -11,7 +11,7 @@ app.directive('talentGrid', [
             },
             link: function(scope, element, attrs) {
             },
-            templateUrl: 'directive/talent-grid.html'
+            templateUrl: 'shared/directive/talent-grid/talent-grid.html'
         };
     }
 ]);

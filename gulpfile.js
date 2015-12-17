@@ -1,5 +1,4 @@
-var series     = require('stream-series'),
-    gulp       = require('gulp'),
+var gulp       = require('gulp'),
     templates  = require('gulp-angular-templatecache'),
     async      = require('async'),
     concat     = require('gulp-concat'),
@@ -29,9 +28,9 @@ var jsFiles = {
         'app/component/**/*.js'
     ],
     tooltip: [
-        'bower_components/opentip/lib/opentip.js',
-        'bower_components/opentip/lib/adapter-native.js',
-        'bower_components/underscore/underscore.js',
+        'node_modules/opentip/lib/opentip.js',
+        'node_modules/opentip/lib/adapter-native.js',
+        'node_modules/underscore/underscore.js',
         'src/tooltip/tooltip.js'
     ],
     vendor: [
@@ -44,12 +43,12 @@ var jsFiles = {
         'angular-filter/dist/angular-filter.js',
         'angular-loading-bar/src/loading-bar.js',
         'angular-gettext/dist/angular-gettext.js',
-        'angular-smooth-scroll/angular-smooth-scroll.js',
+        'ng-smooth-scroll/dist/angular-smooth-scroll.min.js',
         'angular-toastr/dist/angular-toastr.js',
         'angular-toastr/dist/angular-toastr.tpls.js',
         'angular-sanitize/angular-sanitize.js',
         'angular-ui-router/release/angular-ui-router.js',
-        'angular-ui-select/dist/select.js',
+        'ui-select/dist/select.js',
         'angularjs-datepicker/src/js/angular-datepicker.js',
         'angular-tooltips/dist/angular-tooltips.min.js',
         'angulartics/dist/angulartics.min.js',
@@ -74,7 +73,7 @@ var jsFiles = {
     ]
 };
 
-var templateFiles = ['./src/view/**/*.html'];
+var templateFiles = ['./src/app/**/*.html'];
 
 var cssCallback = function() {
     var stream = gulp
@@ -133,7 +132,7 @@ var jsTooltipCallback = function() {
 };
 
 var jsVendorCallback = function() {
-    var stream = gulp.src(jsFiles.vendor, { cwd: './bower_components' });
+    var stream = gulp.src(jsFiles.vendor, { cwd: './node_modules' });
 
     if (isProd) {
         stream = stream
@@ -153,7 +152,7 @@ gulp.task('watch', ['build', 'tooltip'], function() {
     gulp.watch(['./src/app/**/*.js'], ['js']);
     gulp.watch(['./src/tooltip/**/*.js'], ['jsTooltip']);
     gulp.watch(['./src/po/*.po'], ['translate']);
-    gulp.watch(['src/index.html', 'src/view/**/*.html', 'src/app/**/*.js'], ['pot']);
+    gulp.watch(['src/index.html', 'src/app/**/*.html', 'src/app/**/*.js'], ['pot']);
     gulp.watch(['src/tooltip/**/*.html'], ['tooltip']);
     gulp.watch(['src/tooltip/less/tooltip.less'], ['cssTooltip']);
     gulp.watch(templateFiles, ['templates']);
@@ -246,7 +245,7 @@ gulp.task('robots', function() {
 
 gulp.task('pot', function () {
     return gulp
-        .src(['src/index.html', 'src/view/**/*.html', 'src/app/**/*.js'])
+        .src(['src/index.html', 'src/app/**/*.html', 'src/app/**/*.js'])
         .pipe(gettext.extract('template.pot', {
             // options to pass to angular-gettext-tools...
         }))
@@ -259,3 +258,5 @@ gulp.task('translate', function () {
         .pipe(gettext.compile())
         .pipe(gulp.dest('src/i18n/'));
 });
+
+gulp.task('default', ['build']);

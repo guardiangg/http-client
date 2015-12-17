@@ -2,7 +2,6 @@ all: build deploy
 
 build:
 	npm install
-	bower install
 	gulp build --prod
 
 deploy:

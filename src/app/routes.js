@@ -40,21 +40,21 @@ app.config([
             .state('app.home', {
                 url: '',
                 controller: 'homeCtrl',
-                templateUrl: 'home.html'
+                templateUrl: 'component/home/home.html'
             })
             .state('app.faq', {
                 url: '/faq',
-                templateUrl: 'faq.html'
+                templateUrl: 'component/faq/faq.html'
             })
             .state('app.search', {
                 url: '/search/{name}',
                 controller: 'searchCtrl',
-                templateUrl: 'search.html'
+                templateUrl: 'component/search/search.html'
             })
             .state('app.subclass', {
                 url: '/subclass/{subclass:[a-z]+}',
                 controller: 'subclassCtrl',
-                templateUrl: 'subclass.html'
+                templateUrl: 'component/subclass/subclass.html'
             })
             .state('app.itemList', {
                 url: '/items/{primary:[a-z-]+}/{secondary:[a-z-]+}/{tertiary:[a-z-]+}',
@@ -64,52 +64,55 @@ app.config([
                     tertiary: { value: null, squash: true }
                 },
                 controller: 'itemListCtrl',
-                templateUrl: 'item.html'
+                templateUrl: 'component/item/item.html'
             })
             .state('app.itemDetail', {
                 url: '/items/{hash:[0-9]+}',
                 controller: 'itemDetailCtrl',
-                templateUrl: 'item-detail.html'
+                templateUrl: 'component/item/item-detail.html'
             })
             .state('app.itemDetailName', {
                 url: '/items/{hash:[0-9]+}/{name}',
                 controller: 'itemDetailCtrl',
-                templateUrl: 'item-detail.html'
+                templateUrl: 'component/item/item-detail.html'
             })
             .state('app.profile', {
-                url: '/profile/{platform}/{name}',
+                url: '/profile/{platform}/{name}/{mode}',
+                params: {
+                    mode: { value: null, squash: true }
+                },
                 controller: 'profileCtrl',
-                templateUrl: 'profile.html'
+                templateUrl: 'component/profile/profile.html'
             })
             .state('app.srl', {
                 url: '/srl/{platform:[0-9]+}/{map:[0-9-]+}/{page:[0-9]+}',
                 controller: 'srlCtrl',
-                templateUrl: 'srl.html'
+                templateUrl: 'component/srl/srl.html'
             })
             .state('app.leaderboard-platform-mode-name', {
                 url: '/leaderboard/{platform}/{mode}/{name}',
                 controller: 'leaderboardCtrl',
-                templateUrl: 'leaderboard.html'
+                templateUrl: 'component/leaderboard/leaderboard.html'
             })
             .state('app.leaderboard-platform-mode', {
                 url: '/leaderboard/{platform}/{mode}',
                 controller: 'leaderboardCtrl',
-                templateUrl: 'leaderboard.html'
+                templateUrl: 'component/leaderboard/leaderboard.html'
             })
             .state('app.leaderboard-platform', {
                 url: '/leaderboard/{platform}',
                 controller: 'leaderboardCtrl',
-                templateUrl: 'leaderboard.html'
+                templateUrl: 'component/leaderboard/leaderboard.html'
             })
             .state('app.leaderboard', {
                 url: '/leaderboard',
                 controller: 'leaderboardCtrl',
-                templateUrl: 'leaderboard.html'
+                templateUrl: 'component/leaderboard/leaderboard.html'
             })
             .state('app.weapon-stats', {
                 url: '/weapon-stats',
                 controller: 'weaponStatsCtrl',
-                templateUrl: 'weapon-stats.html'
+                templateUrl: 'component/weapon-stats/weapon-stats.html'
             });
     }
 ]);
