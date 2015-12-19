@@ -136,7 +136,12 @@
                 <th translate>Use%</th>
             </tr>
             <tr ng-repeat="item in weapons">
-                <td><img ng-src="//www.bungie.net{{item.icon}}"> {{item.name}}</td>
+                <td>
+                    <a ui-sref="app.itemDetailName({hash: item.hash, name: slugify(item.name)})">
+                        <img ng-src="//www.bungie.net{{item.icon}}">
+                        {{item.name}}
+                    </a>
+                </td>
                 <td ng-class="item.kd >= 1 ? 'positive' : 'negative'">{{item.kd|number:2}}</td>
                 <td>{{item.wins / item.total * 100|number:1}}%</td>
                 <td>{{item.total / totals.weapons * 100|number:1}}%</td>
@@ -159,7 +164,12 @@
                 <th translate>Use%</th>
             </tr>
             <tr ng-repeat="item in armors">
-                <td><img ng-src="//www.bungie.net{{item.icon}}"> {{item.name}}</td>
+                <td>
+                    <a ui-sref="app.itemDetailName({hash: item.hash, name: slugify(item.name)})">
+                        <img ng-src="//www.bungie.net{{item.icon}}">
+                        {{item.name}}
+                    </a>
+                </td>
                 <td ng-class="item.kd >= 1 ? 'positive' : 'negative'">{{item.kd|number:2}}</td>
                 <td>{{item.wins / item.total * 100|number:1}}%</td>
                 <td>{{item.total / totals.armor * 100|number:1}}%</td>

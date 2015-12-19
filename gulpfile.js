@@ -47,10 +47,11 @@ var jsFiles = {
         'angular-toastr/dist/angular-toastr.js',
         'angular-toastr/dist/angular-toastr.tpls.js',
         'angular-sanitize/angular-sanitize.js',
+        'angular-ui-bootstrap/ui-bootstrap.js',
+        'angular-ui-bootstrap/ui-bootstrap-tpls.js',
         'angular-ui-router/release/angular-ui-router.js',
         'ui-select/dist/select.js',
         'angularjs-datepicker/src/js/angular-datepicker.js',
-        'angular-tooltips/dist/angular-tooltips.min.js',
         'angulartics/dist/angulartics.min.js',
         'angulartics-google-analytics/dist/angulartics-google-analytics.min.js',
 

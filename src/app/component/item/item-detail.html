@@ -3,6 +3,23 @@
     <div class="quick-facts">
 
         <div class="section">
+            <h3 translate>Metadata</h3>
+            <ul class="facts">
+                <li>
+                    <span translate>Last patched</span>
+                    <em class="help" uib-tooltip="{{entity.version}}" data-toggle="tooltip">{{ entity.version|ago }}</em>
+                </li>
+                <li>
+                    <span translate>Class restriction</span>
+                    <em ng-show="entity.class === 0" translate>Titan</em>
+                    <em ng-show="entity.class === 1" translate>Hunter</em>
+                    <em ng-show="entity.class === 2" translate>Warlock</em>
+                    <em ng-show="entity.class === 3" translate>None</em>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
             <h3 translate>Sources</h3>
             <ul class="sources">
                 <li class="source" ng-repeat="source in entity.sources">
@@ -81,13 +98,30 @@
 
         </div>
 
-        <div class="stat-bars">
+        <h4 class="stat-header" translate ng-show="entity._displayStats.length > 0">Primary Stats</h4>
+        <div class="stat-bars primary" ng-show="entity._displayStats.length > 0">
             <div class="stat" ng-repeat="stat in entity._displayStats">
                 <div class="name">{{ stat.name }}</div>
                 <div class="bar">
-                    <div class="fill-min" ng-show="stat.min != stat.max" ng-style="{width: ((stat.min * 100) / 100) + '%'}"></div>
-                    <div class="fill-max" ng-show="stat.min != stat.max" ng-style="{width: ((stat.max * 100) / 100) + '%'}"></div>
-                    <div class="fill" ng-show="stat.min == stat.max" ng-style="{width: ((stat.min * 100) / 100) + '%'}"></div>
+                    <div class="fill-min" ng-show="stat.min != stat.max" ng-style="{width: ((stat.min * 100) / stat.limit) + '%'}"></div>
+                    <div class="fill-max" ng-show="stat.min != stat.max" ng-style="{width: ((stat.max * 100) / stat.limit) + '%'}"></div>
+                    <div class="fill" ng-show="stat.min == stat.max" ng-style="{width: ((stat.min * 100) / stat.limit) + '%'}"></div>
+                </div>
+                <div class="value">
+                    <span ng-show="stat.min != stat.max">{{ stat.min }}-{{ stat.max }}</span>
+                    <span ng-show="stat.min == stat.max">{{ stat.min }}</span>
+                </div>
+            </div>
+        </div>
+
+        <h4 class="stat-header" translate ng-show="entity._hiddenStats.length > 0">Hidden Stats</h4>
+        <div class="stat-bars secondary" ng-show="entity._hiddenStats.length > 0">
+            <div class="stat" ng-repeat="stat in entity._hiddenStats">
+                <div class="name">{{ stat.name }}</div>
+                <div class="bar">
+                    <div class="fill-min" ng-show="stat.min != stat.max" ng-style="{width: ((stat.min * 100) / stat.limit) + '%'}"></div>
+                    <div class="fill-max" ng-show="stat.min != stat.max" ng-style="{width: ((stat.max * 100) / stat.limit) + '%'}"></div>
+                    <div class="fill" ng-show="stat.min == stat.max" ng-style="{width: ((stat.min * 100) / stat.limit) + '%'}"></div>
                 </div>
                 <div class="value">
                     <span ng-show="stat.min != stat.max">{{ stat.min }}-{{ stat.max }}</span>

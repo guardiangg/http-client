@@ -16,11 +16,11 @@ var app = angular.module(
         'highcharts-ng',
 
         '720kb.datepicker',
-        '720kb.tooltips',
 
         'smoothScroll',
         'toastr',
 
+        'ui.bootstrap',
         'ui.router',
         'ui.select'
     ]

@@ -17,6 +17,8 @@ app.controller('itemDetailCtrl', [
                 $rootScope.title = r.name + ' - Items - Guardian.gg';
 
                 $scope.entity._displayStats = [];
+                $scope.entity._hiddenStats = [];
+
                 _.each(consts.stats.display, function(s, idx) {
                     var obj = _.find(r.stats, function(stat) {
                         return stat.hash.toString() === s;
@@ -27,12 +29,31 @@ app.controller('itemDetailCtrl', [
                     }
 
                     obj = angular.copy(obj);
+                    obj.limit = Math.max(obj.max, 100);
                     obj.order = idx;
 
                     $scope.entity._displayStats.push(obj);
                 });
 
-                $scope.entity._displayStats = _.sortBy( $scope.entity._displayStats, 'order');
+                _.each(consts.stats.hidden, function(s, idx) {
+                    var obj = _.find(r.stats, function(stat) {
+                        return stat.hash.toString() === s;
+                    });
+
+                    if (!obj) {
+                        return;
+                    }
+
+                    obj = angular.copy(obj);
+                    obj.limit = Math.max(obj.max, 100);
+                    obj.order = idx;
+
+                    $scope.entity._hiddenStats.push(obj);
+                });
+
+                $scope.entity._displayStats = _.sortBy($scope.entity._displayStats, 'order');
+                $scope.entity._hiddenStats = _.sortBy($scope.entity._hiddenStats, 'order');
+
                 $scope.entity._primaryStats = {
                     attack: _.find(r.stats, function(stat) {
                         return stat.hash.toString() === consts.stats.attack;
