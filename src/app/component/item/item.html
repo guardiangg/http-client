@@ -212,7 +212,7 @@
                         <span class="quality-{{entity.tier}}">{{tiers[entity.tier].label}}</span>
                     </td>
                     <td class="source">
-                        <span ng-repeat="source in entity._sources|orderBy:'label'" class="list-reward" tooltip="{{source.label}}" data-toggle="tooltip">
+                        <span ng-repeat="source in entity._sources|orderBy:'label'" class="list-reward" uib-tooltip="{{source.label}}" data-toggle="tooltip" tooltip-placement="top">
                             <i class="ggg-source ggg-source-{{source.hash}}"></i>
                         </span>
                     </td>
