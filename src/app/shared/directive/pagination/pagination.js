@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.directive('pagination', [
+app.directive('pg', [
     function() {
         return {
             restrict: 'E',
