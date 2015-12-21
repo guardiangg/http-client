@@ -9,12 +9,20 @@ msgstr ""
 msgid "'Nade"
 msgstr ""
 
-#: component\layout\main.html:44
-msgid "<em>Internal error code: {{apiError}}</em>"
+#: component\subclass\subclass.html:52
+msgid "{{subclass.label}} Overview"
+msgstr ""
+
+#: component\subclass\subclass.html:63
+msgid "{{subclass.label}} Perks &amp; Exotics"
 msgstr ""
 
 #: component\home\home.html:3
 msgid "<em>{{totalPlayers24|number}}</em> tracked in the past day"
+msgstr ""
+
+#: component\layout\main.html:44
+msgid "<em>Internal error code: {{apiError}}</em>"
 msgstr ""
 
 #. Short for assists
@@ -50,9 +58,9 @@ msgstr ""
 
 #: component\faq\faq.html:40
 msgid ""
-"All players start at a baseline of 1200 points. You will take points from your opponent's Elo score by\r\n"
-"            defeating them, and vise versa. Defeating a more skilled opponent will yield higher points than if you beat up\r\n"
-"            on a weaker one. The higher the score, the more skilled the player. It is extremely difficult\r\n"
+"All players start at a baseline of 1200 points. You will take points from your opponent's Elo score by\n"
+"            defeating them, and vise versa. Defeating a more skilled opponent will yield higher points than if you beat up\n"
+"            on a weaker one. The higher the score, the more skilled the player. It is extremely difficult\n"
 "            to maintain a high Elo score, these players are regarded as the best of the best!"
 msgstr ""
 
@@ -230,10 +238,6 @@ msgstr ""
 msgid "D"
 msgstr ""
 
-#: component\layout\nav.html:171
-msgid "DPS Gear"
-msgstr ""
-
 #: component\weapon-stats\weapon-stats.html:92
 msgid "Data is updating..."
 msgstr ""
@@ -251,7 +255,7 @@ msgstr ""
 msgid "Defensive Gear"
 msgstr ""
 
-#: component\item\item.html:172
+#: component\item\item.html:179
 msgid "Description"
 msgstr ""
 
@@ -276,9 +280,13 @@ msgstr ""
 msgid "Doubles"
 msgstr ""
 
+#: component\layout\nav.html:171
+msgid "DPS Gear"
+msgstr ""
+
 #: component\faq\faq.html:59
 msgid ""
-"Each mode you play has its own Elo rating and league categorization. Beyond that, Elo is account-wide, so in\r\n"
+"Each mode you play has its own Elo rating and league categorization. Beyond that, Elo is account-wide, so in\n"
 "            Control you'll have the same rating whether you're on your Titan, Warlock or Hunter."
 msgstr ""
 
@@ -377,18 +385,18 @@ msgstr ""
 msgid "Future War Cult"
 msgstr ""
 
-#: component\faq\faq.html:6
-msgid ""
-"GGG is the lovechild of a couple hardcore Destiny fans. If you like what we've done and want to show your\r\n"
-"        support, feel free to buy us a beer and/or pony!"
-msgstr ""
-
 #: component\profile\activity-history.html:54
 msgid "Game mode:"
 msgstr ""
 
 #: component\leaderboard\leaderboard.html:66
 msgid "Games"
+msgstr ""
+
+#: component\faq\faq.html:6
+msgid ""
+"GGG is the lovechild of a couple hardcore Destiny fans. If you like what we've done and want to show your\n"
+"        support, feel free to buy us a beer and/or pony!"
 msgstr ""
 
 #: component\layout\nav.html:188
@@ -526,7 +534,7 @@ msgstr ""
 
 #: component\item\item.html:1
 #: component\item\item.html:133
-#: component\item\item.html:235
+#: component\item\item.html:242
 #: component\layout\nav.html:167
 msgid "Items"
 msgstr ""
@@ -536,6 +544,11 @@ msgstr ""
 #: component\profile\activity-history.html:105
 #: component\profile\pgcr.html:7
 msgid "K"
+msgstr ""
+
+#: shared\chart\kd.js:30
+#: shared\chart\subclass-kd.js:32
+msgid "K:D"
 msgstr ""
 
 #. Short for kills / deaths
@@ -550,11 +563,6 @@ msgstr ""
 
 #: shared\chart\subclass-kd.js:16
 msgid "K/D by Mode"
-msgstr ""
-
-#: shared\chart\kd.js:30
-#: shared\chart\subclass-kd.js:32
-msgid "K:D"
 msgstr ""
 
 #: shared\chart\kd.js:16
@@ -574,12 +582,12 @@ msgstr ""
 msgid "Last"
 msgstr ""
 
-#: component\item\item.html:192
+#: component\item\item.html:199
 msgid ""
-"Last Patch\r\n"
-"                        <div class=\"sort\" ng-class=\"{'active-asc': listService.sortColumn == 'version' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'version' && listService.sortDirection == 'desc'}\">\r\n"
-"                            <i class=\"fa fa-sort-asc\"></i>\r\n"
-"                            <i class=\"fa fa-sort-desc\"></i>\r\n"
+"Last Patch\n"
+"                        <div class=\"sort\" ng-class=\"{'active-asc': listService.sortColumn == 'version' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'version' && listService.sortDirection == 'desc'}\">\n"
+"                            <i class=\"fa fa-sort-asc\"></i>\n"
+"                            <i class=\"fa fa-sort-desc\"></i>\n"
 "                        </div>"
 msgstr ""
 
@@ -601,6 +609,10 @@ msgstr ""
 msgid "Loading Armor..."
 msgstr ""
 
+#: component\profile\activity-history.html:3
+msgid "Loading best SRL times..."
+msgstr ""
+
 #: component\profile\character.html:2
 msgid "Loading Characters..."
 msgstr ""
@@ -613,12 +625,20 @@ msgstr ""
 msgid "Loading Elo Data..."
 msgstr ""
 
+#: component\item\item.html:24
+msgid "Loading filters..."
+msgstr ""
+
 #: component\profile\activity-history.html:78
 msgid "Loading Fireteam..."
 msgstr ""
 
 #: component\profile\activity-history.html:97
 msgid "Loading Game History..."
+msgstr ""
+
+#: component\item\item.html:124
+msgid "Loading items, please wait..."
 msgstr ""
 
 #: component\profile\character.html:69
@@ -631,18 +651,6 @@ msgstr ""
 
 #: component\subclass\subclass.html:129
 msgid "Loading Weapons..."
-msgstr ""
-
-#: component\profile\activity-history.html:3
-msgid "Loading best SRL times..."
-msgstr ""
-
-#: component\item\item.html:24
-msgid "Loading filters..."
-msgstr ""
-
-#: component\item\item.html:124
-msgid "Loading items, please wait..."
 msgstr ""
 
 #: shared\service\consts.js:767
@@ -693,7 +701,7 @@ msgstr ""
 
 #: component\faq\faq.html:18
 msgid ""
-"More technical users are invited to contribute on our\r\n"
+"More technical users are invited to contribute on our\n"
 "            <a href=\"https://github.com/guardiangg/http-client\">GitHub repository</a>, we're open source!"
 msgstr ""
 
@@ -750,6 +758,10 @@ msgstr ""
 msgid "Ocean of Storms"
 msgstr ""
 
+#: shared\chart\weapon-bar.js:44
+msgid "of total kills"
+msgstr ""
+
 #: shared\service\consts.js:725
 msgid "Old Russia"
 msgstr ""
@@ -768,7 +780,7 @@ msgstr ""
 
 #: shared\directive\pagination\pagination.html:16
 msgid ""
-"Page {{data.page+1|number}} of {{maxPages+1|number}}\r\n"
+"Page {{data.page+1|number}} of {{maxPages+1|number}}\n"
 "        <span>{{data.totalItems|number}} {{name}}</span>"
 msgstr ""
 
@@ -825,7 +837,7 @@ msgstr ""
 msgid "Prev"
 msgstr ""
 
-#: component\item\item.html:169
+#: component\item\item.html:176
 msgid "Preview"
 msgstr ""
 
@@ -838,12 +850,12 @@ msgstr ""
 msgid "Primary Stats"
 msgstr ""
 
-#: shared\service\consts.js:260
-msgid "Primary Weapon"
-msgstr ""
-
 #: component\item\item.html:40
 msgid "Primary type"
+msgstr ""
+
+#: shared\service\consts.js:260
+msgid "Primary Weapon"
 msgstr ""
 
 #: shared\service\consts.js:663
@@ -940,17 +952,6 @@ msgstr ""
 msgid "Rumble"
 msgstr ""
 
-#: component\layout\nav.html:27
-#: component\layout\nav.html:92
-#: component\profile\activity-history.html:59
-#: shared\service\consts.js:129
-msgid "SRL"
-msgstr ""
-
-#: component\profile\activity-history.html:1
-msgid "SRL Records <span class=\"subtext\">limited event, ends Dec 29th, 2015</span>"
-msgstr ""
-
 #: component\layout\nav.html:137
 #: component\layout\nav.html:72
 #: component\profile\activity-history.html:68
@@ -1012,10 +1013,14 @@ msgstr ""
 msgid "Silver"
 msgstr ""
 
+#: component\profile\activity-history.html:25
+msgid "since \"The Taken King\" launch (Sept. 15, 2015)"
+msgstr ""
+
 #: component\faq\faq.html:24
 msgid ""
-"Since the launch of the Taken King, we have aggregated data from every single match played. Our rankings\r\n"
-"            are updated in real-time and immediately available. If you have played Destiny recently, particularly in the\r\n"
+"Since the launch of the Taken King, we have aggregated data from every single match played. Our rankings\n"
+"            are updated in real-time and immediately available. If you have played Destiny recently, particularly in the\n"
 "            Crucible, you have a profile here - check it out!"
 msgstr ""
 
@@ -1032,7 +1037,7 @@ msgstr ""
 msgid "Sniper Rifle"
 msgstr ""
 
-#: component\item\item.html:182
+#: component\item\item.html:189
 #: component\item\item.html:76
 msgid "Source"
 msgstr ""
@@ -1057,6 +1062,17 @@ msgstr ""
 
 #: shared\service\consts.js:317
 msgid "Special Weapon"
+msgstr ""
+
+#: component\layout\nav.html:27
+#: component\layout\nav.html:92
+#: component\profile\activity-history.html:59
+#: shared\service\consts.js:129
+msgid "SRL"
+msgstr ""
+
+#: component\profile\activity-history.html:1
+msgid "SRL Records <span class=\"subtext\">limited event, ends Dec 29th, 2015</span>"
 msgstr ""
 
 #: component\profile\activity-history.html:109
@@ -1139,16 +1155,8 @@ msgstr ""
 
 #: component\faq\faq.html:36
 msgid ""
-"The Elo rating system is a method for calculating the relative skill levels of players in\r\n"
+"The Elo rating system is a method for calculating the relative skill levels of players in\n"
 "            competitor-versus-competitor games."
-msgstr ""
-
-#: shared\service\consts.js:799
-msgid "The Speaker"
-msgstr ""
-
-#: shared\service\consts.js:700
-msgid "The Taken King"
 msgstr ""
 
 #: component\profile\activity-history.html:94
@@ -1159,20 +1167,28 @@ msgstr ""
 msgid "The page URL gets updated with any filters you add. Share it, or come back to it later easily!"
 msgstr ""
 
+#: shared\service\consts.js:799
+msgid "The Speaker"
+msgstr ""
+
+#: shared\service\consts.js:700
+msgid "The Taken King"
+msgstr ""
+
 #: component\weapon-stats\weapon-stats.html:88
 msgid "There is no data matching your filters."
 msgstr ""
 
 #: component\subclass\subclass.html:65
 msgid ""
-"This data examines the last 7 days of PvP in Destiny for players using the {{subclass.label}} subclass.\r\n"
-"    The rolling sample provides an accurate look at what players are using and what's working.\r\n"
+"This data examines the last 7 days of PvP in Destiny for players using the {{subclass.label}} subclass.\n"
+"    The rolling sample provides an accurate look at what players are using and what's working.\n"
 "    Select a mode on the filter bar below to only map K/D and win rates in that mode."
 msgstr ""
 
 #: component\layout\main.html:40
 msgid ""
-"This page relies on one or more Bungie APIs to properly display. We weren't able to retrieve some data, so\r\n"
+"This page relies on one or more Bungie APIs to properly display. We weren't able to retrieve some data, so\n"
 "        as a result one or more areas of this page are temporarily disabled. Try again in a few minutes."
 msgstr ""
 
@@ -1180,12 +1196,12 @@ msgstr ""
 msgid "This profile temporarily cannot be displayed. Too much data is missing by consequence of the current API issues."
 msgstr ""
 
-#: component\item\item.html:175
+#: component\item\item.html:182
 msgid ""
-"Tier\r\n"
-"                        <div class=\"sort\" ng-class=\"{'active-asc': listService.sortColumn == 'tier' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'tier' && listService.sortDirection == 'desc'}\">\r\n"
-"                            <i class=\"fa fa-sort-asc\"></i>\r\n"
-"                            <i class=\"fa fa-sort-desc\"></i>\r\n"
+"Tier\n"
+"                        <div class=\"sort\" ng-class=\"{'active-asc': listService.sortColumn == 'tier' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'tier' && listService.sortDirection == 'desc'}\">\n"
+"                            <i class=\"fa fa-sort-asc\"></i>\n"
+"                            <i class=\"fa fa-sort-desc\"></i>\n"
 "                        </div>"
 msgstr ""
 
@@ -1211,12 +1227,12 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: component\weapon-stats\weapon-stats.html:83
-msgid "Top Weapons"
-msgstr ""
-
 #: component\home\home.html:10
 msgid "Top {{platforms[platform]}} Guardians"
+msgstr ""
+
+#: component\weapon-stats\weapon-stats.html:83
+msgid "Top Weapons"
 msgstr ""
 
 #: shared\service\consts.js:751
@@ -1270,6 +1286,10 @@ msgstr ""
 #: component\layout\nav.html:230
 #: shared\service\consts.js:175
 msgid "Voidwalker"
+msgstr ""
+
+#: component\profile\pgcr.html:37
+msgid "vs."
 msgstr ""
 
 #: component\item\item-detail.html:16
@@ -1342,24 +1362,4 @@ msgstr ""
 #: component\profile\activity-history.html:70
 #: shared\service\consts.js:126
 msgid "Zone Control"
-msgstr ""
-
-#: shared\chart\weapon-bar.js:44
-msgid "of total kills"
-msgstr ""
-
-#: component\profile\activity-history.html:25
-msgid "since \"The Taken King\" launch (Sept. 15, 2015)"
-msgstr ""
-
-#: component\profile\pgcr.html:37
-msgid "vs."
-msgstr ""
-
-#: component\subclass\subclass.html:52
-msgid "{{subclass.label}} Overview"
-msgstr ""
-
-#: component\subclass\subclass.html:63
-msgid "{{subclass.label}} Perks &amp; Exotics"
 msgstr ""

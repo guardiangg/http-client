@@ -15,7 +15,10 @@
         auto: true,
         local: false,
         debug: false,
-        rename: true
+        rename: true,
+        targetjoint: 'top right',
+        tipjoint: 'bottom left',
+        target: null
     }, typeof gggTipOptions === 'undefined' ? {} : gggTipOptions);
 
     window.gggTips = new function(opts) {
@@ -117,7 +120,16 @@
                     return;
                 }
 
-                options[match[1]] = attr.nodeValue;
+                var value = attr.nodeValue;
+                if (value == 'true') {
+                    value = true;
+                } else if (value == 'false') {
+                    value = false;
+                } else if (value == 'null') {
+                    value = null;
+                }
+
+                options[match[1]] = value;
             });
 
             return _.extend({}, opts, options);
@@ -134,24 +146,19 @@
             _.each(data, function(entry) {
                 var hash = entry.hash;
                 var element = entry.element;
-
+                var eOpts = optionsFromAttributes(element);
                 var tip = new Opentip(element, cache[hash].html, {
                     delay: 0,
-                    hideDelay: 0,
-                    showEffect: null,
-                    hideEffect: null,
-                    showOn: null,
-                    target: true,
-                    tipJoint: 'bottom'
+                    stemLength: 0,
+                    stemBase: 0,
+                    containInViewport: true,
+                    target: eOpts.target,
+                    targetJoint: eOpts.targetjoint,
+                    tipJoint: eOpts.tipjoint,
+                    group: 'ggg'
                 });
 
-                element.addEventListener('mouseover', function() {
-                    tip.show();
-                });
-
-                var eOpts = optionsFromAttributes(element);
-
-                if (eOpts.rename === true || eOpts.rename === 'true') {
+                if (eOpts.rename === true) {
                     element.innerHTML = cache[hash].json.name;
                 }
             });
