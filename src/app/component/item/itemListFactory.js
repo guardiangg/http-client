@@ -240,9 +240,15 @@ app.factory('itemListFactory', [
                         var data = [];
 
                         _.each(self.filteredData, function(i) {
-                            if (i.rewardSources && (i.rewardSources.indexOf(parseInt(value)) > -1 || i.rewardSources.indexOf(value) > -1)) {
-                                data.push(i);
+                            if (!i.sources) {
+                                return;
                             }
+
+                            var source = _.find(i.sources, function(s) {
+                                return s.hash.toString() == value.toString();
+                            });
+
+                            source && data.push(i);
                         });
 
                         self.filteredData = data;
