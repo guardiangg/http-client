@@ -11,7 +11,7 @@
     Opentip.defaultStyle = 'ggg';
 
     var opts = _.extend({
-        apiUrl: 'https://api.guardian.gg/tooltips/items',
+        apiurl: 'https://api.guardian.gg/tooltips/items',
         auto: true,
         local: false,
         debug: false,
