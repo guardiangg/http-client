@@ -148,6 +148,9 @@
                 var element = entry.element;
                 var eOpts = optionsFromAttributes(element);
                 var tip = new Opentip(element, cache[hash].html, {
+                    hideDelay: 0,
+                    showEffect: null,
+                    hideEffect: null,
                     delay: 0,
                     stemLength: 0,
                     stemBase: 0,

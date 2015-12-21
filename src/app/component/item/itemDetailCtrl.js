@@ -13,6 +13,7 @@ app.controller('itemDetailCtrl', [
         gamedata
             .get('items', $stateParams.hash)
             .then(function(r) {
+                r.name = r.name || 'Classified';
                 $scope.entity = r;
                 $rootScope.title = r.name + ' - Items - Guardian.gg';
 
