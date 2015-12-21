@@ -81,7 +81,7 @@
                 return;
             }
 
-            var url = opts.apiUrl + '/' + hashes.join(';');
+            var url = opts.apiurl + '/' + hashes.join(';');
 
             fetch(url, function(result) {
                 if (result.constructor !== Array) {
