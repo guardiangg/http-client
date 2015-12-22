@@ -154,7 +154,7 @@
                     hideDelay: 0,
                     showEffect: null,
                     hideEffect: null,
-                    //removeElementsOnHide: true,
+                    removeElementsOnHide: true,
                     delay: 0,
                     stemLength: 0,
                     stemBase: 0,
