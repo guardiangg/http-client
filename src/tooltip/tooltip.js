@@ -126,7 +126,6 @@
                 if (perk.damageType && perk.damageType > 0) {
                     item._damageType = perk.damageType;
                 }
-                item._damageType = 2;
 
                 if (gamedata.skip_perk.indexOf(perk.hash.toString()) === -1) {
                     item._perks.push(perk);
