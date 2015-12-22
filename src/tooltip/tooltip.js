@@ -31,6 +31,128 @@
             opts.debug && console.debug(msg);
         };
 
+        var gamedata = {
+            buckets: {
+                'subclass': 3284755031,
+                'primary': 1498876634,
+                'special': 2465295065,
+                'heavy': 953998645,
+                'head': 3448274439,
+                'arm': 3551918588,
+                'chest': 14239492,
+                'leg': 20886954,
+                'ghost': 4023194814,
+                'class': 1585787867,
+                'artifact': 434908299,
+                'ship': 284967655,
+                'vehicle': 2025709351,
+                'consumable': 1469714392,
+                'material': 3865314626,
+                'shader': 2973005342,
+                'emblem': 4274335291,
+                'emote': 3054419239
+            },
+            damage: {
+                kinetic: "643689081",
+                solar: "1975859941",
+                void: "472357138",
+                arc: "2688431654"
+            },
+            skip_perk: [
+                "617082448",
+                "1920788875",
+                "1270552711"
+            ],
+            stats: {
+                display: [
+                    "4284893193", // Rate of fire
+                    "2961396640", // Charge rate
+                    "3614673599", // Blast radius
+                    "2523465841", // Velocity
+                    "2837207746", // Speed
+                    "4043523819", // Impact
+                    "1240592695", // Range
+                    "155624089", // Stability
+                    "4188031367", // Reload speed
+                    "2762071195", // Efficiency
+                    "209426660", // Defense
+                    "925767036", // Energy
+                    "360359141", // Durability
+                    "3017642079", // Boost
+                ],
+                hidden: [
+                    "3555269338", // Optics
+                    "1345609583", // Aim assist
+                    "2715839340", // Recoil
+                    "943549884", // Equip speed
+                ],
+                armor: [
+                    "144602215", // Intellect
+                    "1735777505", // Discipline
+                    "4244567218", // Strength
+                ],
+                magazine: "3871231066",
+                attack: "368428387",
+                defense: "3897883278"
+            }
+        };
+
+        /**
+         * Transforms an item result's data to be easier to work with in the template
+         * @param {object} item
+         */
+        var enrichGamedata = function(item) {
+            item.name = item.name || 'Classified';
+
+            item._primaryStats = {
+                attack: _.find(item.stats, function(stat) {
+                    return stat.hash.toString() === gamedata.stats.attack;
+                }),
+                defense: _.find(item.stats, function(stat) {
+                    return stat.hash.toString() === gamedata.stats.defense;
+                }),
+                magazine: _.find(item.stats, function(stat) {
+                    return stat.hash.toString() === gamedata.stats.magazine;
+                })
+            };
+
+            item._perks = [];
+            item._damageType = 0;
+
+            _.each(item.perks, function(perk) {
+                if (perk.hash.toString() === gamedata.damage.kinetic) {
+                    item._damageType = 0;
+                } else if (perk.hash.toString() === gamedata.damage.arc) {
+                    item._damageType = 2;
+                } else if (perk.hash.toString() === gamedata.damage.solar) {
+                    item._damageType = 3;
+                } else if (perk.hash.toString() === gamedata.damage.void) {
+                    item._damageType = 4;
+                } else if (gamedata.skip_perk.indexOf(perk.hash.toString()) === -1) {
+                    item._perks.push(perk);
+                }
+            });
+
+            item._displayStats = [];
+
+            _.each(gamedata.stats.display, function(s, idx) {
+                var obj = _.find(item.stats, function(stat) {
+                    return stat.hash.toString() === s;
+                });
+
+                if (!obj) {
+                    return;
+                }
+
+                obj.limit = Math.max(obj.max, 100);
+                obj.order = idx;
+
+                item._displayStats.push(obj);
+            });
+
+            item._displayStats = _.sortBy(item._displayStats, 'order');
+        };
+
         /**
          * Fetches a URL via AJAX using Native JS.
          * @param url
@@ -93,6 +215,8 @@
                 }
 
                 _.each(result, function(row) {
+                    enrichGamedata(row);
+
                     cache[row.hash] = {
                         html: window["JST"]["item.html"](row),
                         json: row
