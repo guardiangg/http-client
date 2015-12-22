@@ -5,8 +5,9 @@
         stem: false,
         background: '#000',
         borderRadius: 0,
-        borderWidth: 0,
-        className: 'ggg'
+        borderWidth: -1,
+        className: 'ggg',
+        shadow: false
     };
     Opentip.defaultStyle = 'ggg';
 
@@ -153,7 +154,7 @@
                     hideDelay: 0,
                     showEffect: null,
                     hideEffect: null,
-                    removeElementsOnHide: true,
+                    //removeElementsOnHide: true,
                     delay: 0,
                     stemLength: 0,
                     stemBase: 0,

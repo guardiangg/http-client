@@ -1,6 +1,17 @@
-<h1>
+<div class="ggg-head ggg-tier-<%= tier %>">
     <img src="//bungie.net<%= icon %>">
-    <%= name %>
-    <%= typeName %>
-</h1>
-<p><%= description %></p>
+    <div class="ggg-head-content">
+        <div class="ggg-name"><%= name %></div>
+        <div class="ggg-tier">Exotic</div>
+        <div class="ggg-type"><%= typeName %></div>
+    </div>
+</div>
+<div class="ggg-body">
+    <div class="ggg-primary ggg-damage-1">
+        <span class="ggg-value">310</span>
+        <span class="ggg-value-label">Attack</span>
+    </div>
+    <div class="ggg-lore">
+        <%= description %>
+    </div>
+</div>
