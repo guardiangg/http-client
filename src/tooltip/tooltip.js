@@ -12,6 +12,7 @@
 
     var opts = _.extend({
         apiurl: 'https://api.guardian.gg/tooltips/items',
+        locale: 'en',
         auto: true,
         local: false,
         debug: false,
@@ -78,10 +79,11 @@
             debug(hashes.length + ' unique non-cached hashes');
 
             if (hashes.length == 0) {
+                callback();
                 return;
             }
 
-            var url = opts.apiurl + '/' + hashes.join(';');
+            var url = opts.apiurl + '/' + hashes.join(';') + '?lc=' + opts.locale;
 
             fetch(url, function(result) {
                 if (result.constructor !== Array) {
@@ -151,6 +153,7 @@
                     hideDelay: 0,
                     showEffect: null,
                     hideEffect: null,
+                    removeElementsOnHide: true,
                     delay: 0,
                     stemLength: 0,
                     stemBase: 0,
