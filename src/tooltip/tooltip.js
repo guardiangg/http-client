@@ -52,16 +52,14 @@
                 'emblem': 4274335291,
                 'emote': 3054419239
             },
-            damage: {
-                kinetic: "643689081",
-                solar: "1975859941",
-                void: "472357138",
-                arc: "2688431654"
-            },
             skip_perk: [
                 "617082448",
                 "1920788875",
-                "1270552711"
+                "1270552711",
+                "643689081", // kinetic
+                "1975859941", // solar
+                "472357138", // void
+                "2688431654", // arc
             ],
             stats: {
                 display: [
@@ -120,15 +118,17 @@
             item._damageType = 0;
 
             _.each(item.perks, function(perk) {
-                if (perk.hash.toString() === gamedata.damage.kinetic) {
-                    item._damageType = 0;
-                } else if (perk.hash.toString() === gamedata.damage.arc) {
-                    item._damageType = 2;
-                } else if (perk.hash.toString() === gamedata.damage.solar) {
-                    item._damageType = 3;
-                } else if (perk.hash.toString() === gamedata.damage.void) {
-                    item._damageType = 4;
-                } else if (gamedata.skip_perk.indexOf(perk.hash.toString()) === -1) {
+                if (item._damageType > 0 && perk.damageType > 0) {
+                    item._damageType = 5;
+                    return;
+                }
+
+                if (perk.damageType && perk.damageType > 0) {
+                    item._damageType = perk.damageType;
+                }
+                item._damageType = 2;
+
+                if (gamedata.skip_perk.indexOf(perk.hash.toString()) === -1) {
                     item._perks.push(perk);
                 }
             });
@@ -145,6 +145,8 @@
                 }
 
                 obj.limit = Math.max(obj.max, 100);
+                obj.minPercent = Math.floor(obj.min * 100) / obj.limit;
+                obj.maxPercent = Math.floor(obj.max * 100) / obj.limit;
                 obj.order = idx;
 
                 item._displayStats.push(obj);
@@ -278,7 +280,7 @@
                     hideDelay: 0,
                     showEffect: null,
                     hideEffect: null,
-                    removeElementsOnHide: true,
+                    //removeElementsOnHide: true,
                     delay: 0,
                     stemLength: 0,
                     stemBase: 0,
@@ -296,19 +298,38 @@
         };
 
         /**
-         * Initializes gggTips. Ran automaticaly if opts.auto == true (default).
+         * Initializes gggTips. Ran automatically if opts.auto == true (default).
          */
         var init = function() {
             debug('this.init()');
             debug(opts);
 
-            // inject stylesheet into HEAD
-            var head = document.getElementsByTagName('head')[0];
-            var link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = (opts.debug ? '' : 'https://guardian.gg') + '/asset/css/tooltip.css';
+            var tooltipCss = (opts.debug ? '' : 'https://guardian.gg') + '/asset/css/tooltip.css';
+            var tooltipFont = 'https://cdn.myfontastic.com/rtsPnqva2dStMpbiqqGpFi/icons.css';
 
-            head.appendChild(link);
+            var hasCss = _.find(document.getElementsByTagName('link'), function(link) {
+                return link.href == tooltipCss;
+            });
+
+            var hasFont = _.find(document.getElementsByTagName('link'), function(link) {
+                return link.href == tooltipFont;
+            });
+
+            if (!hasCss) {
+                var head = document.getElementsByTagName('head')[0];
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = tooltipCss;
+                head.appendChild(link);
+            }
+
+            if (!hasFont) {
+                var head = document.getElementsByTagName('head')[0];
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = tooltipFont;
+                head.appendChild(link);
+            }
 
             if (opts.local) {
                 debug('local mode enabled');

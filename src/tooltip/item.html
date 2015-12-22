@@ -11,6 +11,13 @@
 
     <% if (_primaryStats.attack && _primaryStats.attack.min > 0) { %>
         <div class="ggg-primary ggg-damage-<%= _damageType %>">
+            <% if (_damageType === 2) { %>
+                <i class="ggg ggg-arc"></i>
+            <% } else if (_damageType === 3) { %>
+                <i class="ggg ggg-solar"></i>
+            <% } else if (_damageType === 4) { %>
+                <i class="ggg ggg-void"></i>
+            <% } %>
             <% if (_primaryStats.attack.min === _primaryStats.attack.max) { %>
                 <span class="ggg-value"><%= _primaryStats.attack.min %></span>
             <% } else { %>
@@ -19,7 +26,8 @@
             <span class="ggg-value-label"><%= _primaryStats.attack.name %></span>
         </div>
     <% } else if (_primaryStats.defense && _primaryStats.defense.min > 0) { %>
-        <div class="ggg-primary ggg-defense">
+        <div class="ggg-primary">
+            <i class="ggg ggg-defense"></i>
             <% if (_primaryStats.defense.min === _primaryStats.defense.max) { %>
                 <span class="ggg-value"><%= _primaryStats.defense.min %></span>
             <% } else { %>
@@ -29,22 +37,48 @@
         </div>
     <% } %>
 
-    <div class="ggg-lore">
-        <%= description %>
-    </div>
+    <% if (description) { %>
+        <div class="ggg-lore">
+            <%= description %>
+        </div>
+    <% } %>
 
     <% if (_displayStats.length > 0) { %>
+        <div class="ggg-divider"></div>
+
         <div class="ggg-stats">
             <% _.each(_displayStats, function(stat) { %>
-                <%= stat.name %>
+                <div class="ggg-stat">
+                    <div class="ggg-name"><%= stat.name %></div>
+                    <% if (stat.min === stat.max) { %>
+                        <div class="ggg-value"><%= stat.min %></div>
+                        <div class="ggg-bar">
+                            <div class="ggg-fill" style="width:<%= stat.minPercent %>%"></div>
+                        </div>
+                    <% } else { %>
+                        <div class="ggg-value"><%= stat.min %>-<%= stat.max %></div>
+                        <div class="ggg-bar">
+                            <div class="ggg-fill-max" style="width:<%= stat.maxPercent %>%"></div>
+                            <div class="ggg-fill-min" style="width:<%= stat.minPercent %>%"></div>
+                        </div>
+                    <% } %>
+                </div>
             <% }); %>
         </div>
     <% } %>
 
     <% if (_perks.length > 0) { %>
+        <div class="ggg-divider"></div>
+
         <div class="ggg-perks">
             <% _.each(_perks, function(perk) { %>
-                <%= perk.name %>
+                <div class="ggg-perk">
+                    <img src="//bungie.net<%= perk.icon %>">
+                    <div class="ggg-perk-info">
+                        <div class="ggg-name"><%= perk.name %></div>
+                        <div class="ggg-description"><%= perk.description %></div>
+                    </div>
+                </div>
             <% }); %>
         </div>
     <% } %>

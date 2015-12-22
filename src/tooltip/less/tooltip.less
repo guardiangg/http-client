@@ -16,6 +16,7 @@
             font-family: Arial, Helvetica, sans-serif !important;
             color: #fff;
             background: #000;
+            text-shadow: none;
 
             .ggg-head {
                 position: relative;
@@ -25,8 +26,8 @@
                     position: absolute;
                     top: 0;
                     left: 0;
-                    width: 52px;
-                    height: 52px;
+                    width: 56px;
+                    height: 56px;
                 }
 
                 &.ggg-tier-6 {
@@ -63,6 +64,9 @@
                     line-height: 18px;
 
                     .ggg-name {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
                         font-size: 20px;
                         font-weight: 500;
                         text-transform: uppercase;
@@ -84,8 +88,37 @@
                 padding: 10px;
 
                 .ggg-primary {
-                    margin-top: 10px;
-                    margin-bottom: 15px;
+                    margin-top: 5px;
+                    margin-bottom: 10px;
+
+                    &.ggg-damage-0, &.ggg-damage-1 {
+                        margin-top: 15px;
+                        margin-bottom: 20px;
+                    }
+
+                    &.ggg-damage-2 {
+                        color: #97d2ef;
+                    }
+
+                    &.ggg-damage-3 {
+                        color: #EF6623;
+                    }
+
+                    &.ggg-damage-4 {
+                        color: #BA79D4;
+                    }
+
+                    &.ggg-damage-5 {
+                        margin-top: 15px;
+                        margin-bottom: 20px;
+                    }
+
+                    .ggg {
+                        font-size: 38px;
+                        margin-top: -4px;
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
 
                     .ggg-value {
                         font-weight: bold;
@@ -103,6 +136,114 @@
 
                 .ggg-lore {
                     font-style: italic;
+                    margin-bottom: 10px;
+                }
+
+                .ggg-divider {
+                    height: 1px;
+                    width: 100%;
+                    margin-bottom: 10px;
+                    border-bottom: 1px solid #444;
+                }
+
+                .ggg-perks {
+                    .ggg-perk {
+                        position: relative;
+                        min-height: 32px;
+                        margin-bottom: 10px;
+
+                        img {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 32px;
+                            height: 32px;
+                        }
+
+                        .ggg-perk-info {
+                            margin-left: 42px;
+
+                            .ggg-name {
+                                font-weight: 500;
+                                font-size: 14px;
+                                margin-bottom: 4px;
+                            }
+
+                            .ggg-description {
+                                font-size: 12px;
+                                opacity: 0.7;
+                            }
+                        }
+                    }
+                }
+
+                .ggg-stats {
+                    margin-bottom: 10px;
+
+                    .ggg-stat {
+                        position: relative;
+                        padding: 3px;
+
+                        .ggg-name {
+                            position: absolute;
+                            top: 3px;
+                            left: 3px;
+                            width: 90px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            line-height: 22px;
+                            height: 22px;
+                            text-align: right;
+                            font-size: 1em;
+                            color: #999;
+                        }
+
+                        .ggg-value {
+                            position: absolute;
+                            top: 3px;
+                            right: 3px;
+                            width: 60px;
+                            line-height: 22px;
+                            height: 22px;
+                            font-size: 1em;
+                            color: #ccc;
+                        }
+
+                        .ggg-bar {
+                            margin-left: 100px;
+                            margin-right: 70px;
+                            height: 22px;
+                            background: #232323;
+                            position: relative;
+
+                            .ggg-fill {
+                                position: absolute;
+                                left: 0px;
+                                top: 0px;
+                                height: 22px;
+                                background:#ECECEC;
+                            }
+
+                            .ggg-fill-min {
+                                position: absolute;
+                                left: 0px;
+                                top: 0px;
+                                height: 22px;
+                                z-index: 100;
+                                background:#ECECEC;
+                            }
+
+                            .ggg-fill-max {
+                                position: absolute;
+                                left: 0px;
+                                top: 0px;
+                                height: 22px;
+                                z-index: 50;
+                                background:#8E8E8E;
+                            }
+                        }
+                    }
                 }
             }
         }
