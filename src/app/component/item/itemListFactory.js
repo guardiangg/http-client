@@ -240,9 +240,15 @@ app.factory('itemListFactory', [
                         var data = [];
 
                         _.each(self.filteredData, function(i) {
-                            if (i.rewardSources && (i.rewardSources.indexOf(parseInt(value)) > -1 || i.rewardSources.indexOf(value) > -1)) {
-                                data.push(i);
+                            if (!i.sources) {
+                                return;
                             }
+
+                            var source = _.find(i.sources, function(s) {
+                                return s.hash.toString() == value.toString();
+                            });
+
+                            source && data.push(i);
                         });
 
                         self.filteredData = data;
@@ -567,7 +573,10 @@ app.factory('itemListFactory', [
                         // appropriate stat under the stat column, which is not in the same order as the item stat array
                         _.each(self.rawData, function(item) {
                             item._stats = {};
-                            item._sources = [];
+
+                            if (!item.name) {
+                                item.name = 'Classified';
+                            }
 
                             _.each(item.stats, function(stat) {
                                 stat.hash = stat.hash.toString();
@@ -582,14 +591,6 @@ app.factory('itemListFactory', [
                                 }
 
                                 item._stats[stat.hash.toString()] = stat;
-                            });
-
-                            // Remove reward sources that don't exist
-                            _.each(item.rewardSources, function(source, i) {
-                                var source = gamedata.getRewardSourceByHash(source);
-                                if (source) {
-                                    item._sources.push(source);
-                                }
                             });
                         });
 

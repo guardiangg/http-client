@@ -154,9 +154,9 @@
             <tr ng-repeat="entity in results.data track by entity.hash">
                 <td>
                     <a ui-sref="app.itemDetailName({hash: entity.hash, name: slugify(entity.name)})"
+                       class="icon"
                        ng-class="'quality-' + entity.tier"
-                       data-ggg-target="true"
-                        >
+                       data-ggg-target="true">
                         <img ng-src="//bungie.net{{entity.icon}}">
                     </a>
                     <div class="details">
@@ -219,7 +219,7 @@
                         <span class="quality-{{entity.tier}}">{{tiers[entity.tier].label}}</span>
                     </td>
                     <td class="source">
-                        <span ng-repeat="source in entity._sources|orderBy:'label'" class="list-reward" uib-tooltip="{{source.label}}" data-toggle="tooltip" tooltip-placement="top">
+                        <span ng-repeat="source in entity.sources|orderBy:'name'" class="list-reward" uib-tooltip="{{source.name}}" data-toggle="tooltip" tooltip-placement="top">
                             <i class="ggg-source ggg-source-{{source.hash}}"></i>
                         </span>
                     </td>
