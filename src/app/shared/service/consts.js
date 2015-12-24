@@ -675,6 +675,14 @@ app.service('consts', [
                             label: gettextCatalog.getString('Raid - Vault of Glass')
                         },
                         {
+                            hash: "3945957624",
+                            label: gettextCatalog.getString('Sparrow Racing League')
+                        },
+                        {
+                            hash: "4131549852",
+                            label: gettextCatalog.getString('SRL Record Book')
+                        },
+                        {
                             hash: "3870113141",
                             label: gettextCatalog.getString('Strike')
                         },

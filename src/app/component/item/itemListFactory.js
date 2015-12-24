@@ -6,8 +6,9 @@ app.factory('itemListFactory', [
     'gamedata',
     'util',
     'consts',
+    'gettextCatalog',
 
-    function ($state, $location, gamedata, util, consts) {
+    function ($state, $location, gamedata, util, consts, gettextCatalog) {
         return function () {
             var self = this,
                 observerCallbacks = [],
@@ -575,7 +576,7 @@ app.factory('itemListFactory', [
                             item._stats = {};
 
                             if (!item.name) {
-                                item.name = 'Classified';
+                                item.name = gettextCatalog.getString('[Unnamed Item]');
                             }
 
                             _.each(item.stats, function(stat) {

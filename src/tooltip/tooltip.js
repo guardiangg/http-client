@@ -100,7 +100,7 @@
          * @param {object} item
          */
         var enrichGamedata = function(item) {
-            item.name = item.name || 'Classified';
+            item.name = item.name || '[Unnamed Item]';
 
             item._primaryStats = {
                 attack: _.find(item.stats, function(stat) {
@@ -127,7 +127,7 @@
                     item._damageType = perk.damageType;
                 }
 
-                if (gamedata.skip_perk.indexOf(perk.hash.toString()) === -1) {
+                if (gamedata.skip_perk.indexOf(perk.stepHash.toString()) === -1) {
                     item._perks.push(perk);
                 }
             });
@@ -276,10 +276,10 @@
                 var element = entry.element;
                 var eOpts = optionsFromAttributes(element);
                 var tip = new Opentip(element, cache[hash].html, {
-                    hideDelay: 0,
+                    hideDelay: 0.1,
                     showEffect: null,
                     hideEffect: null,
-                    //removeElementsOnHide: true,
+                    removeElementsOnHide: true,
                     delay: 0,
                     stemLength: 0,
                     stemBase: 0,

@@ -97,6 +97,18 @@
         background: #fff;
         margin-right: 335px;
 
+        h4 {
+            margin: 0;
+            background: #FFFFFF;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            font-weight: 600;
+            padding: 5px 0;
+            color: #464646;
+            border-bottom: 1px solid #D8D8D8;
+        }
+
         .header {
             position: relative;
             min-height: 84px;
@@ -175,111 +187,177 @@
             }
         }
 
-        .stat-header {
-            margin: 0;
-            background: #FFFFFF;
-            font-size: 0.9em;
-            padding: 5px 0;
-            color: #464646;
-            border-bottom: 1px solid #D8D8D8;
+        .item-stats {
+            .stat-bars {
+                background: #F3F3F3;
+                padding: 10px;
+                margin-bottom: 15px;
+
+                .stat {
+                    position: relative;
+                    padding: 3px;
+
+                    .name {
+                        position: absolute;
+                        top: 3px;
+                        left: 3px;
+                        width: 160px;
+                        line-height: 25px;
+                        height: 25px;
+                        text-align: right;
+                        font-size: 1em;
+                        color: #999;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    .value {
+                        position: absolute;
+                        top: 3px;
+                        right: 3px;
+                        width: 86px;
+                        line-height: 25px;
+                        height: 25px;
+                        font-size: 1em;
+                        color: #666;
+                    }
+
+                    .bar {
+                        margin-left: 175px;
+                        margin-right: 100px;
+                        height: 25px;
+                        background: #DEDEDE;
+                        position: relative;
+
+                        .fill {
+                            position: absolute;
+                            left: 0px;
+                            top: 0px;
+                            height: 25px;
+                        }
+
+                        .fill-min {
+                            position: absolute;
+                            left: 0px;
+                            top: 0px;
+                            height: 25px;
+                            z-index: 100;
+                        }
+
+                        .fill-max {
+                            position: absolute;
+                            left: 0px;
+                            top: 0px;
+                            height: 25px;
+                            z-index: 50;
+                        }
+                    }
+                }
+
+                &.primary {
+                    .stat {
+                        .bar {
+                            .fill {
+                                background: #EEAB4A;
+                            }
+
+                            .fill-min {
+                                background: #EEAB4A;
+                            }
+
+                            .fill-max {
+                                background: rgba(238, 171, 74, 0.45);
+                            }
+                        }
+                    }
+                }
+
+                &.secondary {
+                    .stat {
+                        .bar {
+                            .fill {
+                                background: #7E9ED0;
+                            }
+
+                            .fill-min {
+                                background: #7E9ED0;
+                            }
+
+                            .fill-max {
+                                background: rgb(173, 196, 232);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .col-md-6 {
+                .stat-bars {
+                    .stat {
+                        .name {
+                            width: 110px;
+                        }
+
+                        .bar {
+                            margin-left: 120px;
+                            margin-right: 70px;
+                        }
+
+                        .value {
+                            width: 60px;
+                        }
+                    }
+                }
+            }
         }
 
-        .stat-bars {
-            background: #F3F3F3;
-            padding: 10px;
+        .talent-wrapper {
+            font-size: 0;
+            padding: 15px;
             margin-bottom: 15px;
 
-            .stat {
-                position: relative;
-                padding: 3px;
+            .talent-row {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
 
-                .name {
-                    position: absolute;
-                    top: 3px;
-                    left: 3px;
-                    width: 160px;
-                    line-height: 25px;
-                    height: 25px;
-                    text-align: right;
-                    font-size: 1em;
-                    color: #999;
-                }
-
-                .value {
-                    position: absolute;
-                    top: 3px;
-                    right: 3px;
-                    width: 86px;
-                    line-height: 25px;
-                    height: 25px;
-                    font-size: 1em;
-                    color: #666;
-                }
-
-                .bar {
-                    margin-left: 175px;
-                    margin-right: 100px;
-                    height: 25px;
-                    background: #DEDEDE;
+                .talent-node {
                     position: relative;
+                    display: inline-block;
+                    width: 100%;
+                    max-width: 80px;
+                    margin: 2px;
 
-                    .fill {
+                    a {
                         position: absolute;
-                        left: 0px;
-                        top: 0px;
-                        height: 25px;
-                    }
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                        right: 0;
+                        background-size: 80%;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-color: #333;
+                        border: 4px solid #333;
+                        border-radius: 50%;
 
-                    .fill-min {
-                        position: absolute;
-                        left: 0px;
-                        top: 0px;
-                        height: 25px;
-                        z-index: 100;
-                    }
-
-                    .fill-max {
-                        position: absolute;
-                        left: 0px;
-                        top: 0px;
-                        height: 25px;
-                        z-index: 50;
-                    }
-                }
-            }
-
-            &.primary {
-                .stat {
-                    .bar {
-                        .fill {
-                            background: #EEAB4A;
-                        }
-
-                        .fill-min {
-                            background: #EEAB4A;
-                        }
-
-                        .fill-max {
-                            background: rgba(238, 171, 74, 0.45);
+                        &:hover {
+                            background-color: #555;
+                            border: 4px solid #555;
                         }
                     }
-                }
-            }
 
-            &.secondary {
-                .stat {
-                    .bar {
-                        .fill {
-                            background: #7E9ED0;
-                        }
+                    &.blank {
+                        background: none;
+                        border: none;
+                    }
 
-                        .fill-min {
-                            background: #7E9ED0;
-                        }
-
-                        .fill-max {
-                            background: rgb(173, 196, 232);
-                        }
+                    &:before {
+                        content: "";
+                        display: block;
+                        padding-top: 100%;
                     }
                 }
             }

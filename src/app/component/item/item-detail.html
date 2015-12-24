@@ -98,36 +98,50 @@
 
         </div>
 
-        <h4 class="stat-header" translate ng-show="entity._displayStats.length > 0">Primary Stats</h4>
-        <div class="stat-bars primary" ng-show="entity._displayStats.length > 0">
-            <div class="stat" ng-repeat="stat in entity._displayStats">
-                <div class="name">{{ stat.name }}</div>
-                <div class="bar">
-                    <div class="fill-min" ng-show="stat.min != stat.max" ng-style="{width: ((stat.min * 100) / stat.limit) + '%'}"></div>
-                    <div class="fill-max" ng-show="stat.min != stat.max" ng-style="{width: ((stat.max * 100) / stat.limit) + '%'}"></div>
-                    <div class="fill" ng-show="stat.min == stat.max" ng-style="{width: ((stat.min * 100) / stat.limit) + '%'}"></div>
-                </div>
-                <div class="value">
-                    <span ng-show="stat.min != stat.max">{{ stat.min }}-{{ stat.max }}</span>
-                    <span ng-show="stat.min == stat.max">{{ stat.min }}</span>
+        <div class="row item-stats" ng-show="entity._displayStats.length > 0 || entity._hiddenStats.length > 0">
+
+            <div ng-class="{'col-md-6': entity._hiddenStats.length > 0, 'col-md-12': entity._hiddenStats.length == 0}">
+                <h4 class="stat-header" translate ng-show="entity._displayStats.length > 0">Primary Stats</h4>
+                <div class="stat-bars primary" ng-show="entity._displayStats.length > 0">
+                    <div class="stat" ng-repeat="stat in entity._displayStats">
+                        <div class="name">{{ stat.name }}</div>
+                        <div class="bar">
+                            <div class="fill-min" ng-show="stat.min != stat.max" ng-style="{width: ((stat.min * 100) / stat.limit) + '%'}"></div>
+                            <div class="fill-max" ng-show="stat.min != stat.max" ng-style="{width: ((stat.max * 100) / stat.limit) + '%'}"></div>
+                            <div class="fill" ng-show="stat.min == stat.max" ng-style="{width: ((stat.min * 100) / stat.limit) + '%'}"></div>
+                        </div>
+                        <div class="value">
+                            <span ng-show="stat.min != stat.max">{{ stat.min }}-{{ stat.max }}</span>
+                            <span ng-show="stat.min == stat.max">{{ stat.min }}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <div ng-class="{'col-md-6': entity._displayStats.length > 0, 'col-md-12': entity._displayStats.length == 0}">
+                <h4 class="stat-header" translate ng-show="entity._hiddenStats.length > 0">Hidden Stats</h4>
+                <div class="stat-bars secondary" ng-show="entity._hiddenStats.length > 0">
+                    <div class="stat" ng-repeat="stat in entity._hiddenStats">
+                        <div class="name">{{ stat.name }}</div>
+                        <div class="bar">
+                            <div class="fill-min" ng-show="stat.min != stat.max" ng-style="{width: ((stat.min * 100) / stat.limit) + '%'}"></div>
+                            <div class="fill-max" ng-show="stat.min != stat.max" ng-style="{width: ((stat.max * 100) / stat.limit) + '%'}"></div>
+                            <div class="fill" ng-show="stat.min == stat.max" ng-style="{width: ((stat.min * 100) / stat.limit) + '%'}"></div>
+                        </div>
+                        <div class="value">
+                            <span ng-show="stat.min != stat.max">{{ stat.min }}-{{ stat.max }}</span>
+                            <span ng-show="stat.min == stat.max">{{ stat.min }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <h4 class="stat-header" translate ng-show="entity._hiddenStats.length > 0">Hidden Stats</h4>
-        <div class="stat-bars secondary" ng-show="entity._hiddenStats.length > 0">
-            <div class="stat" ng-repeat="stat in entity._hiddenStats">
-                <div class="name">{{ stat.name }}</div>
-                <div class="bar">
-                    <div class="fill-min" ng-show="stat.min != stat.max" ng-style="{width: ((stat.min * 100) / stat.limit) + '%'}"></div>
-                    <div class="fill-max" ng-show="stat.min != stat.max" ng-style="{width: ((stat.max * 100) / stat.limit) + '%'}"></div>
-                    <div class="fill" ng-show="stat.min == stat.max" ng-style="{width: ((stat.min * 100) / stat.limit) + '%'}"></div>
-                </div>
-                <div class="value">
-                    <span ng-show="stat.min != stat.max">{{ stat.min }}-{{ stat.max }}</span>
-                    <span ng-show="stat.min == stat.max">{{ stat.min }}</span>
-                </div>
-            </div>
+        <div class="talents">
+            <h4 translate>Talent Nodes</h4>
+            <div class="talent-wrapper" talent-grid perks="entity.perks"></div>
+            <h4 translate>Talent Breakdown</h4>
         </div>
 
     </div>

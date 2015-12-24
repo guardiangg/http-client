@@ -6,14 +6,15 @@ app.controller('itemDetailCtrl', [
     '$stateParams',
     'gamedata',
     'consts',
+    'gettextCatalog',
 
-    function ($rootScope, $scope, $stateParams, gamedata, consts) {
+    function ($rootScope, $scope, $stateParams, gamedata, consts, gettextCatalog) {
         $scope.tiers = consts.item_tiers;
 
         gamedata
             .get('items', $stateParams.hash)
             .then(function(r) {
-                r.name = r.name || 'Classified';
+                r.name = r.name || gettextCatalog.getString('[Unnamed Item]');
                 $scope.entity = r;
                 $rootScope.title = r.name + ' - Items - Guardian.gg';
 

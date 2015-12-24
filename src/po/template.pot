@@ -117,7 +117,7 @@ msgstr ""
 msgid "Bounty"
 msgstr ""
 
-#: shared\service\consts.js:824
+#: shared\service\consts.js:832
 msgid "Bounty Tracker"
 msgstr ""
 
@@ -141,7 +141,7 @@ msgstr ""
 msgid "Campus Martius"
 msgstr ""
 
-#: shared\service\consts.js:841
+#: shared\service\consts.js:849
 msgid "Character Creation"
 msgstr ""
 
@@ -193,7 +193,7 @@ msgstr ""
 msgid "Control"
 msgstr ""
 
-#: shared\service\consts.js:791
+#: shared\service\consts.js:799
 msgid "Crota's Bane"
 msgstr ""
 
@@ -206,15 +206,15 @@ msgstr ""
 msgid "Crucible Class Breakdown"
 msgstr ""
 
-#: shared\service\consts.js:811
+#: shared\service\consts.js:819
 msgid "Crucible Handler"
 msgstr ""
 
-#: shared\service\consts.js:815
+#: shared\service\consts.js:823
 msgid "Crucible Quartermaster"
 msgstr ""
 
-#: shared\service\consts.js:828
+#: shared\service\consts.js:836
 msgid "Cryptarch"
 msgstr ""
 
@@ -238,7 +238,7 @@ msgstr ""
 msgid "Data is updating..."
 msgstr ""
 
-#: shared\service\consts.js:759
+#: shared\service\consts.js:767
 msgid "Dead Orbit"
 msgstr ""
 
@@ -261,7 +261,7 @@ msgstr ""
 msgid "Diamond"
 msgstr ""
 
-#: shared\service\consts.js:742
+#: shared\service\consts.js:750
 msgid "Disciple of Osiris"
 msgstr ""
 
@@ -313,11 +313,11 @@ msgstr ""
 msgid "Engram"
 msgstr ""
 
-#: shared\service\consts.js:787
+#: shared\service\consts.js:795
 msgid "Eververse"
 msgstr ""
 
-#: shared\service\consts.js:857
+#: shared\service\consts.js:865
 msgid "Evolved From Another Item"
 msgstr ""
 
@@ -330,7 +330,7 @@ msgstr ""
 msgid "Exotic Armor"
 msgstr ""
 
-#: shared\service\consts.js:845
+#: shared\service\consts.js:853
 msgid "Exotic Weapon Bounty"
 msgstr ""
 
@@ -338,7 +338,7 @@ msgstr ""
 msgid "Exotic Weapons"
 msgstr ""
 
-#: shared\service\consts.js:696
+#: shared\service\consts.js:704
 msgid "Expansion Pack"
 msgstr ""
 
@@ -373,7 +373,7 @@ msgstr ""
 msgid "Fusion Rifle"
 msgstr ""
 
-#: shared\service\consts.js:755
+#: shared\service\consts.js:763
 msgid "Future War Cult"
 msgstr ""
 
@@ -410,7 +410,7 @@ msgstr ""
 msgid "Guardian"
 msgstr ""
 
-#: shared\service\consts.js:807
+#: shared\service\consts.js:815
 msgid "Guardian Outfitter"
 msgstr ""
 
@@ -423,7 +423,7 @@ msgstr ""
 msgid "Gunslinger"
 msgstr ""
 
-#: shared\service\consts.js:795
+#: shared\service\consts.js:803
 msgid "Gunsmith"
 msgstr ""
 
@@ -449,7 +449,7 @@ msgstr ""
 msgid "Helmet"
 msgstr ""
 
-#: component\item\item-detail.html:117
+#: component\item\item-detail.html:122
 msgid "Hidden Stats"
 msgstr ""
 
@@ -475,7 +475,7 @@ msgstr ""
 msgid "Hunter"
 msgstr ""
 
-#: shared\service\consts.js:779
+#: shared\service\consts.js:787
 msgid "Hunter Vanguard"
 msgstr ""
 
@@ -515,7 +515,7 @@ msgstr ""
 msgid "Iron Banner"
 msgstr ""
 
-#: shared\service\consts.js:729
+#: shared\service\consts.js:737
 msgid "Ishtar Sink"
 msgstr ""
 
@@ -645,7 +645,7 @@ msgstr ""
 msgid "Loading items, please wait..."
 msgstr ""
 
-#: shared\service\consts.js:767
+#: shared\service\consts.js:775
 msgid "Lord Saladin"
 msgstr ""
 
@@ -670,7 +670,7 @@ msgstr ""
 msgid "Melee"
 msgstr ""
 
-#: shared\service\consts.js:713
+#: shared\service\consts.js:721
 msgid "Meridian Bay"
 msgstr ""
 
@@ -678,7 +678,7 @@ msgstr ""
 msgid "Metadata"
 msgstr ""
 
-#: shared\service\consts.js:837
+#: shared\service\consts.js:845
 msgid "Miscellaneous"
 msgstr ""
 
@@ -697,7 +697,7 @@ msgid ""
 "            <a href=\"https://github.com/guardiangg/http-client\">GitHub repository</a>, we're open source!"
 msgstr ""
 
-#: shared\service\consts.js:820
+#: shared\service\consts.js:828
 msgid "Multi-Location Vendor"
 msgstr ""
 
@@ -709,7 +709,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: shared\service\consts.js:763
+#: shared\service\consts.js:771
 msgid "New Monarchy"
 msgstr ""
 
@@ -746,11 +746,11 @@ msgstr ""
 msgid "Not Ranked"
 msgstr ""
 
-#: shared\service\consts.js:721
+#: shared\service\consts.js:729
 msgid "Ocean of Storms"
 msgstr ""
 
-#: shared\service\consts.js:725
+#: shared\service\consts.js:733
 msgid "Old Russia"
 msgstr ""
 
@@ -758,11 +758,11 @@ msgstr ""
 msgid "Oops, we weren't able to find \"{{name}}\". Verify spelling and try again."
 msgstr ""
 
-#: shared\service\consts.js:709
+#: shared\service\consts.js:717
 msgid "Oryx's Dreadnaught"
 msgstr ""
 
-#: shared\service\consts.js:705
+#: shared\service\consts.js:713
 msgid "Outdoor Zone"
 msgstr ""
 
@@ -784,7 +784,7 @@ msgstr ""
 msgid "Passive Gear"
 msgstr ""
 
-#: shared\service\consts.js:717
+#: shared\service\consts.js:725
 msgid "Patrol"
 msgstr ""
 
@@ -834,7 +834,7 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
-#: component\item\item-detail.html:101
+#: component\item\item-detail.html:104
 msgid "Primary Stats"
 msgstr ""
 
@@ -850,7 +850,7 @@ msgstr ""
 msgid "Prison of Elders"
 msgstr ""
 
-#: shared\service\consts.js:849
+#: shared\service\consts.js:857
 msgid "Public Events"
 msgstr ""
 
@@ -858,11 +858,11 @@ msgstr ""
 msgid "Pulse Rifle"
 msgstr ""
 
-#: shared\service\consts.js:738
+#: shared\service\consts.js:746
 msgid "Queen's Wrath"
 msgstr ""
 
-#: shared\service\consts.js:861
+#: shared\service\consts.js:869
 msgid "Quest"
 msgstr ""
 
@@ -908,7 +908,7 @@ msgstr ""
 msgid "Recovery"
 msgstr ""
 
-#: shared\service\consts.js:734
+#: shared\service\consts.js:742
 msgid "Reef Vendor"
 msgstr ""
 
@@ -945,6 +945,10 @@ msgstr ""
 #: component\profile\activity-history.html:59
 #: shared\service\consts.js:129
 msgid "SRL"
+msgstr ""
+
+#: shared\service\consts.js:683
+msgid "SRL Record Book"
 msgstr ""
 
 #: component\profile\activity-history.html:1
@@ -993,7 +997,7 @@ msgstr ""
 msgid "Ship Schematic"
 msgstr ""
 
-#: shared\service\consts.js:803
+#: shared\service\consts.js:811
 msgid "Shipwright"
 msgstr ""
 
@@ -1046,6 +1050,10 @@ msgstr ""
 msgid "Sparrow"
 msgstr ""
 
+#: shared\service\consts.js:679
+msgid "Sparrow Racing League"
+msgstr ""
+
 #: component\layout\nav.html:174
 #: component\weapon-stats\weapon-stats.html:110
 msgid "Special"
@@ -1081,15 +1089,15 @@ msgstr ""
 msgid "Stormcaller"
 msgstr ""
 
-#: shared\service\consts.js:679
+#: shared\service\consts.js:687
 msgid "Strike"
 msgstr ""
 
-#: shared\service\consts.js:683
+#: shared\service\consts.js:691
 msgid "Strike - Heroic"
 msgstr ""
 
-#: shared\service\consts.js:687
+#: shared\service\consts.js:695
 msgid "Strike - Nightfall"
 msgstr ""
 
@@ -1133,6 +1141,14 @@ msgstr ""
 msgid "Sword"
 msgstr ""
 
+#: component\item\item-detail.html:144
+msgid "Talent Breakdown"
+msgstr ""
+
+#: component\item\item-detail.html:142
+msgid "Talent Nodes"
+msgstr ""
+
 #: component\profile\pgcr.html:3
 msgid "Team"
 msgstr ""
@@ -1143,11 +1159,11 @@ msgid ""
 "            competitor-versus-competitor games."
 msgstr ""
 
-#: shared\service\consts.js:799
+#: shared\service\consts.js:807
 msgid "The Speaker"
 msgstr ""
 
-#: shared\service\consts.js:700
+#: shared\service\consts.js:708
 msgid "The Taken King"
 msgstr ""
 
@@ -1203,7 +1219,7 @@ msgstr ""
 msgid "Titan"
 msgstr ""
 
-#: shared\service\consts.js:775
+#: shared\service\consts.js:783
 msgid "Titan Vanguard"
 msgstr ""
 
@@ -1219,7 +1235,7 @@ msgstr ""
 msgid "Top {{platforms[platform]}} Guardians"
 msgstr ""
 
-#: shared\service\consts.js:751
+#: shared\service\consts.js:759
 msgid "Tower Vendor"
 msgstr ""
 
@@ -1228,7 +1244,7 @@ msgstr ""
 #: component\profile\activity-history.html:61
 #: component\subclass\subclass.html:80
 #: shared\service\consts.js:128
-#: shared\service\consts.js:691
+#: shared\service\consts.js:699
 msgid "Trials of Osiris"
 msgstr ""
 
@@ -1255,15 +1271,15 @@ msgstr ""
 msgid "Vanguard"
 msgstr ""
 
-#: shared\service\consts.js:771
+#: shared\service\consts.js:779
 msgid "Vanguard Quartermaster"
 msgstr ""
 
-#: shared\service\consts.js:746
+#: shared\service\consts.js:754
 msgid "Variks"
 msgstr ""
 
-#: shared\service\consts.js:853
+#: shared\service\consts.js:861
 msgid "Various Sources"
 msgstr ""
 
@@ -1278,7 +1294,7 @@ msgstr ""
 msgid "Warlock"
 msgstr ""
 
-#: shared\service\consts.js:783
+#: shared\service\consts.js:791
 msgid "Warlock Vanguard"
 msgstr ""
 
@@ -1329,7 +1345,7 @@ msgstr ""
 msgid "Xbox"
 msgstr ""
 
-#: shared\service\consts.js:832
+#: shared\service\consts.js:840
 msgid "Xûr, Agent of the Nine"
 msgstr ""
 
@@ -1342,6 +1358,11 @@ msgstr ""
 #: component\profile\activity-history.html:70
 #: shared\service\consts.js:126
 msgid "Zone Control"
+msgstr ""
+
+#: component\item\itemDetailCtrl.js:17
+#: component\item\itemListFactory.js:579
+msgid "[Unnamed Item]"
 msgstr ""
 
 #: shared\chart\weapon-bar.js:44
