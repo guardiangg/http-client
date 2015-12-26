@@ -10,14 +10,8 @@
 <div class="ggg-body">
 
     <% if (_primaryStats.attack && _primaryStats.attack.min > 0) { %>
-        <div class="ggg-primary ggg-damage-<%= _damageType %>">
-            <% if (_damageType === 2) { %>
-                <i class="ggg ggg-arc"></i>
-            <% } else if (_damageType === 3) { %>
-                <i class="ggg ggg-solar"></i>
-            <% } else if (_damageType === 4) { %>
-                <i class="ggg ggg-void"></i>
-            <% } %>
+        <div class="ggg-primary ggg-type-<%= _damageType %>">
+            <i class="ggg ggg-damage-<%= _damageType %>"></i>
             <% if (_primaryStats.attack.min === _primaryStats.attack.max) { %>
                 <span class="ggg-value"><%= _primaryStats.attack.min %></span>
             <% } else { %>

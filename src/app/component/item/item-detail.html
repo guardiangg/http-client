@@ -19,7 +19,7 @@
             </ul>
         </div>
 
-        <div class="section">
+        <div class="section" ng-show="entity.sources.length > 0">
             <h3 translate>Sources</h3>
             <ul class="sources">
                 <li class="source" ng-repeat="source in entity.sources">
@@ -53,7 +53,7 @@
 
             <div class="stat" ng-show="entity._primaryStats.attack">
                 <div class="icon">
-                    <i class="ggg ggg-void"></i>
+                    <i class="ggg ggg-damage-{{ entity._damageType }}"></i>
                 </div>
                 <div class="info">
                     <span class="value" ng-show="entity._primaryStats.attack.min != entity._primaryStats.attack.max">
@@ -138,10 +138,12 @@
 
         </div>
 
-        <div class="talents">
-            <h4 translate>Talent Nodes</h4>
-            <div class="talent-wrapper" talent-grid perks="entity.perks"></div>
+        <div class="talents" ng-show="entity.perks.length > 0">
+            <h4 translate>Talent Grid</h4>
+            <div class="talent-grid" talent-grid perks="entity.perks"></div>
+
             <h4 translate>Talent Breakdown</h4>
+            <div class="talent-breakdown" talent-summary perks="entity.perks"></div>
         </div>
 
     </div>
@@ -149,18 +151,3 @@
     <div class="clear"></div>
 
 </div>
-
-<!--
-<section class="item-details">
-
-    <h2>Sources</h2>
-
-
-    <h2>Stats</h2>
-
-    <stat-bars stats="entity.stats"></stat-bars>
-
-    <h2>Perks</h2>
-    <talent-grid perks="entity.perks"></talent-grid>
-</section>
--->

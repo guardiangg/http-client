@@ -67,6 +67,18 @@ app.controller('itemDetailCtrl', [
                         return stat.hash.toString() === consts.stats.magazine;
                     })
                 }
+
+                $scope.entity._damageType = 0;
+                _.each($scope.entity.perks, function(perk) {
+                    if ($scope.entity._damageType > 0 && perk.damageType > 0) {
+                        $scope.entity._damageType = 5;
+                        return;
+                    }
+
+                    if (perk.damageType && perk.damageType > 0) {
+                        $scope.entity._damageType = perk.damageType;
+                    }
+                });
             });
     }
 ]);

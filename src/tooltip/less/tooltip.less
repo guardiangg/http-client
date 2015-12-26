@@ -1,5 +1,21 @@
 @import (inline) "../../../node_modules/opentip/css/opentip.css";
 
+.ggg-solar:before, .ggg-damage-3:before {
+    content: "\49";
+}
+.ggg-void:before, .ggg-damage-4:before {
+    content: "\4a";
+}
+.ggg-arc:before, .ggg-damage-2:before {
+    content: "\47";
+}
+.ggg-kinetic:before, .ggg-damage-0:before, .ggg-damage-1:before {
+    content: "\4d";
+}
+.ggg-rainbow:before, .ggg-damage-5:before {
+    content: "\4e";
+}
+
 .style-ggg {
     opacity: 0.95;
     z-index: 10000 !important;
@@ -82,6 +98,19 @@
                         opacity: 0.6;
                     }
                 }
+
+                &.ggg-perk {
+                    height: auto;
+                    background-color: #000;
+                    color: #fff;
+
+                    .ggg-head-content {
+                        height: auto;
+                        top: 0;
+                        margin: 0;
+                        padding: 10px;
+                    }
+                }
             }
 
             .ggg-body {
@@ -91,26 +120,16 @@
                     margin-top: 5px;
                     margin-bottom: 10px;
 
-                    &.ggg-damage-0, &.ggg-damage-1 {
-                        margin-top: 15px;
-                        margin-bottom: 20px;
-                    }
-
-                    &.ggg-damage-2 {
+                    &.ggg-type-2 {
                         color: #97d2ef;
                     }
 
-                    &.ggg-damage-3 {
+                    &.ggg-type-3 {
                         color: #EF6623;
                     }
 
-                    &.ggg-damage-4 {
+                    &.ggg-type-4 {
                         color: #BA79D4;
-                    }
-
-                    &.ggg-damage-5 {
-                        margin-top: 15px;
-                        margin-bottom: 20px;
                     }
 
                     .ggg {
@@ -241,6 +260,35 @@
                                 height: 22px;
                                 z-index: 50;
                                 background:#8E8E8E;
+                            }
+                        }
+                    }
+                }
+
+                &.ggg-perk {
+                    background: #222;
+
+                    .ggg-perks {
+                        .ggg-perk {
+                            min-height: 24px;
+
+                            img {
+                                width: 24px;
+                                height: 24px;
+                            }
+
+                            .ggg-perk-info {
+                                margin-left: 34px;
+
+                                .ggg-name {
+                                    font-size: 13px;
+                                    margin-bottom: 2px;
+                                }
+
+                                .ggg-description {
+                                    font-size: 12px;
+                                    opacity: 0.5;
+                                }
                             }
                         }
                     }

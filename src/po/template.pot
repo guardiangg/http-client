@@ -175,6 +175,10 @@ msgstr ""
 msgid "Class restriction"
 msgstr ""
 
+#: component\item\talentSummaryDirective.js:50
+msgid "Column"
+msgstr ""
+
 #: component\item\item.html:104
 #: shared\service\consts.js:229
 msgid "Common"
@@ -754,6 +758,11 @@ msgstr ""
 msgid "Old Russia"
 msgstr ""
 
+#: component\item\perk-random.html:4
+#: component\item\talentSummaryDirective.js:94
+msgid "One of these perks is randomly selected for this node"
+msgstr ""
+
 #: component\search\search.html:12
 msgid "Oops, we weren't able to find \"{{name}}\". Verify spelling and try again."
 msgstr ""
@@ -876,6 +885,11 @@ msgstr ""
 
 #: shared\service\consts.js:675
 msgid "Raid - Vault of Glass"
+msgstr ""
+
+#: component\item\perk-random.html:3
+#: component\item\talentSummaryDirective.js:94
+msgid "Random"
 msgstr ""
 
 #: component\leaderboard\leaderboard.html:58
@@ -1141,12 +1155,12 @@ msgstr ""
 msgid "Sword"
 msgstr ""
 
-#: component\item\item-detail.html:144
+#: component\item\item-detail.html:145
 msgid "Talent Breakdown"
 msgstr ""
 
 #: component\item\item-detail.html:142
-msgid "Talent Nodes"
+msgid "Talent Grid"
 msgstr ""
 
 #: component\profile\pgcr.html:3

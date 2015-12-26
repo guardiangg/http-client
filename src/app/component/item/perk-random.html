@@ -1,0 +1,18 @@
+<div class="ggg-head ggg-perk">
+    <div class="ggg-head-content">
+        <div class="ggg-name" translate>Random</div>
+        <div class="ggg-sub" translate>One of these perks is randomly selected for this node</div>
+    </div>
+</div>
+
+<div class="ggg-body ggg-perk">
+    <div class="ggg-perks">
+        <div class="ggg-perk" ng-repeat="perk in perks">
+            <img ng-src="//bungie.net{{ perk.icon }}">
+            <div class="ggg-perk-info">
+                <div class="ggg-name">{{ perk.name }}</div>
+                <div class="ggg-description">{{ perk.description }}</div>
+            </div>
+        </div>
+    </div>
+</div>
