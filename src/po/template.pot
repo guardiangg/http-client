@@ -4,6 +4,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
+#: component\item\itemDetailCtrl.js:91
+#: shared\chart\item-popularity.js:75
+msgid "% of All Kills"
+msgstr ""
+
 #. Short for grenade
 #: component\profile\character.html:57
 msgid "'Nade"
@@ -126,7 +131,7 @@ msgid "Bravo"
 msgstr ""
 
 #: component\faq\faq.html:52
-#: shared\chart\profile-elo.js:144
+#: shared\chart\profile-elo.js:153
 #: shared\service\consts.js:58
 msgid "Bronze"
 msgstr ""
@@ -154,6 +159,7 @@ msgstr ""
 msgid "Choose your platform"
 msgstr ""
 
+#: component\item\item-detail.html:162
 #: component\layout\nav.html:112
 #: component\layout\nav.html:47
 #: component\profile\activity-history.html:63
@@ -171,7 +177,7 @@ msgstr ""
 msgid "Class Item"
 msgstr ""
 
-#: component\item\item-detail.html:13
+#: component\item\item-detail.html:25
 msgid "Class restriction"
 msgstr ""
 
@@ -189,6 +195,7 @@ msgstr ""
 msgid "Consumable"
 msgstr ""
 
+#: component\item\item-detail.html:161
 #: component\layout\nav.html:107
 #: component\layout\nav.html:42
 #: component\profile\activity-history.html:62
@@ -260,7 +267,7 @@ msgid "Description"
 msgstr ""
 
 #: component\faq\faq.html:56
-#: shared\chart\profile-elo.js:84
+#: shared\chart\profile-elo.js:93
 #: shared\service\consts.js:102
 msgid "Diamond"
 msgstr ""
@@ -273,6 +280,7 @@ msgstr ""
 msgid "Donate"
 msgstr ""
 
+#: component\item\item-detail.html:168
 #: component\layout\nav.html:142
 #: component\layout\nav.html:77
 #: component\profile\activity-history.html:69
@@ -286,6 +294,7 @@ msgid ""
 "            Control you'll have the same rating whether you're on your Titan, Warlock or Hunter."
 msgstr ""
 
+#: component\item\item-detail.html:165
 #: component\layout\nav.html:127
 #: component\layout\nav.html:62
 #: component\profile\activity-history.html:66
@@ -387,6 +396,7 @@ msgid ""
 "        support, feel free to buy us a beer and/or pony!"
 msgstr ""
 
+#: component\item\item-detail.html:156
 #: component\profile\activity-history.html:54
 msgid "Game mode:"
 msgstr ""
@@ -405,7 +415,7 @@ msgid "GitHub"
 msgstr ""
 
 #: component\faq\faq.html:54
-#: shared\chart\profile-elo.js:114
+#: shared\chart\profile-elo.js:123
 #: shared\service\consts.js:80
 msgid "Gold"
 msgstr ""
@@ -453,7 +463,7 @@ msgstr ""
 msgid "Helmet"
 msgstr ""
 
-#: component\item\item-detail.html:122
+#: component\item\item-detail.html:134
 msgid "Hidden Stats"
 msgstr ""
 
@@ -473,7 +483,7 @@ msgstr ""
 msgid "How do I get in touch if I have a question/suggestion?"
 msgstr ""
 
-#: component\item\item-detail.html:15
+#: component\item\item-detail.html:27
 #: component\subclass\subclass.html:15
 #: shared\service\consts.js:149
 msgid "Hunter"
@@ -510,6 +520,7 @@ msgstr ""
 msgid "Inventory"
 msgstr ""
 
+#: component\item\item-detail.html:159
 #: component\layout\nav.html:102
 #: component\layout\nav.html:37
 #: component\profile\activity-history.html:60
@@ -587,7 +598,7 @@ msgid ""
 "                        </div>"
 msgstr ""
 
-#: component\item\item-detail.html:9
+#: component\item\item-detail.html:21
 msgid "Last patched"
 msgstr ""
 
@@ -678,7 +689,7 @@ msgstr ""
 msgid "Meridian Bay"
 msgstr ""
 
-#: component\item\item-detail.html:6
+#: component\item\item-detail.html:18
 msgid "Metadata"
 msgstr ""
 
@@ -742,7 +753,7 @@ msgstr ""
 msgid "No items were found"
 msgstr ""
 
-#: component\item\item-detail.html:17
+#: component\item\item-detail.html:29
 msgid "None"
 msgstr ""
 
@@ -815,7 +826,7 @@ msgid "Platform"
 msgstr ""
 
 #: component\faq\faq.html:55
-#: shared\chart\profile-elo.js:99
+#: shared\chart\profile-elo.js:108
 #: shared\service\consts.js:91
 msgid "Platinum"
 msgstr ""
@@ -843,7 +854,7 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
-#: component\item\item-detail.html:104
+#: component\item\item-detail.html:116
 msgid "Primary Stats"
 msgstr ""
 
@@ -892,8 +903,10 @@ msgstr ""
 msgid "Random"
 msgstr ""
 
+#: component\item\itemDetailCtrl.js:82
 #: component\leaderboard\leaderboard.html:58
 #: component\srl\srl.html:59
+#: shared\chart\item-popularity.js:66
 msgid "Rank"
 msgstr ""
 
@@ -934,6 +947,7 @@ msgstr ""
 msgid "Reset Filters"
 msgstr ""
 
+#: component\item\item-detail.html:163
 #: component\layout\nav.html:122
 #: component\layout\nav.html:57
 #: component\profile\activity-history.html:64
@@ -946,6 +960,7 @@ msgstr ""
 msgid "Rocket Launcher"
 msgstr ""
 
+#: component\item\item-detail.html:164
 #: component\layout\nav.html:117
 #: component\layout\nav.html:52
 #: component\profile\activity-history.html:65
@@ -969,6 +984,7 @@ msgstr ""
 msgid "SRL Records <span class=\"subtext\">limited event, ends Dec 29th, 2015</span>"
 msgstr ""
 
+#: component\item\item-detail.html:167
 #: component\layout\nav.html:137
 #: component\layout\nav.html:72
 #: component\profile\activity-history.html:68
@@ -1025,7 +1041,7 @@ msgid "Sidearm"
 msgstr ""
 
 #: component\faq\faq.html:53
-#: shared\chart\profile-elo.js:129
+#: shared\chart\profile-elo.js:138
 #: shared\service\consts.js:69
 msgid "Silver"
 msgstr ""
@@ -1037,6 +1053,7 @@ msgid ""
 "            Crucible, you have a profile here - check it out!"
 msgstr ""
 
+#: component\item\item-detail.html:166
 #: component\layout\nav.html:132
 #: component\layout\nav.html:67
 #: component\profile\activity-history.html:67
@@ -1055,7 +1072,7 @@ msgstr ""
 msgid "Source"
 msgstr ""
 
-#: component\item\item-detail.html:23
+#: component\item\item-detail.html:35
 msgid "Sources"
 msgstr ""
 
@@ -1155,11 +1172,11 @@ msgstr ""
 msgid "Sword"
 msgstr ""
 
-#: component\item\item-detail.html:145
+#: component\item\item-detail.html:180
 msgid "Talent Breakdown"
 msgstr ""
 
-#: component\item\item-detail.html:142
+#: component\item\item-detail.html:177
 msgid "Talent Grid"
 msgstr ""
 
@@ -1227,7 +1244,7 @@ msgstr ""
 msgid "Time Trials"
 msgstr ""
 
-#: component\item\item-detail.html:14
+#: component\item\item-detail.html:26
 #: component\subclass\subclass.html:31
 #: shared\service\consts.js:150
 msgid "Titan"
@@ -1253,6 +1270,7 @@ msgstr ""
 msgid "Tower Vendor"
 msgstr ""
 
+#: component\item\item-detail.html:160
 #: component\layout\nav.html:32
 #: component\layout\nav.html:97
 #: component\profile\activity-history.html:61
@@ -1302,7 +1320,7 @@ msgstr ""
 msgid "Voidwalker"
 msgstr ""
 
-#: component\item\item-detail.html:16
+#: component\item\item-detail.html:28
 #: component\subclass\subclass.html:47
 #: shared\service\consts.js:148
 msgid "Warlock"
@@ -1322,6 +1340,10 @@ msgstr ""
 
 #: shared\service\consts.js:254
 msgid "Weapon"
+msgstr ""
+
+#: component\item\item-detail.html:172
+msgid "Weapon Popularity"
 msgstr ""
 
 #: component\weapon-stats\weapon-stats.html:2
@@ -1367,6 +1389,7 @@ msgstr ""
 msgid "You can fire us an email at"
 msgstr ""
 
+#: component\item\item-detail.html:169
 #: component\layout\nav.html:147
 #: component\layout\nav.html:82
 #: component\profile\activity-history.html:70
@@ -1374,7 +1397,7 @@ msgstr ""
 msgid "Zone Control"
 msgstr ""
 
-#: component\item\itemDetailCtrl.js:17
+#: component\item\itemDetailCtrl.js:104
 #: component\item\itemListFactory.js:579
 msgid "[Unnamed Item]"
 msgstr ""

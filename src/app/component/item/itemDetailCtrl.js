@@ -4,12 +4,99 @@ app.controller('itemDetailCtrl', [
     '$rootScope',
     '$scope',
     '$stateParams',
+    '$location',
     'gamedata',
+    'api',
+    'charts',
     'consts',
     'gettextCatalog',
+    '$localStorage',
 
-    function ($rootScope, $scope, $stateParams, gamedata, consts, gettextCatalog) {
+    function ($rootScope, $scope, $stateParams, $location, gamedata, api, charts, consts, gettextCatalog, $localStorage) {
         $scope.tiers = consts.item_tiers;
+        $scope.chart = charts.get('item-popularity');
+        $scope.chartEmpty = true;
+        $scope.hasChart = false;
+        $scope.modes = consts.modes;
+        $scope.mode = $localStorage.itemMode || 10;
+
+        $scope.setMode = function(mode) {
+            $localStorage.itemMode = mode;
+            $scope.mode = mode;
+            $scope.chartEmpty = true;
+
+            _.each($scope.chart.series, function(series) {
+                series.visible = mode == series.mode;
+
+                if (series.mode == mode && series.data.length > 0) {
+                    $scope.chartEmpty = false;
+                }
+            });
+        };
+
+        var loadComments = function() {
+            disqus_config = function () {
+                this.page.identifier = 'item_' + $stateParams.hash;
+            };
+
+            var d = document, s = d.createElement('script');
+            s.src = '//guardiangg.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        };
+
+        var loadChart = function() {
+            api
+                .getItemPopularityChart($stateParams.hash)
+                .then(function(result) {
+                    var rank = {};
+                    var kd = {};
+                    var highest = {kd: -1, rank: -1};
+
+                    _.each(result.data, function(row) {
+                        if (!rank[row.mode]) {
+                            rank[row.mode] = [];
+                            kd[row.mode] = [];
+                        }
+
+                        var dt = moment(row.day).unix() * 1000;
+
+                        rank[row.mode].push({ x: dt, y: row.rank });
+                        kd[row.mode].push({ x: dt, y: row.kills });
+
+                        if (row.rank < highest.rank || highest.rank === -1) {
+                            highest.rank = row.rank;
+                        }
+
+                        if (row.kills > highest.kd || highest.kd === -1) {
+                            highest.kd = row.kills;
+                        }
+                    });
+
+                    $scope.chart.series = [];
+
+                    _.each(rank, function(data, mode) {
+                        $scope.chart.series.push({
+                            mode: mode,
+                            data: data,
+                            name: gettextCatalog.getString('Rank'),
+                            color: '#404040',
+                            visible: mode == $scope.mode ? true : false
+                        });
+
+                        if (kd[mode]) {
+                            $scope.chart.series.push({
+                                mode: mode,
+                                data: kd[mode],
+                                name: gettextCatalog.getString('% of All Kills'),
+                                color: '#ecaa4a',
+                                yAxis: 1,
+                                visible: mode == $scope.mode ? true : false
+                            });
+                        }
+                    });
+                });
+        }
 
         gamedata
             .get('items', $stateParams.hash)
@@ -79,6 +166,13 @@ app.controller('itemDetailCtrl', [
                         $scope.entity._damageType = perk.damageType;
                     }
                 });
+
+                if ($scope.entity._primaryStats.attack) {
+                    $scope.hasChart = true;
+                    loadChart();
+                }
+
+                loadComments();
             });
     }
 ]);

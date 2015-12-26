@@ -2,6 +2,18 @@
 
     <div class="quick-facts">
 
+        <div class="ad-placement">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- GGG-Item-Sidebar -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:336px;height:280px"
+                 data-ad-client="ca-pub-4988741679097321"
+                 data-ad-slot="7067374694"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
         <div class="section">
             <h3 translate>Metadata</h3>
             <ul class="facts">
@@ -138,12 +150,39 @@
 
         </div>
 
+        <div class="item-chart" ng-show="hasChart">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="modeSelector" data-toggle="dropdown" aria-haspopup="true">
+                    <i class="fa fa-filter"></i> <strong translate>Game mode:</strong> {{modes[mode]}}
+                </button>
+                <ul class="dropdown-menu" area-labelledby="modeSelector">
+                    <li><a href="javascript:;" ng-click="setMode(19)"><i class="ggg ggg-iron-banner"></i> <translate>Iron Banner</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(14)"><i class="ggg ggg-osiris"></i> <translate>Trials of Osiris</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(10)"><i class="ggg ggg-control"></i> <translate>Control</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(12)"><i class="ggg ggg-clash"></i> <translate>Clash</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(24)"><i class="ggg ggg-rift"></i> <translate>Rift</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(13)"><i class="ggg ggg-rumble"></i> <translate>Rumble</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(23)"><i class="ggg ggg-elimination"></i> <translate>Elimination</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(9)"><i class="ggg ggg-skirmish"></i> <translate>Skirmish</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(11)"><i class="ggg ggg-salvage"></i> <translate>Salvage</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(15)"><i class="ggg ggg-doubles"></i> <translate>Doubles</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(28)"><i class="ggg ggg-control"></i> <translate>Zone Control</translate></a></li>
+                </ul>
+            </div>
+            <h4 translate>Weapon Popularity</h4>
+            <highchart config="chart" style="height: 300px;"></highchart>
+        </div>
+
         <div class="talents" ng-show="entity.perks.length > 0">
             <h4 translate>Talent Grid</h4>
             <div class="talent-grid" talent-grid perks="entity.perks"></div>
 
             <h4 translate>Talent Breakdown</h4>
             <div class="talent-breakdown" talent-summary perks="entity.perks"></div>
+        </div>
+
+        <div class="comments">
+            <div id="disqus_thread"></div>
         </div>
 
     </div>

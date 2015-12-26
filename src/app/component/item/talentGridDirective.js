@@ -72,6 +72,7 @@ app.directive('talentGrid', [
                     var perkScope = scope.$new(true);
                     var tooltip = angular.element('<div></div>');
                     var link = angular.element('<a href="javascript:;"></a>');
+                    link.attr('data-node', perk[0].nodeIndex);
 
                     perkScope.perks = [];
                     perkScope.perk = {};
@@ -86,13 +87,27 @@ app.directive('talentGrid', [
                         tooltip.html($templateCache.get('component/item/perk-random.html'));
                     }
 
+                    ele.bind('mouseenter', function(e) {
+                        $(this).addClass('active');
+
+                        _.each(perk[0].exclusiveWith, function(nodeId) {
+                            $('[data-node=' + nodeId + ']').addClass('exclusive');
+                        });
+                    }).bind('mouseleave', function(e) {
+                        $(this).removeClass('active');
+
+                        _.each(perk[0].exclusiveWith, function(nodeId) {
+                            $('[data-node=' + nodeId + ']').removeClass('exclusive');
+                        });
+                    });
+
                     ele.append(link);
                     rowElement.append(ele);
 
                     $compile(tooltip.contents())(perkScope);
 
                     $timeout(function() {
-                        var tip = new Opentip(link[0], tooltip.html(), {
+                        var tip = new Opentip(ele[0], tooltip.html(), {
                             hideDelay: 0.01,
                             showEffect: null,
                             hideEffect: null,

@@ -4,7 +4,12 @@
     .quick-facts {
         position: absolute;
         right: 0;
-        width: 320px;
+        width: 336px;
+
+        .ad-placement {
+            background: #f7f7f7;
+            margin-bottom: 15px;
+        }
 
         .section {
             background: #F7F7F7;
@@ -98,7 +103,7 @@
     .details {
         padding: 15px;
         background: #fff;
-        margin-right: 335px;
+        margin-right: 351px;
 
         h4 {
             margin: 0;
@@ -195,6 +200,8 @@
         }
 
         .item-stats {
+            margin: 0;
+
             .stat-bars {
                 background: #F3F3F3;
                 padding: 10px;
@@ -300,6 +307,8 @@
             }
 
             .col-md-6 {
+                padding: 0 5px;
+
                 .stat-bars {
                     .stat {
                         .name {
@@ -316,6 +325,14 @@
                         }
                     }
                 }
+
+                &:first-child {
+                    padding-left: 0;
+                }
+
+                &:last-child {
+                    padding-right: 0;
+                }
             }
         }
 
@@ -325,7 +342,7 @@
             .breakdown-heading {
                 margin: 15px 0 5px 0;
                 padding: 0;
-                font-size: 16px;
+                font-size: 13px;
                 font-weight: bold;
             }
 
@@ -336,9 +353,10 @@
 
                 > li {
                     margin-bottom: 5px;
-                    background: #ececec;
                     padding: 15px;
                     border-radius: 4px;
+                    border: 1px solid #E8E8E8;
+                    border-left: 3px solid #CACACA;
 
                     .breakdown-random {
 
@@ -349,7 +367,7 @@
                         min-height: 32px;
 
                         .breakdown-perk-icon {
-                            background-color: #555;
+                            background-color: #222;
                             background-position: center center;
                             background-repeat: no-repeat;
                             background-size: 80%;
@@ -412,10 +430,36 @@
             }
         }
 
+        .item-chart {
+            position: relative;
+            margin-bottom: 15px;
+
+            .dropdown {
+                position: absolute;
+                right: 0;
+                top: 4px;
+
+                > button {
+                    border: none;
+                    background: none;
+                    padding: 0;
+                    border-bottom: 1px dotted #999;
+                    font-size: 0.9em;
+                }
+            }
+        }
+
+        .comments {
+            margin-top: 25px;
+        }
+
         .talent-grid {
             font-size: 0;
+            margin-top: 5px;
             padding: 15px;
+            background: #404040;
             margin-bottom: 15px;
+            border-radius: 4px;
 
             .talent-row {
                 display: flex;
@@ -424,13 +468,14 @@
                 justify-content: center;
 
                 .talent-node {
+                    cursor: help;
                     position: relative;
                     display: inline-block;
                     width: 100%;
                     max-width: 80px;
-                    margin: 2px;
 
                     a {
+                        cursor: help;
                         position: absolute;
                         top: 0;
                         left: 0;
@@ -441,13 +486,19 @@
                         background-size: 80%;
                         background-position: center center;
                         background-repeat: no-repeat;
-                        background-color: #777;
-                        border: 4px solid #777;
+                        background-color: #555;
+                        border: 2px solid #404040;
                         border-radius: 50%;
 
-                        &:hover {
-                            background-color: #555;
-                            border: 4px solid #666;
+                        &.exclusive {
+                            background-color: #323232;
+                            opacity: 0.4;
+                        }
+                    }
+
+                    &.active {
+                        a {
+                            background-color: #777;
                         }
                     }
 
