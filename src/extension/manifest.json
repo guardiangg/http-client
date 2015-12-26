@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "Guardian.gg Tooltip Extension",
+  "description": "Level up your browsing experience with tooltips for Destiny by Guardian.gg",
+  "version": "1.0.0",
+  "permissions": [
+    "storage",
+    "https://*.reddit.com/"
+  ],
+  "icons": {
+    "16": "icon/16.png",
+    "48": "icon/48.png",
+    "128": "icon/128.png"
+  },
+  "options_page": "chrome/options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.reddit.com/r/*",
+        "*://*.bungie.net/*"
+      ],
+      "js": [
+        "chrome/background.js"
+      ]
+    }
+  ]
+}
