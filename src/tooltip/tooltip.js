@@ -18,10 +18,16 @@
         local: false,
         debug: false,
         rename: true,
+        rewrite: true,
         targetjoint: 'top right',
         tipjoint: 'bottom left',
-        target: null
+        target: null,
+        batch: 50
     }, typeof gggTipOptions === 'undefined' ? {} : gggTipOptions);
+
+    if (opts.batch > 50) {
+        opts.batch = 50;
+    }
 
     window.gggTips = new function(opts) {
         var cache = {},
@@ -53,45 +59,45 @@
                 'emote': 3054419239
             },
             skip_perk: [
-                "617082448",
-                "1920788875",
-                "1270552711",
-                "643689081", // kinetic
-                "1975859941", // solar
-                "472357138", // void
-                "2688431654", // arc
+                '617082448',
+                '1920788875',
+                '1270552711',
+                '643689081', // kinetic
+                '1975859941', // solar
+                '472357138', // void
+                '2688431654', // arc
             ],
             stats: {
                 display: [
-                    "4284893193", // Rate of fire
-                    "2961396640", // Charge rate
-                    "3614673599", // Blast radius
-                    "2523465841", // Velocity
-                    "2837207746", // Speed
-                    "4043523819", // Impact
-                    "1240592695", // Range
-                    "155624089", // Stability
-                    "4188031367", // Reload speed
-                    "2762071195", // Efficiency
-                    "209426660", // Defense
-                    "925767036", // Energy
-                    "360359141", // Durability
-                    "3017642079", // Boost
+                    '4284893193', // Rate of fire
+                    '2961396640', // Charge rate
+                    '3614673599', // Blast radius
+                    '2523465841', // Velocity
+                    '2837207746', // Speed
+                    '4043523819', // Impact
+                    '1240592695', // Range
+                    '155624089', // Stability
+                    '4188031367', // Reload speed
+                    '2762071195', // Efficiency
+                    '209426660', // Defense
+                    '925767036', // Energy
+                    '360359141', // Durability
+                    '3017642079', // Boost
                 ],
                 hidden: [
-                    "3555269338", // Optics
-                    "1345609583", // Aim assist
-                    "2715839340", // Recoil
-                    "943549884", // Equip speed
+                    '3555269338', // Optics
+                    '1345609583', // Aim assist
+                    '2715839340', // Recoil
+                    '943549884', // Equip speed
                 ],
                 armor: [
-                    "144602215", // Intellect
-                    "1735777505", // Discipline
-                    "4244567218", // Strength
+                    '144602215', // Intellect
+                    '1735777505', // Discipline
+                    '4244567218', // Strength
                 ],
-                magazine: "3871231066",
-                attack: "368428387",
-                defense: "3897883278"
+                magazine: '3871231066',
+                attack: '368428387',
+                defense: '3897883278'
             }
         };
 
@@ -168,7 +174,7 @@
                     callback(JSON.parse(xhttp.responseText));
                 }
             };
-            xhttp.open("GET", url, true);
+            xhttp.open('GET', url, true);
             xhttp.send();
         };
 
@@ -179,8 +185,30 @@
          */
         var links = function() {
             debug('links()');
-            var result = document.getElementsByTagName("a");
+            var result = document.getElementsByTagName('a');
             debug(result.length + ' links on page');
+
+            if (!opts.rewrite) {
+                return result;
+            }
+
+            var match;
+            _.each(result, function(link) {
+                var id, locale = 'en';
+                if (match = link.href.match(/destinydb.com\/items\/(\d+)/i)) {
+                    id = match[1];
+                } else if (match = link.href.match(/db.planetdestiny.com\/items\/view\/(\d+)/i)) {
+                    id = match[1];
+                } else if (match = link.href.match(/www\.bungie\.net\/(\w+)\/Armory\/Detail\?type=item&item=(\d+)/i)) {
+                    locale = match[1];
+                    id = match[2];
+                }
+
+                if (id) {
+                    link.href = 'https://guardian.gg/' + locale + '/items/' + id;
+                }
+            });
+
             return result;
         };
 
@@ -207,29 +235,35 @@
                 return;
             }
 
-            var url = opts.apiurl + '/' + hashes.join(';') + '?lc=' + opts.locale;
+            var batch;
+            var total = Math.ceil(hashes.length / opts.batch);
+            var done = 0;
 
-            fetch(url, function(result) {
-                if (result.constructor !== Array) {
-                    debug('invalid result');
-                    return;
-                }
+            while ((batch = hashes.splice(0, opts.batch)).length > 0) {
+                var url = opts.apiurl + '/' + batch.join(';') + '?lc=' + opts.locale;
 
-                _.each(result, function(row) {
-                    enrichGamedata(row);
+                fetch(url, function(result) {
+                    if (result.constructor !== Array) {
+                        debug('invalid result');
+                        return;
+                    }
 
-                    cache[row.hash] = {
-                        html: window["JST"]["item.html"](row),
-                        json: row
-                    };
+                    _.each(result, function(row) {
+                        enrichGamedata(row);
+
+                        cache[row.hash] = {
+                            html: window['JST']['item.html'](row),
+                            json: row
+                        };
+                    });
+
+                    debug('cache built');
+
+                    if (++done == total && callback) {
+                        callback();
+                    }
                 });
-
-                debug('cache built');
-
-                if (callback) {
-                    callback();
-                }
-            });
+            }
         };
 
         /**
@@ -314,17 +348,19 @@
                 return link.href == tooltipFont;
             });
 
+            var head, link;
+
             if (!hasCss) {
-                var head = document.getElementsByTagName('head')[0];
-                var link = document.createElement('link');
+                head = document.getElementsByTagName('head')[0];
+                link = document.createElement('link');
                 link.rel = 'stylesheet';
                 link.href = tooltipCss;
                 head.appendChild(link);
             }
 
             if (!hasFont) {
-                var head = document.getElementsByTagName('head')[0];
-                var link = document.createElement('link');
+                head = document.getElementsByTagName('head')[0];
+                link = document.createElement('link');
                 link.rel = 'stylesheet';
                 link.href = tooltipFont;
                 head.appendChild(link);
