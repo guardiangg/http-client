@@ -12,8 +12,7 @@
     Opentip.defaultStyle = 'ggg';
 
     var opts = _.extend({
-        //apiurl: 'https://api.guardian.gg',
-        apiurl: 'http://127.0.0.1:3000',
+        apiurl: 'https://api.guardian.gg',
         locale: 'en',
         auto: true,
         local: true,
