@@ -17,7 +17,7 @@
         <div class="section">
             <h3 translate>Metadata</h3>
             <ul class="facts">
-                <li>
+                <li ng-show="entity.version != '0000-00-00 00:00:00'">
                     <span translate>Last patched</span>
                     <em class="help" uib-tooltip="{{entity.version}}" data-toggle="tooltip">{{ entity.version|ago }}</em>
                 </li>
@@ -108,6 +108,68 @@
                 </div>
             </div>
 
+            <div class="stat" ng-show="entity._primaryStats.intellect">
+                <div class="icon">
+                    <i class="ggg ggg-intellect"></i>
+                </div>
+                <div class="info">
+                    <span class="value" ng-show="entity._primaryStats.intellect.min != entity._primaryStats.intellect.max">
+                        {{ entity._primaryStats.intellect.min }}-{{ entity._primaryStats.intellect.max }}
+                    </span>
+                    <span class="value" ng-show="entity._primaryStats.intellect.min == entity._primaryStats.intellect.max">
+                        {{ entity._primaryStats.intellect.min }}
+                    </span>
+                    <span class="name">{{ entity._primaryStats.intellect.name }}</span>
+                </div>
+            </div>
+
+            <div class="stat" ng-show="entity._primaryStats.discipline">
+                <div class="icon">
+                    <i class="ggg ggg-discipline"></i>
+                </div>
+                <div class="info">
+                    <span class="value" ng-show="entity._primaryStats.discipline.min != entity._primaryStats.discipline.max">
+                        {{ entity._primaryStats.discipline.min }}-{{ entity._primaryStats.discipline.max }}
+                    </span>
+                    <span class="value" ng-show="entity._primaryStats.discipline.min == entity._primaryStats.discipline.max">
+                        {{ entity._primaryStats.discipline.min }}
+                    </span>
+                    <span class="name">{{ entity._primaryStats.discipline.name }}</span>
+                </div>
+            </div>
+
+            <div class="stat" ng-show="entity._primaryStats.strength">
+                <div class="icon">
+                    <i class="ggg ggg-strength"></i>
+                </div>
+                <div class="info">
+                    <span class="value" ng-show="entity._primaryStats.strength.min != entity._primaryStats.strength.max">
+                        {{ entity._primaryStats.strength.min }}-{{ entity._primaryStats.strength.max }}
+                    </span>
+                    <span class="value" ng-show="entity._primaryStats.strength.min == entity._primaryStats.strength.max">
+                        {{ entity._primaryStats.strength.min }}
+                    </span>
+                    <span class="name">{{ entity._primaryStats.strength.name }}</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="emblem-preview" ng-show="isEmblem">
+            <h4 translate>Emblem Preview</h4>
+            <div class="preview">
+                <div class="plate-wrapper">
+                    <div class="plate" ng-style="{'background-image': 'url(//bungie.net' + entity.secondaryIcon + ')'}">
+                        <div class="icon"><img ng-src="//bungie.net{{ entity.icon }}"></div>
+                        <div class="info">
+                            <span class="level">40</span>
+                            <span class="light">320</span>
+                            <span class="name" translate>Guardian</span>
+                            <span class="clan" translate>Clan Name</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="row item-stats" ng-show="entity._displayStats.length > 0 || entity._hiddenStats.length > 0">

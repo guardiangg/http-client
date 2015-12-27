@@ -21,7 +21,7 @@ app.factory('chart-item-popularity', [
                     enabled: false
                 },
                 plotOptions: {
-                    line: {
+                    spline: {
                         connectNulls: true,
                         marker: {
                             enabled: false
@@ -58,6 +58,8 @@ app.factory('chart-item-popularity', [
                 },
                 yAxis: [
                     {
+                        minRange: 1,
+                        minTickInterval: 1,
                         reversed: true,
                         gridLineWidth: 0,
                         minorGridLineWidth: 0,

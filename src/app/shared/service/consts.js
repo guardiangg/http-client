@@ -642,6 +642,9 @@ app.service('consts', [
                     "1735777505", // Discipline
                     "4244567218", // Strength
                 ],
+                intellect: "144602215",
+                discipline: "1735777505",
+                strength: "4244567218",
                 magazine: "3871231066",
                 attack: "368428387",
                 defense: "3897883278"
