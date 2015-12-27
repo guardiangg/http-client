@@ -430,6 +430,88 @@
             }
         }
 
+        .emblem-preview {
+            .preview {
+                padding: 30px 0;
+                margin-top: 5px;
+                margin-bottom: 15px;
+                background: #E6E6E6;
+
+                .plate-wrapper {
+                    width: 484px;
+                    height: 106px;
+                    border: 5px solid #CCC;
+                    margin: 0 auto;
+                }
+
+                .plate {
+                    margin: 0 auto;
+                    position: relative;
+                    width: 474px;
+                    height: 96px;
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+
+                    .icon {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 96px;
+                        height: 96px;
+
+                        img {
+                            width: 96px;
+                            height: 96px;
+                        }
+                    }
+
+                    .info {
+                        .name {
+                            color: #fff;
+                            position: absolute;
+                            top: 5px;
+                            left: 100px;
+                            letter-spacing: -1px;
+                            font-size: 40px;
+                        }
+
+                        .clan {
+                            position: absolute;
+                            color: rgba(255, 255, 255, 0.7);
+                            top: 50px;
+                            left: 100px;
+                            letter-spacing: -1px;
+                            font-size: 22px;
+                        }
+
+                        .light {
+                            color: #f5dc56;
+                            position: absolute;
+                            font-size: 22px;
+                            right: 10px;
+                            letter-spacing: -1px;
+                            top: 58px;
+
+                            &:before {
+                                content: "\2726";
+                                display: inline-block;
+                                vertical-align: 22%;
+                                font-size: 50%;
+                            }
+                        }
+
+                        .level {
+                            color: #fff;
+                            position: absolute;
+                            top: -8px;
+                            right: 10px;
+                            letter-spacing: -1px;
+                            font-size: 60px;
+                        }
+                    }
+                }
+            }
+        }
         .item-chart {
             position: relative;
             margin-bottom: 15px;

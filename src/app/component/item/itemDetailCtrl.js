@@ -35,14 +35,23 @@ app.controller('itemDetailCtrl', [
         };
 
         var loadComments = function() {
-            disqus_config = function () {
-                this.page.identifier = 'item_' + $stateParams.hash;
-            };
+            if (!window.DISQUS) {
+                disqus_config = function () {
+                    this.page.identifier = 'item_' + $stateParams.hash;
+                };
 
-            var d = document, s = d.createElement('script');
-            s.src = '//guardiangg.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
+                var d = document, s = d.createElement('script');
+                s.src = '//guardiangg.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            } else {
+                window.DISQUS.reset({
+                    reload: true,
+                    config: function () {
+                        this.page.identifier = 'item_' + $stateParams.hash;
+                    }
+                });
+            }
         };
 
         var loadChart = function() {
@@ -107,6 +116,7 @@ app.controller('itemDetailCtrl', [
 
                 $scope.entity._displayStats = [];
                 $scope.entity._hiddenStats = [];
+                $scope.entity._armorStats = [];
 
                 _.each(consts.stats.display, function(s, idx) {
                     var obj = _.find(r.stats, function(stat) {
@@ -152,6 +162,15 @@ app.controller('itemDetailCtrl', [
                     }),
                     magazine: _.find(r.stats, function(stat) {
                         return stat.hash.toString() === consts.stats.magazine;
+                    }),
+                    intellect: _.find(r.stats, function(stat) {
+                        return stat.hash.toString() === consts.stats.intellect;
+                    }),
+                    discipline: _.find(r.stats, function(stat) {
+                        return stat.hash.toString() === consts.stats.discipline;
+                    }),
+                    strength: _.find(r.stats, function(stat) {
+                        return stat.hash.toString() === consts.stats.strength;
                     })
                 }
 
@@ -171,6 +190,10 @@ app.controller('itemDetailCtrl', [
                     $scope.hasChart = true;
                     loadChart();
                 }
+
+                $scope.isEmblem = _.find($scope.entity.categories, function(cat) {
+                    return cat.hash === 19;
+                });
 
                 loadComments();
             });
