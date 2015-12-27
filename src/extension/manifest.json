@@ -13,7 +13,7 @@
     "128": "icon/128.png"
   },
   "options_ui": {
-    "page": "chrome/options.html",
+    "page": "options.html",
     "chrome_style": true,
     "open_in_tab": false
   },
@@ -24,7 +24,7 @@
         "*://*.bungie.net/*"
       ],
       "js": [
-        "chrome/background.js"
+        "content.js"
       ]
     }
   ]
