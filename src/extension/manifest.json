@@ -3,6 +3,11 @@
   "name": "Guardian.gg Tooltip Extension",
   "description": "Level up your browsing experience with tooltips for Destiny by Guardian.gg",
   "version": "1.0.0",
+  "applications": {
+    "gecko": {
+      "id": "tooltips@guardian.gg"
+    }
+  },
   "permissions": [
     "storage",
     "https://*.reddit.com/"
