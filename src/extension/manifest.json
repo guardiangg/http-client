@@ -12,7 +12,11 @@
     "48": "icon/48.png",
     "128": "icon/128.png"
   },
-  "options_page": "chrome/options.html",
+  "options_ui": {
+    "page": "chrome/options.html",
+    "chrome_style": true,
+    "open_in_tab": false
+  },
   "content_scripts": [
     {
       "matches": [

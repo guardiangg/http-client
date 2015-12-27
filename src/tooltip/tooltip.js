@@ -257,9 +257,9 @@
                         };
                     });
 
-                    debug('cache built');
-
                     if (++done == total && callback) {
+                        debug('api requests done');
+
                         callback();
                     }
                 });
@@ -337,7 +337,7 @@
             debug('this.init()');
             debug(opts);
 
-            var tooltipCss = (opts.debug ? '' : 'https://guardian.gg') + '/asset/css/tooltip.css';
+            var tooltipCss = (opts.local ? '' : 'https://guardian.gg') + '/asset/css/tooltip.css';
             var tooltipFont = 'https://cdn.myfontastic.com/rtsPnqva2dStMpbiqqGpFi/icons.css';
 
             var hasCss = _.find(document.getElementsByTagName('link'), function(link) {

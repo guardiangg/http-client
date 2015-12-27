@@ -97,7 +97,6 @@ var cssTooltipCallback = function() {
 
     if (isProd) {
         stream = stream
-            .pipe(rev())
             .pipe(minifyCSS());
     }
 
@@ -145,9 +144,9 @@ var jsVendorCallback = function() {
     return stream.pipe(gulp.dest('./build/asset/js'));
 };
 
-gulp.task('build', ['config', 'robots', 'image', 'font', 'index']);
+gulp.task('build', ['tooltip', 'config', 'robots', 'image', 'font', 'index']);
 
-gulp.task('watch', ['build', 'tooltip'], function() {
+gulp.task('watch', ['build'], function() {
     gulp.watch(['./src/index.html'], ['index']);
     gulp.watch(['./src/asset/less/**/*.less'], ['css']);
     gulp.watch(['./src/app/**/*.js'], ['js']);
