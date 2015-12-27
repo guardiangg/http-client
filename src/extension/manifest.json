@@ -3,6 +3,11 @@
   "name": "Guardian.gg Tooltip Extension",
   "description": "Level up your browsing experience with tooltips for Destiny by Guardian.gg",
   "version": "1.0.0",
+  "applications": {
+    "gecko": {
+      "id": "tooltips@guardian.gg"
+    }
+  },
   "permissions": [
     "storage",
     "https://*.reddit.com/"
@@ -13,7 +18,7 @@
     "128": "icon/128.png"
   },
   "options_ui": {
-    "page": "chrome/options.html",
+    "page": "options.html",
     "chrome_style": true,
     "open_in_tab": false
   },
@@ -24,7 +29,7 @@
         "*://*.bungie.net/*"
       ],
       "js": [
-        "chrome/background.js"
+        "content.js"
       ]
     }
   ]
