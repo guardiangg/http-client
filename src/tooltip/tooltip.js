@@ -15,7 +15,7 @@
         apiurl: 'https://api.guardian.gg',
         locale: 'en',
         auto: true,
-        local: true,
+        local: false,
         debug: false,
         rename: true,
         rewrite: true,
