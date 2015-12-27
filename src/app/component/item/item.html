@@ -153,14 +153,15 @@
             </tr>
             <tr ng-repeat="entity in results.data track by entity.hash">
                 <td>
-                    <a ui-sref="app.itemDetailName({hash: entity.hash, name: slugify(entity.name)})"
+                    <a ng-href="/{{locale}}/items/{{entity.hash}}/{{entity.name}}"
                        class="icon"
                        ng-class="'quality-' + entity.tier"
                        data-ggg-target="true">
                         <img ng-src="//bungie.net{{entity.icon}}">
                     </a>
                     <div class="details">
-                        <a ui-sref="app.itemDetailName({hash: entity.hash, name: slugify(entity.name)})" ng-class="'quality-' + entity.tier">
+                        <a ng-href="/{{locale}}/items/{{entity.hash}}/{{entity.name}}"
+                           ng-class="'quality-' + entity.tier">
                             {{::entity.name}}
                         </a>
                         <small>{{entity.typeName}}</small>

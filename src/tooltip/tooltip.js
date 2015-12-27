@@ -15,7 +15,7 @@
         apiurl: 'https://api.guardian.gg',
         locale: 'en',
         auto: true,
-        local: true,
+        local: false,
         debug: false,
         rename: true,
         rewrite: true,
@@ -271,6 +271,7 @@
                         enrichGamedata(row);
 
                         row.isMobile = isMobile.any();
+                        row.local = opts.local;
                         row.locale = opts.locale;
 
                         cache[row.hash] = {
