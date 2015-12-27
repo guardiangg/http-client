@@ -16,7 +16,7 @@
         apiurl: 'http://127.0.0.1:3000',
         locale: 'en',
         auto: true,
-        local: false,
+        local: true,
         debug: false,
         rename: true,
         rewrite: true,
@@ -346,6 +346,8 @@
 
                 if (isMobile.any()) {
                     if (!document.getElementById('gggTipTarget')) {
+                        debug('adding mobile click target');
+
                         var mobileTarget = document.createElement('div');
                         mobileTarget.id = 'gggTipTarget';
                         mobileTarget.style.position = 'absolute';
@@ -354,6 +356,9 @@
                         mobileTarget.style.wdith = '100%';
 
                         document.getElementsByTagName('body')[0].appendChild(mobileTarget);
+                        window.addEventListener('scroll', function() {
+                            document.getElementById("gggTipTarget").style.top = window.scrollY;
+                        });
                     }
 
                     target = document.getElementById('gggTipTarget');
@@ -444,6 +449,15 @@
                     return;
                 }
 
+                if (isMobile.any()) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        return false;
+                    });
+                }
+
                 elements.push({hash: match[1], element: link});
                 hashes.push(match[1]);
             });
@@ -464,7 +478,6 @@
     };
 
     fetch(opts.apiurl + '/gamedata/version', function(version) {
-        console.log(version);
         window.gggTips = new gggTips(version, opts);
     });
 })();
