@@ -12,7 +12,8 @@
     Opentip.defaultStyle = 'ggg';
 
     var opts = _.extend({
-        apiurl: 'https://api.guardian.gg/tooltips/items',
+        //apiurl: 'https://api.guardian.gg',
+        apiurl: 'http://127.0.0.1:3000',
         locale: 'en',
         auto: true,
         local: false,
@@ -29,7 +30,23 @@
         opts.batch = 50;
     }
 
-    window.gggTips = new function(opts) {
+    /**
+     * Fetches a URL via AJAX using Native JS.
+     * @param url
+     * @param callback
+     */
+    var fetch = function(url, callback) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                callback(JSON.parse(xhttp.responseText));
+            }
+        };
+        xhttp.open('GET', url, true);
+        xhttp.send();
+    };
+
+    var gggTips = function(version, opts) {
         var cache = {},
             linkRegex;
 
@@ -182,24 +199,6 @@
         };
 
         /**
-         * Fetches a URL via AJAX using Native JS.
-         * @param url
-         * @param callback
-         */
-        var fetch = function(url, callback) {
-            debug('fetch(\'' + url + '\')');
-
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    callback(JSON.parse(xhttp.responseText));
-                }
-            };
-            xhttp.open('GET', url, true);
-            xhttp.send();
-        };
-
-        /**
          * Gets all the links available on the page.
          *
          * @returns {NodeList}
@@ -261,7 +260,7 @@
             var done = 0;
 
             while ((batch = hashes.splice(0, opts.batch)).length > 0) {
-                var url = opts.apiurl + '/' + batch.join(';') + '?lc=' + opts.locale;
+                var url = opts.apiurl + '/tooltips/items/' + batch.join(';') + '?v=' + version + 'lc=' + opts.locale;
 
                 fetch(url, function(result) {
                     if (result.constructor !== Array) {
@@ -462,5 +461,10 @@
         } else {
             debug('auto mode disabled, initialize at your own peril...');
         }
-    }(opts);
+    };
+
+    fetch(opts.apiurl + '/gamedata/version', function(version) {
+        console.log(version);
+        window.gggTips = new gggTips(version, opts);
+    });
 })();
