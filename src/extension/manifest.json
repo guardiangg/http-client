@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Guardian.gg Tooltip Extension",
+  "name": "Guardian.gg Tooltips",
   "description": "Level up your browsing experience with tooltips for Destiny by Guardian.gg",
   "version": "1.0.0",
   "applications": {

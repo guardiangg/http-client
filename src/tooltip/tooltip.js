@@ -271,6 +271,7 @@
                         enrichGamedata(row);
 
                         row.isMobile = isMobile.any();
+                        row.local = opts.local;
                         row.locale = opts.locale;
 
                         cache[row.hash] = {
