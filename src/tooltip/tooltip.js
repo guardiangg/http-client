@@ -309,6 +309,12 @@
                 var hash = entry.hash;
                 var element = entry.element;
                 var eOpts = optionsFromAttributes(element);
+
+                if (!cache[hash]) {
+                    debug('failed to find item ' + hash);
+                    return;
+                }
+
                 var tip = new Opentip(element, cache[hash].html, {
                     hideDelay: 0.1,
                     showEffect: null,
