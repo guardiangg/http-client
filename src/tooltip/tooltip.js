@@ -101,6 +101,27 @@
             }
         };
 
+        var isMobile = {
+            Android: function() {
+                return navigator.userAgent.match(/Android/i);
+            },
+            BlackBerry: function() {
+                return navigator.userAgent.match(/BlackBerry/i);
+            },
+            iOS: function() {
+                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+            },
+            Opera: function() {
+                return navigator.userAgent.match(/Opera Mini/i);
+            },
+            Windows: function() {
+                return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+            },
+            any: function() {
+                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+            }
+        };
+
         /**
          * Transforms an item result's data to be easier to work with in the template
          * @param {object} item
@@ -251,6 +272,9 @@
                     _.each(result, function(row) {
                         enrichGamedata(row);
 
+                        row.isMobile = isMobile.any();
+                        row.locale = opts.locale;
+
                         cache[row.hash] = {
                             html: window['JST']['item.html'](row),
                             json: row
@@ -315,18 +339,43 @@
                     return;
                 }
 
+                var showOn = 'mouseover';
+                var target = eOpts.target;
+                var targetJoint = eOpts.targetjoint;
+                var tipJoint = eOpts.tipjoint;
+                var hideTrigger = 'trigger';
+
+                if (isMobile.any()) {
+                    if (!document.getElementById('gggTipTarget')) {
+                        var mobileTarget = document.createElement('div');
+                        mobileTarget.id = 'gggTipTarget';
+                        mobileTarget.style.position = 'absolute';
+                        mobileTarget.style.left = 0;
+                        mobileTarget.style.top = 0;
+                        mobileTarget.style.wdith = '100%';
+
+                        document.getElementsByTagName('body')[0].appendChild(mobileTarget);
+                    }
+
+                    target = document.getElementById('gggTipTarget');
+                    hideTrigger = 'closeButton';
+                    showOn = 'click';
+                }
+
                 var tip = new Opentip(element, cache[hash].html, {
                     hideDelay: 0.1,
                     showEffect: null,
                     hideEffect: null,
+                    hideTrigger: hideTrigger,
                     removeElementsOnHide: true,
                     delay: 0,
                     stemLength: 0,
                     stemBase: 0,
                     containInViewport: true,
-                    target: eOpts.target,
-                    targetJoint: eOpts.targetjoint,
-                    tipJoint: eOpts.tipjoint,
+                    target: target,
+                    targetJoint: targetJoint,
+                    tipJoint: tipJoint,
+                    showOn: showOn,
                     group: 'ggg'
                 });
 
