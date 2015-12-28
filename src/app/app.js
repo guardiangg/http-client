@@ -16,11 +16,11 @@ var app = angular.module(
         'highcharts-ng',
 
         '720kb.datepicker',
-        '720kb.tooltips',
 
         'smoothScroll',
         'toastr',
 
+        'ui.bootstrap',
         'ui.router',
         'ui.select'
     ]
@@ -49,8 +49,9 @@ app
         '$location',
         'consts',
         'gettextCatalog',
+        'util',
 
-        function($localStorage, $rootScope, $state, $log, $location, consts, gettextCatalog) {
+        function($localStorage, $rootScope, $state, $log, $location, consts, gettextCatalog, util) {
             var locale = $localStorage.locale ? $localStorage.locale : 'en';
             var regex = new RegExp("^\/(" + Object.keys(consts.languages).join('|') + ")\/");
             var match = $location.path().match(regex);
@@ -65,6 +66,9 @@ app
 
             gettextCatalog.setCurrentLanguage(locale);
             moment.locale(locale);
+
+            $rootScope.locale = locale;
+            $rootScope.isMobile = util.isMobile.any();
 
             $rootScope.$on('$stateNotFound', function(event, state) {
                 $log.error('state not found');

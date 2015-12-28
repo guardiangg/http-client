@@ -1,0 +1,35 @@
+<div class="btn-group pg">
+    <button type="button"
+            class="btn btn-default"
+            ng-disabled="data.page == 0"
+            ng-click="load(0)">
+        <i class="fa fa-angle-double-left visible-xs visible-sm"></i>
+        <span class="visible-md visible-lg" translate>First</span>
+    </button>
+    <button type="button"
+            class="btn btn-default"
+            ng-disabled="data.page - 1 < 0"
+            ng-click="load(data.page - 1)">
+        <i class="fa fa-angle-left visible-xs visible-sm"></i>
+        <span class="visible-md visible-lg" translate>Prev</span>
+    </button>
+    <button class="btn btn-disabled page-info" translate>
+        Page {{data.page+1|number}} of {{maxPages+1|number}}
+        <span>{{data.totalItems|number}} {{name}}</span>
+    </button>
+    <button type="button"
+            class="btn btn-default"
+            ng-disabled="data.page >= maxPages"
+            ng-click="load(data.page + 1)">
+        <i class="fa fa-angle-right visible-xs visible-sm"></i>
+        <span class="visible-md visible-lg" translate>Next</span>
+    </button>
+    <button type="button"
+            class="btn btn-default"
+            ng-disabled="data.page == maxPages"
+            ng-click="load(maxPages)">
+        <i class="fa fa-angle-double-right visible-xs visible-sm"></i>
+        <span class="visible-md visible-lg" translate>Last</span>
+    </button>
+</div>
+<div class="clear"></div>

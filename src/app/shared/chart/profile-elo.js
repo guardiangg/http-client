@@ -32,11 +32,20 @@ app.factory('chart-profile-elo', [
                     shared: true,
                     formatter: function() {
                         var s = '<b>'+ Highcharts.dateFormat('%A, %b %e, %Y', this.x)+'</b><br/>';
-                        s += '<span style="color:' + this.points[0].series.color + '">\u25CF</span>';
-                        s += this.points[0].series.name + ': ' + '<strong>' + this.points[0].y + '</strong>';
-                        s += '<br>';
-                        s += '<span style="color:' + this.points[1].series.color + '">\u25CF</span>';
-                        s += this.points[1].series.name + ': ' + '<strong>' +  (Math.round(this.points[1].y * 100) / 100) + '</strong>';
+
+                        if (this.points[0]) {
+                            s += '<span style="color:' + this.points[0].series.color + '">\u25CF</span>';
+                            s += this.points[0].series.name + ': ' + '<strong>' + this.points[0].y + '</strong>';
+                        }
+
+                        if (this.points[0] && this.points[1]) {
+                            s += '<br>';
+                        }
+
+                        if (this.points[1]) {
+                            s += '<span style="color:' + this.points[1].series.color + '">\u25CF</span>';
+                            s += this.points[1].series.name + ': ' + '<strong>' +  (Math.round(this.points[1].y * 100) / 100) + '</strong>';
+                        }
 
                         return s;
                     }

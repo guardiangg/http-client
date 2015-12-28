@@ -1,0 +1,255 @@
+<div class="item-details">
+
+    <div class="quick-facts">
+
+        <div class="section">
+            <h3 translate>Metadata</h3>
+            <ul class="facts">
+                <li ng-show="entity.version != '0000-00-00 00:00:00'">
+                    <span translate>Last patched</span>
+                    <em class="help" uib-tooltip="{{entity.version}}" data-toggle="tooltip">{{ entity.version|ago }}</em>
+                </li>
+                <li>
+                    <span translate>Class restriction</span>
+                    <em ng-show="entity.class === 0" translate>Titan</em>
+                    <em ng-show="entity.class === 1" translate>Hunter</em>
+                    <em ng-show="entity.class === 2" translate>Warlock</em>
+                    <em ng-show="entity.class === 3" translate>None</em>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section" ng-show="entity.sources.length > 0">
+            <h3 translate>Sources</h3>
+            <ul class="sources">
+                <li class="source" ng-repeat="source in entity.sources">
+                    <div class="icon">
+                        <img ng-src="//bungie.net{{ source.icon }}">
+                    </div>
+                    <div class="info">
+                        <span class="name">{{source.name}}</span>
+                        <span class="description">{{source.description}}</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="ad-placement">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- GGG-Item-Quickfacts -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4988741679097321"
+                 data-ad-slot="1930667896"
+                 data-ad-format="auto"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+    </div>
+
+    <div class="details">
+
+        <div class="header">
+            <div class="icon">
+                <img ng-src="//bungie.net{{ entity.icon }}">
+            </div>
+            <div class="info">
+                <h1>{{ entity.name }}</h1>
+                <span class="type">{{ tiers[entity.tier].label }} {{ entity.typeName }}</span>
+                <span class="lore">{{ entity.description }}</span>
+            </div>
+        </div>
+
+        <div class="primary-stats">
+
+            <div class="stat" ng-show="entity._primaryStats.attack">
+                <div class="icon">
+                    <i class="ggg ggg-damage-{{ entity._damageType }}"></i>
+                </div>
+                <div class="info">
+                    <span class="value" ng-show="entity._primaryStats.attack.min != entity._primaryStats.attack.max">
+                        {{ entity._primaryStats.attack.min }}-{{ entity._primaryStats.attack.max }}
+                    </span>
+                    <span class="value" ng-show="entity._primaryStats.attack.min == entity._primaryStats.attack.max">
+                        {{ entity._primaryStats.attack.min }}
+                    </span>
+                    <span class="name">{{ entity._primaryStats.attack.name }}</span>
+                </div>
+            </div>
+
+            <div class="stat" ng-show="entity._primaryStats.defense">
+                <div class="icon">
+                    <i class="ggg ggg-defense"></i>
+                </div>
+                <div class="info">
+                    <span class="value" ng-show="entity._primaryStats.defense.min != entity._primaryStats.defense.max">
+                        {{ entity._primaryStats.defense.min }}-{{ entity._primaryStats.defense.max }}
+                    </span>
+                    <span class="value" ng-show="entity._primaryStats.defense.min == entity._primaryStats.defense.max">
+                        {{ entity._primaryStats.defense.min }}
+                    </span>
+                    <span class="name">{{ entity._primaryStats.defense.name }}</span>
+                </div>
+            </div>
+
+            <div class="stat" ng-show="entity._primaryStats.magazine">
+                <div class="icon">
+                    <i class="ggg ggg-magazine"></i>
+                </div>
+                <div class="info">
+                    <span class="value" ng-show="entity._primaryStats.magazine.min != entity._primaryStats.magazine.max">
+                        {{ entity._primaryStats.magazine.min }}-{{ entity._primaryStats.magazine.max }}
+                    </span>
+                    <span class="value" ng-show="entity._primaryStats.magazine.min == entity._primaryStats.magazine.max">
+                        {{ entity._primaryStats.magazine.min }}
+                    </span>
+                    <span class="name">{{ entity._primaryStats.magazine.name }}</span>
+                </div>
+            </div>
+
+            <div class="stat" ng-show="entity._primaryStats.intellect">
+                <div class="icon">
+                    <i class="ggg ggg-intellect"></i>
+                </div>
+                <div class="info">
+                    <span class="value" ng-show="entity._primaryStats.intellect.min != entity._primaryStats.intellect.max">
+                        {{ entity._primaryStats.intellect.min }}-{{ entity._primaryStats.intellect.max }}
+                    </span>
+                    <span class="value" ng-show="entity._primaryStats.intellect.min == entity._primaryStats.intellect.max">
+                        {{ entity._primaryStats.intellect.min }}
+                    </span>
+                    <span class="name">{{ entity._primaryStats.intellect.name }}</span>
+                </div>
+            </div>
+
+            <div class="stat" ng-show="entity._primaryStats.discipline">
+                <div class="icon">
+                    <i class="ggg ggg-discipline"></i>
+                </div>
+                <div class="info">
+                    <span class="value" ng-show="entity._primaryStats.discipline.min != entity._primaryStats.discipline.max">
+                        {{ entity._primaryStats.discipline.min }}-{{ entity._primaryStats.discipline.max }}
+                    </span>
+                    <span class="value" ng-show="entity._primaryStats.discipline.min == entity._primaryStats.discipline.max">
+                        {{ entity._primaryStats.discipline.min }}
+                    </span>
+                    <span class="name">{{ entity._primaryStats.discipline.name }}</span>
+                </div>
+            </div>
+
+            <div class="stat" ng-show="entity._primaryStats.strength">
+                <div class="icon">
+                    <i class="ggg ggg-strength"></i>
+                </div>
+                <div class="info">
+                    <span class="value" ng-show="entity._primaryStats.strength.min != entity._primaryStats.strength.max">
+                        {{ entity._primaryStats.strength.min }}-{{ entity._primaryStats.strength.max }}
+                    </span>
+                    <span class="value" ng-show="entity._primaryStats.strength.min == entity._primaryStats.strength.max">
+                        {{ entity._primaryStats.strength.min }}
+                    </span>
+                    <span class="name">{{ entity._primaryStats.strength.name }}</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="emblem-preview" ng-show="isEmblem">
+            <h4 translate>Emblem Preview</h4>
+            <div class="preview">
+                <div class="plate-wrapper">
+                    <div class="plate" ng-style="{'background-image': 'url(//bungie.net' + entity.secondaryIcon + ')'}">
+                        <div class="icon"><img ng-src="//bungie.net{{ entity.icon }}"></div>
+                        <div class="info">
+                            <span class="level">40</span>
+                            <span class="light">320</span>
+                            <span class="name" translate>Guardian</span>
+                            <span class="clan" translate>Clan Name</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row item-stats" ng-show="entity._displayStats.length > 0 || entity._hiddenStats.length > 0">
+
+            <div ng-class="{'col-md-6': entity._hiddenStats.length > 0, 'col-md-12': entity._hiddenStats.length == 0}">
+                <h4 class="stat-header" translate ng-show="entity._displayStats.length > 0">Primary Stats</h4>
+                <div class="stat-bars primary" ng-show="entity._displayStats.length > 0">
+                    <div class="stat" ng-repeat="stat in entity._displayStats">
+                        <div class="name">{{ stat.name }}</div>
+                        <div class="bar">
+                            <div class="fill-min" ng-show="stat.min != stat.max" ng-style="{width: ((stat.min * 100) / stat.limit) + '%'}"></div>
+                            <div class="fill-max" ng-show="stat.min != stat.max" ng-style="{width: ((stat.max * 100) / stat.limit) + '%'}"></div>
+                            <div class="fill" ng-show="stat.min == stat.max" ng-style="{width: ((stat.min * 100) / stat.limit) + '%'}"></div>
+                        </div>
+                        <div class="value">
+                            <span ng-show="stat.min != stat.max">{{ stat.min }}-{{ stat.max }}</span>
+                            <span ng-show="stat.min == stat.max">{{ stat.min }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-class="{'col-md-6': entity._displayStats.length > 0, 'col-md-12': entity._displayStats.length == 0}">
+                <h4 class="stat-header" translate ng-show="entity._hiddenStats.length > 0">Hidden Stats</h4>
+                <div class="stat-bars secondary" ng-show="entity._hiddenStats.length > 0">
+                    <div class="stat" ng-repeat="stat in entity._hiddenStats">
+                        <div class="name">{{ stat.name }}</div>
+                        <div class="bar">
+                            <div class="fill-min" ng-show="stat.min != stat.max" ng-style="{width: ((stat.min * 100) / stat.limit) + '%'}"></div>
+                            <div class="fill-max" ng-show="stat.min != stat.max" ng-style="{width: ((stat.max * 100) / stat.limit) + '%'}"></div>
+                            <div class="fill" ng-show="stat.min == stat.max" ng-style="{width: ((stat.min * 100) / stat.limit) + '%'}"></div>
+                        </div>
+                        <div class="value">
+                            <span ng-show="stat.min != stat.max">{{ stat.min }}-{{ stat.max }}</span>
+                            <span ng-show="stat.min == stat.max">{{ stat.min }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="item-chart" ng-show="hasChart">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="modeSelector" data-toggle="dropdown" aria-haspopup="true">
+                    <i class="fa fa-filter"></i> <strong translate>Game mode:</strong> {{modes[mode]}}
+                </button>
+                <ul class="dropdown-menu" area-labelledby="modeSelector">
+                    <li><a href="javascript:;" ng-click="setMode(19)"><i class="ggg ggg-iron-banner"></i> <translate>Iron Banner</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(14)"><i class="ggg ggg-osiris"></i> <translate>Trials of Osiris</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(10)"><i class="ggg ggg-control"></i> <translate>Control</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(12)"><i class="ggg ggg-clash"></i> <translate>Clash</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(24)"><i class="ggg ggg-rift"></i> <translate>Rift</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(13)"><i class="ggg ggg-rumble"></i> <translate>Rumble</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(23)"><i class="ggg ggg-elimination"></i> <translate>Elimination</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(9)"><i class="ggg ggg-skirmish"></i> <translate>Skirmish</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(11)"><i class="ggg ggg-salvage"></i> <translate>Salvage</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(15)"><i class="ggg ggg-doubles"></i> <translate>Doubles</translate></a></li>
+                    <li><a href="javascript:;" ng-click="setMode(28)"><i class="ggg ggg-control"></i> <translate>Zone Control</translate></a></li>
+                </ul>
+            </div>
+            <h4 translate>Weapon Popularity</h4>
+            <highchart config="chart" style="height: 300px;"></highchart>
+        </div>
+
+        <div class="talents" ng-show="entity.perks.length > 0">
+            <h4 translate>Talent Grid</h4>
+            <div class="talent-grid" talent-grid perks="entity.perks"></div>
+
+            <h4 translate>Talent Breakdown</h4>
+            <div class="talent-breakdown" talent-summary perks="entity.perks"></div>
+        </div>
+
+        <div class="comments">
+            <div id="disqus_thread"></div>
+        </div>
+
+    </div>
+
+    <div class="clear"></div>
+
+</div>
