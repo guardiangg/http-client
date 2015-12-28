@@ -345,7 +345,6 @@
                 var target = eOpts.target;
                 var targetJoint = eOpts.targetjoint;
                 var tipJoint = eOpts.tipjoint;
-                var hideTrigger = 'trigger';
 
                 if (isMobile.any()) {
                     if (!document.getElementById('gggTipTarget')) {
@@ -365,7 +364,6 @@
                     }
 
                     target = document.getElementById('gggTipTarget');
-                    hideTrigger = 'closeButton';
                     showOn = 'click';
                 }
 
@@ -373,7 +371,6 @@
                     hideDelay: 0.1,
                     showEffect: null,
                     hideEffect: null,
-                    hideTrigger: hideTrigger,
                     removeElementsOnHide: true,
                     delay: 0,
                     stemLength: 0,
