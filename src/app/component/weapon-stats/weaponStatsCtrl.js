@@ -4,12 +4,13 @@ app.controller('weaponStatsCtrl', [
     '$rootScope',
     '$scope',
     '$location',
+    '$timeout',
     'charts',
     'consts',
     'gettext',
     'weaponStats',
 
-    function ($rootScope, $scope, $location, charts, consts, gettext, weaponStats) {
+    function ($rootScope, $scope, $location, $timeout, charts, consts, gettext, weaponStats) {
         $rootScope.title = 'Best Crucible Weapons - Guardian.gg';
 
         $scope.modes = consts.modes;
@@ -65,6 +66,10 @@ app.controller('weaponStatsCtrl', [
                 .then(function(result) {
                     $scope.weapons = result.weapons;
                     $scope.weaponsLoading = false;
+
+                    $timeout(function() {
+                        gggTips.run();
+                    });
 
                     var series = {};
                     if ($scope.filters.start == $scope.filters.end) {
