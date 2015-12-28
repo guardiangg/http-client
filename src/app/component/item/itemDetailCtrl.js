@@ -68,6 +68,10 @@ app.controller('itemDetailCtrl', [
                             kd[row.mode] = [];
                         }
 
+                        if (row.rank === 0) {
+                            return;
+                        }
+
                         var dt = moment(row.day).unix() * 1000;
 
                         rank[row.mode].push({ x: dt, y: row.rank });

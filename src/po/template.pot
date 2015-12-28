@@ -4,7 +4,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: component\item\itemDetailCtrl.js:100
+#: component\item\itemDetailCtrl.js:104
 #: shared\chart\item-popularity.js:77
 msgid "% of All Kills"
 msgstr ""
@@ -459,7 +459,7 @@ msgid "Hand Cannon"
 msgstr ""
 
 #: component\layout\nav.html:175
-#: component\weapon-stats\weapon-stats.html:125
+#: component\weapon-stats\weapon-stats.html:126
 msgid "Heavy"
 msgstr ""
 
@@ -912,7 +912,7 @@ msgstr ""
 msgid "Random"
 msgstr ""
 
-#: component\item\itemDetailCtrl.js:91
+#: component\item\itemDetailCtrl.js:95
 #: component\leaderboard\leaderboard.html:58
 #: component\srl\srl.html:59
 #: shared\chart\item-popularity.js:68
@@ -1406,7 +1406,7 @@ msgstr ""
 msgid "Zone Control"
 msgstr ""
 
-#: component\item\itemDetailCtrl.js:113
+#: component\item\itemDetailCtrl.js:117
 #: component\item\itemListFactory.js:579
 msgid "[Unnamed Item]"
 msgstr ""
