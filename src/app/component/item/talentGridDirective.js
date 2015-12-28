@@ -79,7 +79,7 @@ app.directive('talentGrid', [
 
                     if (perk.length == 1) {
                         perkScope.perk = perk[0];
-                        link.css('background-image', 'url(//bungie.net/' + perk[0].icon + ')');
+                        link.css('background-image', 'url(//www.bungie.net/' + perk[0].icon + ')');
                         tooltip.html($templateCache.get('component/item/perk.html'));
                     } else {
                         perkScope.perks = perk;
