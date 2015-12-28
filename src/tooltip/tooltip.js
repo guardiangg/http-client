@@ -354,7 +354,7 @@
                         mobileTarget.id = 'gggTipTarget';
                         mobileTarget.style.position = 'absolute';
                         mobileTarget.style.left = 0;
-                        mobileTarget.style.top = 0;
+                        mobileTarget.style.top = window.scrollY;
                         mobileTarget.style.wdith = '100%';
 
                         document.getElementsByTagName('body')[0].appendChild(mobileTarget);
