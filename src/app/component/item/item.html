@@ -158,7 +158,7 @@
                        class="icon"
                        ng-class="'quality-' + entity.tier"
                        data-ggg-target="true">
-                        <img ng-src="//bungie.net{{entity.icon}}">
+                        <img ng-src="https://bungie.net{{entity.icon}}">
                     </a>
                     <div class="details">
                         <a ui-sref="app.itemDetailName({hash: entity.hash, name: slugify(entity.name)})"
@@ -213,7 +213,7 @@
                     <td colspan="{{statColumns.length + 5}}"></td>
                 </tr>
                 <tr ng-repeat="entity in results.data track by entity.hash">
-                    <td class="emblem-bg" ng-show="isEmblem" ng-style="{ 'background-image': 'url(//bungie.net' + entity.secondaryIcon + ')'}">
+                    <td class="emblem-bg" ng-show="isEmblem" ng-style="{ 'background-image': 'url(https://bungie.net' + entity.secondaryIcon + ')'}">
                     </td>
                     <td class="description" ng-show="!hideDescription">
                         {{entity.description}}
