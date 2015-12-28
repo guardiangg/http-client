@@ -46,6 +46,8 @@
     };
 
     var gggTips = function(version, opts) {
+        var self = this;
+
         var cache = {},
             linkRegex;
 
@@ -343,7 +345,6 @@
                 var target = eOpts.target;
                 var targetJoint = eOpts.targetjoint;
                 var tipJoint = eOpts.tipjoint;
-                var hideTrigger = 'trigger';
 
                 if (isMobile.any()) {
                     if (!document.getElementById('gggTipTarget')) {
@@ -353,7 +354,7 @@
                         mobileTarget.id = 'gggTipTarget';
                         mobileTarget.style.position = 'absolute';
                         mobileTarget.style.left = 0;
-                        mobileTarget.style.top = 0;
+                        mobileTarget.style.top = window.scrollY;
                         mobileTarget.style.wdith = '100%';
 
                         document.getElementsByTagName('body')[0].appendChild(mobileTarget);
@@ -363,15 +364,13 @@
                     }
 
                     target = document.getElementById('gggTipTarget');
-                    hideTrigger = 'closeButton';
                     showOn = 'click';
                 }
 
-                var tip = new Opentip(element, cache[hash].html, {
+                self.tips[hash] = new Opentip(element, cache[hash].html, {
                     hideDelay: 0.1,
                     showEffect: null,
                     hideEffect: null,
-                    hideTrigger: hideTrigger,
                     removeElementsOnHide: true,
                     delay: 0,
                     stemLength: 0,
@@ -433,6 +432,11 @@
                 linkRegex = /^https?:\/\/guardian.gg\/\w+\/items\/(\d+)/;
             }
         };
+
+        /**
+         * Hashes of item tips, useful to access later for closing and such.
+         */
+        this.tips = {};
 
         /**
          * Builds the links found from the init() stage.

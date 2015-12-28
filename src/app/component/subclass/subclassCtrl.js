@@ -6,12 +6,13 @@ app.controller('subclassCtrl', [
     '$stateParams',
     '$localStorage',
     '$filter',
+    '$timeout',
     'api',
     'consts',
     'charts',
     'util',
 
-    function ($rootScope, $scope, $stateParams, $localStorage, $filter, api, consts, charts, util) {
+    function ($rootScope, $scope, $stateParams, $localStorage, $filter, $timeout, api, consts, charts, util) {
         var subclassId = consts.subclassToId($stateParams.subclass);
         $scope.subclass = consts.subclasses[subclassId];
         $scope.slugify = util.slugify;
@@ -219,6 +220,10 @@ app.controller('subclassCtrl', [
                     $scope.loading.weapons = false;
                     $scope.loading.armor = false;
                     $scope.totals = totals;
+
+                    $timeout(function() {
+                        gggTips.run();
+                    });
                 });
         };
 
