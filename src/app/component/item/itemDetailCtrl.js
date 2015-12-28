@@ -76,8 +76,6 @@ app.controller('itemDetailCtrl', [
                             return;
                         }
 
-                        $scope.chartEmpty = false;
-
                         var dt = moment(row.day).unix() * 1000;
 
                         rank[row.mode].push({ x: dt, y: row.rank });
@@ -100,7 +98,7 @@ app.controller('itemDetailCtrl', [
                             data: data,
                             name: gettextCatalog.getString('Rank'),
                             color: '#404040',
-                            visible: mode == $scope.mode ? true : false
+                            visible: false
                         });
 
                         if (kd[mode]) {
@@ -110,11 +108,12 @@ app.controller('itemDetailCtrl', [
                                 name: gettextCatalog.getString('% of All Kills'),
                                 color: '#ecaa4a',
                                 yAxis: 1,
-                                visible: mode == $scope.mode ? true : false
+                                visible: false
                             });
                         }
                     });
 
+                    $scope.setMode($scope.mode);
                     $scope.chartLoading = false;
                 });
         }

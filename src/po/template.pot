@@ -4,7 +4,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: component\item\itemDetailCtrl.js:110
+#: component\item\itemDetailCtrl.js:108
 #: shared\chart\item-popularity.js:77
 msgid "% of All Kills"
 msgstr ""
@@ -916,7 +916,7 @@ msgstr ""
 msgid "Random"
 msgstr ""
 
-#: component\item\itemDetailCtrl.js:101
+#: component\item\itemDetailCtrl.js:99
 #: component\leaderboard\leaderboard.html:58
 #: component\srl\srl.html:59
 #: shared\chart\item-popularity.js:68
@@ -1414,7 +1414,7 @@ msgstr ""
 msgid "Zone Control"
 msgstr ""
 
-#: component\item\itemDetailCtrl.js:125
+#: component\item\itemDetailCtrl.js:124
 #: component\item\itemListFactory.js:579
 msgid "[Unnamed Item]"
 msgstr ""
