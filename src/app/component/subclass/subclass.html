@@ -112,7 +112,9 @@
                     <th translate>Use%</th>
                 </tr>
                 <tr ng-repeat="perk in colPerks|orderBy:'row'">
-                    <td><img ng-src="//www.bungie.net{{perk.icon}}"> {{perk.name}}</td>
+                    <td>
+                        <img ng-src="//www.bungie.net{{perk.icon}}"> {{perk.name}}
+                    </td>
                     <td ng-class="perk.kd >= 1 ? 'positive' : 'negative'">{{perk.kd|number:2}}</td>
                     <td>{{perk.wins / perk.total * 100|number:1}}%</td>
                     <td>{{perk.total / perkTotals[col] * 100|number:1}}%</td>
@@ -137,8 +139,10 @@
             </tr>
             <tr ng-repeat="item in weapons">
                 <td>
-                    <a ui-sref="app.itemDetailName({hash: item.hash, name: slugify(item.name)})">
+                    <a ui-sref="app.itemDetailName({hash: item.hash, name: slugify(item.name)})" data-ggg-target="true">
                         <img ng-src="//www.bungie.net{{item.icon}}">
+                    </a>
+                    <a ui-sref="app.itemDetailName({hash: item.hash, name: slugify(item.name)})">
                         {{item.name}}
                     </a>
                 </td>
@@ -165,8 +169,10 @@
             </tr>
             <tr ng-repeat="item in armors">
                 <td>
-                    <a ui-sref="app.itemDetailName({hash: item.hash, name: slugify(item.name)})">
+                    <a ui-sref="app.itemDetailName({hash: item.hash, name: slugify(item.name)})" data-ggg-target="true">
                         <img ng-src="//www.bungie.net{{item.icon}}">
+                    </a>
+                    <a ui-sref="app.itemDetailName({hash: item.hash, name: slugify(item.name)})">
                         {{item.name}}
                     </a>
                 </td>

@@ -7,13 +7,14 @@ app.controller('profileCtrl', [
     '$stateParams',
     '$location',
     '$localStorage',
+    '$timeout',
     'api',
     'bungie',
     'consts',
     'charts',
     'auditFactory',
 
-    function ($rootScope, $scope, $state, $stateParams, $location, $localStorage, api, bungie, consts, charts, auditFactory) {
+    function ($rootScope, $scope, $state, $stateParams, $location, $localStorage, $timeout, api, bungie, consts, charts, auditFactory) {
         if (!$stateParams.mode) {
             $state.go('app.profile', {
                 platform: $stateParams.platform,
@@ -152,6 +153,9 @@ app.controller('profileCtrl', [
                     //audit.setLoadout($scope.items);
                     //audit.setDefinitions($scope.definitions);
                     $scope.loading.inventory = false;
+                    $timeout(function() {
+                        gggTips.run();
+                    });
                 }, function(err) {
                     $scope.loading.inventory = false;
                     $scope.maintenance.inventory = true;

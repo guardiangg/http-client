@@ -46,6 +46,8 @@
     };
 
     var gggTips = function(version, opts) {
+        var self = this;
+
         var cache = {},
             linkRegex;
 
@@ -367,7 +369,7 @@
                     showOn = 'click';
                 }
 
-                var tip = new Opentip(element, cache[hash].html, {
+                self.tips[hash] = new Opentip(element, cache[hash].html, {
                     hideDelay: 0.1,
                     showEffect: null,
                     hideEffect: null,
@@ -433,6 +435,11 @@
                 linkRegex = /^https?:\/\/guardian.gg\/\w+\/items\/(\d+)/;
             }
         };
+
+        /**
+         * Hashes of item tips, useful to access later for closing and such.
+         */
+        this.tips = {};
 
         /**
          * Builds the links found from the init() stage.

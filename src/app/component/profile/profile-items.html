@@ -9,7 +9,9 @@
             <span class="primary-stat element-type-{{item.damageType}}" ng-if="item.primaryStat.value">
                 <i class="ggg ggg-damage-{{item.damageType}}" ng-show="item.damageType >= 2"></i> {{item.primaryStat.value}}
             </span>
-            <a ui-sref="app.itemDetailName({hash: item.definition.itemHash, name: slugify(item.definition.itemName)})" ng-class="'quality-' + item.definition.tierType">
+            <a target="_self"
+               ui-sref="app.itemDetailName({hash: item.definition.itemHash, name: slugify(item.definition.itemName)})"
+               ng-class="'quality-' + item.definition.tierType">
                 {{item.definition.itemName}}
             </a>
         </div>
