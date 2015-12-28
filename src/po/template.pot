@@ -678,14 +678,14 @@ msgstr ""
 
 #: component\subclass\subclass.html:65
 msgid ""
-"This data examines the last 7 days of PvP in Destiny for players using the {{subclass.label}} subclass.\n"
-"    The rolling sample provides an accurate look at what players are using and what's working.\n"
+"This data examines the last 7 days of PvP in Destiny for players using the {{subclass.label}} subclass.\r\n"
+"    The rolling sample provides an accurate look at what players are using and what's working.\r\n"
 "    Select a mode on the filter bar below to only map K/D and win rates in that mode."
 msgstr ""
 
 #: component\layout\main.html:40
 msgid ""
-"This page relies on one or more Bungie APIs to properly display. We weren't able to retrieve some data, so\n"
+"This page relies on one or more Bungie APIs to properly display. We weren't able to retrieve some data, so\r\n"
 "        as a result one or more areas of this page are temporarily disabled. Try again in a few minutes."
 msgstr ""
 
