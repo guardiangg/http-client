@@ -1,5 +1,4 @@
-var series     = require('stream-series'),
-    gulp       = require('gulp'),
+var gulp       = require('gulp'),
     templates  = require('gulp-angular-templatecache'),
     async      = require('async'),
     concat     = require('gulp-concat'),
@@ -7,19 +6,17 @@ var series     = require('stream-series'),
     jeditor    = require('gulp-json-editor'),
     inject     = require('gulp-inject'),
     less       = require('gulp-less'),
+    merge      = require('merge-stream'),
     minifyCSS  = require('gulp-minify-css'),
     minifyHTML = require('gulp-minify-html'),
     rename     = require('gulp-rename'),
     rev        = require('gulp-rev'),
+    template   = require('gulp-template-compile'),
     watch      = require('gulp-watch'),
     uglify     = require('gulp-uglify'),
     util       = require('gulp-util');
 
 var isProd = !!util.env.prod;
-
-var cssFiles = [
-    './src/asset/less/guardian.less'
-];
 
 var jsFiles = {
     site: [
@@ -29,6 +26,12 @@ var jsFiles = {
         'app/routes.js',
         'app/shared/**/*.js',
         'app/component/**/*.js'
+    ],
+    tooltip: [
+        'node_modules/opentip/lib/opentip.js',
+        'node_modules/opentip/lib/adapter-native.js',
+        'node_modules/underscore/underscore.js',
+        'src/tooltip/tooltip.js'
     ],
     vendor: [
         'underscore/underscore.js',
@@ -47,9 +50,10 @@ var jsFiles = {
         'angular-ui-router/release/angular-ui-router.js',
         'ui-select/dist/select.js',
         'angularjs-datepicker/src/js/angular-datepicker.js',
-        'angular-tooltips/dist/angular-tooltips.min.js',
         'angulartics/dist/angulartics.min.js',
         'angulartics-google-analytics/dist/angulartics-google-analytics.min.js',
+
+        'jquery.kinetic/jquery.kinetic.js',
 
         'ngstorage/ngStorage.js',
 
@@ -64,7 +68,10 @@ var jsFiles = {
         'moment/locale/de.js',
         'moment/locale/it.js',
         'moment/locale/ja.js',
-        'moment/locale/pt-br.js'
+        'moment/locale/pt-br.js',
+
+        '../src/vendor/ui-bootstrap-custom-0.14.3.js',
+        '../src/vendor/ui-bootstrap-custom-tpls-0.14.3.js'
     ]
 };
 
@@ -72,12 +79,25 @@ var templateFiles = ['./src/app/**/*.html'];
 
 var cssCallback = function() {
     var stream = gulp
-        .src(cssFiles)
+        .src('./src/asset/less/guardian.less')
         .pipe(less());
 
     if (isProd) {
         stream = stream
             .pipe(rev())
+            .pipe(minifyCSS());
+    }
+
+    return stream.pipe(gulp.dest('./build/asset/css'));
+};
+
+var cssTooltipCallback = function() {
+    var stream = gulp
+        .src('./src/tooltip/less/tooltip.less')
+        .pipe(less());
+
+    if (isProd) {
+        stream = stream
             .pipe(minifyCSS());
     }
 
@@ -97,9 +117,23 @@ var jsCallback = function() {
     return stream.pipe(gulp.dest('./build/app'));
 };
 
+var jsTooltipCallback = function() {
+    var stream = gulp.src(jsFiles.tooltip);
+    var tStream = gulp.src('src/tooltip/item.html').pipe(template()).pipe(concat('template.js'));
+
+    stream = merge(stream, tStream);
+
+    if (isProd) {
+        stream = stream
+            .pipe(concat('tooltip.js'))
+            .pipe(uglify());
+    }
+
+    return stream.pipe(gulp.dest('./build/asset/js'));
+};
+
 var jsVendorCallback = function() {
-    var stream = gulp
-        .src(jsFiles.vendor, { cwd: './node_modules' });
+    var stream = gulp.src(jsFiles.vendor, { cwd: './node_modules' });
 
     if (isProd) {
         stream = stream
@@ -111,14 +145,17 @@ var jsVendorCallback = function() {
     return stream.pipe(gulp.dest('./build/asset/js'));
 };
 
-gulp.task('build', ['config', 'robots', 'image', 'font', 'index']);
+gulp.task('build', ['tooltip', 'config', 'robots', 'image', 'font', 'index']);
 
 gulp.task('watch', ['build'], function() {
     gulp.watch(['./src/index.html'], ['index']);
     gulp.watch(['./src/asset/less/**/*.less'], ['css']);
     gulp.watch(['./src/app/**/*.js'], ['js']);
+    gulp.watch(['./src/tooltip/**/*.js'], ['jsTooltip']);
     gulp.watch(['./src/po/*.po'], ['translate']);
     gulp.watch(['src/index.html', 'src/app/**/*.html', 'src/app/**/*.js'], ['pot']);
+    gulp.watch(['src/tooltip/**/*.html'], ['tooltip']);
+    gulp.watch(['src/tooltip/less/tooltip.less'], ['cssTooltip']);
     gulp.watch(templateFiles, ['templates']);
 });
 
@@ -162,7 +199,8 @@ gulp.task('index', ['js', 'jsVendor', 'css', 'translate'], function() {
         .src('./src/index.html')
         .pipe(inject(cssCallback(), {ignorePath: '/build', removeTags: true, name: 'app'}))
         .pipe(inject(jsVendorCallback(), {ignorePath: '/build', removeTags: true, name: 'vendor'}))
-        .pipe(inject(jsCallback(), {ignorePath: '/build', removeTags: true, name:'app'}));
+        .pipe(inject(jsCallback(), {ignorePath: '/build', removeTags: true, name:'app'}))
+        .pipe(inject(jsTooltipCallback(), {ignorePath: '/build', removeTags: true, name: 'tooltip'}));
 
     if (isProd) {
         stream = stream.pipe(minifyHTML());
@@ -171,11 +209,28 @@ gulp.task('index', ['js', 'jsVendor', 'css', 'translate'], function() {
     return stream.pipe(gulp.dest('./build'))
 });
 
+gulp.task('tooltip', ['cssTooltip', 'jsTooltip'], function() {
+    var stream = gulp
+        .src('./src/tooltip/test.html')
+        .pipe(inject(cssTooltipCallback(), {ignorePath: '/build', removeTags: true, name: 'tooltip'}))
+        .pipe(inject(jsTooltipCallback(), {ignorePath: '/build', removeTags: true, name: 'tooltip'}));
+
+    if (isProd) {
+        stream = stream.pipe(minifyHTML());
+    }
+
+    return stream.pipe(gulp.dest('./build'))
+});
+
+gulp.task('jsTooltip', jsTooltipCallback);
+
 gulp.task('jsVendor', jsVendorCallback);
 
 gulp.task('js', ['templates'], jsCallback);
 
 gulp.task('css', cssCallback);
+
+gulp.task('cssTooltip', cssTooltipCallback);
 
 gulp.task('image', function() {
     return gulp.src('./src/asset/image/**/*').pipe(gulp.dest('./build/asset/image'));

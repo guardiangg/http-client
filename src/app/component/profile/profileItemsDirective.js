@@ -2,8 +2,9 @@ var app = angular.module('app');
 
 app.directive('profileItems', [
     'consts',
+    'util',
 
-    function (consts) {
+    function (consts, util) {
         return {
             restrict: 'E',
             scope: {
@@ -15,12 +16,14 @@ app.directive('profileItems', [
             templateUrl: 'component/profile/profile-items.html',
 
             link: function (scope, element) {
+                scope.slugify = util.slugify;
+
                 var init = function() {
                     scope.profileItems = [];
 
                     _.each(scope.slots.split(','), function(slot) {
                         var item = _.find(scope.items, function(i) {
-                            return i.bucketHash == consts.buckets[slot];
+                            return consts.buckets[slot] && consts.buckets[slot] == i.bucketHash;
                         });
 
                         if (!item) {
@@ -110,7 +113,11 @@ app.directive('profileItems', [
                     return perks;
                 };
 
-                scope.$watch('definitions', init);
+                scope.$watch('definitions', function(def) {
+                    if (def) {
+                        init();
+                    }
+                });
             }
         }
     }

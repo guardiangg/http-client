@@ -10,6 +10,7 @@ app.service('api',[
             var endpoints = {
                 chart: {
                     eloHistory: 'chart/elo/{membershipId}',
+                    itemPopularity: 'chart/item/{itemId}',
                     kdHistory: 'chart/kd/{membershipId}',
                     subclassDetails: 'chart/subclass/{subclassId}?modes=9,10,12,13,14,19,23,24',
                     subclassTotals: 'chart/subclass?modes=9,10,12,13,14,19,23,24'
@@ -106,6 +107,14 @@ app.service('api',[
                 return $http.get(
                     util.buildApiUrl(endpoints.chart.kdHistory, {
                         membershipId: membershipId
+                    })
+                );
+            };
+
+            this.getItemPopularityChart = function(itemId) {
+                return $http.get(
+                    util.buildApiUrl(endpoints.chart.itemPopularity, {
+                        itemId: itemId
                     })
                 );
             };

@@ -1,0 +1,328 @@
+@import (inline) "../../../node_modules/opentip/css/opentip.css";
+
+.ggg-solar:before, .ggg-damage-3:before {
+    content: "\49";
+}
+.ggg-void:before, .ggg-damage-4:before {
+    content: "\4a";
+}
+.ggg-arc:before, .ggg-damage-2:before {
+    content: "\47";
+}
+.ggg-kinetic:before, .ggg-damage-0:before, .ggg-damage-1:before {
+    content: "\4d";
+}
+.ggg-rainbow:before, .ggg-damage-5:before {
+    content: "\4e";
+}
+
+.style-ggg {
+    opacity: 0.95;
+    z-index: 10000 !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+
+    @media (max-width: 320px) {
+        max-width: 305px !important;
+    }
+
+    .opentip {
+        padding: 0 !important;
+
+        .ot-content {
+            font-family: Arial, Helvetica, sans-serif !important;
+            color: #fff;
+            background: #000;
+            text-shadow: none;
+
+            .ggg-head {
+                position: relative;
+                height: 56px;
+
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 56px;
+                    height: 56px;
+                }
+
+                &.ggg-tier-6 {
+                    background-color: #CEAE33;
+                }
+
+                &.ggg-tier-5 {
+                    background-color: #522F65;
+                }
+
+                &.ggg-tier-4 {
+                    background-color: #5076A3;
+                }
+
+                &.ggg-tier-3 {
+                    background-color: #366F42;
+                }
+
+                &.ggg-tier-2 {
+                    background-color: #C3BCB4;
+                    color: #000;
+                }
+
+                &.ggg-tier-1 {
+                    background-color: #C3BCB4;
+                    color: #000;
+                }
+
+                .ggg-head-content {
+                    position: relative;
+                    top: 12px;
+                    margin: 0px 10px 0px 62px;
+                    height: 56px;
+                    line-height: 18px;
+
+                    .ggg-name {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        font-size: 20px;
+                        font-weight: 500;
+                        text-transform: uppercase;
+                    }
+
+                    .ggg-type {
+                        font-size: 14px;
+                    }
+
+                    .ggg-tier {
+                        float: right;
+                        font-size: 14px;
+                        opacity: 0.6;
+                    }
+                }
+
+                &.ggg-perk {
+                    height: auto;
+                    background-color: #000;
+                    color: #fff;
+
+                    .ggg-head-content {
+                        height: auto;
+                        top: 0;
+                        margin: 0;
+                        padding: 10px;
+                    }
+                }
+            }
+
+            .ggg-mobile-links {
+                background: #000;
+                font-size: 0;
+                border-top: 4px solid #000;
+
+                a {
+                    display: inline-block;
+                    text-align: center;
+                    padding: 10px 5px;
+                    color: #fff;
+                    font-size: 13px;
+
+                    &:first-child {
+                        width: 60%;
+                        border-right: 1px solid #000;
+                        background: #252775;
+                    }
+
+                    &:last-child {
+                        width: 40%;
+                        background: #98190B;
+                    }
+                }
+            }
+
+            .ggg-body {
+                padding: 10px;
+
+                .ggg-primary {
+                    margin-top: 5px;
+                    margin-bottom: 10px;
+
+                    &.ggg-type-2 {
+                        color: #97d2ef;
+                    }
+
+                    &.ggg-type-3 {
+                        color: #EF6623;
+                    }
+
+                    &.ggg-type-4 {
+                        color: #BA79D4;
+                    }
+
+                    .ggg {
+                        font-size: 38px;
+                        margin-top: -4px;
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+
+                    .ggg-value {
+                        font-weight: bold;
+                        font-size: 38px;
+                        vertical-align: middle;
+                        letter-spacing: -2px;
+                        margin-right: 5px;
+                    }
+
+                    .ggg-value-label {
+                        font-size: 18px;
+                        vertical-align: middle;
+                    }
+                }
+
+                .ggg-lore {
+                    font-style: italic;
+                    margin-bottom: 10px;
+                }
+
+                .ggg-divider {
+                    height: 1px;
+                    width: 100%;
+                    margin-bottom: 10px;
+                    border-bottom: 1px solid #444;
+                }
+
+                .ggg-perks {
+                    .ggg-perk {
+                        position: relative;
+                        min-height: 32px;
+                        margin-bottom: 10px;
+
+                        img {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 32px;
+                            height: 32px;
+                        }
+
+                        .ggg-perk-info {
+                            margin-left: 42px;
+
+                            .ggg-name {
+                                font-weight: 500;
+                                font-size: 14px;
+                                margin-bottom: 4px;
+                            }
+
+                            .ggg-description {
+                                font-size: 12px;
+                                opacity: 0.7;
+                            }
+                        }
+                    }
+                }
+
+                .ggg-stats {
+                    margin-bottom: 10px;
+
+                    .ggg-stat {
+                        position: relative;
+                        padding: 3px;
+
+                        .ggg-name {
+                            position: absolute;
+                            top: 3px;
+                            left: 3px;
+                            width: 90px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            line-height: 22px;
+                            height: 22px;
+                            text-align: right;
+                            font-size: 1em;
+                            color: #999;
+                        }
+
+                        .ggg-value {
+                            position: absolute;
+                            top: 3px;
+                            right: 3px;
+                            width: 60px;
+                            line-height: 22px;
+                            height: 22px;
+                            font-size: 1em;
+                            color: #ccc;
+                        }
+
+                        .ggg-bar {
+                            margin-left: 100px;
+                            margin-right: 70px;
+                            height: 22px;
+                            background: #232323;
+                            position: relative;
+
+                            .ggg-fill {
+                                position: absolute;
+                                left: 0px;
+                                top: 0px;
+                                height: 22px;
+                                background:#ECECEC;
+                            }
+
+                            .ggg-fill-min {
+                                position: absolute;
+                                left: 0px;
+                                top: 0px;
+                                height: 22px;
+                                z-index: 100;
+                                background:#ECECEC;
+                            }
+
+                            .ggg-fill-max {
+                                position: absolute;
+                                left: 0px;
+                                top: 0px;
+                                height: 22px;
+                                z-index: 50;
+                                background:#8E8E8E;
+                            }
+                        }
+                    }
+                }
+
+                &.ggg-perk {
+                    background: #222;
+
+                    .ggg-perks {
+                        .ggg-perk {
+                            min-height: 24px;
+
+                            img {
+                                width: 24px;
+                                height: 24px;
+                            }
+
+                            .ggg-perk-info {
+                                margin-left: 34px;
+
+                                .ggg-name {
+                                    font-size: 13px;
+                                    margin-bottom: 2px;
+                                }
+
+                                .ggg-description {
+                                    font-size: 12px;
+                                    opacity: 0.5;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

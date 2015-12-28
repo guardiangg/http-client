@@ -120,8 +120,53 @@ h3 {
     margin-bottom:15px;
 }
 
+.no-results {
+    background: #fff;
+    margin-bottom: 15px;
+    padding: 30px 15px;
+    font-size: 1.1em;
+    text-align: center;
+
+    h3 {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin: 0;
+    }
+}
+
 .table-striped > tbody > tr:nth-of-type(odd) {
     background-color: rgba(249, 249, 249, 0.64);
+}
+
+////
+// Tables
+////
+.scrollable {
+    position: relative;
+    overflow: hidden;
+}
+
+.scrollable-shadow {
+    content: "";
+    position: absolute;
+    top: 0px;
+    width: 15px;
+    height: 100%;
+    z-index: 1000;
+
+    &.l {
+        -moz-box-shadow: inset 15px 0px 15px -15px rgba(0,0,0,0.8);
+        -webkit-box-shadow: inset 15px 0px 15px -15px rgba(0,0,0,0.8);
+        box-shadow: inset 15px 0px 15px -15px rgba(0,0,0,0.8);
+        left: 0px;
+    }
+
+    &.r {
+        -moz-box-shadow: inset -15px 0px 15px -15px rgba(0,0,0,0.8);
+        -webkit-box-shadow: inset -15px 0px 15px -15px rgba(0,0,0,0.8);
+        box-shadow: inset -15px 0px 15px -15px rgba(0,0,0,0.8);
+        right: 0px;
+    }
 }
 
 ////
@@ -323,6 +368,111 @@ input[type="color"]:focus,
     border: none;
 }
 
+.nav {
+    .dropdown {
+        .dropdown-menu {
+            &.wide {
+                > li {
+                    min-width: 148px;
+                    float: left;
+                    list-style-type: none;
+
+                    @media (max-width:991px) {
+                        float: none;
+                    }
+
+                    &:first-child {
+                        margin-left: 3px;
+                    }
+
+                    ul {
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+                        font-size: 14px;
+                        text-align: left;
+
+                        li {
+                            &.heading {
+                                cursor: default;
+                                padding: 3px 20px;
+                                font-size: 0.8em;
+                                color: #999;
+                            }
+
+                            a {
+                                text-decoration: none;
+                                display: block;
+                                padding: 3px 20px;
+                                clear: both;
+                                font-weight: normal;
+                                line-height: 1.42857143;
+                                color: #333333;
+                                white-space: nowrap;
+
+                                &.primary {
+                                }
+
+                                &.sub {
+                                    font-size: 0.8em;
+                                }
+
+                                &:hover {
+                                    background: #eeeeee;
+                                }
+                            }
+                        }
+                    }
+
+                    @media (max-width:991px) {
+                        ul {
+                            li {
+                                &.heading {
+                                    margin-top: 10px;
+                                }
+                            }
+                        }
+
+                        &:first-child {
+                            ul {
+                                li {
+                                    &.heading {
+                                        margin-top: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.wide-2 {
+                min-width: 310px;
+
+                @media (max-width:991px) {
+                    min-width: 160px;
+                }
+            }
+
+            &.wide-3 {
+                min-width: 450px;
+
+                @media (max-width:991px) {
+                    min-width: 160px;
+                }
+            }
+
+            &.wide-4 {
+                min-width: 603px;
+
+                @media (max-width:991px) {
+                    min-width: 160px;
+                }
+            }
+        }
+    }
+}
+
 ////
 // Search
 ////
@@ -486,6 +636,30 @@ input[type="color"]:focus,
 }
 .ggg-srl:before {
     content: "\46";
+}
+.ggg-magazine:before {
+    content: "\48";
+}
+.ggg-solar:before, .ggg-damage-3:before {
+    content: "\49";
+}
+.ggg-void:before, .ggg-damage-4:before {
+    content: "\4a";
+}
+.ggg-arc:before, .ggg-damage-2:before {
+    content: "\47";
+}
+.ggg-kinetic:before, .ggg-damage-0:before, .ggg-damage-1:before {
+    content: "\4d";
+}
+.ggg-rainbow:before, .ggg-damage-5:before {
+    content: "\4e";
+}
+.ggg-defense:before {
+    content: "\4b";
+}
+.ggg-light:before {
+    content: "\4c";
 }
 
 ////
@@ -765,6 +939,11 @@ input[type="color"]:focus,
 
     i {
         margin-right: 5px;
+    }
+
+    &.small {
+        padding: 5px;
+        font-size: 14px;
     }
 }
 

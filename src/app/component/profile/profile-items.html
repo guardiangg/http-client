@@ -1,17 +1,23 @@
 <div class="item" ng-repeat="item in profileItems">
     <div class="item-icon">
-        <img ng-src="{{item.definition && '//www.bungie.net' + item.definition.icon || ''}}" />
+        <a ui-sref="app.itemDetailName({hash: item.definition.itemHash, name: slugify(item.definition.itemName)})">
+            <img ng-src="{{item.definition && '//www.bungie.net' + item.definition.icon || ''}}" />
+        </a>
     </div>
     <div class="item-info">
         <div class="item-name element-type-{{item.damageType}}">
             <span class="primary-stat element-type-{{item.damageType}}" ng-if="item.primaryStat.value">
-                {{item.primaryStat.value}}
+                <i class="ggg ggg-damage-{{item.damageType}}" ng-show="item.damageType >= 2"></i> {{item.primaryStat.value}}
             </span>
-            {{item.definition.itemName}}
+            <a target="_self"
+               ui-sref="app.itemDetailName({hash: item.definition.itemHash, name: slugify(item.definition.itemName)})"
+               ng-class="'quality-' + item.definition.tierType">
+                {{item.definition.itemName}}
+            </a>
         </div>
         <ul class="perks">
             <li ng-repeat="perk in item.perks" class="perk">
-                <span tooltip="{{perk.description}}" data-toggle="tooltip">
+                <span uib-tooltip="{{perk.description}}" data-toggle="tooltip" tooltip-placement="right">
                     <span class="perk-icon">
                         <img ng-src="{{perk.icon && '//www.bungie.net' + perk.icon || ''}}" />
                     </span>

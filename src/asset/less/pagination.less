@@ -1,0 +1,44 @@
+.pagination-bar {
+    padding: 5px;
+    background: #FFF;
+
+    .btn-group {
+        button {
+            height: 32px;
+            font-size: 13px;
+
+            @media (max-width: 480px) {
+                padding: 0;
+                height: 42px;
+                width: 52px;
+            }
+
+            @media (max-width: 320px) {
+                width: 42px;
+            }
+        }
+    }
+
+    .page-info {
+        padding: 4px 8px;
+        font-size: 12px;
+        line-height: 11px;
+        background-color: #CCCCCC;
+        color: #fff;
+
+        @media (max-width: 480px) {
+            line-height: 13px;
+            width: 115px !important;
+        }
+
+        span {
+            display: block;
+            font-size: 11px;
+            color: #404040;
+
+            @media (max-width: 480px) {
+                font-size: 13px;
+            }
+        }
+    }
+}

@@ -7,13 +7,14 @@ app.controller('profileCtrl', [
     '$stateParams',
     '$location',
     '$localStorage',
+    '$timeout',
     'api',
     'bungie',
     'consts',
     'charts',
     'auditFactory',
 
-    function ($rootScope, $scope, $state, $stateParams, $location, $localStorage, api, bungie, consts, charts, auditFactory) {
+    function ($rootScope, $scope, $state, $stateParams, $location, $localStorage, $timeout, api, bungie, consts, charts, auditFactory) {
         if (!$stateParams.mode) {
             $state.go('app.profile', {
                 platform: $stateParams.platform,
@@ -152,6 +153,9 @@ app.controller('profileCtrl', [
                     //audit.setLoadout($scope.items);
                     //audit.setDefinitions($scope.definitions);
                     $scope.loading.inventory = false;
+                    $timeout(function() {
+                        gggTips.run();
+                    });
                 }, function(err) {
                     $scope.loading.inventory = false;
                     $scope.maintenance.inventory = true;
@@ -180,34 +184,34 @@ app.controller('profileCtrl', [
             }
         };
 
-        $scope.getSuperCooldown = function(stat, items) {
-            var tiers = {};
-            var subClass = _.find(items, function(i) {
-                return i.bucketHash == consts.buckets['subclass'];
-            });
-            if (subClass) {
-                if ([3658182170,2007186000,2455559914,4143670657].indexOf(subClass.items[0].itemHash) > -1 ) {
-                    tiers = {
-                        0: '5:00',
-                        1: '4:46',
-                        2: '4:31',
-                        3: '4:15',
-                        4: '3:58',
-                        5: '3:40'
-                    };
-                } else {
-                    tiers = {
-                        0: '5:30',
-                        1: '5:14',
-                        2: '4:57',
-                        3: '4:39',
-                        4: '4:20',
-                        5: '4:00'
-                    };
+            $scope.getSuperCooldown = function(stat, items) {
+                var tiers = {};
+                var subClass = _.find(items, function(i) {
+                    return i.bucketHash == consts.buckets['subclass'];
+                });
+                if (subClass) {
+                    if ([3658182170,2007186000,2455559914,4143670657].indexOf(subClass.items[0].itemHash) > -1 ) {
+                        tiers = {
+                            0: '5:00',
+                            1: '4:46',
+                            2: '4:31',
+                            3: '4:15',
+                            4: '3:58',
+                            5: '3:40'
+                        };
+                    } else {
+                        tiers = {
+                            0: '5:30',
+                            1: '5:14',
+                            2: '4:57',
+                            3: '4:39',
+                            4: '4:20',
+                            5: '4:00'
+                        };
+                    }
+                    return tiers[$scope.statToTier(stat)];
                 }
-                return tiers[$scope.statToTier(stat)];
-            }
-        };
+            };
 
         $scope.getUtilityCooldown = function(stat) {
             var tiers = {

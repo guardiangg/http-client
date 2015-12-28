@@ -5,6 +5,16 @@ app.service('consts', [
 
     function (gettextCatalog) {
         return {
+            getItemCategoryBySlug: function(slug, list) {
+                if (!list) {
+                    list = this.item_category_list;
+                }
+
+                return _.find(list, function(cat) {
+                    return cat.slug == slug;
+                });
+            },
+
             subclassToId: function(name) {
                 var result = null;
 
@@ -209,7 +219,661 @@ app.service('consts', [
             srl_maps: {
                 1478347980: gettextCatalog.getString('Campus Martius'),
                 2243240710: gettextCatalog.getString('Infinite Descent')
-            }
+            },
+            item_tiers: {
+                1: {
+                    label: gettextCatalog.getString('Basic'),
+                    color: '#C1BBB2'
+                },
+                2: {
+                    label: gettextCatalog.getString('Common'),
+                    color: '#C1BBB2'
+                },
+                3: {
+                    label: gettextCatalog.getString('Uncommon'),
+                    color: '#366F42'
+                },
+                4: {
+                    label: gettextCatalog.getString('Rare'),
+                    color: '#5076A3'
+                },
+                5: {
+                    label: gettextCatalog.getString('Legendary'),
+                    color: '#522F65'
+                },
+                6: {
+                    label: gettextCatalog.getString('Exotic'),
+                    color: '#C6A72F'
+                }
+            },
+            item_category_list: [
+                {
+                    slug: 'weapon',
+                    list_type: 'weapon',
+                    group: 'equip_stat',
+                    label: gettextCatalog.getString('Weapon'),
+                    category: 1,
+                    children: [
+                        {
+                            slug: 'primary',
+                            list_type: 'weapon',
+                            label: gettextCatalog.getString('Primary Weapon'),
+                            category: 2,
+                            children: [
+                                {
+                                    slug: 'auto-rifle',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Auto Rifle'),
+                                    category: 5,
+                                    children: []
+                                },
+                                {
+                                    slug: 'fusion-rifle',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Fusion Rifle'),
+                                    category: 9,
+                                    children: []
+                                },
+                                {
+                                    slug: 'hand-cannon',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Hand Cannon'),
+                                    category: 6,
+                                    children: []
+                                },
+                                {
+                                    slug: 'pulse-rifle',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Pulse Rifle'),
+                                    category: 7,
+                                    children: []
+                                },
+                                {
+                                    slug: 'scout-rifle',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Scout Rifle'),
+                                    category: 8,
+                                    children: []
+                                },
+                                {
+                                    slug: 'shotgun',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Shotgun'),
+                                    category: 11,
+                                    children: []
+                                },
+                                {
+                                    slug: 'sniper-rifle',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Sniper Rifle'),
+                                    category: 10,
+                                    children: []
+                                }
+                            ]
+                        }, // primary
+                        {
+                            slug: 'special',
+                            list_type: 'weapon',
+                            label: gettextCatalog.getString('Special Weapon'),
+                            category: 3,
+                            children: [
+                                {
+                                    slug: 'fusion-rifle',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Fusion Rifle'),
+                                    category: 9,
+                                    children: []
+                                },
+                                {
+                                    slug: 'shotgun',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Shotgun'),
+                                    category: 11,
+                                    children: []
+                                },
+                                {
+                                    slug: 'sidearm',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Sidearm'),
+                                    category: 14,
+                                    children: []
+                                },
+                                {
+                                    slug: 'sniper-rifle',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Sniper Rifle'),
+                                    category: 10,
+                                    children: []
+                                }
+                            ]
+                        }, // special
+                        {
+                            slug: 'heavy',
+                            list_type: 'weapon',
+                            label: gettextCatalog.getString('Heavy Weapon'),
+                            category: 4,
+                            children: [
+                                {
+                                    slug: 'fusion-rifle',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Fusion Rifle'),
+                                    category: 9,
+                                    children: []
+                                },
+                                {
+                                    slug: 'machine-gun',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Machine Gun'),
+                                    category: 12,
+                                    children: []
+                                },
+                                {
+                                    slug: 'rocket-launcher',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Rocket Launcher'),
+                                    category: 13,
+                                    children: []
+                                },
+                                {
+                                    slug: 'sword',
+                                    list_type: 'weapon',
+                                    label: gettextCatalog.getString('Sword'),
+                                    category: 54,
+                                    children: []
+                                }
+                            ]
+                        } // heavy
+                    ]
+                }, // weapon
+                {
+                    slug: 'armor',
+                    list_type: 'armor',
+                    group: 'equip_stat',
+                    label: gettextCatalog.getString('Armor'),
+                    category: 20,
+                    children: [
+                        {
+                            slug: 'helmet',
+                            list_type: 'armor',
+                            label: gettextCatalog.getString('Helmet'),
+                            category: 45,
+                            children: []
+                        },
+                        {
+                            slug: 'arms',
+                            list_type: 'armor',
+                            label: gettextCatalog.getString('Arms'),
+                            category: 46,
+                            children: []
+                        },
+                        {
+                            slug: 'chest',
+                            list_type: 'armor',
+                            label: gettextCatalog.getString('Chest'),
+                            category: 47,
+                            children: []
+                        },
+                        {
+                            slug: 'legs',
+                            list_type: 'armor',
+                            label: gettextCatalog.getString('Legs'),
+                            category: 48,
+                            children: []
+                        },
+                        {
+                            slug: 'class-item',
+                            list_type: 'armor',
+                            label: gettextCatalog.getString('Class Item'),
+                            category: 49,
+                            children: []
+                        },
+                        {
+                            slug: 'artifact',
+                            list_type: 'armor',
+                            label: gettextCatalog.getString('Artifact'),
+                            category: 38,
+                            children: []
+                        },
+                        {
+                            slug: 'ghost',
+                            list_type: 'armor',
+                            label: gettextCatalog.getString('Ghost'),
+                            category: 39,
+                            children: []
+                        },
+                    ]
+                }, // armor
+                {
+                    slug: 'subclass',
+                    list_type: 'standard',
+                    group: 'equip_stat',
+                    label: gettextCatalog.getString('Subclass'),
+                    category: 50,
+                    children: []
+                },
+                {
+                    slug: 'emblem',
+                    list_type: 'standard',
+                    group: 'equip_passive',
+                    label: gettextCatalog.getString('Emblem'),
+                    category: 19,
+                    children: []
+                },
+                {
+                    slug: 'emote',
+                    list_type: 'standard',
+                    group: 'equip_passive',
+                    label: gettextCatalog.getString('Emote'),
+                    category: 44,
+                    children: []
+                },
+                {
+                    slug: 'shader',
+                    list_type: 'standard',
+                    group: 'equip_passive',
+                    label: gettextCatalog.getString('Shader'),
+                    category: 41,
+                    children: []
+                },
+                {
+                    slug: 'ship',
+                    list_type: 'standard',
+                    group: 'equip_passive',
+                    label: gettextCatalog.getString('Ship'),
+                    category: 42,
+                    children: [
+                        {
+                            slug: 'schematic',
+                            list_type: 'standard',
+                            label: gettextCatalog.getString('Ship Schematic'),
+                            category: 51,
+                            children: []
+                        },
+                    ]
+                },
+                {
+                    slug: 'sparrow',
+                    list_type: 'sparrow',
+                    group: 'equip_passive',
+                    label: gettextCatalog.getString('Sparrow'),
+                    category: 43,
+                    children: []
+                },
+                {
+                    slug: 'bounty',
+                    list_type: 'standard',
+                    group: 'inventory',
+                    label: gettextCatalog.getString('Bounty'),
+                    category: 26,
+                    children: [
+                        {
+                            slug: 'vanguard',
+                            list_type: 'standard',
+                            label: gettextCatalog.getString('Vanguard'),
+                            category: 27,
+                            children: []
+                        },
+                        {
+                            slug: 'crucible',
+                            list_type: 'standard',
+                            label: gettextCatalog.getString('Crucible'),
+                            category: 28,
+                            children: []
+                        }
+                    ]
+                },
+                {
+                    slug: 'consumable',
+                    list_type: 'standard',
+                    group: 'inventory',
+                    label: gettextCatalog.getString('Consumable'),
+                    category: 35,
+                    children: []
+                },
+                {
+                    slug: 'currency',
+                    list_type: 'standard',
+                    group: 'inventory',
+                    label: gettextCatalog.getString('Currency'),
+                    category: 18,
+                    children: []
+                },
+                {
+                    slug: 'engram',
+                    list_type: 'standard',
+                    group: 'inventory',
+                    label: gettextCatalog.getString('Engram'),
+                    category: 34,
+                    children: []
+                },
+                {
+                    slug: 'material',
+                    list_type: 'standard',
+                    group: 'inventory',
+                    label: gettextCatalog.getString('Material'),
+                    category: 40,
+                    children: []
+                },
+                {
+                    slug: 'mission-key',
+                    list_type: 'standard',
+                    group: 'inventory',
+                    label: gettextCatalog.getString('Mission Key Item'),
+                    category: 37,
+                    children: []
+                },
+                {
+                    slug: 'mask',
+                    list_type: 'standard',
+                    group: 'event',
+                    label: gettextCatalog.getString('Halloween Mask'),
+                    category: 55,
+                    children: []
+                },
+            ],
+            item_list_types: {
+                standard: {
+                    stat_columns: []
+                },
+                weapon: {
+                    stat_columns: [
+                        "368428387", // Attack
+                        //"2391494160", // Light
+                        "3871231066", // Magazine
+                        "925767036", // Energy
+                        "4284893193", // Rate of fire
+                        "2523465841", // Velocity
+                        "2961396640", // Charge rate
+                        "155624089", // Stability
+                        "1240592695", // Range
+                        "4043523819", // Impact
+                        "3614673599", // Blast radius
+                        "4188031367", // Reload speed
+                        "3555269338", // Optics
+                        "2762071195", // Efficiency
+                        "1345609583", // Aim assist
+                        "2715839340", // Recoil
+                        "943549884", // Equip speed
+                        "2837207746", // Speed
+                    ]
+                },
+                armor: {
+                    stat_columns: [
+                        "3897883278", // Defense
+                        //"2391494160", // Light
+                        "144602215", // Intellect
+                        "1735777505", // Discipline
+                        "4244567218", // Strength
+                    ]
+                },
+                sparrow: {
+                    stat_columns: [
+                        "1501155019", // Speed
+                        "360359141", // Durability
+                        "3017642079", // Boost
+                    ]
+                }
+            },
+            stats: {
+                display: [
+                    "4284893193", // Rate of fire
+                    "2961396640", // Charge rate
+                    "3614673599", // Blast radius
+                    "2523465841", // Velocity
+                    "2837207746", // Speed
+                    "4043523819", // Impact
+                    "1240592695", // Range
+                    "155624089", // Stability
+                    "4188031367", // Reload speed
+                    "2762071195", // Efficiency
+                    "209426660", // Defense
+                    "925767036", // Energy
+                    "360359141", // Durability
+                    "3017642079", // Boost
+                ],
+                hidden: [
+                    "3555269338", // Optics
+                    "1345609583", // Aim assist
+                    "2715839340", // Recoil
+                    "943549884", // Equip speed
+                ],
+                armor: [
+                    "144602215", // Intellect
+                    "1735777505", // Discipline
+                    "4244567218", // Strength
+                ],
+                intellect: "144602215",
+                discipline: "1735777505",
+                strength: "4244567218",
+                magazine: "3871231066",
+                attack: "368428387",
+                defense: "3897883278"
+            },
+            reward_sources: [
+                {
+                    label: gettextCatalog.getString('Activities'),
+                    sources: [
+                        {
+                            hash: "1882189853",
+                            label: gettextCatalog.getString('Crucible')
+                        },
+                        {
+                            hash: "478645002",
+                            label: gettextCatalog.getString('Iron Banner')
+                        },
+                        {
+                            hash: "36493462",
+                            label: gettextCatalog.getString('Prison of Elders')
+                        },
+                        {
+                            hash: "3107502809",
+                            label: gettextCatalog.getString('Raid - Crota\'s End')
+                        },
+                        {
+                            hash: "3551688287",
+                            label: gettextCatalog.getString('Raid - King\'s Fall')
+                        },
+                        {
+                            hash: "686593720",
+                            label: gettextCatalog.getString('Raid - Vault of Glass')
+                        },
+                        {
+                            hash: "3945957624",
+                            label: gettextCatalog.getString('Sparrow Racing League')
+                        },
+                        {
+                            hash: "4131549852",
+                            label: gettextCatalog.getString('SRL Record Book')
+                        },
+                        {
+                            hash: "3870113141",
+                            label: gettextCatalog.getString('Strike')
+                        },
+                        {
+                            hash: "3116705946",
+                            label: gettextCatalog.getString('Strike - Heroic')
+                        },
+                        {
+                            hash: "113998144",
+                            label: gettextCatalog.getString('Strike - Nightfall')
+                        },
+                        {
+                            hash: "3413298620",
+                            label: gettextCatalog.getString('Trials of Osiris')
+                        },
+                    ]
+                },
+                {
+                    label: gettextCatalog.getString('Expansion Pack'),
+                    sources: [
+                        {
+                            hash: "460228854",
+                            label: gettextCatalog.getString('The Taken King')
+                        },
+                    ]
+                },
+                {
+                    label: gettextCatalog.getString('Outdoor Zone'),
+                    sources: [
+                        {
+                            hash: "2644169369",
+                            label: gettextCatalog.getString('Oryx\'s Dreadnaught')
+                        },
+                        {
+                            hash: "2861499388",
+                            label: gettextCatalog.getString('Meridian Bay')
+                        },
+                        {
+                            hash: "3405266230",
+                            label: gettextCatalog.getString('Patrol')
+                        },
+                        {
+                            hash: "1391763834",
+                            label: gettextCatalog.getString('Ocean of Storms')
+                        },
+                        {
+                            hash: "1835600269",
+                            label: gettextCatalog.getString('Old Russia')
+                        },
+                        {
+                            hash: "1396812895",
+                            label: gettextCatalog.getString('Ishtar Sink')
+                        },
+                    ]
+                },
+                {
+                    label: gettextCatalog.getString('Reef Vendor'),
+                    sources: [
+                        {
+                            hash: "3286066462",
+                            label: gettextCatalog.getString('Queen\'s Wrath')
+                        },
+                        {
+                            hash: "482203941",
+                            label: gettextCatalog.getString('Disciple of Osiris')
+                        },
+                        {
+                            hash: "3523074641",
+                            label: gettextCatalog.getString('Variks')
+                        },
+                    ]
+                },
+                {
+                    label: gettextCatalog.getString('Tower Vendor'),
+                    sources: [
+                        {
+                            hash: "2859308742",
+                            label: gettextCatalog.getString('Future War Cult')
+                        },
+                        {
+                            hash: "3080587303",
+                            label: gettextCatalog.getString('Dead Orbit')
+                        },
+                        {
+                            hash: "1963381593",
+                            label: gettextCatalog.getString('New Monarchy')
+                        },
+                        {
+                            hash: "2770509343",
+                            label: gettextCatalog.getString('Lord Saladin')
+                        },
+                        {
+                            hash: "3496730577",
+                            label: gettextCatalog.getString('Vanguard Quartermaster')
+                        },
+                        {
+                            hash: "709638738",
+                            label: gettextCatalog.getString('Titan Vanguard')
+                        },
+                        {
+                            hash: "866383853",
+                            label: gettextCatalog.getString('Hunter Vanguard')
+                        },
+                        {
+                            hash: "4074277503",
+                            label: gettextCatalog.getString('Warlock Vanguard')
+                        },
+                        {
+                            hash: "2155337848",
+                            label: gettextCatalog.getString('Eververse')
+                        },
+                        {
+                            hash: "1662396737",
+                            label: gettextCatalog.getString('Crota\'s Bane')
+                        },
+                        {
+                            hash: "299200664",
+                            label: gettextCatalog.getString('Gunsmith')
+                        },
+                        {
+                            hash: "3498761033",
+                            label: gettextCatalog.getString('The Speaker')
+                        },
+                        {
+                            hash: "3660582080",
+                            label: gettextCatalog.getString('Shipwright')
+                        },
+                        {
+                            hash: "3672389432",
+                            label: gettextCatalog.getString('Guardian Outfitter')
+                        },
+                        {
+                            hash: "1257353826",
+                            label: gettextCatalog.getString('Crucible Handler')
+                        },
+                        {
+                            hash: "1587918730",
+                            label: gettextCatalog.getString('Crucible Quartermaster')
+                        },
+                    ]
+                },
+                {
+                    label: gettextCatalog.getString('Multi-Location Vendor'),
+                    sources: [
+                        {
+                            hash: "2975148657",
+                            label: gettextCatalog.getString('Bounty Tracker')
+                        },
+                        {
+                            hash: "1141011754",
+                            label: gettextCatalog.getString('Cryptarch')
+                        },
+                        {
+                            hash: "941581325",
+                            label: gettextCatalog.getString('Xûr, Agent of the Nine')
+                        },
+                    ]
+                },
+                {
+                    label: gettextCatalog.getString('Miscellaneous'),
+                    sources: [
+                        {
+                            hash: "831813627",
+                            label: gettextCatalog.getString('Character Creation')
+                        },
+                        {
+                            hash: "1011133026",
+                            label: gettextCatalog.getString('Exotic Weapon Bounty')
+                        },
+                        {
+                            hash: "846654930",
+                            label: gettextCatalog.getString('Public Events')
+                        },
+                        {
+                            hash: "541934873",
+                            label: gettextCatalog.getString('Various Sources')
+                        },
+                        {
+                            hash: "1391763834",
+                            label: gettextCatalog.getString('Evolved From Another Item')
+                        },
+                        {
+                            hash: "1920307024",
+                            label: gettextCatalog.getString('Quest')
+                        },
+                    ]
+                },
+            ]
         };
     }
 ]);

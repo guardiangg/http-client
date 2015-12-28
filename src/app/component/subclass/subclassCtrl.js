@@ -6,13 +6,16 @@ app.controller('subclassCtrl', [
     '$stateParams',
     '$localStorage',
     '$filter',
+    '$timeout',
     'api',
     'consts',
     'charts',
+    'util',
 
-    function ($rootScope, $scope, $stateParams, $localStorage, $filter, api, consts, charts) {
+    function ($rootScope, $scope, $stateParams, $localStorage, $filter, $timeout, api, consts, charts, util) {
         var subclassId = consts.subclassToId($stateParams.subclass);
         $scope.subclass = consts.subclasses[subclassId];
+        $scope.slugify = util.slugify;
 
         $rootScope.title = $scope.subclass.label + ' - Subclass Item/Perk Analysis - Guardian.gg';
 
@@ -157,10 +160,21 @@ app.controller('subclassCtrl', [
 
                     _.each(result.data, function (group) {
                         _.each(group, function (row) {
-                            var weapon = [consts.buckets.special, consts.buckets.primary, consts.buckets.heavy];
-                            var armor = [consts.buckets.head, consts.buckets.arm, consts.buckets.chest, consts.buckets.leg];
+                            var weapon = [
+                                consts.buckets.primary,
+                                consts.buckets.special,
+                                consts.buckets.heavy
+                            ];
+
+                            var armor = [
+                                consts.buckets.head,
+                                consts.buckets.arm,
+                                consts.buckets.chest,
+                                consts.buckets.leg
+                            ];
 
                             var item = {
+                                hash: row.itemHash,
                                 name: row.itemName,
                                 icon: row.itemIcon,
                                 total: row.total,
@@ -206,6 +220,10 @@ app.controller('subclassCtrl', [
                     $scope.loading.weapons = false;
                     $scope.loading.armor = false;
                     $scope.totals = totals;
+
+                    $timeout(function() {
+                        gggTips.run();
+                    });
                 });
         };
 
