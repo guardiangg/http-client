@@ -985,19 +985,22 @@
                     max-width: 32px;
                     max-height: 32px;
 
+                    @media (max-width: 480px) {
+                        max-width: 22px;
+                        max-height: 22px;
+                    }
+
                     img {
                         border-radius: 2px;
                         width: 100%;
                         max-width: 32px;
                         max-height: 32px;
-                    }
-                }
 
-                @media (max-width: 480px) {
-                    img {
-                        top: 10px;
-                        max-width: 22px;
-                        max-height: 22px;
+                        @media (max-width: 480px) {
+                            top: 10px;
+                            max-width: 22px;
+                            max-height: 22px;
+                        }
                     }
                 }
 
