@@ -97,7 +97,9 @@
             <h3 translate>Primary</h3>
             <ul class="weapon-list">
                 <li ng-repeat="item in weapons.primary | orderBy: '-kills'" class="item-{{ item.tier }}">
-                    <img ng-src="//www.bungie.net{{ item.icon }}" />
+                    <a ui-sref="app.itemDetailName({hash: item.hash, name: (item.name|slugify)})" data-ggg-target="true">
+                        <img ng-src="//www.bungie.net{{ item.icon }}" />
+                    </a>
                     <span class="usage">{{ item.kills | number: 2 }}%</span>
                     <span class="name">
                         <a ui-sref="app.itemDetailName({hash: item.hash, name: (item.name|slugify)})">{{ item.name }}</a>
