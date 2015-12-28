@@ -271,6 +271,7 @@
                         enrichGamedata(row);
 
                         row.isMobile = isMobile.any();
+                        row.viewportHeight = window.innerHeight;
                         row.local = opts.local;
                         row.locale = opts.locale;
 

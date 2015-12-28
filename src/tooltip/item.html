@@ -7,7 +7,7 @@
     </div>
 </div>
 
-<div class="ggg-body">
+<div class="ggg-body"<% if (isMobile) { %> style="max-height: <%= viewportHeight - 112 %>px;overflow: auto"<% } %>>
 
     <% if (_primaryStats.attack && _primaryStats.attack.min > 0) { %>
         <div class="ggg-primary ggg-type-<%= _damageType %>">
@@ -76,16 +76,18 @@
             <% }); %>
         </div>
     <% } %>
-
-    <% if (isMobile) {
-        var url = '/' + [locale, 'items', hash].join('/');
-
-        if (!local) {
-            url = "https://guardian.gg" + url;
-        }
-    %>
-
-        <a href="<%= url %>">[View item on Guardian.gg]</a>
-    <% } %>
-
 </div>
+
+
+<% if (isMobile) {
+    var url = '/' + [locale, 'items', hash].join('/');
+
+    if (!local) {
+    url = "https://guardian.gg" + url;
+}
+%>
+<div class="ggg-mobile-links">
+    <a href="<%= url %>" class="ggg-mobile-link-details">More Info (Guardian.gg)</a>
+    <a href="javascript:;" class="ggg-mobile-link-close">Close Tooltip</a>
+</div>
+<% } %>
