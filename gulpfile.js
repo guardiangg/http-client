@@ -47,8 +47,6 @@ var jsFiles = {
         'angular-toastr/dist/angular-toastr.js',
         'angular-toastr/dist/angular-toastr.tpls.js',
         'angular-sanitize/angular-sanitize.js',
-        'angular-ui-bootstrap/ui-bootstrap.js',
-        'angular-ui-bootstrap/ui-bootstrap-tpls.js',
         'angular-ui-router/release/angular-ui-router.js',
         'ui-select/dist/select.js',
         'angularjs-datepicker/src/js/angular-datepicker.js',
@@ -70,7 +68,10 @@ var jsFiles = {
         'moment/locale/de.js',
         'moment/locale/it.js',
         'moment/locale/ja.js',
-        'moment/locale/pt-br.js'
+        'moment/locale/pt-br.js',
+
+        '../src/vendor/ui-bootstrap-custom-0.14.3.js',
+        '../src/vendor/ui-bootstrap-custom-tpls-0.14.3.js'
     ]
 };
 
