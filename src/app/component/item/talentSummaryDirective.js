@@ -104,7 +104,7 @@ app.directive('talentSummary', [
                     var perkEle = angular.element('<div class="breakdown-perk"></div>');
                     var perkInfo = angular.element('<div class="breakdown-perk-info"></div>');
                     var perkIcon = angular.element('<div class="breakdown-perk-icon"></div>');
-                    perkIcon.css('background-image', 'url(https://bungie.net/' + perk.icon + ')');
+                    perkIcon.css('background-image', 'url(//www.bungie.net/' + perk.icon + ')');
 
                     perkEle.append(perkIcon);
                     perkInfo.append('<strong>' + perk.name + '</strong>' + perk.description);
