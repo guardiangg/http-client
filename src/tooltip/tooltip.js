@@ -1,6 +1,4 @@
 (function() {
-    console.info('gggTips loaded, prep for pwn...');
-
     Opentip.styles.ggg = {
         stem: false,
         background: '#000',
