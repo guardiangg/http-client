@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.filter('slugify',
+app.filter('slugify', [
     'util',
 
     function(util) {
@@ -8,4 +8,4 @@ app.filter('slugify',
             return util.slugify(str);
         }
     }
-);
+]);
