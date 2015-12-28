@@ -11,9 +11,10 @@ app.service('util', [
              * @see https://gist.github.com/mathewbyrne/1280286
              */
             this.slugify = function(str) {
-                return str.toString().toLowerCase()
+                return str.toString()
+                    .toLowerCase()
+                    .replace(/[^a-z0-9\s']+/g, '')  // Remove all non-word chars
                     .replace(/\s+/g, '-')           // Replace spaces with -
-                    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
                     .replace(/\-\-+/g, '-')         // Replace multiple - with single -
                     .replace(/^-+/, '')             // Trim - from start of text
                     .replace(/-+$/, '');            // Trim - from end of text
