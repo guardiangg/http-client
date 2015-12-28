@@ -4,7 +4,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: component\item\itemDetailCtrl.js:104
+#: component\item\itemDetailCtrl.js:110
 #: shared\chart\item-popularity.js:77
 msgid "% of All Kills"
 msgstr ""
@@ -661,6 +661,10 @@ msgstr ""
 msgid "Loading best SRL times..."
 msgstr ""
 
+#: component\item\item-detail.html:236
+msgid "Loading chart..."
+msgstr ""
+
 #: component\item\item.html:24
 msgid "Loading filters..."
 msgstr ""
@@ -912,7 +916,7 @@ msgstr ""
 msgid "Random"
 msgstr ""
 
-#: component\item\itemDetailCtrl.js:95
+#: component\item\itemDetailCtrl.js:101
 #: component\leaderboard\leaderboard.html:58
 #: component\srl\srl.html:59
 #: shared\chart\item-popularity.js:68
@@ -1181,11 +1185,11 @@ msgstr ""
 msgid "Sword"
 msgstr ""
 
-#: component\item\item-detail.html:243
+#: component\item\item-detail.html:245
 msgid "Talent Breakdown"
 msgstr ""
 
-#: component\item\item-detail.html:240
+#: component\item\item-detail.html:242
 msgid "Talent Grid"
 msgstr ""
 
@@ -1343,6 +1347,10 @@ msgstr ""
 msgid "We found more than one result for \"{{name}}\""
 msgstr ""
 
+#: component\item\item-detail.html:237
+msgid "We have insufficient data for this weapon in the game mode you selected, try another mode"
+msgstr ""
+
 #: component\weapon-stats\weapon-stats.html:9
 msgid "We're crunching the numbers based on your filters, this may take a moment."
 msgstr ""
@@ -1406,7 +1414,7 @@ msgstr ""
 msgid "Zone Control"
 msgstr ""
 
-#: component\item\itemDetailCtrl.js:117
+#: component\item\itemDetailCtrl.js:125
 #: component\item\itemListFactory.js:579
 msgid "[Unnamed Item]"
 msgstr ""

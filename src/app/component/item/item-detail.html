@@ -233,7 +233,9 @@
                 </ul>
             </div>
             <h4 translate>Weapon Popularity</h4>
-            <highchart config="chart" style="height: 300px;"></highchart>
+            <div class="loading" ng-show="chartLoading"><i class="fa fa-cog fa-spin"></i> <span translate>Loading chart...</span></div>
+            <div class="empty" ng-show="!chartLoading && chartEmpty" translate>We have insufficient data for this weapon in the game mode you selected, try another mode</div>
+            <highchart config="chart" style="height: 300px;" ng-show="!chartEmpty && !chartLoading"></highchart>
         </div>
 
         <div class="talents" ng-show="entity.perks.length > 0">

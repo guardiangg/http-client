@@ -16,6 +16,7 @@ app.controller('itemDetailCtrl', [
         $scope.tiers = consts.item_tiers;
         $scope.chart = charts.get('item-popularity');
         $scope.chartEmpty = true;
+        $scope.chartLoading = true;
         $scope.hasChart = false;
         $scope.modes = consts.modes;
         $scope.mode = $localStorage.itemMode || 10;
@@ -55,12 +56,15 @@ app.controller('itemDetailCtrl', [
         };
 
         var loadChart = function() {
+            $scope.chartLoading = true;
+
             api
                 .getItemPopularityChart($stateParams.hash)
                 .then(function(result) {
                     var rank = {};
                     var kd = {};
                     var highest = {kd: -1, rank: -1};
+                    $scope.chartEmpty = true;
 
                     _.each(result.data, function(row) {
                         if (!rank[row.mode]) {
@@ -71,6 +75,8 @@ app.controller('itemDetailCtrl', [
                         if (row.rank === 0) {
                             return;
                         }
+
+                        $scope.chartEmpty = false;
 
                         var dt = moment(row.day).unix() * 1000;
 
@@ -108,6 +114,8 @@ app.controller('itemDetailCtrl', [
                             });
                         }
                     });
+
+                    $scope.chartLoading = false;
                 });
         }
 
