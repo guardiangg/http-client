@@ -363,6 +363,7 @@ msgstr ""
 msgid "Expansion Pack"
 msgstr ""
 
+#: component\faq\faqCtrl.js:8
 #: component\layout\nav.html:234
 msgid "FAQ"
 msgstr ""
@@ -437,8 +438,8 @@ msgstr ""
 msgid "Guardian Outfitter"
 msgstr ""
 
-#: app.js:88
-msgid "Guardian.gg - Advanced Destiny Stats, Profiles and Leaderboards"
+#: component\home\homeCtrl.js:20
+msgid "Guardian.gg - Advanced Destiny Stats, Profiles, Leaderboards, and Database"
 msgstr ""
 
 #: component\layout\nav.html:221

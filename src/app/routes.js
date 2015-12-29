@@ -44,6 +44,7 @@ app.config([
             })
             .state('app.faq', {
                 url: '/faq',
+                controller: 'faqCtrl',
                 templateUrl: 'component/faq/faq.html'
             })
             .state('app.search', {

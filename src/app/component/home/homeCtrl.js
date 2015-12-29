@@ -9,13 +9,17 @@ app.controller('homeCtrl', [
     'api',
     'consts',
     'charts',
+    'gettextCatalog',
 
-    function ($rootScope, $scope, $q, $interval, leaderboardApi, api, consts, charts) {
+    function ($rootScope, $scope, $q, $interval, leaderboardApi, api, consts, charts, gettextCatalog) {
         $scope.leaderboards = {1: {}, 2: {}};
         $scope.platforms = consts.platforms;
         $scope.modes = consts.modes;
         $scope.popularity = charts.get('popularity');
         $scope.kd = charts.get('kd');
+        $rootScope.title = gettextCatalog.getString(
+            'Guardian.gg - Advanced Destiny Stats, Profiles, Leaderboards, and Database'
+        );
 
         leaderboardApi
             .getFeatured([10,29,14,19])
