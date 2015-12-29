@@ -79,15 +79,19 @@ app
                 $log.error(err);
             });
 
+            var defaultTitle = gettextCatalog.getString(
+                'Guardian.gg - Advanced Destiny Stats, Profiles and Leaderboards'
+            );
+
+            $rootScope.title = defaultTitle;
+
             $rootScope.$on('$stateChangeStart', function(event, toState) {
                 $rootScope.apiError = false;
 
                 if (toState.title) {
                     $rootScope.title = gettextCatalog.getString(toState.title) + ' - Guardian.gg';
                 } else {
-                    $rootScope.title = gettextCatalog.getString(
-                        'Guardian.gg - Advanced Destiny Stats, Profiles and Leaderboards'
-                    );
+                    $rootScope.title = defaultTitle;
                 }
             });
         }
