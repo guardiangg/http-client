@@ -21,12 +21,12 @@ app.controller('weaponStatsCtrl', [
 
         $scope.weaponsLoading = true;
 
-        $scope.today = moment().format('YYYY-MM-DD');
+        $scope.today = moment().utc().format('YYYY-MM-DD');
 
         $scope.filters = angular.extend({
             platform: 2,
-            start: moment().subtract(30, 'days').format('YYYY-MM-DD'),
-            end: moment().subtract(1, 'days').format('YYYY-MM-DD'),
+            start: moment().utc().subtract(30, 'days').format('YYYY-MM-DD'),
+            end: moment().utc().subtract(1, 'days').format('YYYY-MM-DD'),
             mode: 10,
             activity: 0
         }, $location.search());
