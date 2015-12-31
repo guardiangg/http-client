@@ -10,12 +10,18 @@ app.controller('layoutCtrl', [
     'consts',
     'gettext',
     'gettextCatalog',
+    'notice',
 
-    function ($scope, $location, $state, $stateParams, $localStorage, $window, consts, gettext, gettextCatalog) {
+    function ($scope, $location, $state, $stateParams, $localStorage, $window, consts, gettext, gettextCatalog, notice) {
         $scope.placeholder = $localStorage.searchPlaceholder ?
             $localStorage.searchPlaceholder : gettext('Search for a Guardian...');
 
         $scope.languages = consts.languages;
+        $scope.notices = [];
+        $scope.hideNotice = notice.hide;
+        notice.getActive().then(function(notices) {
+            $scope.notices = notices;
+        });
 
         $scope.hreflangs = function() {
             var uris = {};

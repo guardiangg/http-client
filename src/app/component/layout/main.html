@@ -28,12 +28,15 @@
 </div>
 
 <nav class="navbar navbar-default" ng-include="'component/layout/nav.html'"></nav>
-<!--
-<div class="warning">
-    <h3><i class="fa fa-warning"></i> Maintenance Notice</h3>
-    <p></p>
+
+<div class="notices" ng-show="notices.length > 0">
+    <div class="notice-item" ng-repeat="notice in notices" data-ggg-notice="{{ notice.uniqueId }}">
+        <a class="notice-close" href="javascript:;" ng-click="hideNotice(notice.uniqueId)" ng-show="notice.dismissable">
+            <i class="fa fa-close"></i> <span translate>Dismiss Notice</span>
+        </a>
+        <ng-include src="'component/notice/templates/' + notice.template + '.html'"></ng-include>
+    </div>
 </div>
--->
 
 <div class="error" ng-show="apiError" ng-cloak>
     <h3 translate>Bungie API Error</h3>

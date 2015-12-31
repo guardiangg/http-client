@@ -14,7 +14,7 @@ msgstr ""
 msgid "'Nade"
 msgstr ""
 
-#: component\layout\main.html:44
+#: component\layout\main.html:47
 msgid "<em>Internal error code: {{apiError}}</em>"
 msgstr ""
 
@@ -70,6 +70,7 @@ msgid "Any Map"
 msgstr ""
 
 #: component\layout\nav.html:181
+#: component\notice\templates\item-launch.html:12
 #: component\profile\character.html:29
 #: shared\service\consts.js:392
 msgid "Armor"
@@ -136,7 +137,7 @@ msgstr ""
 msgid "Bronze"
 msgstr ""
 
-#: component\layout\main.html:39
+#: component\layout\main.html:42
 msgid "Bungie API Error"
 msgstr ""
 
@@ -280,6 +281,10 @@ msgstr ""
 msgid "Disciple of Osiris"
 msgstr ""
 
+#: component\layout\main.html:35
+msgid "Dismiss Notice"
+msgstr ""
+
 #: component\layout\nav.html:240
 msgid "Donate"
 msgstr ""
@@ -312,6 +317,7 @@ msgid "Elo Rankings"
 msgstr ""
 
 #: component\layout\nav.html:195
+#: component\notice\templates\item-launch.html:14
 #: shared\service\consts.js:458
 msgid "Emblem"
 msgstr ""
@@ -423,6 +429,10 @@ msgstr ""
 msgid "GitHub"
 msgstr ""
 
+#: component\notice\templates\item-launch.html:9
+msgid "Give some categories a try:"
+msgstr ""
+
 #: component\faq\faq.html:54
 #: shared\chart\profile-elo.js:123
 #: shared\service\consts.js:80
@@ -440,6 +450,13 @@ msgstr ""
 
 #: component\home\homeCtrl.js:20
 msgid "Guardian.gg - Advanced Destiny Stats, Profiles, Leaderboards, and Database"
+msgstr ""
+
+#: component\notice\templates\generic-maintenance.html:3
+msgid ""
+"Guardian.gg is currently undergoing maintenance. You may experience brief downtime and degraded features such as\r\n"
+"    Elo not updating or certain sections of the site missing. We appreciate your patience as we work hard to restore our\r\n"
+"    service as soon as possible."
 msgstr ""
 
 #: component\layout\nav.html:221
@@ -547,6 +564,10 @@ msgstr ""
 #: component\subclass\subclass.html:135
 #: component\subclass\subclass.html:165
 msgid "Item"
+msgstr ""
+
+#: component\notice\templates\item-launch.html:3
+msgid "Item Database Launched!"
 msgstr ""
 
 #: component\item\item.html:1
@@ -680,6 +701,10 @@ msgstr ""
 
 #: shared\service\consts.js:366
 msgid "Machine Gun"
+msgstr ""
+
+#: component\notice\templates\generic-maintenance.html:2
+msgid "Maintenance Notice"
 msgstr ""
 
 #: component\profile\activity-history.html:103
@@ -1015,7 +1040,7 @@ msgstr ""
 msgid "Scout Rifle"
 msgstr ""
 
-#: component\layout\layoutCtrl.js:16
+#: component\layout\layoutCtrl.js:17
 msgid "Search for a Guardian..."
 msgstr ""
 
@@ -1231,7 +1256,7 @@ msgid ""
 "    Select a mode on the filter bar below to only map K/D and win rates in that mode."
 msgstr ""
 
-#: component\layout\main.html:40
+#: component\layout\main.html:43
 msgid ""
 "This page relies on one or more Bungie APIs to properly display. We weren't able to retrieve some data, so\r\n"
 "        as a result one or more areas of this page are temporarily disabled. Try again in a few minutes."
@@ -1356,6 +1381,12 @@ msgstr ""
 msgid "We're crunching the numbers based on your filters, this may take a moment."
 msgstr ""
 
+#: component\notice\templates\item-launch.html:4
+msgid ""
+"We're excited to welcome you to try out the newest feature on Guardian.gg. We hope you'll find the high level of\r\n"
+"        filtering and stats within our item database useful."
+msgstr ""
+
 #: shared\service\consts.js:254
 msgid "Weapon"
 msgstr ""
@@ -1370,6 +1401,7 @@ msgstr ""
 
 #: component\layout\nav.html:172
 #: component\layout\nav.html:218
+#: component\notice\templates\item-launch.html:10
 msgid "Weapons"
 msgstr ""
 

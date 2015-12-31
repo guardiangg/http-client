@@ -1,0 +1,11 @@
+{
+  "data": [
+    {
+      "uniqueId": "ef7a20e8",
+      "priority": 1000,
+      "template": "item-launch",
+      "dismissable": true,
+      "expires": "2016-01-09 00:00:00"
+    }
+  ]
+}

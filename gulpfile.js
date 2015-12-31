@@ -145,9 +145,10 @@ var jsVendorCallback = function() {
     return stream.pipe(gulp.dest('./build/asset/js'));
 };
 
-gulp.task('build', ['tooltip', 'config', 'robots', 'image', 'font', 'index']);
+gulp.task('build', ['tooltip', 'config', 'robots', 'notices', 'image', 'font', 'index']);
 
 gulp.task('watch', ['build'], function() {
+    gulp.watch(['./notices.json'], ['notices']);
     gulp.watch(['./src/index.html'], ['index']);
     gulp.watch(['./src/asset/less/**/*.less'], ['css']);
     gulp.watch(['./src/app/**/*.js'], ['js']);
@@ -242,6 +243,10 @@ gulp.task('font', function() {
 
 gulp.task('robots', function() {
     return gulp.src('./robots.txt').pipe(gulp.dest('./build'));
+});
+
+gulp.task('notices', function() {
+    return gulp.src('./notices.json').pipe(gulp.dest('./build'));
 });
 
 gulp.task('pot', function () {
