@@ -220,7 +220,7 @@
                     id = match[1];
                 } else if (match = link.href.match(/db.planetdestiny.com\/items\/view\/(\d+)/i)) {
                     id = match[1];
-                } else if (match = link.href.match(/www\.bungie\.net\/(\w+)\/Armory\/Detail\?type=item&item=(\d+)/i)) {
+                } else if (match = link.href.match(/(?:www\.)bungie\.net\/(\w+)\/Armory\/Detail\?type=item&item=(\d+)/i)) {
                     locale = match[1];
                     id = match[2];
                 }
