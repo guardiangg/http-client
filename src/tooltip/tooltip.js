@@ -481,7 +481,7 @@
     };
 
     // fetch the gamedata versions and cache bust using the latest diff hash
-    fetch(opts.apiurl + '/gamedata/versions', function(results) {
-        window.gggTips = new gggTips(results[0].diffHash, opts);
+    fetch(opts.apiurl + '/gamedata/version', function(version) {
+        window.gggTips = new gggTips(version, opts);
     });
 })();
