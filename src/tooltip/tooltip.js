@@ -216,6 +216,8 @@
                 var id, locale = 'en';
                 if (match = link.href.match(/destinydb.com\/items\/(\d+)/i)) {
                     id = match[1];
+                } else if (match = link.href.match(/db.destinytracker.com\/items\/(\d+)(?:-(.*))/)) {
+                    id = match[1];
                 } else if (match = link.href.match(/db.planetdestiny.com\/items\/view\/(\d+)/i)) {
                     id = match[1];
                 } else if (match = link.href.match(/www\.bungie\.net\/(\w+)\/Armory\/Detail\?type=item&item=(\d+)/i)) {
