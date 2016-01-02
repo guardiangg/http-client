@@ -48,7 +48,7 @@ app.config([
                 templateUrl: 'component/faq/faq.html'
             })
             .state('app.search', {
-                url: '/search/{name}',
+                url: '/search/{query}',
                 controller: 'searchCtrl',
                 templateUrl: 'component/search/search.html'
             })
