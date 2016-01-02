@@ -8,8 +8,9 @@ app.controller('searchCtrl', [
     '$timeout',
     'api',
     'bungie',
+    'util',
 
-    function ($scope, $state, $stateParams, $q, $timeout, api, bungie) {
+    function ($scope, $state, $stateParams, $q, $timeout, api, bungie, util) {
         $scope.done = false;
         $scope.query = $stateParams.query;
         $scope.results = [];
@@ -25,7 +26,7 @@ app.controller('searchCtrl', [
                 var count = 0;
 
                 _.each(result.gamedata.data, function(data) {
-                    count+= data.length;
+                    count+= data.totalItems;
                 });
 
                 // we have gamedata
@@ -39,10 +40,28 @@ app.controller('searchCtrl', [
 
                     $scope.playstation = true;
                     $scope.xbox = true;
-                } else if (result.xbox.data.Response.length > 0 && count == 0) {
-                    $state.go('app.profile', { platform: 1, name: $scope.query });
-                } else if (result.playstation.data.Response.length > 0 && count == 0) {
-                    $state.go('app.profile', { platform: 2, name: $scope.query });
+                } else if (result.xbox.data.Response.length > 0) {
+                    if (count == 0) {
+                        $state.go('app.profile', {platform: 1, name: $scope.query});
+                        return;
+                    }
+                    $scope.xbox = true;
+                } else if (result.playstation.data.Response.length > 0) {
+                    if (count == 0) {
+                        $state.go('app.profile', {platform: 2, name: $scope.query});
+                        return;
+                    }
+                    $scope.playstation = true;
+                }
+
+                // if we only have one result redirect to gamedata
+                if (count == 1) {
+                    if (result.gamedata.data.items.data.length) {
+                        var entity = result.gamedata.data.items.data[0];
+
+                        $state.go('app.itemDetailName', { hash: entity.hash, name: util.slugify(entity.name) });
+                        return;
+                    }
                 }
 
                 $scope.count = count;

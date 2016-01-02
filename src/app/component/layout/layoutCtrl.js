@@ -45,7 +45,7 @@ app.controller('layoutCtrl', [
             $window.location = $location.absUrl().replace('/' + current + '/', '/' + lang + '/');
         };
 
-        $scope.search = function(query) {
+        $scope.searchSite = function(query) {
             if (!query || query.trim().length == 0) {
                 if (!$localStorage.searchPlaceholder) {
                     return

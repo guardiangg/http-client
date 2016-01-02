@@ -2,24 +2,15 @@
     <h2 translate>Your search for "{{query}}" had {{count}} results</h2>
 </div>
 
-<div ng-if="playstation && xbox">
-    <h2 translate>We found more than one result for "{{name}}"</h2>
-    <p>
-        <translate>Choose your platform</translate>:
-
-        <a ui-sref="app.profile({platform: 2, name: name})">PlayStation</a>
-        <a ui-sref="app.profile({platform: 1, name: name})">Xbox</a>
-    </p>
-</div>
-
-<div ng-if="gamedata">
-    <div ng-repeat="(key, value) in gamedata">
-        <h3>{{ key }}</h3>
-        <div ng-repeat="data in value">
-            <a ng-href="/{{locale}}/{{key}}/{{data.hash}}/{{data.name|slugify}}">{{data.name}}</a>
-        </div>
-    </div>
-</div>
+<uib-tabset>
+    <uib-tab heading="{{'Profiles'|translate}} ({{(gamedata.xbox && gamedata.playstation) ? 2 : 1}})" ng-if="playstation || xbox">
+        <a ui-sref="app.profile({platform: 2, name: query})" ng-if="playstation">PlayStation</a>
+        <a ui-sref="app.profile({platform: 1, name: query})" ng-if="xbox">Xbox</a>
+    </uib-tab>
+    <uib-tab heading="{{'Items'|translate}} ({{gamedata.items.data.length}})" ng-if="gamedata.items.data.length > 0">
+        <div item-list="gamedata.items.data"></div>
+    </uib-tab>
+</uib-tabset>
 
 <div ng-if="done && count == 0">
     <h2 translate>Oops, we weren't able to find "{{query}}". Verify spelling and try again.</h2>
