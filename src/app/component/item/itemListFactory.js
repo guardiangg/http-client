@@ -1,6 +1,7 @@
 var app = angular.module('app');
 
 app.factory('itemListFactory', [
+    '$rootScope',
     '$state',
     '$location',
     'gamedata',
@@ -8,7 +9,7 @@ app.factory('itemListFactory', [
     'consts',
     'gettextCatalog',
 
-    function ($state, $location, gamedata, util, consts, gettextCatalog) {
+    function ($rootScope, $state, $location, gamedata, util, consts, gettextCatalog) {
         return function () {
             var self = this,
                 observerCallbacks = [],
@@ -62,7 +63,9 @@ app.factory('itemListFactory', [
             this.notifyObservers = function() {
                 _.each(observerCallbacks, function(callback) {
                     callback();
-                })
+                });
+
+                $rootScope.$broadcast('item-list.notify', self);
             };
 
             /**
@@ -550,6 +553,7 @@ app.factory('itemListFactory', [
                 self.notifyObservers();
             };
 
+
             /**
              * Returns a list of params to send when making an API call
              * @returns {{category: (string|*)}}
@@ -560,70 +564,72 @@ app.factory('itemListFactory', [
                 };
             };
 
+            this.init = function() {
+                self.page = 0;
+
+                // Set defaults from query string
+                _.each($location.search(), function (value, key) {
+                    if (key == 'p') {
+                        self.page = parseInt(value);
+                    }
+
+                    _.each(csFilters, function(f, type) {
+                        if (f.key == key) {
+                            csFiltersActive[type] = f.filter;
+                        }
+                    });
+                });
+
+                $rootScope.$broadcast('item-list.init', self);
+            };
+
             /**
              * Call the API
              */
-            this.load = function() {
-                gamedata
-                    .getPage('items', this.page, this.getApiParams())
-                    .then(function(data) {
-                        self.rawData = data.data;
-                        var statColumns = consts.item_list_types[self.listType].stat_columns;
+            this.load = function(data) {
+                self.rawData = data;
+                var statColumns = consts.item_list_types[self.listType].stat_columns;
 
-                        // Re-map the stats so the object key is the stat hash, this makes it easier to display the
-                        // appropriate stat under the stat column, which is not in the same order as the item stat array
-                        _.each(self.rawData, function(item) {
-                            item._stats = {};
+                // Re-map the stats so the object key is the stat hash, this makes it easier to display the
+                // appropriate stat under the stat column, which is not in the same order as the item stat array
+                _.each(self.rawData, function(item) {
+                    item._stats = {};
 
-                            if (!item.name) {
-                                item.name = gettextCatalog.getString('[Unnamed Item]');
-                            }
+                    if (!item.name) {
+                        item.name = gettextCatalog.getString('[Unnamed Item]');
+                    }
 
-                            _.each(item.stats, function(stat) {
-                                stat.hash = stat.hash.toString();
+                    _.each(item.stats, function(stat) {
+                        stat.hash = stat.hash.toString();
 
-                                var exists = _.find(self.statColumns, function(e) {
-                                    return e.hash == stat.hash;
-                                });
-
-                                // If the stat exists in the list view template, add the column
-                                if (!exists && _.contains(statColumns, stat.hash)) {
-                                    self.statColumns.push(stat);
-                                }
-
-                                item._stats[stat.hash.toString()] = stat;
-                            });
+                        var exists = _.find(self.statColumns, function(e) {
+                            return e.hash == stat.hash;
                         });
 
-                        // Give the client some guidance on the intended order of the stat columns
-                        _.each(statColumns, function(col, idx) {
-                            var exists = _.find(self.statColumns, function(e) {
-                                return e.hash == col;
-                            });
+                        // If the stat exists in the list view template, add the column
+                        if (!exists && _.contains(statColumns, stat.hash)) {
+                            self.statColumns.push(stat);
+                        }
 
-                            if (exists) {
-                                exists.index = idx;
-                            }
-                        });
-
-                        self.page = 0;
-
-                        // Set defaults from query string
-                        _.each($location.search(), function (value, key) {
-                            if (key == 'p') {
-                                self.page = parseInt(value);
-                            }
-
-                            _.each(csFilters, function(f, type) {
-                                if (f.key == key) {
-                                    csFiltersActive[type] = f.filter;
-                                }
-                            });
-                        });
-
-                        self.statColumns = _.sortBy(self.statColumns, 'index');
-                        self.filterData();
+                        item._stats[stat.hash.toString()] = stat;
                     });
+                });
+
+                // Give the client some guidance on the intended order of the stat columns
+                _.each(statColumns, function(col, idx) {
+                    var exists = _.find(self.statColumns, function(e) {
+                        return e.hash == col;
+                    });
+
+                    if (exists) {
+                        exists.index = idx;
+                    }
+                });
+
+                self.statColumns = _.sortBy(self.statColumns, 'index');
+                self.filterData();
+
+                $rootScope.$broadcast('item-list.loaded');
             }
         };
     }

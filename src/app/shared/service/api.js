@@ -27,10 +27,21 @@ app.service('api',[
                 elo: 'elo/{membershipId}',
                 eloHistory: 'elo/history/{membershipIds}?start={start}&end={end}&mode={mode}',
 
+                gamedata: {
+                    search: 'gamedata/search?q={query}&lc={lc}'
+                },
+
                 subclassExotics: 'subclass/{subclassId}/exotics?mode={mode}&start={start}&end={end}&lc={lc}',
                 subclassPerks: 'subclass/{subclassId}/perks?mode={mode}&start={start}&end={end}&lc={lc}',
 
                 srl: 'srl/{membershipId}'
+            };
+
+            this.searchGamedata = function(query) {
+                return $http.get(util.buildApiUrl(endpoints.gamedata.search, {
+                    lc: gettextCatalog.getCurrentLanguage(),
+                    query: query + '*'
+                }));
             };
 
             this.getFireteam = function(mode, membershipId) {

@@ -261,7 +261,7 @@
             var done = 0;
 
             while ((batch = hashes.splice(0, opts.batch)).length > 0) {
-                var url = opts.apiurl + '/tooltips/items/' + batch.join(';') + '?v=' + version + 'lc=' + opts.locale;
+                var url = opts.apiurl + '/tooltips/items/' + batch.join(';') + '?v=' + version + '&lc=' + opts.locale;
 
                 fetch(url, function(result) {
                     if (result.constructor !== Array) {
@@ -431,6 +431,10 @@
             } else {
                 linkRegex = /^https?:\/\/guardian.gg\/\w+\/items\/(\d+)/;
             }
+        };
+
+        this.locale = function(value) {
+            opts.locale = value;
         };
 
         /**

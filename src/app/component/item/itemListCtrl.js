@@ -5,14 +5,27 @@ app.controller('itemListCtrl', [
     '$scope',
     '$stateParams',
     '$timeout',
-    'util',
+    'gamedata',
     'consts',
-    'itemListFactory',
 
-    function ($rootScope, $scope, $stateParams, $timeout, util, consts, itemListFactory) {
-        var listService = new itemListFactory();
+    function ($rootScope, $scope, $stateParams, $timeout, gamedata, consts) {
+        $scope.$on('item-list.init', function(event, listService) {
+            listService.setPrimaryType($stateParams.primary);
+            listService.setSecondaryType($stateParams.secondary);
+            listService.setTertiaryType($stateParams.tertiary);
 
-        listService.registerObserverCallback(function() {
+            $scope.listService = listService;
+            $scope.filters = listService.filters;
+            $rootScope.title = listService.seoTitle;
+
+            gamedata
+                .getPage('items', listService.page, listService.getApiParams())
+                .then(function(data) {
+                    $scope.itemData = data.data;
+                });
+        });
+
+        $scope.$on('item-list.notify', function(event, listService) {
             if (listService.errors.length > 0) {
                 $scope.filterError = true;
                 return;
@@ -25,38 +38,13 @@ app.controller('itemListCtrl', [
                 totalItems: listService.filteredDataTotal
             };
 
-            $scope.statColumns = listService.statColumns;
             $scope.filters = listService.filters;
             $scope.typeLists = listService.typeLists;
-            $scope.isEmblem = listService.categories.indexOf(19) > -1;
-
-            _.each([1, 19, 20, 41, 43], function(cat) {
-                if (listService.categories.indexOf(cat) > -1) {
-                    $scope.hideDescription = true;
-                }
-            });
-
-            $scope.$emit('scrollable-table.init', true);
-
             $scope.listLoaded = true;
             $rootScope.title = listService.seoTitle;
-
-            $timeout(function() {
-                window.gggTips.run();
-            });
         });
 
-        listService.setPrimaryType($stateParams.primary);
-        listService.setSecondaryType($stateParams.secondary);
-        listService.setTertiaryType($stateParams.tertiary);
-        $rootScope.title = listService.seoTitle;
-
-        listService.load();
-
         $scope.listLoaded = false;
-        $scope.slugify = util.slugify;
-        $scope.filters = listService.filters;
-        $scope.listService = listService;
         $scope.sources = consts.reward_sources;
         $scope.tiers = consts.item_tiers;
     }

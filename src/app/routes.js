@@ -48,7 +48,7 @@ app.config([
                 templateUrl: 'component/faq/faq.html'
             })
             .state('app.search', {
-                url: '/search/{name}',
+                url: '/search/{query}',
                 controller: 'searchCtrl',
                 templateUrl: 'component/search/search.html'
             })
@@ -65,7 +65,7 @@ app.config([
                     tertiary: { value: null, squash: true }
                 },
                 controller: 'itemListCtrl',
-                templateUrl: 'component/item/item.html'
+                templateUrl: 'component/item/item-list.html'
             })
             .state('app.itemDetail', {
                 url: '/items/{hash:[0-9]+}',
