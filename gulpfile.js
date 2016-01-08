@@ -11,6 +11,7 @@ var gulp       = require('gulp'),
     minifyHTML = require('gulp-minify-html'),
     rename     = require('gulp-rename'),
     rev        = require('gulp-rev'),
+    sourcemaps = require('gulp-sourcemaps'),
     template   = require('gulp-template-compile'),
     watch      = require('gulp-watch'),
     uglify     = require('gulp-uglify'),
@@ -111,7 +112,9 @@ var jsCallback = function() {
         stream = stream
             .pipe(concat('app.js'))
             .pipe(rev())
-            .pipe(uglify());
+            .pipe(sourcemaps.init())
+            .pipe(uglify())
+            .pipe(sourcemaps.write());
     }
 
     return stream.pipe(gulp.dest('./build/app'));
@@ -126,7 +129,9 @@ var jsTooltipCallback = function() {
     if (isProd) {
         stream = stream
             .pipe(concat('tooltip.js'))
-            .pipe(uglify());
+            .pipe(sourcemaps.init())
+            .pipe(uglify())
+            .pipe(sourcemaps.write());
     }
 
     return stream.pipe(gulp.dest('./build/asset/js'));
@@ -139,7 +144,9 @@ var jsVendorCallback = function() {
         stream = stream
             .pipe(concat('vendor.js'))
             .pipe(rev())
-            .pipe(uglify());
+            .pipe(sourcemaps.init())
+            .pipe(uglify())
+            .pipe(sourcemaps.write());
     }
 
     return stream.pipe(gulp.dest('./build/asset/js'));

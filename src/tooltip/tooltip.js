@@ -216,9 +216,11 @@
                 var id, locale = 'en';
                 if (match = link.href.match(/destinydb.com\/items\/(\d+)/i)) {
                     id = match[1];
+                } else if (match = link.href.match(/db.destinytracker.com\/items\/(\d+)(?:-(.*))/)) {
+                    id = match[1];
                 } else if (match = link.href.match(/db.planetdestiny.com\/items\/view\/(\d+)/i)) {
                     id = match[1];
-                } else if (match = link.href.match(/www\.bungie\.net\/(\w+)\/Armory\/Detail\?type=item&item=(\d+)/i)) {
+                } else if (match = link.href.match(/(?:www\.)bungie\.net\/(\w+)\/Armory\/Detail\?type=item&item=(\d+)/i)) {
                     locale = match[1];
                     id = match[2];
                 }
@@ -481,7 +483,7 @@
     };
 
     // fetch the gamedata versions and cache bust using the latest diff hash
-    fetch(opts.apiurl + '/gamedata/version', function(results) {
-        window.gggTips = new gggTips(results[0].diffHash, opts);
+    fetch(opts.apiurl + '/gamedata/version', function(version) {
+        window.gggTips = new gggTips(version, opts);
     });
 })();
