@@ -77,6 +77,11 @@ app.config([
                 controller: 'itemDetailCtrl',
                 templateUrl: 'component/item/item-detail.html'
             })
+            .state('app.changelog', {
+                url: '/changelog/{hash1}/{hash2}/{type}',
+                controller: 'changelogCtrl',
+                templateUrl: 'component/changelog/changelog.html'
+            })
             .state('app.profile', {
                 url: '/profile/{platform}/{name}/{mode}',
                 params: {

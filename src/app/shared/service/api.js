@@ -30,7 +30,17 @@ app.service('api',[
                 subclassExotics: 'subclass/{subclassId}/exotics?mode={mode}&start={start}&end={end}&lc={lc}',
                 subclassPerks: 'subclass/{subclassId}/perks?mode={mode}&start={start}&end={end}&lc={lc}',
 
-                srl: 'srl/{membershipId}'
+                srl: 'srl/{membershipId}',
+
+                changelog: 'changelog/{type}/{hash1}/{hash2}?foo=bar'
+            };
+
+            this.getChangelog = function(type, hash1, hash2) {
+                return $http.get(util.buildApiUrl(endpoints.changelog, {
+                    type: type,
+                    hash1: hash1,
+                    hash2: hash2
+                }));
             };
 
             this.getFireteam = function(mode, membershipId) {

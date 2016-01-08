@@ -33,6 +33,7 @@ msgstr ""
 msgid "Active Gear"
 msgstr ""
 
+#: component\changelog\changelogCtrl.js:24
 #: shared\service\consts.js:654
 msgid "Activities"
 msgstr ""
@@ -271,6 +272,12 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
+#: component\changelog\changelog.html:2
+#: component\changelog\changelogCtrl.js:12
+#: component\changelog\changelogCtrl.js:88
+msgid "Destiny Patch Changelog"
+msgstr ""
+
 #: component\faq\faq.html:56
 #: shared\chart\profile-elo.js:93
 #: shared\service\consts.js:102
@@ -439,6 +446,10 @@ msgstr ""
 msgid "Gold"
 msgstr ""
 
+#: component\changelog\changelogCtrl.js:29
+msgid "Grimoire"
+msgstr ""
+
 #: component\item\item-detail.html:168
 #: component\profile\pgcr.html:4
 msgid "Guardian"
@@ -570,6 +581,7 @@ msgstr ""
 msgid "Item Database Launched!"
 msgstr ""
 
+#: component\changelog\changelogCtrl.js:19
 #: component\item\item.html:1
 #: component\item\item.html:133
 #: component\item\item.html:245
@@ -683,6 +695,10 @@ msgstr ""
 msgid "Loading best SRL times..."
 msgstr ""
 
+#: component\changelog\changelog.html:23
+msgid "Loading changelog, please wait..."
+msgstr ""
+
 #: component\item\item-detail.html:236
 msgid "Loading chart..."
 msgstr ""
@@ -693,6 +709,10 @@ msgstr ""
 
 #: component\item\item.html:124
 msgid "Loading items, please wait..."
+msgstr ""
+
+#: component\changelog\changelogCtrl.js:34
+msgid "Locations"
 msgstr ""
 
 #: shared\service\consts.js:778
@@ -986,6 +1006,10 @@ msgstr ""
 msgid "Reset Filters"
 msgstr ""
 
+#: component\changelog\changelogCtrl.js:39
+msgid "Reward Sources"
+msgstr ""
+
 #: component\item\item-detail.html:226
 #: component\layout\nav.html:122
 #: component\layout\nav.html:57
@@ -1150,6 +1174,7 @@ msgstr ""
 msgid "Stat Ranges"
 msgstr ""
 
+#: component\changelog\changelogCtrl.js:44
 #: component\layout\nav.html:216
 msgid "Stats"
 msgstr ""
@@ -1235,6 +1260,10 @@ msgstr ""
 
 #: shared\service\consts.js:711
 msgid "The Taken King"
+msgstr ""
+
+#: component\changelog\changelog.html:27
+msgid "The changelog you're looking for does not exist"
 msgstr ""
 
 #: component\profile\activity-history.html:94
@@ -1352,6 +1381,14 @@ msgstr ""
 
 #: shared\service\consts.js:864
 msgid "Various Sources"
+msgstr ""
+
+#: component\changelog\changelogCtrl.js:49
+msgid "Vendors"
+msgstr ""
+
+#: component\changelog\changelog.html:3
+msgid "Version"
 msgstr ""
 
 #: component\layout\nav.html:230
