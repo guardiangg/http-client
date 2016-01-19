@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/guardiangg/http-client.png?label=ready&title=Ready)](https://waffle.io/guardiangg/http-client)
 # Guardian.gg HTTP Client
 
 This repository hosts the front-end client for [Guardian.gg](https://guardian.gg). The application is primarily built 
