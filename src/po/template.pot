@@ -9,6 +9,10 @@ msgstr ""
 msgid "% of All Kills"
 msgstr ""
 
+#: component\notice\templates\changelog.html:3
+msgid "'Crimson Days' Patch Changelog"
+msgstr ""
+
 #. Short for grenade
 #: component\profile\character.html:57
 msgid "'Nade"
@@ -150,6 +154,10 @@ msgstr ""
 
 #: shared\service\consts.js:852
 msgid "Character Creation"
+msgstr ""
+
+#: component\notice\templates\changelog.html:7
+msgid "Check out the new shells, emblems, emotes and more in the <a ui-sref=\"app.changelog({hash1: 'ccf82677a7f6df2909d520b8d7b146ad', hash2: '7514fc765ba3e52bd7ea0dff8df7671e', type: 'item'})\">changelog for patch 48604.16.01.24.1344-20</a>."
 msgstr ""
 
 #: component\layout\nav.html:184
@@ -1252,6 +1260,10 @@ msgstr ""
 msgid ""
 "The Elo rating system is a method for calculating the relative skill levels of players in\r\n"
 "            competitor-versus-competitor games."
+msgstr ""
+
+#: component\notice\templates\changelog.html:4
+msgid "The February update has arrived, and with it we've compiled a list of all changes in the item database."
 msgstr ""
 
 #: shared\service\consts.js:810

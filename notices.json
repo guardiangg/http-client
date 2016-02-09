@@ -6,6 +6,13 @@
       "template": "item-launch",
       "dismissable": true,
       "expires": "2016-01-09 00:00:00"
+    },
+    {
+      "uniqueId": "df82319e",
+      "priority": 1000,
+      "template": "changelog",
+      "dismissable": true,
+      "expires": "2016-02-11 00:00:00"
     }
   ]
 }
