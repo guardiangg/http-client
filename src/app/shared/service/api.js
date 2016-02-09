@@ -32,7 +32,7 @@ app.service('api',[
 
                 srl: 'srl/{membershipId}',
 
-                changelog: 'changelog/{type}/{hash1}/{hash2}?foo=bar'
+                changelog: 'changelog/{type}/{hash1}/{hash2}'
             };
 
             this.getChangelog = function(type, hash1, hash2) {
