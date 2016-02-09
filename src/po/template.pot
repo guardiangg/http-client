@@ -273,8 +273,8 @@ msgid "Description"
 msgstr ""
 
 #: component\changelog\changelog.html:2
+#: component\changelog\changelogCtrl.js:108
 #: component\changelog\changelogCtrl.js:12
-#: component\changelog\changelogCtrl.js:88
 msgid "Destiny Patch Changelog"
 msgstr ""
 
@@ -695,7 +695,7 @@ msgstr ""
 msgid "Loading best SRL times..."
 msgstr ""
 
-#: component\changelog\changelog.html:23
+#: component\changelog\changelog.html:27
 msgid "Loading changelog, please wait..."
 msgstr ""
 
@@ -1262,7 +1262,7 @@ msgstr ""
 msgid "The Taken King"
 msgstr ""
 
-#: component\changelog\changelog.html:27
+#: component\changelog\changelog.html:31
 msgid "The changelog you're looking for does not exist"
 msgstr ""
 

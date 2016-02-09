@@ -62,6 +62,26 @@ app.controller('changelogCtrl', [
             return;
         }
 
+        var loadComments = function() {
+            if (!window.DISQUS) {
+                disqus_config = function () {
+                    this.page.identifier = 'cl_' + $stateParams.hash1 + $stateParams.hash2;
+                };
+
+                var d = document, s = d.createElement('script');
+                s.src = '//guardiangg.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            } else {
+                window.DISQUS.reset({
+                    reload: true,
+                    config: function () {
+                        this.page.identifier = 'cl_' + $stateParams.hash1 + $stateParams.hash2;
+                    }
+                });
+            }
+        };
+
         api
             .getChangelog('manifest', $stateParams.hash1, $stateParams.hash2)
             .then(function(response) {
@@ -100,6 +120,7 @@ app.controller('changelogCtrl', [
                 }
 
                 $scope.loading = false;
+                loadComments();
             });
     }
 ]);
