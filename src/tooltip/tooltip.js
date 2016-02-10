@@ -10,7 +10,7 @@
     Opentip.defaultStyle = 'ggg';
 
     var opts = _.extend({
-        apiurl: 'https://api.guardian.gg',
+        apiurl: 'http://api.guardian.gg',
         locale: 'en',
         auto: true,
         local: false,
@@ -226,7 +226,7 @@
                 }
 
                 if (id) {
-                    link.href = 'https://guardian.gg/' + locale + '/items/' + id;
+                    link.href = 'http://guardian.gg/' + locale + '/items/' + id;
                 }
             });
 
@@ -396,7 +396,7 @@
             debug('this.init()');
             debug(opts);
 
-            var tooltipCss = (opts.local ? '' : 'https://guardian.gg') + '/asset/css/tooltip.css';
+            var tooltipCss = (opts.local ? '' : 'http://guardian.gg') + '/asset/css/tooltip.css';
             var tooltipFont = 'https://cdn.myfontastic.com/rtsPnqva2dStMpbiqqGpFi/icons.css';
 
             var hasCss = _.find(document.getElementsByTagName('link'), function(link) {
