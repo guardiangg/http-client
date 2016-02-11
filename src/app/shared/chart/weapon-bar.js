@@ -48,11 +48,11 @@ app.factory('chart-weapon-bar', [
             },
             func: function(chart) {
                 $rootScope.$on('chart.reflow', function() {
-                    chart.reflow();
+                    Object.keys(chart).length > 0 && chart.reflow();
                 });
 
                 $timeout(function() {
-                    chart.reflow();
+                    Object.keys(chart).length > 0 && chart.reflow();
                 }, 0);
             }
         };

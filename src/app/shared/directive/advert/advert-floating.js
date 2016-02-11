@@ -3,8 +3,9 @@ var app = angular.module('app');
 app.directive('advertFloating', [
     '$rootScope',
     '$timeout',
+    '$interval',
 
-    function($rootScope, $timeout) {
+    function($rootScope, $timeout, $interval) {
         return {
             restrict: 'E',
             scope: {
@@ -100,18 +101,28 @@ app.directive('advertFloating', [
                     return $('#ggg-container').outerWidth();
                 }, resize);
 
+                var refreshInterval;
                 $timeout(function() {
                     sticky();
                     resize();
                     loadAd();
 
-                    $timeout(function() {
+                    // Hack to ensure highcharts & floating ad behave
+                    // TODO: Investigate any performance implications
+                    refreshInterval = $interval(function() {
+                        sticky() && resize();
                         scope.$emit('chart.reflow');
-                    }, 750);
+                    }, 1000);
+
+                    scope.$emit('chart.reflow');
                 }, 0);
 
+                scope.$on('destroy', function() {
+                    $interval.cancel(refreshInterval);
+                });
+
+                $(window).bind('resize', resize);
                 $(window).scroll(sticky);
-                $(window).resize(resize);
             }
         };
     }

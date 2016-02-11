@@ -135,10 +135,7 @@
             @media screen and (max-width: 767px) {
                 background: #fff;
                 padding: 10px;
-                position: absolute;
-                top: 0;
-                right: 0;
-                left: 0;
+                margin-bottom: 0;
             }
 
             .icon {
@@ -230,6 +227,10 @@
             font-size: 0;
             margin-bottom: 15px;
 
+            @media screen and (max-width: 767px) {
+                padding: 5px;
+            }
+
             .stat {
                 font-size: 14px;
                 padding: 12px;
@@ -238,14 +239,15 @@
                 margin-right: 15px;
                 border: 1px solid #E4E4E4;
 
-                @media screen and (min-width: 768px) and (max-width: 991px) {
+                @media screen and (max-width: 500px) {
                     margin: 5px;
-                    width: 159px;
+                    display: block;
+                    width: auto;
                 }
 
-                @media screen and (max-width: 767px) {
-                    margin: 4px;
-                    width: 125px;
+                @media screen and (min-width: 501px) and (max-width: 991px) {
+                    margin: 5px;
+                    width: 195px;
                 }
 
                 .icon {
@@ -453,12 +455,14 @@
                     }
                 }
 
-                &:first-child {
-                    padding-left: 0;
-                }
+                @media screen and (min-width: 768px) {
+                    &:first-child {
+                        padding-left: 0;
+                    }
 
-                &:last-child {
-                    padding-right: 0;
+                    &:last-child {
+                        padding-right: 0;
+                    }
                 }
             }
         }
@@ -737,6 +741,57 @@
                     padding: 0;
                     border-bottom: 1px dotted #999;
                     font-size: 0.9em;
+                }
+            }
+        }
+
+        .reward-sources {
+            @media screen and (max-width: 767px) {
+                padding: 5px;
+            }
+
+            ul {
+                list-style-type: none;
+                margin: 5px 0 20px 0;
+                padding: 0;
+
+                li {
+                    border-bottom: 1px solid #dedede;
+                    display: inline-block;
+                    position: relative;
+                    width: 214px;
+                    background: #F1F1F1;
+                    color: #545454;
+                    margin-right: 5px;
+                    margin-bottom: 5px;
+                    border-radius: 4px;
+                    height: 32px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    cursor: help;
+
+                    @media screen and (max-width: 500px) {
+                        margin-right: 0;
+                        display: block;
+                        width: auto;
+                    }
+
+                    img {
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        border-radius: 4px;
+                        width: 32px;
+                        height: 32px;
+                    }
+
+                    .name {
+                        height: 32px;
+                        line-height: 32px;
+                        margin-left: 42px;
+                        font-size: 12px;
+                        white-space: nowrap;
+                    }
                 }
             }
         }

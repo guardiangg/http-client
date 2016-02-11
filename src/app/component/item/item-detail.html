@@ -1,4 +1,4 @@
-<div class="ad-leaderboard dark">
+<div class="ad-leaderboard">
     <advert sizes="728x90"></advert>
 </div>
 
@@ -132,7 +132,6 @@
                     <span class="name" translate>Last patched</span>
                 </div>
             </div>
-
         </div>
 
         <div class="emblem-preview" ng-show="isEmblem">
@@ -150,6 +149,18 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="reward-sources" ng-show="entity.sources.length > 0">
+            <h4 translate>Sources</h4>
+            <ul>
+                <li ng-repeat="source in entity.sources" uib-tooltip="{{source.description}}" data-toggle="tooltip">
+                    <div class="icon">
+                        <img ng-src="//www.bungie.net{{ source.icon }}">
+                    </div>
+                    <span class="name">{{source.name}}</span>
+                </li>
+            </ul>
         </div>
 
         <div class="row item-stats" ng-show="entity._displayStats.length > 0 || entity._hiddenStats.length > 0">
@@ -217,27 +228,16 @@
             <highchart config="chart" style="height: 300px;" ng-show="!chartEmpty && !chartLoading"></highchart>
         </div>
 
-        <div class="reward-sources" ng-show="entity.sources.length > 0">
-            <h4 translate>Sources</h4>
-            <ul>
-                <li ng-repeat="source in entity.sources">
-                    <div class="icon">
-                        <img ng-src="//www.bungie.net{{ source.icon }}">
-                    </div>
-                    <div class="info">
-                        <span class="name">{{source.name}}</span>
-                        <span class="description">{{source.description}}</span>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
         <div class="talents" ng-show="entity.perks.length > 0">
             <h4 translate>Talent Grid</h4>
             <div class="talent-grid" talent-grid perks="entity.perks"></div>
 
             <h4 translate>Talent Breakdown</h4>
             <div class="talent-breakdown" talent-summary perks="entity.perks"></div>
+        </div>
+
+        <div class="ad-stack-bottom">
+            <advert sizes="300x250,Unstacked 300x250"></advert>
         </div>
 
         <div class="comments">
