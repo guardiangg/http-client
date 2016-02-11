@@ -42,6 +42,13 @@ app.service('consts', [
                 });
             },
 
+            customToBungieMode: function(mode) {
+                if (mode == 523) {
+                    mode = 23;
+                }
+                return mode;
+            },
+
             languages: {
                 de: 'Deutsch',
                 en: 'English',
@@ -126,7 +133,10 @@ app.service('consts', [
                 28: gettextCatalog.getString('Zone Control'),
                 19: gettextCatalog.getString('Iron Banner'),
                 14: gettextCatalog.getString('Trials of Osiris'),
-                29: gettextCatalog.getString('SRL')
+                29: gettextCatalog.getString('SRL'),
+
+                // custom modes
+                523: gettextCatalog.getString('Crimson Doubles')
             },
             modeIcons: {
                 9: 'ggg-skirmish',
@@ -142,7 +152,10 @@ app.service('consts', [
                 26: 'ggg-clash',
                 27: 'ggg-rumble',
                 28: 'ggg-control',
-                29: 'ggg-srl'
+                29: 'ggg-srl',
+
+                // custom modes
+                523: 'ggg-elimination'
             },
             classes: {
                 2271682572: gettextCatalog.getString('Warlock'),

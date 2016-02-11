@@ -22,7 +22,7 @@ app.controller('homeCtrl', [
         );
 
         leaderboardApi
-            .getFeatured([10,29,14,19])
+            .getFeatured([10,523,14,19])
             .then(function(result) {
                 $scope.featured = result.data;
                 _.each($scope.featured, function(platform) {

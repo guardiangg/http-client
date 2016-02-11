@@ -3,9 +3,10 @@ var app = angular.module('app');
 app.service('bungie', [
     '$http',
     'gettextCatalog',
+    'consts',
     'util',
 
-    function ($http, gettextCatalog, util) {
+    function ($http, gettextCatalog, consts, util) {
         return new function () {
             var BASE_URL = '//proxy.guardian.gg/Platform/Destiny';
             var ENDPOINTS = {
@@ -50,7 +51,7 @@ app.service('bungie', [
                     platform: platform,
                     membershipId: membershipId,
                     characterId: characterId,
-                    mode: mode,
+                    mode: consts.customToBungieMode(mode),
                     page: page,
                     locale: gettextCatalog.getCurrentLanguage()
                 });

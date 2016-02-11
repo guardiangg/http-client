@@ -50,11 +50,11 @@ app.controller('profileCtrl', [
         };
 
         $scope.loadHistory = function(mode, platform, membershipId) {
-            $scope.infiniteScroll = true;
-
-            if (!$scope.character) {
+            if (!$scope.character || $scope.infiniteScroll) {
                 return;
             }
+
+            $scope.infiniteScroll = true;
 
             bungie
                 .getActivityHistory(
@@ -75,9 +75,10 @@ app.controller('profileCtrl', [
                     $scope.activities.push.apply($scope.activities, activities);
                     $scope.loading.activityHistory = false;
 
-                    $scope.infiniteScroll = false;
-
-                }, function(err) {
+                    if (result.data.Response.data.activities.length > 0) {
+                        $scope.infiniteScroll = false;
+                    }
+                }, function() {
                     $scope.loading.activityHistory = false;
                     $scope.maintenance.activityHistory = true;
                 });
@@ -101,6 +102,8 @@ app.controller('profileCtrl', [
         };
 
         var setMode = function(mode, force) {
+            $scope.infiniteScroll = false;
+
             if ($scope.mode == mode && !force) {
                 return;
             }
