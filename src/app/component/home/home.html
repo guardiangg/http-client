@@ -6,6 +6,7 @@
     <span translate>Real-time stats for <em>{{totalPlayers|number}}</em> Destiny players</span>
     <span translate><em>{{totalPlayers24|number}}</em> tracked in the past day</span>
 </div>
+
 <div class="row home-leaderboards">
     <div ng-repeat="(platform, modeData) in featured" class="col-md-6">
         <div class="leaderboard-platform-wrapper">
@@ -39,11 +40,16 @@
             </div>
             <div class="clear"></div>
         </div>
+
+        <div class="mobile-square" ng-show="isMobile && platform == 1">
+            <advert sizes="300x250,320x50"></advert>
+        </div>
     </div>
 </div>
-<h2 translate>Crucible Class Breakdown</h2>
 
-<div class="row">
+<h2 translate ng-show="!isMobile">Crucible Class Breakdown</h2>
+
+<div class="row" ng-show="!isMobile">
     <highchart config="kd" class="col-sm-6"></highchart>
     <highchart config="popularity" class="col-sm-6"></highchart>
 </div>

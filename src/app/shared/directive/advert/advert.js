@@ -14,9 +14,11 @@ app.directive('advert', [
                 var sizes = scope.sizes.split(','),
                     validSizes = [
                         "970x250", "970x90", "728x90", "Unstacked 300x250",            // Horizontal
-                        "300x600", "300x250", "160x600", "120x600", "Stacked 300x250"  // Vertical
+                        "300x600", "300x250", "160x600", "120x600", "Stacked 300x250", // Vertical
+                        "320x50",                                                      // Mobile
                     ],
                     sizeToWidth = {
+                        "320x50": 320,
                         "970x250": 970,
                         "970x90": 970,
                         "728x90": 728,
@@ -44,8 +46,6 @@ app.directive('advert', [
                 });
 
                 var loadAd = function() {
-                    console.log('loading');
-                    console.log(sizes);
                     var ele = angular.element('<div></div>');
                     element.html(ele);
 

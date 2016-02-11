@@ -26,9 +26,13 @@
     <!-- endinject -->
 </head>
 
-<body>
+<body ng-class="{'mobile': isMobile}">
 
 <toaster-container></toaster-container>
+
+<div class="mobile-ad">
+    <advert ng-show="isMobile" sizes="320x50"></advert>
+</div>
 
 <!-- we include the basic layout so it's cache busted each deploy -->
 <div id="ggg-container" class="ggg-container" ng-include="'component/layout/main.html'"></div>
