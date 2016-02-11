@@ -414,9 +414,22 @@ tr.pgcr-wrapper {
     vertical-align: middle !important;
 }
 
-@media screen and (max-width: 480px) {
-    .profile-wrapper {
+.profile-wrapper {
+    @media screen and (max-width: 480px) {
         margin: 0;
+    }
+
+    .profile-side {
+
+    }
+
+    .profile-main {
+        padding-left: 0;
+
+        .ad-leaderboard {
+            margin-bottom: 15px;
+            background: #CACACA;
+        }
     }
 }
 

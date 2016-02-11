@@ -2,8 +2,9 @@ var app = angular.module('app');
 
 app.directive('advert', [
     '$timeout',
+    '$interval',
 
-    function($timeout) {
+    function($timeout, $interval) {
         return {
             restrict: 'E',
             scope: {
@@ -43,6 +44,8 @@ app.directive('advert', [
                 });
 
                 var loadAd = function() {
+                    console.log('loading');
+                    console.log(sizes);
                     var ele = angular.element('<div></div>');
                     element.html(ele);
 
@@ -87,6 +90,9 @@ app.directive('advert', [
 
                 $(window).resize(resize);
                 $timeout(resize);
+
+                // Hack to ensure ads behave
+                $interval(resize, 1500);
             }
         };
     }
