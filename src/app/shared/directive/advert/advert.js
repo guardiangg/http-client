@@ -11,6 +11,10 @@ app.directive('advert', [
                 sizes: '@'
             },
             link: function(scope, element, attrs) {
+                if (!window.MonkeyBroker) {
+                    return;
+                }
+
                 var sizes = scope.sizes.split(','),
                     validSizes = [
                         "970x250", "970x90", "728x90", "Unstacked 300x250",            // Horizontal
