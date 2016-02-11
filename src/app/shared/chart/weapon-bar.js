@@ -1,9 +1,11 @@
 var app = angular.module('app');
 
 app.factory('chart-weapon-bar', [
+    '$rootScope',
     'gettextCatalog',
+    '$timeout',
 
-    function (gettextCatalog) {
+    function ($rootScope, gettextCatalog, $timeout) {
         return {
             options: {
                 credits: {
@@ -43,6 +45,15 @@ app.factory('chart-weapon-bar', [
                     headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
                     pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> ' + gettextCatalog.getString('of total kills') + '<br/>'
                 }
+            },
+            func: function(chart) {
+                $rootScope.$on('chart.reflow', function() {
+                    chart.reflow();
+                });
+
+                $timeout(function() {
+                    chart.reflow();
+                }, 0);
             }
         };
     }

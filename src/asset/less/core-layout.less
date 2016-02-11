@@ -24,6 +24,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     background:url('/asset/image/bg.png') repeat-x;
     margin:25px 0;
+    overflow-x: hidden;
 }
 
 a {
@@ -136,6 +137,36 @@ h3 {
 
 .table-striped > tbody > tr:nth-of-type(odd) {
     background-color: rgba(249, 249, 249, 0.64);
+}
+
+.ggg-container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+    @media (min-width: 1500px) {
+        width: 1470px;
+    }
+}
+
+////
+// Ads
+////
+.ad-leaderboard {
+    background: rgba(255, 255, 255, 0.59);
+    padding: 5px 0;
+    margin-bottom: 20px;
+
+    &.dark {
+        background: #414141;
+    }
+
+    > * {
+        text-align: center;
+        min-width: 728px;
+        margin: 0 auto;
+    }
 }
 
 ////

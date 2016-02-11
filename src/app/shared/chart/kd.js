@@ -1,9 +1,11 @@
 var app = angular.module('app');
 
 app.factory('chart-kd', [
+    '$rootScope',
     'gettextCatalog',
+    '$timeout',
 
-    function(gettextCatalog) {
+    function($rootScope, gettextCatalog, $timeout) {
         return {
             options: {
                 chart: {
@@ -39,7 +41,16 @@ app.factory('chart-kd', [
                     }
                 },
                 data: []
-            }]
+            }],
+            func: function(chart) {
+                $rootScope.$on('chart.reflow', function() {
+                    chart.reflow();
+                });
+
+                $timeout(function() {
+                    chart.reflow();
+                }, 0);
+            }
         }
     }
 ]);

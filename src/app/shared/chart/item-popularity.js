@@ -1,10 +1,12 @@
 var app = angular.module('app');
 
 app.factory('chart-item-popularity', [
+    '$rootScope',
     'consts',
     'gettextCatalog',
+    '$timeout',
 
-    function (consts, gettextCatalog) {
+    function ($rootScope, consts, gettextCatalog, $timeout) {
         return {
             options: {
                 chart: {
@@ -79,7 +81,16 @@ app.factory('chart-item-popularity', [
                     }
                 ]
             },
-            series: {}
+            series: {},
+            func: function(chart) {
+                $rootScope.$on('chart.reflow', function() {
+                    chart.reflow();
+                });
+
+                $timeout(function() {
+                    chart.reflow();
+                }, 0);
+            }
         };
     }
 ]);

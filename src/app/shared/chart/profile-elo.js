@@ -1,10 +1,12 @@
 var app = angular.module('app');
 
 app.factory('chart-profile-elo', [
+    '$rootScope',
     'consts',
     'gettextCatalog',
+    '$timeout',
 
-    function (consts, gettextCatalog) {
+    function ($rootScope, consts, gettextCatalog, $timeout) {
         return {
             options: {
                 chart: {
@@ -175,7 +177,16 @@ app.factory('chart-profile-elo', [
                     }
                 ]
             },
-            series: {}
+            series: {},
+            func: function(chart) {
+                $rootScope.$on('chart.reflow', function() {
+                    chart.reflow();
+                });
+
+                $timeout(function() {
+                    chart.reflow();
+                }, 0);
+            }
         };
     }
 ]);

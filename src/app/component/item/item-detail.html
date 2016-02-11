@@ -1,53 +1,8 @@
+<div class="ad-leaderboard dark">
+    <advert sizes="728x90"></advert>
+</div>
+
 <div class="item-details">
-
-    <div class="quick-facts">
-
-        <div class="section">
-            <h3 translate>Metadata</h3>
-            <ul class="facts">
-                <li ng-show="entity.version != '0000-00-00 00:00:00'">
-                    <span translate>Last patched</span>
-                    <em class="help" uib-tooltip="{{entity.version}}" data-toggle="tooltip">{{ entity.version|ago }}</em>
-                </li>
-                <li>
-                    <span translate>Class restriction</span>
-                    <em ng-show="entity.class === 0" translate>Titan</em>
-                    <em ng-show="entity.class === 1" translate>Hunter</em>
-                    <em ng-show="entity.class === 2" translate>Warlock</em>
-                    <em ng-show="entity.class === 3" translate>None</em>
-                </li>
-            </ul>
-        </div>
-
-        <div class="section" ng-show="entity.sources.length > 0">
-            <h3 translate>Sources</h3>
-            <ul class="sources">
-                <li class="source" ng-repeat="source in entity.sources">
-                    <div class="icon">
-                        <img ng-src="//www.bungie.net{{ source.icon }}">
-                    </div>
-                    <div class="info">
-                        <span class="name">{{source.name}}</span>
-                        <span class="description">{{source.description}}</span>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <div class="ad-placement">
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- GGG-Item-Quickfacts -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-4988741679097321"
-                 data-ad-slot="1930667896"
-                 data-ad-format="auto"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-    </div>
 
     <div class="details">
 
@@ -154,6 +109,30 @@
                 </div>
             </div>
 
+            <div class="stat" ng-show="entity.class !== 3">
+                <div class="icon">
+                    <i class="ggg ggg-light"></i>
+                </div>
+                <div class="info">
+                    <span ng-show="entity.class === 0" class="value" translate>Titan</span>
+                    <span ng-show="entity.class === 1" class="value" translate>Hunter</span>
+                    <span ng-show="entity.class === 2" class="value" translate>Warlock</span>
+                    <span class="name" translate>Class restriction</span>
+                </div>
+            </div>
+
+            <div class="stat" ng-show="entity.version != '0000-00-00 00:00:00'" uib-tooltip="{{entity.version}}" data-toggle="tooltip">
+                <div class="icon">
+                    <i class="fa fa-clock-o"></i>
+                </div>
+                <div class="info">
+                    <span class="value">
+                        {{ entity.version|ago }}
+                    </span>
+                    <span class="name" translate>Last patched</span>
+                </div>
+            </div>
+
         </div>
 
         <div class="emblem-preview" ng-show="isEmblem">
@@ -236,6 +215,21 @@
             <div class="loading" ng-show="chartLoading"><i class="fa fa-cog fa-spin"></i> <span translate>Loading chart...</span></div>
             <div class="empty" ng-show="!chartLoading && chartEmpty" translate>We have insufficient data for this weapon in the game mode you selected, try another mode</div>
             <highchart config="chart" style="height: 300px;" ng-show="!chartEmpty && !chartLoading"></highchart>
+        </div>
+
+        <div class="reward-sources" ng-show="entity.sources.length > 0">
+            <h4 translate>Sources</h4>
+            <ul>
+                <li ng-repeat="source in entity.sources">
+                    <div class="icon">
+                        <img ng-src="//www.bungie.net{{ source.icon }}">
+                    </div>
+                    <div class="info">
+                        <span class="name">{{source.name}}</span>
+                        <span class="description">{{source.description}}</span>
+                    </div>
+                </li>
+            </ul>
         </div>
 
         <div class="talents" ng-show="entity.perks.length > 0">

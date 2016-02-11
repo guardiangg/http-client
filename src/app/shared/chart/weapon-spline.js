@@ -1,10 +1,12 @@
 var app = angular.module('app');
 
 app.factory('chart-weapon-spline', [
+    '$rootScope',
     'consts',
     'gettextCatalog',
+    '$timeout',
 
-    function (consts, gettextCatalog) {
+    function ($rootScope, consts, gettextCatalog, $timeout) {
         return {
             options: {
                 credits: {
@@ -52,6 +54,15 @@ app.factory('chart-weapon-spline', [
                         pointStart: Date.UTC(2014, 8, 9, 0, 0, 0)
                     }
                 }
+            },
+            func: function(chart) {
+                $rootScope.$on('chart.reflow', function() {
+                    chart.reflow();
+                });
+
+                $timeout(function() {
+                    chart.reflow();
+                }, 0);
             }
         };
     }

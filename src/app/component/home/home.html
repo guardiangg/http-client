@@ -1,8 +1,12 @@
+<div class="ad-leaderboard">
+    <advert sizes="728x90"></advert>
+</div>
+
 <div class="featured hidden-xs" ng-if="totalPlayers">
     <span translate>Real-time stats for <em>{{totalPlayers|number}}</em> Destiny players</span>
     <span translate><em>{{totalPlayers24|number}}</em> tracked in the past day</span>
 </div>
-<div class="row" style="margin-bottom: 20px;">
+<div class="row home-leaderboards">
     <div ng-repeat="(platform, modeData) in featured" class="col-md-6">
         <div class="leaderboard-platform-wrapper">
             <div class="leaderboard-platform">
