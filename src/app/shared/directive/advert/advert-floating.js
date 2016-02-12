@@ -31,6 +31,8 @@ app.directive('advertFloating', [
                 }
 
                 var loadAd = function() {
+                    element.empty();
+
                     var ele = angular.element('<div></div>');
                     element.html(ele);
 
