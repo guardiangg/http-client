@@ -5,12 +5,14 @@ app.directive('advert', [
     '$interval',
 
     function($timeout, $interval) {
+        var refreshInterval = null;
+
         return {
             restrict: 'E',
             scope: {
                 sizes: '@'
             },
-            link: function(scope, element, attrs) {
+            link: function(scope, element) {
                 if (!window.MonkeyBroker) {
                     return;
                 }
@@ -96,7 +98,14 @@ app.directive('advert', [
                 $timeout(resize);
 
                 // Hack to ensure ads behave
-                $interval(resize, 1500);
+                if (!refreshInterval) {
+                    refreshInterval = $interval(resize, 1500);
+
+                    scope.$on('destroy', function () {
+                        $interval.cancel(refreshInterval);
+                        refreshInterval = null;
+                    });
+                }
             }
         };
     }

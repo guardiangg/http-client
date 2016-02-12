@@ -54,7 +54,7 @@ app.directive('advertFloating', [
                         isHidden = true;
                         return;
                     } else if (cw >= 1150 && isHidden) {
-                        element.show()
+                        element.show();
                         loadAd();
                         isHidden = false;
                     } else if (isHidden) {
@@ -116,10 +116,13 @@ app.directive('advertFloating', [
                     refreshInterval = $interval(function() {
                         sticky() && resize();
                         scope.$emit('chart.reflow');
-                    }, 1000);
+                    }, 1500);
 
                     scope.$emit('chart.reflow');
                 }, 0);
+
+                // Refresh on navigation changes
+                scope.$on('advert-floating.refresh', loadAd);
 
                 scope.$on('destroy', function() {
                     $interval.cancel(refreshInterval);

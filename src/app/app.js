@@ -70,6 +70,10 @@ app
             $rootScope.locale = locale;
             $rootScope.isMobile = util.isMobile.any();
 
+            $rootScope.$on('$stateChangeSuccess', function() {
+                $rootScope.$broadcast('advert-floating.refresh');
+            });
+
             $rootScope.$on('$stateNotFound', function(event, state) {
                 $log.error('state not found');
                 $log.error(state);
