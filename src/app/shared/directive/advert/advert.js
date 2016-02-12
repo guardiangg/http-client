@@ -94,18 +94,11 @@ app.directive('advert', [
                     element.parent().hide();
                 }
 
+                element.ready(function() {
+                    $timeout(resize);
+                });
+
                 $(window).resize(resize);
-                $timeout(resize);
-
-                // Hack to ensure ads behave
-                if (!refreshInterval) {
-                    refreshInterval = $interval(resize, 1500);
-
-                    scope.$on('destroy', function () {
-                        $interval.cancel(refreshInterval);
-                        refreshInterval = null;
-                    });
-                }
             }
         };
     }

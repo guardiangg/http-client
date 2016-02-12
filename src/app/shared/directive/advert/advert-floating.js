@@ -105,28 +105,20 @@ app.directive('advertFloating', [
                     return $('#ggg-container').outerWidth();
                 }, resize);
 
-                var refreshInterval;
-                $timeout(function() {
-                    sticky();
-                    resize();
-                    loadAd();
+                element.ready(function() {
+                    $timeout(function() {
+                        sticky();
+                        resize();
+                        loadAd();
+                    });
 
-                    // Hack to ensure highcharts & floating ad behave
-                    // TODO: Investigate any performance implications
-                    refreshInterval = $interval(function() {
-                        sticky() && resize();
+                    $timeout(function() {
                         scope.$emit('chart.reflow');
                     }, 1500);
-
-                    scope.$emit('chart.reflow');
-                }, 0);
+                });
 
                 // Refresh on navigation changes
                 scope.$on('advert-floating.refresh', loadAd);
-
-                scope.$on('destroy', function() {
-                    $interval.cancel(refreshInterval);
-                });
 
                 $(window).bind('resize', resize);
                 $(window).scroll(sticky);
