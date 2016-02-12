@@ -71,7 +71,7 @@ app.directive('advert', [
                         element.parent().hide();
                     }
 
-                    return maxWidth + 10 > w;
+                    return maxWidth /*+ 10*/ > w;
                 };
 
                 var isHidden = true;
