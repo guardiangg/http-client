@@ -4,6 +4,7 @@ app.controller('itemDetailCtrl', [
     '$rootScope',
     '$scope',
     '$stateParams',
+    '$timeout',
     '$location',
     'gamedata',
     'api',
@@ -12,7 +13,7 @@ app.controller('itemDetailCtrl', [
     'gettextCatalog',
     '$localStorage',
 
-    function ($rootScope, $scope, $stateParams, $location, gamedata, api, charts, consts, gettextCatalog, $localStorage) {
+    function ($rootScope, $scope, $stateParams, $timeout, $location, gamedata, api, charts, consts, gettextCatalog, $localStorage) {
         $scope.tiers = consts.item_tiers;
         $scope.chart = charts.get('item-popularity');
         $scope.chartEmpty = true;
@@ -115,6 +116,9 @@ app.controller('itemDetailCtrl', [
 
                     $scope.setMode($scope.mode);
                     $scope.chartLoading = false;
+                    $timeout(function() {
+                        $scope.$emit('chart.reflow');
+                    }, 750);
                 });
         }
 
