@@ -72,6 +72,7 @@ app
 
             $rootScope.$on('$stateChangeSuccess', function() {
                 $rootScope.$broadcast('advert-floating.refresh');
+                $rootScope.$broadcast('advert.refresh');
             });
 
             $rootScope.$on('$stateNotFound', function(event, state) {

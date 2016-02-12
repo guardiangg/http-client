@@ -94,6 +94,14 @@ app.directive('advert', [
                     element.parent().hide();
                 }
 
+                // refresh on navigation changes
+                scope.$on('advert.refresh', function() {
+                    if (isTooSmall() || isHidden) {
+                        return;
+                    }
+                    loadAd();
+                });
+
                 element.ready(function() {
                     $timeout(resize);
                 });

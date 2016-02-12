@@ -117,7 +117,7 @@ app.directive('advertFloating', [
                     }, 1500);
                 });
 
-                // Refresh on navigation changes
+                // refresh on navigation changes
                 scope.$on('advert-floating.refresh', loadAd);
 
                 $(window).bind('resize', resize);
