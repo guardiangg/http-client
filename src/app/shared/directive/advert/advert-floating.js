@@ -30,10 +30,15 @@ app.directive('advertFloating', [
                     return console.error('Attempted to load an ad slot with no valid dimensions');
                 }
 
+                var ele;
                 var loadAd = function() {
                     element.empty();
 
-                    var ele = angular.element('<div></div>');
+                    if (ele) {
+                        ele.remove();
+                    }
+
+                    ele = angular.element('<div></div>');
                     element.html(ele);
 
                     MonkeyBroker.adPlacement({

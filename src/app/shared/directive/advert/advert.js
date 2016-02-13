@@ -51,10 +51,15 @@ app.directive('advert', [
                     }
                 });
 
+                var ele;
                 var loadAd = function() {
                     element.empty();
 
-                    var ele = angular.element('<div></div>');
+                    if (ele) {
+                        ele.remove();
+                    }
+
+                    ele = angular.element('<div></div>');
                     element.html(ele);
 
                     MonkeyBroker.adPlacement({

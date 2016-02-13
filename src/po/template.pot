@@ -4,11 +4,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: component\item\itemDetailCtrl.js:108
-#: shared\chart\item-popularity.js:81
-msgid "% of All Kills"
-msgstr ""
-
 #: component\notice\templates\changelog.html:3
 msgid "'Crimson Days' Patch Changelog"
 msgstr ""
@@ -18,12 +13,30 @@ msgstr ""
 msgid "'Nade"
 msgstr ""
 
-#: component\layout\main.html:47
-msgid "<em>Internal error code: {{apiError}}</em>"
+#: component\item\itemDetailCtrl.js:128
+#: component\item\itemListFactory.js:579
+msgid "[Unnamed Item]"
+msgstr ""
+
+#: component\subclass\subclass.html:56
+msgid "{{subclass.label}} Overview"
+msgstr ""
+
+#: component\subclass\subclass.html:71
+msgid "{{subclass.label}} Perks &amp; Exotics"
+msgstr ""
+
+#: component\item\itemDetailCtrl.js:109
+#: shared\chart\item-popularity.js:81
+msgid "% of All Kills"
 msgstr ""
 
 #: component\home\home.html:7
 msgid "<em>{{totalPlayers24|number}}</em> tracked in the past day"
+msgstr ""
+
+#: component\layout\main.html:47
+msgid "<em>Internal error code: {{apiError}}</em>"
 msgstr ""
 
 #. Short for assists
@@ -261,10 +274,6 @@ msgstr ""
 msgid "D"
 msgstr ""
 
-#: component\layout\nav.html:181
-msgid "DPS Gear"
-msgstr ""
-
 #: component\weapon-stats\weapon-stats.html:96
 msgid "Data is updating..."
 msgstr ""
@@ -312,6 +321,10 @@ msgstr ""
 #: component\profile\activity-history.html:73
 #: shared\service\consts.js:132
 msgid "Doubles"
+msgstr ""
+
+#: component\layout\nav.html:181
+msgid "DPS Gear"
 msgstr ""
 
 #: component\faq\faq.html:69
@@ -598,6 +611,11 @@ msgstr ""
 msgid "K"
 msgstr ""
 
+#: shared\chart\kd.js:32
+#: shared\chart\subclass-kd.js:34
+msgid "K:D"
+msgstr ""
+
 #. Short for kills / deaths
 #: component\leaderboard\leaderboard.html:68
 #: component\profile\activity-history.html:113
@@ -610,11 +628,6 @@ msgstr ""
 
 #: shared\chart\subclass-kd.js:18
 msgid "K/D by Mode"
-msgstr ""
-
-#: shared\chart\kd.js:32
-#: shared\chart\subclass-kd.js:34
-msgid "K:D"
 msgstr ""
 
 #: shared\chart\kd.js:18
@@ -661,8 +674,20 @@ msgstr ""
 msgid "Loading Armor..."
 msgstr ""
 
+#: component\profile\activity-history.html:7
+msgid "Loading best SRL times..."
+msgstr ""
+
+#: component\changelog\changelog.html:35
+msgid "Loading changelog, please wait..."
+msgstr ""
+
 #: component\profile\character.html:2
 msgid "Loading Characters..."
+msgstr ""
+
+#: component\item\item-detail.html:230
+msgid "Loading chart..."
 msgstr ""
 
 #: component\subclass\subclass.html:59
@@ -673,12 +698,20 @@ msgstr ""
 msgid "Loading Elo Data..."
 msgstr ""
 
+#: component\item\item.html:15
+msgid "Loading filters..."
+msgstr ""
+
 #: component\profile\activity-history.html:83
 msgid "Loading Fireteam..."
 msgstr ""
 
 #: component\profile\activity-history.html:102
 msgid "Loading Game History..."
+msgstr ""
+
+#: component\item\item.html:115
+msgid "Loading items, please wait..."
 msgstr ""
 
 #: component\profile\character.html:69
@@ -691,26 +724,6 @@ msgstr ""
 
 #: component\subclass\subclass.html:139
 msgid "Loading Weapons..."
-msgstr ""
-
-#: component\profile\activity-history.html:7
-msgid "Loading best SRL times..."
-msgstr ""
-
-#: component\changelog\changelog.html:35
-msgid "Loading changelog, please wait..."
-msgstr ""
-
-#: component\item\item-detail.html:230
-msgid "Loading chart..."
-msgstr ""
-
-#: component\item\item.html:15
-msgid "Loading filters..."
-msgstr ""
-
-#: component\item\item.html:115
-msgid "Loading items, please wait..."
 msgstr ""
 
 #: component\changelog\changelogCtrl.js:34
@@ -818,6 +831,10 @@ msgstr ""
 msgid "Ocean of Storms"
 msgstr ""
 
+#: shared\chart\weapon-bar.js:46
+msgid "of total kills"
+msgstr ""
+
 #: shared\service\consts.js:749
 msgid "Old Russia"
 msgstr ""
@@ -911,12 +928,12 @@ msgstr ""
 msgid "Primary Stats"
 msgstr ""
 
-#: shared\service\consts.js:273
-msgid "Primary Weapon"
-msgstr ""
-
 #: component\item\item.html:31
 msgid "Primary type"
+msgstr ""
+
+#: shared\service\consts.js:273
+msgid "Primary Weapon"
 msgstr ""
 
 #: shared\service\consts.js:679
@@ -956,7 +973,7 @@ msgstr ""
 msgid "Random"
 msgstr ""
 
-#: component\item\itemDetailCtrl.js:99
+#: component\item\itemDetailCtrl.js:100
 #: component\leaderboard\leaderboard.html:62
 #: component\srl\srl.html:63
 #: shared\chart\item-popularity.js:72
@@ -1026,21 +1043,6 @@ msgstr ""
 msgid "Rumble"
 msgstr ""
 
-#: component\layout\nav.html:157
-#: component\layout\nav.html:87
-#: component\profile\activity-history.html:75
-#: shared\service\consts.js:136
-msgid "SRL"
-msgstr ""
-
-#: shared\service\consts.js:699
-msgid "SRL Record Book"
-msgstr ""
-
-#: component\profile\activity-history.html:5
-msgid "SRL Records <span class=\"subtext\">limited event, ended Dec 29th, 2015</span>"
-msgstr ""
-
 #: component\item\item-detail.html:224
 #: component\layout\nav.html:142
 #: component\layout\nav.html:72
@@ -1103,6 +1105,10 @@ msgstr ""
 msgid "Silver"
 msgstr ""
 
+#: component\profile\activity-history.html:29
+msgid "since \"The Taken King\" launch (Sept. 15, 2015)"
+msgstr ""
+
 #: component\faq\faq.html:34
 msgid ""
 "Since the launch of the Taken King, we have aggregated data from every single match played. Our rankings\r\n"
@@ -1153,6 +1159,21 @@ msgstr ""
 
 #: shared\service\consts.js:330
 msgid "Special Weapon"
+msgstr ""
+
+#: component\layout\nav.html:157
+#: component\layout\nav.html:87
+#: component\profile\activity-history.html:75
+#: shared\service\consts.js:136
+msgid "SRL"
+msgstr ""
+
+#: shared\service\consts.js:699
+msgid "SRL Record Book"
+msgstr ""
+
+#: component\profile\activity-history.html:5
+msgid "SRL Records <span class=\"subtext\">limited event, ended Dec 29th, 2015</span>"
 msgstr ""
 
 #: component\profile\activity-history.html:114
@@ -1242,6 +1263,10 @@ msgstr ""
 msgid "Team"
 msgstr ""
 
+#: component\changelog\changelog.html:39
+msgid "The changelog you're looking for does not exist"
+msgstr ""
+
 #: component\faq\faq.html:46
 msgid ""
 "The Elo rating system is a method for calculating the relative skill levels of players in\r\n"
@@ -1252,24 +1277,20 @@ msgstr ""
 msgid "The February update has arrived, and with it we've compiled a list of all changes in the item database."
 msgstr ""
 
-#: shared\service\consts.js:823
-msgid "The Speaker"
-msgstr ""
-
-#: shared\service\consts.js:724
-msgid "The Taken King"
-msgstr ""
-
-#: component\changelog\changelog.html:39
-msgid "The changelog you're looking for does not exist"
-msgstr ""
-
 #: component\profile\activity-history.html:99
 msgid "The match history is unavailable due to an API error"
 msgstr ""
 
 #: component\item\item.html:11
 msgid "The page URL gets updated with any filters you add. Share it, or come back to it later easily!"
+msgstr ""
+
+#: shared\service\consts.js:823
+msgid "The Speaker"
+msgstr ""
+
+#: shared\service\consts.js:724
+msgid "The Taken King"
 msgstr ""
 
 #: component\weapon-stats\weapon-stats.html:92
@@ -1324,12 +1345,12 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: component\weapon-stats\weapon-stats.html:87
-msgid "Top Weapons"
-msgstr ""
-
 #: component\home\home.html:15
 msgid "Top {{platforms[platform]}} Guardians"
+msgstr ""
+
+#: component\weapon-stats\weapon-stats.html:87
+msgid "Top Weapons"
 msgstr ""
 
 #: shared\service\consts.js:775
@@ -1392,6 +1413,10 @@ msgstr ""
 #: component\layout\nav.html:240
 #: shared\service\consts.js:188
 msgid "Voidwalker"
+msgstr ""
+
+#: component\profile\pgcr.html:37
+msgid "vs."
 msgstr ""
 
 #: component\item\item-detail.html:119
@@ -1477,29 +1502,4 @@ msgstr ""
 #: component\profile\activity-history.html:74
 #: shared\service\consts.js:133
 msgid "Zone Control"
-msgstr ""
-
-#: component\item\itemDetailCtrl.js:124
-#: component\item\itemListFactory.js:579
-msgid "[Unnamed Item]"
-msgstr ""
-
-#: shared\chart\weapon-bar.js:46
-msgid "of total kills"
-msgstr ""
-
-#: component\profile\activity-history.html:29
-msgid "since \"The Taken King\" launch (Sept. 15, 2015)"
-msgstr ""
-
-#: component\profile\pgcr.html:37
-msgid "vs."
-msgstr ""
-
-#: component\subclass\subclass.html:56
-msgid "{{subclass.label}} Overview"
-msgstr ""
-
-#: component\subclass\subclass.html:71
-msgid "{{subclass.label}} Perks &amp; Exotics"
 msgstr ""
