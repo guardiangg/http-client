@@ -1,17 +1,15 @@
 var app = angular.module('app');
 
 app.directive('advertFloating', [
-    '$rootScope',
     '$timeout',
-    '$interval',
 
-    function($rootScope, $timeout, $interval) {
+    function($timeout) {
         return {
             restrict: 'E',
             scope: {
                 sizes: '@'
             },
-            link: function(scope, element, attrs) {
+            link: function(scope, element) {
                 if (!window.MonkeyBroker) {
                     return;
                 }
@@ -30,15 +28,10 @@ app.directive('advertFloating', [
                     return console.error('Attempted to load an ad slot with no valid dimensions');
                 }
 
-                var ele;
                 var loadAd = function() {
                     element.empty();
 
-                    if (ele) {
-                        ele.remove();
-                    }
-
-                    ele = angular.element('<div></div>');
+                    var ele = angular.element('<div></div>');
                     element.html(ele);
 
                     MonkeyBroker.adPlacement({
@@ -119,13 +112,13 @@ app.directive('advertFloating', [
                         loadAd();
                     });
 
+                    // refresh on navigation changes
+                    scope.$on('advert-floating.refresh', loadAd);
+
                     $timeout(function() {
                         scope.$emit('chart.reflow');
                     }, 1500);
                 });
-
-                // refresh on navigation changes
-                scope.$on('advert-floating.refresh', loadAd);
 
                 $(window).bind('resize', resize);
                 $(window).scroll(sticky);

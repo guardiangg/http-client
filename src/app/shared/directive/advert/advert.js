@@ -2,11 +2,8 @@ var app = angular.module('app');
 
 app.directive('advert', [
     '$timeout',
-    '$interval',
 
-    function($timeout, $interval) {
-        var refreshInterval = null;
-
+    function($timeout) {
         return {
             restrict: 'E',
             scope: {
@@ -51,15 +48,10 @@ app.directive('advert', [
                     }
                 });
 
-                var ele;
                 var loadAd = function() {
                     element.empty();
 
-                    if (ele) {
-                        ele.remove();
-                    }
-
-                    ele = angular.element('<div></div>');
+                    var ele = angular.element('<div></div>');
                     element.html(ele);
 
                     MonkeyBroker.adPlacement({
@@ -101,16 +93,16 @@ app.directive('advert', [
                     element.parent().hide();
                 }
 
-                // refresh on navigation changes
-                scope.$on('advert.refresh', function() {
-                    if (isTooSmall() || isHidden) {
-                        return;
-                    }
-                    loadAd();
-                });
-
                 element.ready(function() {
                     $timeout(resize);
+
+                    // refresh on navigation changes
+                    scope.$on('advert.refresh', function() {
+                        if (isTooSmall() || isHidden) {
+                            return;
+                        }
+                        loadAd();
+                    });
                 });
 
                 $(window).resize(resize);
