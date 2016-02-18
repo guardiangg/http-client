@@ -49,11 +49,16 @@ app.directive('advert', [
                 });
 
                 var loadAd = function() {
+                    if (!element.parent().is(':visible')) {
+                        return;
+                    }
+
                     element.empty();
 
                     var ele = angular.element('<div></div>');
                     element.html(ele);
 
+                    console.log(sizes);
                     MonkeyBroker.adPlacement({
                         sizes: sizes,
                         el: ele[0]
@@ -85,13 +90,15 @@ app.directive('advert', [
                     }
                 };
 
-                if (!isTooSmall()) {
-                    loadAd();
-                    isHidden = false;
-                } else {
-                    isHidden = true;
-                    element.parent().hide();
-                }
+                $timeout(function() {
+                    if (!isTooSmall()) {
+                        loadAd();
+                        isHidden = false;
+                    } else {
+                        isHidden = true;
+                        element.parent().hide();
+                    }
+                });
 
                 element.ready(function() {
                     $timeout(resize);
