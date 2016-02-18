@@ -29,6 +29,10 @@ app.directive('advertFloating', [
                 }
 
                 var loadAd = function() {
+                    if (!element.is(':visible')) {
+                        return;
+                    }
+
                     element.empty();
 
                     var ele = angular.element('<div></div>');

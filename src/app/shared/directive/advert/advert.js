@@ -57,8 +57,7 @@ app.directive('advert', [
 
                     var ele = angular.element('<div></div>');
                     element.html(ele);
-
-                    console.log(sizes);
+                    
                     MonkeyBroker.adPlacement({
                         sizes: sizes,
                         el: ele[0]
