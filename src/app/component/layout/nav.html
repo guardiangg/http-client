@@ -18,15 +18,10 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <translate>Elo Rankings</translate> <span class="caret"></span>
                 </a>
-                <ul class="dropdown-menu wide wide-3">
+                <ul class="dropdown-menu wide wide-2">
                     <li>
                         <ul>
                             <li class="heading"><i class="ggg ggg-platform-ps"></i>&nbsp;<translate>PlayStation</translate></li>
-                            <li>
-                                <a ui-sref="app.leaderboard-platform-mode({platform: 2, mode: 523})">
-                                    <i class="ggg ggg-doubles"></i>&nbsp;<translate>Crimson Doubles</translate>
-                                </a>
-                            </li>
                             <li>
                                 <a ui-sref="app.leaderboard-platform-mode({platform: 2, mode: 14})">
                                     <i class="ggg ggg-osiris"></i>&nbsp;<translate>Trials of Osiris</translate>
@@ -84,7 +79,12 @@
                             </li>
                             <li>
                                 <a ui-sref="app.leaderboard-platform-mode({platform: 2, mode: 29})">
-                                    <i class="ggg ggg-srl"></i>&nbsp;<translate>SRL</translate>
+                                    <i class="ggg ggg-srl"></i>&nbsp;<translate>SRL <span class="expired">(Inactive)</span></translate>
+                                </a>
+                            </li>
+                            <li>
+                                <a ui-sref="app.leaderboard-platform-mode({platform: 2, mode: 523})">
+                                    <i class="ggg ggg-doubles"></i>&nbsp;<translate>Crimson <span class="expired">(Inactive)</span></translate>
                                 </a>
                             </li>
                         </ul>
@@ -92,11 +92,6 @@
                     <li>
                         <ul>
                             <li class="heading"><i class="ggg ggg-platform-xbox"></i>&nbsp;<translate>Xbox</translate></li>
-                            <li>
-                                <a ui-sref="app.leaderboard-platform-mode({platform: 1, mode: 523})">
-                                    <i class="ggg ggg-doubles"></i>&nbsp;<translate>Crimson Doubles</translate>
-                                </a>
-                            </li>
                             <li>
                                 <a ui-sref="app.leaderboard-platform-mode({platform: 1, mode: 14})">
                                     <i class="ggg ggg-osiris"></i>&nbsp;<translate>Trials of Osiris</translate>
@@ -154,7 +149,12 @@
                             </li>
                             <li>
                                 <a ui-sref="app.leaderboard-platform-mode({platform: 1, mode: 29})">
-                                    <i class="ggg ggg-srl"></i>&nbsp;<translate>SRL</translate>
+                                    <i class="ggg ggg-srl"></i>&nbsp;<translate>SRL <span class="expired">(Inactive)</span></translate>
+                                </a>
+                            </li>
+                            <li>
+                                <a ui-sref="app.leaderboard-platform-mode({platform: 1, mode: 523})">
+                                    <i class="ggg ggg-doubles"></i>&nbsp;<translate>Crimson <span class="expired">(Inactive)</span></translate>
                                 </a>
                             </li>
                         </ul>

@@ -14,26 +14,31 @@
                 <i ng-class="platform == 1 ? 'ggg ggg-platform-xbox' : 'ggg ggg-platform-ps'"></i>
                 <translate>Top {{platforms[platform]}} Guardians</translate>
             </div>
-            <div ng-repeat="(mode, data) in modeData" class="col-sm-6 leaderboard-wrapper leaderboard-wrapper-home">
+            <div ng-repeat="data in modeData" class="col-sm-6 leaderboard-wrapper leaderboard-wrapper-home">
                 <h4 class="col-xs-12 text-center">
-                    <i class="ggg ggg-{{modes[mode]|lowercase}}"
-                       ng-class="{'ggg-iron-banner':mode == 19, 'ggg-osiris':mode == 14}">
-                    </i> {{modes[mode]}}
+                    <i class="ggg ggg-{{modes[data.mode]|lowercase}}"
+                       ng-class="{'ggg-iron-banner':data.mode == 19, 'ggg-osiris':data.mode == 14}">
+                    </i> {{modes[data.mode]}}
                 </h4>
                 <table class="table table-striped leaderboard leaderboard-home">
                     <tr>
                         <th style="width:5%"></th>
                         <th translate>Name</th>
-                        <th style="width:5%" class="text-right">Elo</th>
+                        <th style="width:5%" class="text-center">Elo</th>
                     </tr>
-                    <tr ng-repeat="(rank, row) in data">
-                        <td>#{{rank+1}}</td>
-                        <td><a ui-sref="app.profile({platform: row.membershipType, name: row.name})">{{row.name}}</a></td>
-                        <td class="text-right">{{row.elo|number:0}}</td>
+                    <tr ng-repeat="(rank, row) in data.players">
+                        <td class="leaderboard-rank">#{{rank+1}}</td>
+                        <td>
+                            <a ui-sref="app.profile({platform: row.membershipType, name: row.name})" ng-style="{ 'color': row.league.colors.background }">
+                                {{row.name}}
+                            </a>
+                            <span class="leaderboard-clan" ng-show="row.clanTag">[{{row.clanTag}}]</span>
+                        </td>
+                        <td class="text-center leaderboard-elo elo-{{ row.league.label|lowercase }}" ng-style="{ 'background-color': row.league.colors.background }">{{row.elo|number:0}}</td>
                     </tr>
                 </table>
                 <div class="text-right leaderboard-more">
-                    <a class="btn btn-default btn-xs" ui-sref="app.leaderboard-platform-mode({platform: platform, mode: mode})">
+                    <a ui-sref="app.leaderboard-platform-mode({platform: platform, mode: data.mode})">
                         <translate>More</translate>&nbsp;<i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
@@ -45,13 +50,6 @@
             <advert sizes="300x250,320x50"></advert>
         </div>
     </div>
-</div>
-
-<h2 translate ng-show="!isMobile">Crucible Class Breakdown</h2>
-
-<div class="row" ng-show="!isMobile">
-    <highchart config="kd" class="col-sm-6"></highchart>
-    <highchart config="popularity" class="col-sm-6"></highchart>
 </div>
 
 <div class="ad-stack-bottom">

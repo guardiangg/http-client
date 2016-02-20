@@ -60,6 +60,7 @@
     <table class="table table-striped leaderboard leaderboard-full" ng-if="!loading.leaderboard">
         <tr>
             <th class="text-center" style="width:1%" translate>Rank</th>
+            <th class="text-center" style="width:2%" translate>Clan</th>
             <th style="width:30%" translate>Name</th>
             <th class="text-center" style="width:5%">Elo</th>
             <th ng-show="mode != 29" class="text-center hidden-xs" style="width:5%" translate translate-comment="Short for kills">K</th>
@@ -74,7 +75,8 @@
         </tr>
         <tr ng-class="{highlight: (row.name|lowercase) == highlight}" ng-repeat="row in results.data | orderBy:'rank' track by $index">
             <td class="text-center">{{ (page * pageCount) + $index + 1|number }}</td>
-            <td><a ui-sref="app.profile({platform: platform, name: row.name, mode: mode})">{{ row.name }}</a></td>
+            <td class="leaderboard-clan text-center">{{row.clanTag}}</td>
+            <td class="leaderboard-name"><a ui-sref="app.profile({platform: platform, name: row.name, mode: mode})" ng-style="{ 'color': row.league.colors.background }">{{ row.name }}</a></td>
             <td class="text-center leaderboard-elo elo-{{ row.league.label|lowercase }}" ng-style="{ 'background-color': row.league.colors.background }">{{ row.elo|number:0 }}</td>
             <td ng-show="mode != 29" class="text-center hidden-xs">{{ row.kills|number }}</td>
             <td ng-show="mode != 29" class="text-center hidden-xs">{{ row.deaths|number }}</td>

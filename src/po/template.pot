@@ -27,7 +27,7 @@ msgid "<em>{{totalPlayers24|number}}</em> tracked in the past day"
 msgstr ""
 
 #. Short for assists
-#: component\leaderboard\leaderboard.html:67
+#: component\leaderboard\leaderboard.html:68
 #: component\profile\activity-history.html:112
 #: component\profile\pgcr.html:9
 msgid "A"
@@ -164,13 +164,17 @@ msgstr ""
 msgid "Chest"
 msgstr ""
 
+#: component\leaderboard\leaderboard.html:63
+msgid "Clan"
+msgstr ""
+
 #: component\item\item-detail.html:147
 msgid "Clan Name"
 msgstr ""
 
 #: component\item\item-detail.html:219
-#: component\layout\nav.html:117
-#: component\layout\nav.html:47
+#: component\layout\nav.html:112
+#: component\layout\nav.html:42
 #: component\profile\activity-history.html:67
 #: component\subclass\subclass.html:91
 #: shared\service\consts.js:128
@@ -205,16 +209,19 @@ msgid "Consumable"
 msgstr ""
 
 #: component\item\item-detail.html:218
-#: component\layout\nav.html:112
-#: component\layout\nav.html:42
+#: component\layout\nav.html:107
+#: component\layout\nav.html:37
 #: component\profile\activity-history.html:66
 #: component\subclass\subclass.html:82
 #: shared\service\consts.js:126
 msgid "Control"
 msgstr ""
 
-#: component\layout\nav.html:27
-#: component\layout\nav.html:97
+#: component\layout\nav.html:157
+#: component\layout\nav.html:87
+msgid "Crimson <span class=\"expired\">(Inactive)</span>"
+msgstr ""
+
 #: component\profile\activity-history.html:63
 #: shared\service\consts.js:139
 msgid "Crimson Doubles"
@@ -227,10 +234,6 @@ msgstr ""
 #: shared\service\consts.js:532
 #: shared\service\consts.js:671
 msgid "Crucible"
-msgstr ""
-
-#: component\home\home.html:50
-msgid "Crucible Class Breakdown"
 msgstr ""
 
 #: shared\service\consts.js:835
@@ -251,7 +254,7 @@ msgid "Currency"
 msgstr ""
 
 #. Short for deaths
-#: component\leaderboard\leaderboard.html:66
+#: component\leaderboard\leaderboard.html:67
 #: component\profile\activity-history.html:111
 #: component\profile\pgcr.html:8
 msgid "D"
@@ -303,8 +306,8 @@ msgid "Dismiss Notice"
 msgstr ""
 
 #: component\item\item-detail.html:225
-#: component\layout\nav.html:147
-#: component\layout\nav.html:77
+#: component\layout\nav.html:142
+#: component\layout\nav.html:72
 #: component\profile\activity-history.html:73
 #: shared\service\consts.js:132
 msgid "Doubles"
@@ -317,8 +320,8 @@ msgid ""
 msgstr ""
 
 #: component\item\item-detail.html:222
-#: component\layout\nav.html:132
-#: component\layout\nav.html:62
+#: component\layout\nav.html:127
+#: component\layout\nav.html:57
 #: component\profile\activity-history.html:70
 #: component\subclass\subclass.html:100
 #: shared\service\consts.js:131
@@ -387,7 +390,7 @@ msgid "FAQ"
 msgstr ""
 
 #: component\leaderboard\leaderboard.html:12
-#: component\leaderboard\leaderboard.html:95
+#: component\leaderboard\leaderboard.html:97
 #: component\srl\srl.html:12
 #: component\srl\srl.html:90
 #: shared\directive\pagination\pagination.html:7
@@ -422,7 +425,7 @@ msgstr ""
 msgid "Game mode:"
 msgstr ""
 
-#: component\leaderboard\leaderboard.html:70
+#: component\leaderboard\leaderboard.html:71
 msgid "Games"
 msgstr ""
 
@@ -561,8 +564,8 @@ msgid "Inventory"
 msgstr ""
 
 #: component\item\item-detail.html:216
-#: component\layout\nav.html:107
-#: component\layout\nav.html:37
+#: component\layout\nav.html:102
+#: component\layout\nav.html:32
 #: component\profile\activity-history.html:65
 #: component\subclass\subclass.html:85
 #: shared\service\consts.js:134
@@ -589,14 +592,14 @@ msgid "Items"
 msgstr ""
 
 #. Short for kills
-#: component\leaderboard\leaderboard.html:65
+#: component\leaderboard\leaderboard.html:66
 #: component\profile\activity-history.html:110
 #: component\profile\pgcr.html:7
 msgid "K"
 msgstr ""
 
 #. Short for kills / deaths
-#: component\leaderboard\leaderboard.html:68
+#: component\leaderboard\leaderboard.html:69
 #: component\profile\activity-history.html:113
 #: component\profile\pgcr.html:10
 #: component\subclass\subclass.html:118
@@ -623,7 +626,7 @@ msgstr ""
 msgid "Kills by Weapon Type"
 msgstr ""
 
-#: component\leaderboard\leaderboard.html:119
+#: component\leaderboard\leaderboard.html:121
 #: component\leaderboard\leaderboard.html:36
 #: component\srl\srl.html:114
 #: component\srl\srl.html:36
@@ -756,7 +759,7 @@ msgstr ""
 msgid "Mission Key Item"
 msgstr ""
 
-#: component\home\home.html:37
+#: component\home\home.html:42
 msgid "More"
 msgstr ""
 
@@ -773,7 +776,7 @@ msgstr ""
 #: component\home\home.html:26
 #: component\item\item-list-directive.html:6
 #: component\item\item-list.html:20
-#: component\leaderboard\leaderboard.html:63
+#: component\leaderboard\leaderboard.html:64
 #: component\srl\srl.html:64
 msgid "Name"
 msgstr ""
@@ -782,7 +785,7 @@ msgstr ""
 msgid "New Monarchy"
 msgstr ""
 
-#: component\leaderboard\leaderboard.html:112
+#: component\leaderboard\leaderboard.html:114
 #: component\leaderboard\leaderboard.html:29
 #: component\srl\srl.html:107
 #: component\srl\srl.html:29
@@ -842,7 +845,7 @@ msgid ""
 "        <span>{{data.totalItems|number}} {{name}}</span>"
 msgstr ""
 
-#: component\leaderboard\leaderboard.html:104
+#: component\leaderboard\leaderboard.html:106
 #: component\leaderboard\leaderboard.html:21
 #: component\srl\srl.html:21
 #: component\srl\srl.html:99
@@ -887,7 +890,7 @@ msgstr ""
 msgid "PlayStation"
 msgstr ""
 
-#: component\leaderboard\leaderboard.html:102
+#: component\leaderboard\leaderboard.html:104
 #: component\leaderboard\leaderboard.html:19
 #: component\srl\srl.html:19
 #: component\srl\srl.html:97
@@ -1006,8 +1009,8 @@ msgid "Reward Sources"
 msgstr ""
 
 #: component\item\item-detail.html:220
-#: component\layout\nav.html:127
-#: component\layout\nav.html:57
+#: component\layout\nav.html:122
+#: component\layout\nav.html:52
 #: component\profile\activity-history.html:68
 #: component\subclass\subclass.html:94
 #: shared\service\consts.js:129
@@ -1019,19 +1022,22 @@ msgid "Rocket Launcher"
 msgstr ""
 
 #: component\item\item-detail.html:221
-#: component\layout\nav.html:122
-#: component\layout\nav.html:52
+#: component\layout\nav.html:117
+#: component\layout\nav.html:47
 #: component\profile\activity-history.html:69
 #: component\subclass\subclass.html:97
 #: shared\service\consts.js:130
 msgid "Rumble"
 msgstr ""
 
-#: component\layout\nav.html:157
-#: component\layout\nav.html:87
 #: component\profile\activity-history.html:75
 #: shared\service\consts.js:136
 msgid "SRL"
+msgstr ""
+
+#: component\layout\nav.html:152
+#: component\layout\nav.html:82
+msgid "SRL <span class=\"expired\">(Inactive)</span>"
 msgstr ""
 
 #: shared\service\consts.js:699
@@ -1043,8 +1049,8 @@ msgid "SRL Records <span class=\"subtext\">limited event, ended Dec 29th, 2015</
 msgstr ""
 
 #: component\item\item-detail.html:224
-#: component\layout\nav.html:142
-#: component\layout\nav.html:72
+#: component\layout\nav.html:137
+#: component\layout\nav.html:67
 #: component\profile\activity-history.html:72
 #: shared\service\consts.js:127
 msgid "Salvage"
@@ -1112,8 +1118,8 @@ msgid ""
 msgstr ""
 
 #: component\item\item-detail.html:223
-#: component\layout\nav.html:137
-#: component\layout\nav.html:67
+#: component\layout\nav.html:132
+#: component\layout\nav.html:62
 #: component\profile\activity-history.html:71
 #: component\subclass\subclass.html:103
 #: shared\service\consts.js:125
@@ -1338,8 +1344,8 @@ msgid "Tower Vendor"
 msgstr ""
 
 #: component\item\item-detail.html:217
-#: component\layout\nav.html:102
-#: component\layout\nav.html:32
+#: component\layout\nav.html:27
+#: component\layout\nav.html:97
 #: component\profile\activity-history.html:64
 #: component\subclass\subclass.html:88
 #: shared\service\consts.js:135
@@ -1442,7 +1448,7 @@ msgstr ""
 msgid "Win Rate by Mode"
 msgstr ""
 
-#: component\leaderboard\leaderboard.html:69
+#: component\leaderboard\leaderboard.html:70
 #: component\subclass\subclass.html:119
 #: component\subclass\subclass.html:145
 #: component\subclass\subclass.html:175
@@ -1473,8 +1479,8 @@ msgid "Your search for \"{{query}}\" matched {{count}} results"
 msgstr ""
 
 #: component\item\item-detail.html:226
-#: component\layout\nav.html:152
-#: component\layout\nav.html:82
+#: component\layout\nav.html:147
+#: component\layout\nav.html:77
 #: component\profile\activity-history.html:74
 #: shared\service\consts.js:133
 msgid "Zone Control"
