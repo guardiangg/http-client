@@ -75,7 +75,7 @@
         <tr ng-class="{highlight: (row.name|lowercase) == highlight}" ng-repeat="row in results.data | orderBy:'rank' track by $index">
             <td class="text-center">{{ (page * pageCount) + $index + 1|number }}</td>
             <td><a ui-sref="app.profile({platform: platform, name: row.name, mode: mode})">{{ row.name }}</a></td>
-            <td class="text-center leaderboard-elo elo-{{ row.league.label|lowercase }}" ng-style="{ 'background-color': row.league.colors.background }">{{ row.elo }}</td>
+            <td class="text-center leaderboard-elo elo-{{ row.league.label|lowercase }}" ng-style="{ 'background-color': row.league.colors.background }">{{ row.elo|number:0 }}</td>
             <td ng-show="mode != 29" class="text-center hidden-xs">{{ row.kills|number }}</td>
             <td ng-show="mode != 29" class="text-center hidden-xs">{{ row.deaths|number }}</td>
             <td ng-show="mode != 29" class="text-center hidden-xs">{{ row.assists|number }}</td>

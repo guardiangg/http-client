@@ -19,7 +19,7 @@
                 {{ entry.player.destinyUserInfo.displayName }}
             </a>
         </td>
-        <td class="text-center">{{ entry.elo.elo || '-' }}</td>
+        <td class="text-center">{{ entry.elo.elo|number:0 }}</td>
         <td class="text-center" ng-show="mode == 29">{{ entry.values.raceCompletionMilliseconds.basic.displayValue }}</td>
         <td class="text-center" ng-show="mode != 29">{{ entry.values.score.basic.displayValue }}</td>
         <td class="text-center" ng-show="mode != 29">{{ entry.values.kills.basic.displayValue }}</td>
@@ -32,10 +32,10 @@
         <td colspan="9" class="text-center">
             <h3 translate>Average Team Elo</h3>
 
-            <i class="ggg ggg-alpha"></i>&nbsp;<translate>Alpha</translate>&nbsp;{{ teamElo.alpha ? teamElo.alpha : '-' }}
+            <i class="ggg ggg-alpha"></i>&nbsp;<translate>Alpha</translate>&nbsp;{{ teamElo.alpha|number:0 }}
             <span ng-if="winner.values.team.basic.value == 16">&nbsp;(<translate>Winner</translate>)</span>
             &nbsp;<translate>vs.</translate>&nbsp;
-            <i class="ggg ggg-bravo"></i>&nbsp;<translate>Bravo</translate>&nbsp;{{ teamElo.bravo ? teamElo.bravo : '-' }}
+            <i class="ggg ggg-bravo"></i>&nbsp;<translate>Bravo</translate>&nbsp;{{ teamElo.bravo|number:0 }}
             <span ng-if="winner.values.team.basic.value == 17">&nbsp;(<translate>Winner</translate>)</span>
         </td>
     </tr>

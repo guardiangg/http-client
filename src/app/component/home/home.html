@@ -29,7 +29,7 @@
                     <tr ng-repeat="(rank, row) in data">
                         <td>#{{rank+1}}</td>
                         <td><a ui-sref="app.profile({platform: row.membershipType, name: row.name})">{{row.name}}</a></td>
-                        <td class="text-right">{{row.elo|number}}</td>
+                        <td class="text-right">{{row.elo|number:0}}</td>
                     </tr>
                 </table>
                 <div class="text-right leaderboard-more">
