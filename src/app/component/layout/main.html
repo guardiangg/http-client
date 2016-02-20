@@ -16,9 +16,9 @@
             </ul>
         </div>
         <div class="clear"></div>
-        <form ng-submit="searchForPlayer(name)" class="search">
+        <form ng-submit="searchSite(query)" class="search">
             <div class="input-group">
-                <input type="text" class="form-control" ng-model="name" placeholder="{{ placeholder }}" autocorrect="off" autocomplete="off" spellcheck="false">
+                <input type="text" class="form-control" ng-model="query" placeholder="{{ placeholder }}" autocorrect="off" autocomplete="off" spellcheck="false">
                     <span class="input-group-btn">
                         <button class="btn btn-default fa fa-search" type="submit"></button>
                     </span>

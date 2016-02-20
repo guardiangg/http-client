@@ -64,6 +64,7 @@ app
                 locale = match[1];
             }
 
+            window["gggTips"].locale(locale);
             gettextCatalog.setCurrentLanguage(locale);
             moment.locale(locale);
 
