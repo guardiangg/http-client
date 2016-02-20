@@ -16,6 +16,7 @@ app.directive('itemList', [
 
                 function ($scope) {
                     var listService = new itemListFactory();
+                    $scope.listService = listService;
 
                     listService.init();
 
