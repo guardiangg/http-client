@@ -1038,3 +1038,37 @@ input[type="color"]:focus,
 .ad-placement.profile-left {
     margin: 10px 0;
 }
+
+////
+// Tabs
+////
+.nav-tabs {
+    border-bottom: 1px solid #BBB;
+
+    > li {
+        > a {
+            background: #404040;
+            color: #FFFFFF;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            margin-top: 10px;
+
+            &:hover {
+                background: #EDAB4A;
+                border-color: #EDAB4A;
+            }
+        }
+    }
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    color: #404040;
+    background-color: #FFFFFF;
+    border: 1px solid #BBBBBB;
+    border-bottom-color: transparent;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    margin-top: 5px;
+}

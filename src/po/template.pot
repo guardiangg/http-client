@@ -33,7 +33,7 @@ msgstr ""
 msgid "A"
 msgstr ""
 
-#: component\item\item.html:33
+#: component\item\item-list.html:33
 msgid "Active Gear"
 msgstr ""
 
@@ -42,7 +42,7 @@ msgstr ""
 msgid "Activities"
 msgstr ""
 
-#: component\item\item.html:8
+#: component\item\item-list.html:8
 msgid "Add Filters"
 msgstr ""
 
@@ -102,7 +102,7 @@ msgstr ""
 msgid "Average Team Elo"
 msgstr ""
 
-#: component\item\item.html:96
+#: component\item\item-list.html:96
 #: shared\service\consts.js:238
 msgid "Basic"
 msgstr ""
@@ -164,10 +164,6 @@ msgstr ""
 msgid "Chest"
 msgstr ""
 
-#: component\search\search.html:4
-msgid "Choose your platform"
-msgstr ""
-
 #: component\item\item-detail.html:147
 msgid "Clan Name"
 msgstr ""
@@ -181,7 +177,7 @@ msgstr ""
 msgid "Clash"
 msgstr ""
 
-#: component\item\item.html:78
+#: component\item\item-list.html:78
 msgid "Class"
 msgstr ""
 
@@ -198,7 +194,7 @@ msgstr ""
 msgid "Column"
 msgstr ""
 
-#: component\item\item.html:95
+#: component\item\item-list.html:95
 #: shared\service\consts.js:242
 msgid "Common"
 msgstr ""
@@ -282,7 +278,7 @@ msgstr ""
 msgid "Defensive Gear"
 msgstr ""
 
-#: component\item\item.html:173
+#: component\item\item-list-directive.html:46
 msgid "Description"
 msgstr ""
 
@@ -364,7 +360,7 @@ msgstr ""
 msgid "Evolved From Another Item"
 msgstr ""
 
-#: component\item\item.html:91
+#: component\item\item-list.html:91
 #: shared\service\consts.js:258
 msgid "Exotic"
 msgstr ""
@@ -559,7 +555,7 @@ msgstr ""
 msgid "Insufficient weapon data was found for this game mode in the last 7 days."
 msgstr ""
 
-#: component\item\item.html:39
+#: component\item\item-list.html:39
 #: component\layout\nav.html:214
 msgid "Inventory"
 msgstr ""
@@ -584,10 +580,11 @@ msgid "Item"
 msgstr ""
 
 #: component\changelog\changelogCtrl.js:19
-#: component\item\item.html:124
-#: component\item\item.html:236
-#: component\item\item.html:5
+#: component\item\item-list.html:124
+#: component\item\item-list.html:131
+#: component\item\item-list.html:5
 #: component\layout\nav.html:177
+#: component\search\search.html:26
 msgid "Items"
 msgstr ""
 
@@ -634,20 +631,20 @@ msgstr ""
 msgid "Last"
 msgstr ""
 
-#: component\item\item.html:193
+#: component\item\item-list-directive.html:66
 msgid ""
 "Last Patch\r\n"
-"                        <div class=\"sort\" ng-class=\"{'active-asc': listService.sortColumn == 'version' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'version' && listService.sortDirection == 'desc'}\">\r\n"
-"                            <i class=\"fa fa-sort-asc\"></i>\r\n"
-"                            <i class=\"fa fa-sort-desc\"></i>\r\n"
-"                        </div>"
+"                    <div class=\"sort\" ng-class=\"{'active-asc': listService.sortColumn == 'version' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'version' && listService.sortDirection == 'desc'}\">\r\n"
+"                        <i class=\"fa fa-sort-asc\"></i>\r\n"
+"                        <i class=\"fa fa-sort-desc\"></i>\r\n"
+"                    </div>"
 msgstr ""
 
 #: component\item\item-detail.html:132
 msgid "Last patched"
 msgstr ""
 
-#: component\item\item.html:92
+#: component\item\item-list.html:92
 #: shared\service\consts.js:254
 msgid "Legendary"
 msgstr ""
@@ -705,11 +702,11 @@ msgstr ""
 msgid "Loading chart..."
 msgstr ""
 
-#: component\item\item.html:15
+#: component\item\item-list.html:15
 msgid "Loading filters..."
 msgstr ""
 
-#: component\item\item.html:115
+#: component\item\item-list.html:115
 msgid "Loading items, please wait..."
 msgstr ""
 
@@ -774,8 +771,8 @@ msgid "Multi-Location Vendor"
 msgstr ""
 
 #: component\home\home.html:26
-#: component\item\item.html:133
-#: component\item\item.html:20
+#: component\item\item-list-directive.html:6
+#: component\item\item-list.html:20
 #: component\leaderboard\leaderboard.html:63
 #: component\srl\srl.html:64
 msgid "Name"
@@ -806,8 +803,12 @@ msgstr ""
 msgid "No games have been played in this mode."
 msgstr ""
 
-#: component\item\item.html:119
+#: component\item\item-list.html:119
 msgid "No items were found"
+msgstr ""
+
+#: component\search\search.html:34
+msgid "No results for your query \"{{query}}\". Check your spelling and try again."
 msgstr ""
 
 #: component\profile\activity-history.html:25
@@ -825,10 +826,6 @@ msgstr ""
 #: component\item\perk-random.html:4
 #: component\item\talentSummaryDirective.js:94
 msgid "One of these perks is randomly selected for this node"
-msgstr ""
-
-#: component\search\search.html:12
-msgid "Oops, we weren't able to find \"{{name}}\". Verify spelling and try again."
 msgstr ""
 
 #: shared\service\consts.js:733
@@ -852,7 +849,7 @@ msgstr ""
 msgid "Page {{page+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>"
 msgstr ""
 
-#: component\item\item.html:36
+#: component\item\item-list.html:36
 #: component\layout\nav.html:203
 msgid "Passive Gear"
 msgstr ""
@@ -898,7 +895,7 @@ msgstr ""
 msgid "Prev"
 msgstr ""
 
-#: component\item\item.html:170
+#: component\item\item-list-directive.html:43
 msgid "Preview"
 msgstr ""
 
@@ -915,12 +912,16 @@ msgstr ""
 msgid "Primary Weapon"
 msgstr ""
 
-#: component\item\item.html:31
+#: component\item\item-list.html:31
 msgid "Primary type"
 msgstr ""
 
 #: shared\service\consts.js:679
 msgid "Prison of Elders"
+msgstr ""
+
+#: component\search\search.html:10
+msgid "Profiles"
 msgstr ""
 
 #: shared\service\consts.js:873
@@ -971,7 +972,7 @@ msgstr ""
 msgid "Ranked as a percentage of all kills"
 msgstr ""
 
-#: component\item\item.html:93
+#: component\item\item-list.html:93
 #: shared\service\consts.js:250
 msgid "Rare"
 msgstr ""
@@ -996,7 +997,7 @@ msgstr ""
 msgid "Refreshing map list..."
 msgstr ""
 
-#: component\item\item.html:107
+#: component\item\item-list.html:107
 msgid "Reset Filters"
 msgstr ""
 
@@ -1124,8 +1125,8 @@ msgstr ""
 msgid "Sniper Rifle"
 msgstr ""
 
-#: component\item\item.html:183
-#: component\item\item.html:67
+#: component\item\item-list-directive.html:56
+#: component\item\item-list.html:67
 msgid "Source"
 msgstr ""
 
@@ -1147,7 +1148,7 @@ msgstr ""
 msgid "Special"
 msgstr ""
 
-#: component\item\item.html:42
+#: component\item\item-list.html:42
 msgid "Special Event"
 msgstr ""
 
@@ -1164,7 +1165,7 @@ msgstr ""
 msgid "Start day"
 msgstr ""
 
-#: component\item\item.html:102
+#: component\item\item-list.html:102
 msgid "Stat Ranges"
 msgstr ""
 
@@ -1195,11 +1196,11 @@ msgstr ""
 msgid "Striker"
 msgstr ""
 
-#: component\item\item.html:49
+#: component\item\item-list.html:49
 msgid "Sub-type"
 msgstr ""
 
-#: component\item\item.html:58
+#: component\item\item-list.html:58
 msgid "Sub-type #2"
 msgstr ""
 
@@ -1268,7 +1269,7 @@ msgstr ""
 msgid "The match history is unavailable due to an API error"
 msgstr ""
 
-#: component\item\item.html:11
+#: component\item\item-list.html:11
 msgid "The page URL gets updated with any filters you add. Share it, or come back to it later easily!"
 msgstr ""
 
@@ -1293,16 +1294,16 @@ msgstr ""
 msgid "This profile temporarily cannot be displayed. Too much data is missing by consequence of the current API issues."
 msgstr ""
 
-#: component\item\item.html:176
+#: component\item\item-list-directive.html:49
 msgid ""
 "Tier\r\n"
-"                        <div class=\"sort\" ng-class=\"{'active-asc': listService.sortColumn == 'tier' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'tier' && listService.sortDirection == 'desc'}\">\r\n"
-"                            <i class=\"fa fa-sort-asc\"></i>\r\n"
-"                            <i class=\"fa fa-sort-desc\"></i>\r\n"
-"                        </div>"
+"                    <div class=\"sort\" ng-class=\"{'active-asc': listService.sortColumn == 'tier' && listService.sortDirection == 'asc', 'active-desc': listService.sortColumn == 'tier' && listService.sortDirection == 'desc'}\">\r\n"
+"                        <i class=\"fa fa-sort-asc\"></i>\r\n"
+"                        <i class=\"fa fa-sort-desc\"></i>\r\n"
+"                    </div>"
 msgstr ""
 
-#: component\item\item.html:89
+#: component\item\item-list.html:89
 msgid "Tiers"
 msgstr ""
 
@@ -1346,11 +1347,11 @@ msgstr ""
 msgid "Trials of Osiris"
 msgstr ""
 
-#: component\item\item.html:120
+#: component\item\item-list.html:120
 msgid "Try updating your filters, there are no items matching your criteria."
 msgstr ""
 
-#: component\item\item.html:94
+#: component\item\item-list.html:94
 #: shared\service\consts.js:246
 msgid "Uncommon"
 msgstr ""
@@ -1412,10 +1413,6 @@ msgid ""
 "            ads though, we don't blame you!"
 msgstr ""
 
-#: component\search\search.html:2
-msgid "We found more than one result for \"{{name}}\""
-msgstr ""
-
 #: component\item\item-detail.html:231
 msgid "We have insufficient data for this weapon in the game mode you selected, try another mode"
 msgstr ""
@@ -1471,6 +1468,10 @@ msgstr ""
 msgid "You can fire us an email at"
 msgstr ""
 
+#: component\search\search.html:6
+msgid "Your search for \"{{query}}\" matched {{count}} results"
+msgstr ""
+
 #: component\item\item-detail.html:226
 #: component\layout\nav.html:152
 #: component\layout\nav.html:82
@@ -1480,7 +1481,7 @@ msgid "Zone Control"
 msgstr ""
 
 #: component\item\itemDetailCtrl.js:128
-#: component\item\itemListFactory.js:579
+#: component\item\itemListFactory.js:599
 msgid "[Unnamed Item]"
 msgstr ""
 

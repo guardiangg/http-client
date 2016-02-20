@@ -1,17 +1,36 @@
+<div class="ad-leaderboard">
+    <advert sizes="728x90,970x90,970x250"></advert>
+</div>
+
 <div ng-if="count > 0">
-    <h2 translate>Your search for "{{query}}" had {{count}} results</h2>
+    <h2 translate>Your search for "{{query}}" matched {{count}} results</h2>
 </div>
 
 <uib-tabset>
-    <uib-tab heading="{{'Profiles'|translate}} ({{(gamedata.xbox && gamedata.playstation) ? 2 : 1}})" ng-if="playstation || xbox">
-        <a ui-sref="app.profile({platform: 2, name: query})" ng-if="playstation">PlayStation</a>
-        <a ui-sref="app.profile({platform: 1, name: query})" ng-if="xbox">Xbox</a>
+    <uib-tab heading="{{'Profiles'|translate}} ({{(xbox && playstation) ? 2 : 1}})" ng-if="playstation || xbox">
+        <div class="search-result profile-list">
+            <div class="profile-item" ng-if="xbox">
+                <a ui-sref="app.profile({platform: 1, name: query})" class="profile-xbox">
+                    <i class="ggg ggg-platform-xbox"></i>
+                    {{query}}
+                </a>
+            </div>
+            <div class="profile-item" ng-if="playstation">
+                <a ui-sref="app.profile({platform: 2, name: query})" class="profile-ps">
+                    <i class="ggg ggg-platform-ps"></i>
+                    {{query}}
+                </a>
+            </div>
+        </div>
     </uib-tab>
     <uib-tab heading="{{'Items'|translate}} ({{gamedata.items.data.length}})" ng-if="gamedata.items.data.length > 0">
-        <div item-list="gamedata.items.data"></div>
+        <div class="search-result" item-list="gamedata.items.data"></div>
     </uib-tab>
 </uib-tabset>
 
-<div ng-if="done && count == 0">
-    <h2 translate>Oops, we weren't able to find "{{query}}". Verify spelling and try again.</h2>
+<div class="no-results" ng-show="done && count == 0">
+    <h3>
+        <i class="fa fa-info-circle"></i>
+        <span translate>No results for your query "{{query}}". Check your spelling and try again.</span>
+    </h3>
 </div>
