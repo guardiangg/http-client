@@ -50,7 +50,7 @@ app.service('api',[
             this.searchGamedata = function(query) {
                 return $http.get(util.buildApiUrl(endpoints.gamedata.search, {
                     lc: gettextCatalog.getCurrentLanguage(),
-                    query: query + '*'
+                    query: '"' + query + '*"'
                 }));
             };
 
