@@ -21,16 +21,27 @@ app.controller('homeCtrl', [
             'Guardian.gg - Advanced Destiny Stats, Profiles, Leaderboards, and Database'
         );
 
+        var gameModes = [14, 19, 10, 13, 24, 12, 11, 15, 23, 9];
         leaderboardApi
-            .getFeatured([10,523,14,19])
+            .getFeatured(gameModes)
             .then(function(result) {
                 $scope.featured = result.data;
-                _.each($scope.featured, function(platform) {
+                _.each($scope.featured, function(platform, k) {
                     _.each(platform, function(mode) {
                         _.each(mode, function(player) {
                             player.league = consts.ratingToLeague(player.elo);
                         });
                     });
+
+                    var map = [];
+                    _.each(platform, function(obj, k) {
+                        map[_.indexOf(gameModes, parseInt(k))] = {
+                            mode: k,
+                            players: obj
+                        };
+                    });
+
+                    $scope.featured[k] = map;
                 });
             });
 
@@ -39,32 +50,6 @@ app.controller('homeCtrl', [
             .then(function(result) {
                 $scope.totalPlayers = result.data.total;
                 $scope.totalPlayers24 = result.data.yesterday;
-            });
-
-        api
-            .getSubclassTotals()
-            .then(function(result) {
-                var total = 0;
-
-                _.each(result.data, function(data) {
-                    total += data.playerPercent;
-                });
-
-                _.each(result.data, function(data) {
-                    $scope.kd.series[0].data.push({
-                        y: data.kd,
-                        id: consts.subclassIdToLabel(data.subclassId),
-                        name: consts.subclassIdToLabel(data.subclassId),
-                        color: consts.subclassIdToColor(data.subclassId)
-                    });
-
-                    $scope.popularity.series[0].data.push({
-                        y: data.playerPercent / total * 100.0,
-                        id: consts.subclassIdToLabel(data.subclassId),
-                        name: consts.subclassIdToLabel(data.subclassId),
-                        color: consts.subclassIdToColor(data.subclassId)
-                    });
-                });
             });
     }
 ]);

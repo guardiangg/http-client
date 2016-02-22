@@ -45,17 +45,17 @@ app.controller('layoutCtrl', [
             $window.location = $location.absUrl().replace('/' + current + '/', '/' + lang + '/');
         };
 
-        $scope.searchForPlayer = function(name) {
-            if (!name || name.trim().length == 0) {
+        $scope.searchSite = function(query) {
+            if (!query || query.trim().length == 0) {
                 if (!$localStorage.searchPlaceholder) {
                     return
                 }
-                name = $localStorage.searchPlaceholder;
+                query = $localStorage.searchPlaceholder;
             }
 
-            $scope.placeholder = $localStorage.searchPlaceholder = name;
-            $scope.name = '';
-            $state.go('app.search', { name: name });
+            $scope.placeholder = $localStorage.searchPlaceholder = query;
+            $scope.query = '';
+            $state.go('app.search', { query: query });
         };
     }
 ]);

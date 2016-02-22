@@ -15,7 +15,7 @@
     "angulartics": "^0.20.1",
     "angulartics-google-analytics": "^0.1.1",
     "animate.css": "^3.4.0",
-    "async": "^1.4.2",
+    "async": "^1.5.0",
     "bootstrap": "^3.3.5",
     "bower": "^1.5.3",
     "duplexer": "^0.1.1",
