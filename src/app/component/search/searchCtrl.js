@@ -12,7 +12,7 @@ app.controller('searchCtrl', [
 
     function ($scope, $state, $stateParams, $q, $timeout, api, bungie, util) {
         $scope.done = false;
-        $scope.query = $stateParams.query;
+        $scope.query = $stateParams.query.toLowerCase().trim();
         $scope.results = [];
 
         var searches = {};
@@ -33,27 +33,32 @@ app.controller('searchCtrl', [
                 if (count > 0) {
                     $scope.gamedata = result.gamedata.data;
                 }
-
+                
                 // check profiles
                 if (result.xbox.data.Response.length > 0 && result.playstation.data.Response.length > 0) {
                     count += 2;
 
-                    $scope.playstation = true;
-                    $scope.xbox = true;
-                } else if (result.xbox.data.Response.length > 0) {
-                    if (count == 0) {
-                        $state.go('app.profile', {platform: 1, name: $scope.query});
-                        return;
+                    $scope.playstation = result.playstation.data.Response[0].displayName;
+                    $scope.xbox = result.xbox.data.Response[0].displayName;
+                } else {
+                    pforms = ['xbox', 'playstation'];
+                    
+                    for (var i = 0; i < pforms.length; i++) {
+                        var pf = pforms[i];
+                        
+                        if (result[pf].data.Response.length > 0) {
+                            $scope[pf] = result[pf].data.Response[0].displayName;
+                            
+                            if (count == 0 || $scope[pf].toLowerCase().trim() == $scope.query) {
+                                $state.go('app.profile', {platform: i + 1, name: $scope[pf]});
+                                return;
+                            }
+                            
+                            count++;
+                        }
                     }
-                    $scope.xbox = true;
-                } else if (result.playstation.data.Response.length > 0) {
-                    if (count == 0) {
-                        $state.go('app.profile', {platform: 2, name: $scope.query});
-                        return;
-                    }
-                    $scope.playstation = true;
                 }
-
+                
                 // if we only have one result redirect to gamedata
                 if (count == 1) {
                     if (result.gamedata.data.items.data.length) {
