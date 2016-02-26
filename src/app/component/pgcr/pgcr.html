@@ -1,0 +1,226 @@
+<div class="ad-leaderboard" ng-show="!embedded">
+    <advert sizes="728x90,970x90,970x250"></advert>
+</div>
+
+<div class="loading" translate ng-show="loading.pgcr">
+    <i class="fa fa-spin fa-refresh"></i> Loading post game carnage report...
+</div>
+
+<div class="pgcr" ng-show="!loading.pgcr" ng-class="{'embedded': embedded}">
+    <div class="pgcr-header">
+        <div class="name">{{ definitions.activities[details.referenceId].activityName }} ({{ modeDefs[mode] }})</div>
+        <div class="date"><span translate>played</span> {{ period|ago }}</div>
+        <div class="result">
+            <div class="alpha-bravo" ng-show="teams[16] && teams[17]">
+                <div class="alpha" ng-class="{'winner': teams[16].standing.standing.basic.value == 0}">
+                    <div class="team"><i class="ggg" ng-class="teamDefs[16].icon"></i> {{ teamDefs[16].label }}</div>
+                    <div class="score">{{ teams[16].standing.score.basic.value|number }}</div>
+                </div>
+                <div class="vs">
+                    <span translate>vs.</span>
+                </div>
+                <div class="bravo" ng-class="{'winner': teams[17].standing.standing.basic.value == 0}">
+                    <div class="team"><i class="ggg" ng-class="teamDefs[17].icon"></i> {{ teamDefs[17].label }}</div>
+                    <div class="score">{{ teams[17].standing.score.basic.value|number }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pgcr-chance" translate ng-show="teams[16] && teams[17]">
+        <i class="fa fa-info-circle"></i> Based on Elo, we projected the odds of winning for {{ teamDefs[16].label }} at
+        <strong>{{ teams[16].chance|number:2 }}%</strong> and {{ teamDefs[17].label }} at
+        <strong>{{ teams[17].chance|number:2 }}%</strong>.
+    </div>
+
+    <div class="pgcr-team" ng-repeat="(teamId, team) in teams" ng-show="teamDefs[teamId]">
+
+        <div class="team-label team-{{ teamId }}">
+            <div class="name"><i class="ggg" ng-class="teamDefs[teamId].icon"></i> {{ teamDefs[teamId].label }}</div>
+        </div>
+
+        <div class="players">
+
+            <div class="player" ng-repeat="entry in team.players" ng-class="{'active': characterId == entry.characterId}">
+
+                <div class="player-row">
+
+                    <div class="icon">
+                        <img ng-src="//bungie.net{{ entry.player.destinyUserInfo.iconPath }}" />
+                    </div>
+
+                    <div class="name">
+                        <a class="team-{{ teamId }}" href="javascript:;">
+                            {{ entry.player.destinyUserInfo.displayName }}
+                            <em>{{ entry.player.clanTag || 'No Clan' }}</em>
+                        </a>
+                    </div>
+
+                    <div class="pgcr-stats">
+                        <div class="stat size-1" ng-show="mode == 29 || mode == 13">
+                            <span class="value">{{ entry.standing || '-' }}</span>
+                            <span class="name">{{ statDefs.standing.statName }}</span>
+                        </div>
+                        <div class="stat size-1">
+                            <span class="value" ng-show="entry.elo.elo">{{ entry.elo.elo|number:0 }}</span>
+                            <span class="value" ng-show="!entry.elo.elo">-</span>
+                            <span class="name" translate>Elo</span>
+                        </div>
+                        <div class="stat size-1">
+                            <strong class="value" ng-show="mode != 29">{{ entry.values.score.basic.displayValue || '-' }}</strong>
+                            <strong class="value" ng-show="mode == 29">{{ entry.values.raceCompletionMilliseconds.basic.displayValue }}</strong>
+                            <span class="name">{{ statDefs.score.statName }}</span>
+                        </div>
+                        <div class="stat size-1 hide-compact">
+                            <span class="value">{{ entry.values.kills.basic.displayValue || '-' }}</span>
+                            <span class="name">{{ statDefs.kills.statName }}</span>
+                        </div>
+                        <div class="stat size-1 hide-compact">
+                            <span class="value">{{ entry.values.deaths.basic.displayValue || '-' }}</span>
+                            <span class="name">{{ statDefs.deaths.statName }}</span>
+                        </div>
+                        <div class="stat size-1 hide-compact">
+                            <span class="value">{{ entry.values.assists.basic.displayValue || '-' }}</span>
+                            <span class="name">{{ statDefs.assists.statName }}</span>
+                        </div>
+                        <div class="stat size-1 hide-compact">
+                            <span class="value">{{ entry.values.killsDeathsRatio.basic.displayValue || '-' }}</span>
+                            <span class="name">{{ statDefs.killsDeathsRatio.statName }}</span>
+                        </div>
+                        <div class="stat size-1 medal-bg hide-compact">
+                            <span class="medal-count">{{ entry.extended.values.allMedalsEarned.basic.displayValue || '0' }}</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="extended">
+
+                    <div class="compact-stats">
+                        <ul>
+                            <li>
+                                <span>{{ statDefs.kills.statName }}</span>
+                                <strong>{{ entry.values.kills.basic.displayValue || '-' }}</strong>
+                            </li>
+                            <li>
+                                <span>{{ statDefs.deaths.statName }}</span>
+                                <strong>{{ entry.values.deaths.basic.displayValue || '-' }}</strong>
+                            </li>
+                            <li>
+                                <span>{{ statDefs.assists.statName }}</span>
+                                <strong>{{ entry.values.assists.basic.displayValue || '-' }}</strong>
+                            </li>
+                            <li>
+                                <span>{{ statDefs.killsDeathsRatio.statName }}</span>
+                                <strong>{{ entry.values.killsDeathsRatio.basic.displayValue || '-' }}</strong>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="weapons">
+                        <ul>
+                            <li ng-repeat="weapon in entry.extended.weapons">
+                                <div class="icon">
+                                    <a ui-sref="app.itemDetailName({hash: weapon.referenceId, name: (definitions.items[weapon.referenceId].itemName|slugify)})"
+                                       target="_self"
+                                       data-ggg-target="true">
+                                        <img ng-src="//bungie.net{{ definitions.items[weapon.referenceId].icon }}" />
+                                    </a>
+                                </div>
+                                <div class="info">
+                                    <span class="name">
+                                        <a ui-sref="app.itemDetailName({hash: weapon.referenceId, name: (definitions.items[weapon.referenceId].itemName|slugify)})"
+                                           data-ggg-target="true"
+                                           target="_self"
+                                           ng-class="'quality-' + definitions.items[weapon.referenceId].tierType">
+                                            {{ definitions.items[weapon.referenceId].itemName }}
+                                        </a>
+                                    </span>
+                                    <span class="description">{{ definitions.items[weapon.referenceId].tierTypeName }} {{ definitions.items[weapon.referenceId].itemTypeName }}</span>
+                                </div>
+                                <div class="kills">
+                                    <span class="value">{{ weapon.values.uniqueWeaponKills.basic.displayValue }}</span>
+                                    <span class="name">{{ statDefs.uniqueWeaponKills.statName }}</span>
+                                </div>
+                                <div class="precision hide-compact">
+                                    <span class="value">{{ weapon.values.uniqueWeaponPrecisionKills.basic.displayValue }}</span>
+                                    <span class="name">{{ statDefs.uniqueWeaponPrecisionKills.statName }}</span>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="specials" ng-show="entry.extended.values.weaponKillsSuper.basic.value > 0 || entry.extended.values.weaponKillsGrenade.basic.value > 0 || entry.extended.values.weaponKillsMelee.basic.value > 0">
+                            <div class="special" ng-show="entry.extended.values.weaponKillsSuper.basic.value > 0">
+                                <div class="icon"><img ng-src="/asset/image/super.png" /></div>
+                                <div class="kills">
+                                    <span class="value">{{ entry.extended.values.weaponKillsSuper.basic.displayValue }}</span>
+                                    <span class="name">{{ statDefs.weaponKillsSuper.statName }}</span>
+                                </div>
+                            </div>
+                            <div class="special" ng-show="entry.extended.values.weaponKillsGrenade.basic.value > 0">
+                                <div class="icon"><img ng-src="/asset/image/grenade.png" /></div>
+                                <div class="kills">
+                                    <span class="value">{{ entry.extended.values.weaponKillsGrenade.basic.displayValue }}</span>
+                                    <span class="name">{{ statDefs.weaponKillsGrenade.statName }}</span>
+                                </div>
+                            </div>
+                            <div class="special" ng-show="entry.extended.values.weaponKillsMelee.basic.value > 0">
+                                <div class="icon"><img ng-src="/asset/image/melee.png" /></div>
+                                <div class="kills">
+                                    <span class="value">{{ entry.extended.values.weaponKillsMelee.basic.displayValue }}</span>
+                                    <span class="name">{{ statDefs.weaponKillsMelee.statName }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pgcr-empty" translate ng-show="!entry.extended.values.weaponKillsSuper.basic.value && !entry.extended.values.weaponKillsGrenade.basic.value > 0 && !entry.extended.values.weaponKillsMelee.basic.value && !entry.extended.weapons">
+                            No kills recorded
+                        </div>
+                    </div>
+
+                    <div class="medals">
+                        <ul>
+                            <li ng-repeat="stat in entry.extended.values|medals" ng-show="statDefs[stat.medal]">
+                                <div class="icon"><img ng-src="//bungie.net{{ statDefs[stat.medal].iconImage }}" /></div>
+                                <div class="info">
+                                    <span class="name">{{ statDefs[stat.medal].statName }}<em class="count" ng-show="stat.basic.value > 1">x{{ stat.basic.value }}</em></span>
+                                    <span class="description">{{ statDefs[stat.medal].statDescription }}</span>
+                                </div>
+                                <div class="score">
+                                    <span class="value">{{ stat.weighted.value|number }}</span>
+                                    <span class="name" translate>Points</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="pgcr-empty" translate ng-show="entry.extended.values|noMedals">
+                            No medals earned
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="extended profile-link">
+                    <a ui-sref="app.profile({platform: entry.player.destinyUserInfo.membershipType, name: entry.player.destinyUserInfo.displayName})">
+                        Full Profile ({{ entry.player.destinyUserInfo.displayName }})
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pgcr-external">
+        <a href="https://www.bungie.net/en/Legend/PGCR?instanceId={{ id }}" ng-show="!embedded" target="_blank">
+            <i class="fa fa-external-link"></i> <span translate>View carnage report on Bungie.net</span>
+        </a>
+        <a ui-sref="app.pgcr({instanceId: id})" ng-show="embedded">
+            <i class="fa fa-link"></i> <span translate>Permalink of this game</span>
+        </a>
+    </div>
+</div>
+
+<div class="ad ad-pgcr" ng-show="embedded">
+    <advert sizes="300x250,728x90,Unstacked 300x250"></advert>
+</div>
+
+<div class="mobile-square" ng-show="isMobile && platform == 1">
+    <advert sizes="300x250,320x50"></advert>
+</div>

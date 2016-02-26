@@ -157,6 +157,24 @@ app.service('consts', [
                 // custom modes
                 523: 'ggg-elimination'
             },
+            teams: {
+                0: {
+                    label: gettextCatalog.getString('Players'),
+                    icon: null
+                },
+                16: {
+                    label: gettextCatalog.getString('Alpha'),
+                    icon: 'ggg-alpha'
+                },
+                17: {
+                    label: gettextCatalog.getString('Bravo'),
+                    icon: 'ggg-bravo'
+                },
+                99: {
+                    label: gettextCatalog.getString('Deserters'),
+                    icon: null
+                }
+            },
             classes: {
                 2271682572: gettextCatalog.getString('Warlock'),
                 671679327: gettextCatalog.getString('Hunter'),

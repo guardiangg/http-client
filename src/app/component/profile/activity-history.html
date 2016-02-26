@@ -2,6 +2,7 @@
     <advert sizes="728x90"></advert>
 </div>
 
+<!--
 <h2 translate ng-show="srl.length > 0">SRL Records <span class="subtext">limited event, ended Dec 29th, 2015</span></h2>
 <div class="loading" ng-show="loading.srl">
     <i class="fa fa-cog fa-spin"></i> <translate>Loading best SRL times...</translate>
@@ -25,6 +26,7 @@
         <div class="rank" ng-if="!race.rank || race.rank <= 0"><span translate>Not Ranked</span></div>
     </div>
 </div>
+-->
 
 <h2>Elo <span translate class="subtext">since "The Taken King" launch (Sept. 15, 2015)</span></h2>
 <div class="loading" ng-if="loading.elo || loading.eloHistory">
@@ -101,7 +103,7 @@
 <div class="loading" ng-show="loading.activityHistory">
     <i class="fa fa-cog fa-spin"></i> <translate>Loading Game History...</translate>
 </div>
-<div class="table-responsive" infinite-scroll="loadMoreHistory">
+<div infinite-scroll="loadMoreHistory">
     <table class="table table-striped history noselect" ng-if="activities && !loading.activityHistory">
         <tr>
             <th style="width:15%">Played</th>

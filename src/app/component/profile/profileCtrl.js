@@ -75,7 +75,9 @@ app.controller('profileCtrl', [
                     $scope.activities.push.apply($scope.activities, activities);
                     $scope.loading.activityHistory = false;
 
-                    if (result.data.Response.data.activities.length > 0) {
+                    if (Object.keys(result.data.Response.data).length &&
+                        Object.keys(result.data.Response.data.activities).length
+                    ) {
                         $scope.infiniteScroll = false;
                     }
                 }, function() {

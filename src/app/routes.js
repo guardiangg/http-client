@@ -82,6 +82,11 @@ app.config([
                 controller: 'changelogCtrl',
                 templateUrl: 'component/changelog/changelog.html'
             })
+            .state('app.pgcr', {
+                url: '/pgcr/{instanceId:[0-9]+}',
+                controller: 'pgcrCtrl',
+                templateUrl: 'component/pgcr/pgcr.html'
+            })
             .state('app.profile', {
                 url: '/profile/{platform}/{name}/{mode}',
                 params: {

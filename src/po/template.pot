@@ -26,10 +26,20 @@ msgstr ""
 msgid "<em>{{totalPlayers24|number}}</em> tracked in the past day"
 msgstr ""
 
+#: component\pgcr\pgcr.html:30
+msgid ""
+"<i class=\"fa fa-info-circle\"></i> Based on Elo, we projected the odds of winning for {{ teamDefs[16].label }} at\r\n"
+"        <strong>{{ teams[16].chance|number:2 }}%</strong> and {{ teamDefs[17].label }} at\r\n"
+"        <strong>{{ teams[17].chance|number:2 }}%</strong>."
+msgstr ""
+
+#: component\pgcr\pgcr.html:5
+msgid "<i class=\"fa fa-spin fa-refresh\"></i> Loading post game carnage report..."
+msgstr ""
+
 #. Short for assists
 #: component\leaderboard\leaderboard.html:68
-#: component\profile\activity-history.html:112
-#: component\profile\pgcr.html:9
+#: component\profile\activity-history.html:114
 msgid "A"
 msgstr ""
 
@@ -38,7 +48,7 @@ msgid "Active Gear"
 msgstr ""
 
 #: component\changelog\changelogCtrl.js:24
-#: shared\service\consts.js:667
+#: shared\service\consts.js:685
 msgid "Activities"
 msgstr ""
 
@@ -54,7 +64,7 @@ msgstr ""
 msgid "Agility"
 msgstr ""
 
-#: component\profile\activity-history.html:61
+#: component\profile\activity-history.html:63
 msgid "All"
 msgstr ""
 
@@ -66,7 +76,7 @@ msgid ""
 "            to maintain a high Elo score, these players are regarded as the best of the best!"
 msgstr ""
 
-#: component\profile\pgcr.html:35
+#: shared\service\consts.js:166
 msgid "Alpha"
 msgstr ""
 
@@ -76,17 +86,17 @@ msgstr ""
 
 #: component\layout\nav.html:191
 #: component\profile\character.html:29
-#: shared\service\consts.js:405
+#: shared\service\consts.js:423
 msgid "Armor"
 msgstr ""
 
 #: component\layout\nav.html:193
-#: shared\service\consts.js:418
+#: shared\service\consts.js:436
 msgid "Arms"
 msgstr ""
 
 #: component\layout\nav.html:197
-#: shared\service\consts.js:446
+#: shared\service\consts.js:464
 msgid "Artifact"
 msgstr ""
 
@@ -94,44 +104,38 @@ msgstr ""
 msgid "As your score rises and falls, you'll be categorized into leagues."
 msgstr ""
 
-#: shared\service\consts.js:279
+#: shared\service\consts.js:297
 msgid "Auto Rifle"
 msgstr ""
 
-#: component\profile\pgcr.html:33
-msgid "Average Team Elo"
-msgstr ""
-
 #: component\item\item-list.html:96
-#: shared\service\consts.js:238
+#: shared\service\consts.js:256
 msgid "Basic"
 msgstr ""
 
-#: component\profile\activity-history.html:21
 #: component\srl\srl.html:66
 msgid "Best Gates"
 msgstr ""
 
-#: component\profile\activity-history.html:17
 #: component\srl\srl.html:65
 msgid "Best Time"
 msgstr ""
 
 #: component\layout\nav.html:230
-#: shared\service\consts.js:208
+#: shared\service\consts.js:226
 msgid "Bladedancer"
 msgstr ""
 
 #: component\layout\nav.html:215
-#: shared\service\consts.js:519
+#: shared\service\consts.js:537
 msgid "Bounty"
 msgstr ""
 
-#: shared\service\consts.js:848
+#: shared\service\consts.js:866
 msgid "Bounty Tracker"
 msgstr ""
 
-#: component\profile\pgcr.html:38
+#: shared\service\consts.js:170
 msgid "Bravo"
 msgstr ""
 
@@ -147,11 +151,11 @@ msgstr ""
 
 #: component\layout\nav.html:168
 #: component\layout\nav.html:172
-#: shared\service\consts.js:233
+#: shared\service\consts.js:251
 msgid "Campus Martius"
 msgstr ""
 
-#: shared\service\consts.js:865
+#: shared\service\consts.js:883
 msgid "Character Creation"
 msgstr ""
 
@@ -160,7 +164,7 @@ msgid "Check out the new shells, emblems, emotes and more in the <a ui-sref=\"ap
 msgstr ""
 
 #: component\layout\nav.html:194
-#: shared\service\consts.js:425
+#: shared\service\consts.js:443
 msgid "Chest"
 msgstr ""
 
@@ -175,7 +179,7 @@ msgstr ""
 #: component\item\item-detail.html:219
 #: component\layout\nav.html:112
 #: component\layout\nav.html:42
-#: component\profile\activity-history.html:67
+#: component\profile\activity-history.html:69
 #: component\subclass\subclass.html:91
 #: shared\service\consts.js:128
 msgid "Clash"
@@ -186,7 +190,7 @@ msgid "Class"
 msgstr ""
 
 #: component\layout\nav.html:196
-#: shared\service\consts.js:439
+#: shared\service\consts.js:457
 msgid "Class Item"
 msgstr ""
 
@@ -199,19 +203,19 @@ msgid "Column"
 msgstr ""
 
 #: component\item\item-list.html:95
-#: shared\service\consts.js:242
+#: shared\service\consts.js:260
 msgid "Common"
 msgstr ""
 
 #: component\layout\nav.html:216
-#: shared\service\consts.js:542
+#: shared\service\consts.js:560
 msgid "Consumable"
 msgstr ""
 
 #: component\item\item-detail.html:218
 #: component\layout\nav.html:107
 #: component\layout\nav.html:37
-#: component\profile\activity-history.html:66
+#: component\profile\activity-history.html:68
 #: component\subclass\subclass.html:82
 #: shared\service\consts.js:126
 msgid "Control"
@@ -222,41 +226,40 @@ msgstr ""
 msgid "Crimson <span class=\"expired\">(Inactive)</span>"
 msgstr ""
 
-#: component\profile\activity-history.html:63
+#: component\profile\activity-history.html:65
 #: shared\service\consts.js:139
 msgid "Crimson Doubles"
 msgstr ""
 
-#: shared\service\consts.js:815
+#: shared\service\consts.js:833
 msgid "Crota's Bane"
 msgstr ""
 
-#: shared\service\consts.js:532
-#: shared\service\consts.js:671
+#: shared\service\consts.js:550
+#: shared\service\consts.js:689
 msgid "Crucible"
 msgstr ""
 
-#: shared\service\consts.js:835
+#: shared\service\consts.js:853
 msgid "Crucible Handler"
 msgstr ""
 
-#: shared\service\consts.js:839
+#: shared\service\consts.js:857
 msgid "Crucible Quartermaster"
 msgstr ""
 
-#: shared\service\consts.js:852
+#: shared\service\consts.js:870
 msgid "Cryptarch"
 msgstr ""
 
 #: component\layout\nav.html:217
-#: shared\service\consts.js:550
+#: shared\service\consts.js:568
 msgid "Currency"
 msgstr ""
 
 #. Short for deaths
 #: component\leaderboard\leaderboard.html:67
-#: component\profile\activity-history.html:111
-#: component\profile\pgcr.html:8
+#: component\profile\activity-history.html:113
 msgid "D"
 msgstr ""
 
@@ -268,12 +271,12 @@ msgstr ""
 msgid "Data is updating..."
 msgstr ""
 
-#: shared\service\consts.js:783
+#: shared\service\consts.js:801
 msgid "Dead Orbit"
 msgstr ""
 
 #: component\layout\nav.html:234
-#: shared\service\consts.js:173
+#: shared\service\consts.js:191
 msgid "Defender"
 msgstr ""
 
@@ -283,6 +286,10 @@ msgstr ""
 
 #: component\item\item-list-directive.html:46
 msgid "Description"
+msgstr ""
+
+#: shared\service\consts.js:174
+msgid "Deserters"
 msgstr ""
 
 #: component\changelog\changelog.html:6
@@ -297,7 +304,7 @@ msgstr ""
 msgid "Diamond"
 msgstr ""
 
-#: shared\service\consts.js:766
+#: shared\service\consts.js:784
 msgid "Disciple of Osiris"
 msgstr ""
 
@@ -308,7 +315,7 @@ msgstr ""
 #: component\item\item-detail.html:225
 #: component\layout\nav.html:142
 #: component\layout\nav.html:72
-#: component\profile\activity-history.html:73
+#: component\profile\activity-history.html:75
 #: shared\service\consts.js:132
 msgid "Doubles"
 msgstr ""
@@ -322,10 +329,14 @@ msgstr ""
 #: component\item\item-detail.html:222
 #: component\layout\nav.html:127
 #: component\layout\nav.html:57
-#: component\profile\activity-history.html:70
+#: component\profile\activity-history.html:72
 #: component\subclass\subclass.html:100
 #: shared\service\consts.js:131
 msgid "Elimination"
+msgstr ""
+
+#: component\pgcr\pgcr.html:67
+msgid "Elo"
 msgstr ""
 
 #: component\layout\nav.html:19
@@ -333,7 +344,7 @@ msgid "Elo Rankings"
 msgstr ""
 
 #: component\layout\nav.html:205
-#: shared\service\consts.js:471
+#: shared\service\consts.js:489
 msgid "Emblem"
 msgstr ""
 
@@ -342,7 +353,7 @@ msgid "Emblem Preview"
 msgstr ""
 
 #: component\layout\nav.html:206
-#: shared\service\consts.js:479
+#: shared\service\consts.js:497
 msgid "Emote"
 msgstr ""
 
@@ -351,20 +362,20 @@ msgid "End day"
 msgstr ""
 
 #: component\layout\nav.html:218
-#: shared\service\consts.js:558
+#: shared\service\consts.js:576
 msgid "Engram"
 msgstr ""
 
-#: shared\service\consts.js:811
+#: shared\service\consts.js:829
 msgid "Eververse"
 msgstr ""
 
-#: shared\service\consts.js:881
+#: shared\service\consts.js:899
 msgid "Evolved From Another Item"
 msgstr ""
 
 #: component\item\item-list.html:91
-#: shared\service\consts.js:258
+#: shared\service\consts.js:276
 msgid "Exotic"
 msgstr ""
 
@@ -372,7 +383,7 @@ msgstr ""
 msgid "Exotic Armor"
 msgstr ""
 
-#: shared\service\consts.js:869
+#: shared\service\consts.js:887
 msgid "Exotic Weapon Bounty"
 msgstr ""
 
@@ -380,7 +391,7 @@ msgstr ""
 msgid "Exotic Weapons"
 msgstr ""
 
-#: shared\service\consts.js:720
+#: shared\service\consts.js:738
 msgid "Expansion Pack"
 msgstr ""
 
@@ -410,18 +421,18 @@ msgstr ""
 msgid "From"
 msgstr ""
 
-#: shared\service\consts.js:286
-#: shared\service\consts.js:336
-#: shared\service\consts.js:372
+#: shared\service\consts.js:304
+#: shared\service\consts.js:354
+#: shared\service\consts.js:390
 msgid "Fusion Rifle"
 msgstr ""
 
-#: shared\service\consts.js:779
+#: shared\service\consts.js:797
 msgid "Future War Cult"
 msgstr ""
 
 #: component\item\item-detail.html:213
-#: component\profile\activity-history.html:58
+#: component\profile\activity-history.html:60
 msgid "Game mode:"
 msgstr ""
 
@@ -430,7 +441,7 @@ msgid "Games"
 msgstr ""
 
 #: component\layout\nav.html:198
-#: shared\service\consts.js:453
+#: shared\service\consts.js:471
 msgid "Ghost"
 msgstr ""
 
@@ -449,11 +460,10 @@ msgid "Grimoire"
 msgstr ""
 
 #: component\item\item-detail.html:146
-#: component\profile\pgcr.html:4
 msgid "Guardian"
 msgstr ""
 
-#: shared\service\consts.js:831
+#: shared\service\consts.js:849
 msgid "Guardian Outfitter"
 msgstr ""
 
@@ -469,19 +479,19 @@ msgid ""
 msgstr ""
 
 #: component\layout\nav.html:231
-#: shared\service\consts.js:198
+#: shared\service\consts.js:216
 msgid "Gunslinger"
 msgstr ""
 
-#: shared\service\consts.js:819
+#: shared\service\consts.js:837
 msgid "Gunsmith"
 msgstr ""
 
-#: shared\service\consts.js:582
+#: shared\service\consts.js:600
 msgid "Halloween Mask"
 msgstr ""
 
-#: shared\service\consts.js:293
+#: shared\service\consts.js:311
 msgid "Hand Cannon"
 msgstr ""
 
@@ -490,12 +500,12 @@ msgstr ""
 msgid "Heavy"
 msgstr ""
 
-#: shared\service\consts.js:366
+#: shared\service\consts.js:384
 msgid "Heavy Weapon"
 msgstr ""
 
 #: component\layout\nav.html:192
-#: shared\service\consts.js:411
+#: shared\service\consts.js:429
 msgid "Helmet"
 msgstr ""
 
@@ -521,11 +531,11 @@ msgstr ""
 
 #: component\item\item-detail.html:118
 #: component\subclass\subclass.html:19
-#: shared\service\consts.js:162
+#: shared\service\consts.js:180
 msgid "Hunter"
 msgstr ""
 
-#: shared\service\consts.js:803
+#: shared\service\consts.js:821
 msgid "Hunter Vanguard"
 msgstr ""
 
@@ -536,13 +546,13 @@ msgid ""
 "            best Destiny stat website."
 msgstr ""
 
-#: component\profile\activity-history.html:41
+#: component\profile\activity-history.html:43
 msgid "Inactive"
 msgstr ""
 
 #: component\layout\nav.html:169
 #: component\layout\nav.html:173
-#: shared\service\consts.js:234
+#: shared\service\consts.js:252
 msgid "Infinite Descent"
 msgstr ""
 
@@ -566,14 +576,14 @@ msgstr ""
 #: component\item\item-detail.html:216
 #: component\layout\nav.html:102
 #: component\layout\nav.html:32
-#: component\profile\activity-history.html:65
+#: component\profile\activity-history.html:67
 #: component\subclass\subclass.html:85
 #: shared\service\consts.js:134
-#: shared\service\consts.js:675
+#: shared\service\consts.js:693
 msgid "Iron Banner"
 msgstr ""
 
-#: shared\service\consts.js:753
+#: shared\service\consts.js:771
 msgid "Ishtar Sink"
 msgstr ""
 
@@ -593,15 +603,13 @@ msgstr ""
 
 #. Short for kills
 #: component\leaderboard\leaderboard.html:66
-#: component\profile\activity-history.html:110
-#: component\profile\pgcr.html:7
+#: component\profile\activity-history.html:112
 msgid "K"
 msgstr ""
 
 #. Short for kills / deaths
 #: component\leaderboard\leaderboard.html:69
-#: component\profile\activity-history.html:113
-#: component\profile\pgcr.html:10
+#: component\profile\activity-history.html:115
 #: component\subclass\subclass.html:118
 #: component\subclass\subclass.html:144
 #: component\subclass\subclass.html:174
@@ -648,12 +656,12 @@ msgid "Last patched"
 msgstr ""
 
 #: component\item\item-list.html:92
-#: shared\service\consts.js:254
+#: shared\service\consts.js:272
 msgid "Legendary"
 msgstr ""
 
 #: component\layout\nav.html:195
-#: shared\service\consts.js:432
+#: shared\service\consts.js:450
 msgid "Legs"
 msgstr ""
 
@@ -669,15 +677,15 @@ msgstr ""
 msgid "Loading Charts..."
 msgstr ""
 
-#: component\profile\activity-history.html:31
+#: component\profile\activity-history.html:33
 msgid "Loading Elo Data..."
 msgstr ""
 
-#: component\profile\activity-history.html:83
+#: component\profile\activity-history.html:85
 msgid "Loading Fireteam..."
 msgstr ""
 
-#: component\profile\activity-history.html:102
+#: component\profile\activity-history.html:104
 msgid "Loading Game History..."
 msgstr ""
 
@@ -691,10 +699,6 @@ msgstr ""
 
 #: component\subclass\subclass.html:139
 msgid "Loading Weapons..."
-msgstr ""
-
-#: component\profile\activity-history.html:7
-msgid "Loading best SRL times..."
 msgstr ""
 
 #: component\changelog\changelog.html:35
@@ -717,11 +721,11 @@ msgstr ""
 msgid "Locations"
 msgstr ""
 
-#: shared\service\consts.js:791
+#: shared\service\consts.js:809
 msgid "Lord Saladin"
 msgstr ""
 
-#: shared\service\consts.js:379
+#: shared\service\consts.js:397
 msgid "Machine Gun"
 msgstr ""
 
@@ -729,16 +733,16 @@ msgstr ""
 msgid "Maintenance Notice"
 msgstr ""
 
-#: component\profile\activity-history.html:108
+#: component\profile\activity-history.html:110
 msgid "Map"
 msgstr ""
 
-#: component\profile\activity-history.html:79
+#: component\profile\activity-history.html:81
 msgid "Match History"
 msgstr ""
 
 #: component\layout\nav.html:219
-#: shared\service\consts.js:566
+#: shared\service\consts.js:584
 msgid "Material"
 msgstr ""
 
@@ -746,16 +750,16 @@ msgstr ""
 msgid "Melee"
 msgstr ""
 
-#: shared\service\consts.js:737
+#: shared\service\consts.js:755
 msgid "Meridian Bay"
 msgstr ""
 
-#: shared\service\consts.js:861
+#: shared\service\consts.js:879
 msgid "Miscellaneous"
 msgstr ""
 
 #: component\layout\nav.html:220
-#: shared\service\consts.js:574
+#: shared\service\consts.js:592
 msgid "Mission Key Item"
 msgstr ""
 
@@ -769,7 +773,7 @@ msgid ""
 "            <a href=\"https://github.com/guardiangg/http-client\">GitHub repository</a>, we're open source!"
 msgstr ""
 
-#: shared\service\consts.js:844
+#: shared\service\consts.js:862
 msgid "Multi-Location Vendor"
 msgstr ""
 
@@ -781,7 +785,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: shared\service\consts.js:787
+#: shared\service\consts.js:805
 msgid "New Monarchy"
 msgstr ""
 
@@ -794,15 +798,15 @@ msgid "Next"
 msgstr ""
 
 #: component\layout\nav.html:232
-#: shared\service\consts.js:203
+#: shared\service\consts.js:221
 msgid "Nightstalker"
 msgstr ""
 
-#: component\profile\activity-history.html:49
+#: component\profile\activity-history.html:51
 msgid "No Elo data exists for this player. This is either an error in our system, or the player pretty much never enters Crucible."
 msgstr ""
 
-#: component\profile\activity-history.html:138
+#: component\profile\activity-history.html:140
 msgid "No games have been played in this mode."
 msgstr ""
 
@@ -810,19 +814,23 @@ msgstr ""
 msgid "No items were found"
 msgstr ""
 
+#: component\pgcr\pgcr.html:175
+msgid "No kills recorded"
+msgstr ""
+
+#: component\pgcr\pgcr.html:194
+msgid "No medals earned"
+msgstr ""
+
 #: component\search\search.html:34
 msgid "No results for your query \"{{query}}\". Check your spelling and try again."
 msgstr ""
 
-#: component\profile\activity-history.html:25
-msgid "Not Ranked"
-msgstr ""
-
-#: shared\service\consts.js:745
+#: shared\service\consts.js:763
 msgid "Ocean of Storms"
 msgstr ""
 
-#: shared\service\consts.js:749
+#: shared\service\consts.js:767
 msgid "Old Russia"
 msgstr ""
 
@@ -831,11 +839,11 @@ msgstr ""
 msgid "One of these perks is randomly selected for this node"
 msgstr ""
 
-#: shared\service\consts.js:733
+#: shared\service\consts.js:751
 msgid "Oryx's Dreadnaught"
 msgstr ""
 
-#: shared\service\consts.js:729
+#: shared\service\consts.js:747
 msgid "Outdoor Zone"
 msgstr ""
 
@@ -857,7 +865,7 @@ msgstr ""
 msgid "Passive Gear"
 msgstr ""
 
-#: shared\service\consts.js:741
+#: shared\service\consts.js:759
 msgid "Patrol"
 msgstr ""
 
@@ -870,7 +878,11 @@ msgstr ""
 msgid "Perk"
 msgstr ""
 
-#: component\profile\activity-history.html:40
+#: component\pgcr\pgcr.html:215
+msgid "Permalink of this game"
+msgstr ""
+
+#: component\profile\activity-history.html:42
 msgid "Placing"
 msgstr ""
 
@@ -888,6 +900,14 @@ msgstr ""
 #: component\layout\nav.html:24
 #: shared\service\consts.js:122
 msgid "PlayStation"
+msgstr ""
+
+#: shared\service\consts.js:162
+msgid "Players"
+msgstr ""
+
+#: component\pgcr\pgcr.html:190
+msgid "Points"
 msgstr ""
 
 #: component\leaderboard\leaderboard.html:104
@@ -911,7 +931,7 @@ msgstr ""
 msgid "Primary Stats"
 msgstr ""
 
-#: shared\service\consts.js:273
+#: shared\service\consts.js:291
 msgid "Primary Weapon"
 msgstr ""
 
@@ -919,7 +939,7 @@ msgstr ""
 msgid "Primary type"
 msgstr ""
 
-#: shared\service\consts.js:679
+#: shared\service\consts.js:697
 msgid "Prison of Elders"
 msgstr ""
 
@@ -927,31 +947,31 @@ msgstr ""
 msgid "Profiles"
 msgstr ""
 
-#: shared\service\consts.js:873
+#: shared\service\consts.js:891
 msgid "Public Events"
 msgstr ""
 
-#: shared\service\consts.js:300
+#: shared\service\consts.js:318
 msgid "Pulse Rifle"
 msgstr ""
 
-#: shared\service\consts.js:762
+#: shared\service\consts.js:780
 msgid "Queen's Wrath"
 msgstr ""
 
-#: shared\service\consts.js:885
+#: shared\service\consts.js:903
 msgid "Quest"
 msgstr ""
 
-#: shared\service\consts.js:683
+#: shared\service\consts.js:701
 msgid "Raid - Crota's End"
 msgstr ""
 
-#: shared\service\consts.js:687
+#: shared\service\consts.js:705
 msgid "Raid - King's Fall"
 msgstr ""
 
-#: shared\service\consts.js:691
+#: shared\service\consts.js:709
 msgid "Raid - Vault of Glass"
 msgstr ""
 
@@ -967,16 +987,12 @@ msgstr ""
 msgid "Rank"
 msgstr ""
 
-#: component\profile\activity-history.html:24
-msgid "Ranked"
-msgstr ""
-
 #: component\weapon-stats\weapon-stats.html:88
 msgid "Ranked as a percentage of all kills"
 msgstr ""
 
 #: component\item\item-list.html:93
-#: shared\service\consts.js:250
+#: shared\service\consts.js:268
 msgid "Rare"
 msgstr ""
 
@@ -984,7 +1000,7 @@ msgstr ""
 msgid "Real-time stats for <em>{{totalPlayers|number}}</em> Destiny players"
 msgstr ""
 
-#: component\profile\activity-history.html:86
+#: component\profile\activity-history.html:88
 msgid "Recent Fireteam"
 msgstr ""
 
@@ -992,7 +1008,7 @@ msgstr ""
 msgid "Recovery"
 msgstr ""
 
-#: shared\service\consts.js:758
+#: shared\service\consts.js:776
 msgid "Reef Vendor"
 msgstr ""
 
@@ -1011,26 +1027,26 @@ msgstr ""
 #: component\item\item-detail.html:220
 #: component\layout\nav.html:122
 #: component\layout\nav.html:52
-#: component\profile\activity-history.html:68
+#: component\profile\activity-history.html:70
 #: component\subclass\subclass.html:94
 #: shared\service\consts.js:129
 msgid "Rift"
 msgstr ""
 
-#: shared\service\consts.js:386
+#: shared\service\consts.js:404
 msgid "Rocket Launcher"
 msgstr ""
 
 #: component\item\item-detail.html:221
 #: component\layout\nav.html:117
 #: component\layout\nav.html:47
-#: component\profile\activity-history.html:69
+#: component\profile\activity-history.html:71
 #: component\subclass\subclass.html:97
 #: shared\service\consts.js:130
 msgid "Rumble"
 msgstr ""
 
-#: component\profile\activity-history.html:75
+#: component\profile\activity-history.html:77
 #: shared\service\consts.js:136
 msgid "SRL"
 msgstr ""
@@ -1040,28 +1056,23 @@ msgstr ""
 msgid "SRL <span class=\"expired\">(Inactive)</span>"
 msgstr ""
 
-#: shared\service\consts.js:699
+#: shared\service\consts.js:717
 msgid "SRL Record Book"
-msgstr ""
-
-#: component\profile\activity-history.html:5
-msgid "SRL Records <span class=\"subtext\">limited event, ended Dec 29th, 2015</span>"
 msgstr ""
 
 #: component\item\item-detail.html:224
 #: component\layout\nav.html:137
 #: component\layout\nav.html:67
-#: component\profile\activity-history.html:72
+#: component\profile\activity-history.html:74
 #: shared\service\consts.js:127
 msgid "Salvage"
 msgstr ""
 
-#: component\profile\activity-history.html:109
-#: component\profile\pgcr.html:6
+#: component\profile\activity-history.html:111
 msgid "Score"
 msgstr ""
 
-#: shared\service\consts.js:307
+#: shared\service\consts.js:325
 msgid "Scout Rifle"
 msgstr ""
 
@@ -1078,29 +1089,29 @@ msgid "Select a map"
 msgstr ""
 
 #: component\layout\nav.html:207
-#: shared\service\consts.js:487
+#: shared\service\consts.js:505
 msgid "Shader"
 msgstr ""
 
 #: component\layout\nav.html:208
-#: shared\service\consts.js:495
+#: shared\service\consts.js:513
 msgid "Ship"
 msgstr ""
 
-#: shared\service\consts.js:501
+#: shared\service\consts.js:519
 msgid "Ship Schematic"
 msgstr ""
 
-#: shared\service\consts.js:827
+#: shared\service\consts.js:845
 msgid "Shipwright"
 msgstr ""
 
-#: shared\service\consts.js:314
-#: shared\service\consts.js:343
+#: shared\service\consts.js:332
+#: shared\service\consts.js:361
 msgid "Shotgun"
 msgstr ""
 
-#: shared\service\consts.js:350
+#: shared\service\consts.js:368
 msgid "Sidearm"
 msgstr ""
 
@@ -1120,14 +1131,14 @@ msgstr ""
 #: component\item\item-detail.html:223
 #: component\layout\nav.html:132
 #: component\layout\nav.html:62
-#: component\profile\activity-history.html:71
+#: component\profile\activity-history.html:73
 #: component\subclass\subclass.html:103
 #: shared\service\consts.js:125
 msgid "Skirmish"
 msgstr ""
 
-#: shared\service\consts.js:321
-#: shared\service\consts.js:357
+#: shared\service\consts.js:339
+#: shared\service\consts.js:375
 msgid "Sniper Rifle"
 msgstr ""
 
@@ -1141,11 +1152,11 @@ msgid "Sources"
 msgstr ""
 
 #: component\layout\nav.html:209
-#: shared\service\consts.js:511
+#: shared\service\consts.js:529
 msgid "Sparrow"
 msgstr ""
 
-#: shared\service\consts.js:695
+#: shared\service\consts.js:713
 msgid "Sparrow Racing League"
 msgstr ""
 
@@ -1158,12 +1169,11 @@ msgstr ""
 msgid "Special Event"
 msgstr ""
 
-#: shared\service\consts.js:330
+#: shared\service\consts.js:348
 msgid "Special Weapon"
 msgstr ""
 
-#: component\profile\activity-history.html:114
-#: component\profile\pgcr.html:11
+#: component\profile\activity-history.html:116
 msgid "Standing"
 msgstr ""
 
@@ -1181,24 +1191,24 @@ msgid "Stats"
 msgstr ""
 
 #: component\layout\nav.html:238
-#: shared\service\consts.js:193
+#: shared\service\consts.js:211
 msgid "Stormcaller"
 msgstr ""
 
-#: shared\service\consts.js:703
+#: shared\service\consts.js:721
 msgid "Strike"
 msgstr ""
 
-#: shared\service\consts.js:707
+#: shared\service\consts.js:725
 msgid "Strike - Heroic"
 msgstr ""
 
-#: shared\service\consts.js:711
+#: shared\service\consts.js:729
 msgid "Strike - Nightfall"
 msgstr ""
 
 #: component\layout\nav.html:235
-#: shared\service\consts.js:178
+#: shared\service\consts.js:196
 msgid "Striker"
 msgstr ""
 
@@ -1211,7 +1221,7 @@ msgid "Sub-type #2"
 msgstr ""
 
 #: component\layout\nav.html:204
-#: shared\service\consts.js:463
+#: shared\service\consts.js:481
 msgid "Subclass"
 msgstr ""
 
@@ -1220,12 +1230,12 @@ msgid "Subclass Popularity"
 msgstr ""
 
 #: component\layout\nav.html:236
-#: shared\service\consts.js:168
+#: shared\service\consts.js:186
 msgid "Sunbreaker"
 msgstr ""
 
 #: component\layout\nav.html:239
-#: shared\service\consts.js:183
+#: shared\service\consts.js:201
 msgid "Sunsinger"
 msgstr ""
 
@@ -1233,7 +1243,7 @@ msgstr ""
 msgid "Super"
 msgstr ""
 
-#: shared\service\consts.js:393
+#: shared\service\consts.js:411
 msgid "Sword"
 msgstr ""
 
@@ -1243,10 +1253,6 @@ msgstr ""
 
 #: component\item\item-detail.html:236
 msgid "Talent Grid"
-msgstr ""
-
-#: component\profile\pgcr.html:3
-msgid "Team"
 msgstr ""
 
 #: component\faq\faq.html:46
@@ -1259,11 +1265,11 @@ msgstr ""
 msgid "The February update has arrived, and with it we've compiled a list of all changes in the item database."
 msgstr ""
 
-#: shared\service\consts.js:823
+#: shared\service\consts.js:841
 msgid "The Speaker"
 msgstr ""
 
-#: shared\service\consts.js:724
+#: shared\service\consts.js:742
 msgid "The Taken King"
 msgstr ""
 
@@ -1271,7 +1277,7 @@ msgstr ""
 msgid "The changelog you're looking for does not exist"
 msgstr ""
 
-#: component\profile\activity-history.html:99
+#: component\profile\activity-history.html:101
 msgid "The match history is unavailable due to an API error"
 msgstr ""
 
@@ -1319,11 +1325,11 @@ msgstr ""
 
 #: component\item\item-detail.html:117
 #: component\subclass\subclass.html:35
-#: shared\service\consts.js:163
+#: shared\service\consts.js:181
 msgid "Titan"
 msgstr ""
 
-#: shared\service\consts.js:799
+#: shared\service\consts.js:817
 msgid "Titan Vanguard"
 msgstr ""
 
@@ -1339,17 +1345,17 @@ msgstr ""
 msgid "Top {{platforms[platform]}} Guardians"
 msgstr ""
 
-#: shared\service\consts.js:775
+#: shared\service\consts.js:793
 msgid "Tower Vendor"
 msgstr ""
 
 #: component\item\item-detail.html:217
 #: component\layout\nav.html:27
 #: component\layout\nav.html:97
-#: component\profile\activity-history.html:64
+#: component\profile\activity-history.html:66
 #: component\subclass\subclass.html:88
 #: shared\service\consts.js:135
-#: shared\service\consts.js:715
+#: shared\service\consts.js:733
 msgid "Trials of Osiris"
 msgstr ""
 
@@ -1358,7 +1364,7 @@ msgid "Try updating your filters, there are no items matching your criteria."
 msgstr ""
 
 #: component\item\item-list.html:94
-#: shared\service\consts.js:246
+#: shared\service\consts.js:264
 msgid "Uncommon"
 msgstr ""
 
@@ -1372,19 +1378,19 @@ msgstr ""
 msgid "Use%"
 msgstr ""
 
-#: shared\service\consts.js:525
+#: shared\service\consts.js:543
 msgid "Vanguard"
 msgstr ""
 
-#: shared\service\consts.js:795
+#: shared\service\consts.js:813
 msgid "Vanguard Quartermaster"
 msgstr ""
 
-#: shared\service\consts.js:770
+#: shared\service\consts.js:788
 msgid "Variks"
 msgstr ""
 
-#: shared\service\consts.js:877
+#: shared\service\consts.js:895
 msgid "Various Sources"
 msgstr ""
 
@@ -1396,18 +1402,22 @@ msgstr ""
 msgid "Version"
 msgstr ""
 
+#: component\pgcr\pgcr.html:212
+msgid "View carnage report on Bungie.net"
+msgstr ""
+
 #: component\layout\nav.html:240
-#: shared\service\consts.js:188
+#: shared\service\consts.js:206
 msgid "Voidwalker"
 msgstr ""
 
 #: component\item\item-detail.html:119
 #: component\subclass\subclass.html:51
-#: shared\service\consts.js:161
+#: shared\service\consts.js:179
 msgid "Warlock"
 msgstr ""
 
-#: shared\service\consts.js:807
+#: shared\service\consts.js:825
 msgid "Warlock Vanguard"
 msgstr ""
 
@@ -1427,7 +1437,7 @@ msgstr ""
 msgid "We're crunching the numbers based on your filters, this may take a moment."
 msgstr ""
 
-#: shared\service\consts.js:267
+#: shared\service\consts.js:285
 msgid "Weapon"
 msgstr ""
 
@@ -1455,18 +1465,13 @@ msgstr ""
 msgid "Win%"
 msgstr ""
 
-#: component\profile\pgcr.html:36
-#: component\profile\pgcr.html:39
-msgid "Winner"
-msgstr ""
-
 #: component\layout\nav.html:171
 #: component\layout\nav.html:94
 #: shared\service\consts.js:121
 msgid "Xbox"
 msgstr ""
 
-#: shared\service\consts.js:856
+#: shared\service\consts.js:874
 msgid "Xûr, Agent of the Nine"
 msgstr ""
 
@@ -1481,7 +1486,7 @@ msgstr ""
 #: component\item\item-detail.html:226
 #: component\layout\nav.html:147
 #: component\layout\nav.html:77
-#: component\profile\activity-history.html:74
+#: component\profile\activity-history.html:76
 #: shared\service\consts.js:133
 msgid "Zone Control"
 msgstr ""
@@ -1495,11 +1500,15 @@ msgstr ""
 msgid "of total kills"
 msgstr ""
 
-#: component\profile\activity-history.html:29
+#: component\pgcr\pgcr.html:12
+msgid "played"
+msgstr ""
+
+#: component\profile\activity-history.html:31
 msgid "since \"The Taken King\" launch (Sept. 15, 2015)"
 msgstr ""
 
-#: component\profile\pgcr.html:37
+#: component\pgcr\pgcr.html:20
 msgid "vs."
 msgstr ""
 
