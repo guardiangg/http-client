@@ -12,18 +12,19 @@ app.service('bungie', [
             var self = this;
             var BASE_URL = '//proxy.guardian.gg/Platform/Destiny';
             var ENDPOINTS = {
-                statDefinitions: '/Stats/Definition/',
+                statDefinitions: '/Stats/Definition/?lc={locale}',
                 account: '/{platform}/Account/{membershipId}/Summary/',
                 inventory: '/{platform}/Account/{membershipId}/Character/{characterId}/Inventory/?definitions=true&lc={locale}',
                 activityHistory: '/Stats/ActivityHistory/{platform}/{membershipId}/{characterId}/?mode={mode}&definitions=true&count=25&page={page}&lc={locale}',
                 searchForPlayer: '/SearchDestinyPlayer/{platform}/{name}/',
-                pgcr: '/Stats/PostGameCarnageReport/{instanceId}/?definitions=true'
+                pgcr: '/Stats/PostGameCarnageReport/{instanceId}/?definitions=true&lc={locale}'
             };
             var statDefCache;
 
             this.getPgcr = function(instanceId) {
                 return this.get(ENDPOINTS.pgcr, {
-                    instanceId: instanceId
+                    instanceId: instanceId,
+                    locale: gettextCatalog.getCurrentLanguage()
                 });
             };
 
@@ -32,13 +33,14 @@ app.service('bungie', [
                     if (statDefCache) {
                         resolve(statDefCache);
                     } else {
-                        self.get(ENDPOINTS.statDefinitions, {})
-                            .then(function(response) {
-                                statDefCache = response;
-                                resolve(response);
-                            }, function(err) {
-                                reject(err);
-                            });
+                        self.get(ENDPOINTS.statDefinitions, {
+                            locale: gettextCatalog.getCurrentLanguage()
+                        }).then(function(response) {
+                            statDefCache = response;
+                            resolve(response);
+                        }, function(err) {
+                            reject(err);
+                        });
                     }
                 });
             };
