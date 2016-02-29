@@ -101,6 +101,10 @@ msgstr ""
 msgid "Auto Rifle"
 msgstr ""
 
+#: component\pgcr\pgcr.html:31
+msgid "Average Elo / Odds of winning:"
+msgstr ""
+
 #: component\item\item-list.html:96
 #: shared\service\consts.js:256
 msgid "Basic"
@@ -1264,10 +1268,6 @@ msgstr ""
 
 #: shared\service\consts.js:742
 msgid "The Taken King"
-msgstr ""
-
-#: component\pgcr\pgcr.html:31
-msgid "The average Elo and projected win chance of the teams were"
 msgstr ""
 
 #: component\changelog\changelog.html:39

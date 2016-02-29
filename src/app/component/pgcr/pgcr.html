@@ -28,7 +28,7 @@
     </div>
 
     <div class="pgcr-chance" ng-show="teams[16] && teams[17]">
-        <i class="fa fa-info-circle"></i> <span translate>The average Elo and projected win chance of the teams were</span>
+        <span translate>Average Elo / Odds of winning:</span>
         <i class="ggg" ng-class="teamDefs[16].icon"></i> {{ teamDefs[16].label }} <strong>{{ teams[16].elo }}</strong> ({{ teams[16].chance|number:2 }}%) vs.
         <i class="ggg" ng-class="teamDefs[17].icon"></i> {{ teamDefs[17].label }} <strong>{{ teams[17].elo }}</strong> ({{ teams[17].chance|number:2 }}%)
     </div>
