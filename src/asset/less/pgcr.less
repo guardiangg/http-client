@@ -181,7 +181,7 @@ div.pgcr {
                     }
 
                     .extended {
-                        display: flex !important;
+                        .flexbox !important;
 
                         @media screen and (max-width: 950px) {
                             display: block !important;
@@ -196,18 +196,13 @@ div.pgcr {
                         a {
                             display: block;
                             text-align: center;
-                            flex: 0;
-                            margin: 0 10px 10px auto;
+                            .flex(1);
+                            margin: 0;
                             white-space: nowrap;
                             padding: 8px 15px;
                             background: #EDAB4A;
                             color: #fff;
                             text-decoration: none;
-
-                            @media screen and (max-width: 600px) {
-                                margin: 0;
-                                flex: 1 0 auto;
-                            }
                         }
                     }
 
@@ -240,7 +235,7 @@ div.pgcr {
 
                     .weapons {
                         border-top: 4px solid #E8E8E8;
-                        flex: 1 1 auto;
+                        .flex(1);
                         width: 40%;
                         margin: 10px;
                         padding: 10px;
@@ -297,12 +292,12 @@ div.pgcr {
                             padding: 0;
 
                             li {
-                                display: flex;
+                                .flexbox;
                                 padding-bottom: 5px;
                                 margin-bottom: 5px;
 
                                 .icon {
-                                    flex: 1 0 auto;
+                                    .flex(1);
                                     max-width: 32px;
 
                                     img {
@@ -313,7 +308,7 @@ div.pgcr {
                                 }
 
                                 .info {
-                                    flex: 1 1 auto;
+                                    .flex(1);
                                     padding: 0 10px;
                                     min-width: 0;
                                     line-height: 16px;
@@ -337,7 +332,7 @@ div.pgcr {
                                 }
 
                                 .kills, .precision {
-                                    flex: 1 0 auto;
+                                    .flex(1);
                                     max-width: 75px;
                                     min-width: 75px;
                                     text-align: center;
@@ -371,7 +366,7 @@ div.pgcr {
 
                     .medals {
                         border-top: 4px solid #E8E8E8;
-                        flex: 1 1 auto;
+                        .flex(1);
                         width: 60%;
                         margin: 10px;
                         padding: 10px;
@@ -386,13 +381,13 @@ div.pgcr {
                             padding: 0;
 
                             li {
-                                display: flex;
+                                .flexbox;
                                 padding-bottom: 5px;
                                 margin-bottom: 5px;
                                 border-bottom: 1px solid #E8E8E8;
 
                                 .icon {
-                                    flex: 1 0 auto;
+                                    .flex(1);
                                     max-width: 32px;
 
                                     img {
@@ -402,7 +397,7 @@ div.pgcr {
                                 }
 
                                 .info {
-                                    flex: 1 1 auto;
+                                    .flex(1);
                                     padding: 0 10px;
                                     min-width: 0;
                                     line-height: 16px;
@@ -436,7 +431,7 @@ div.pgcr {
                                 }
 
                                 .score {
-                                    flex: 1 0 auto;
+                                    .flex(1);
                                     max-width: 50px;
                                     text-align: right;
                                     line-height: 16px;
@@ -457,7 +452,8 @@ div.pgcr {
                 }
 
                 .player-row {
-                    display: flex;
+                    position: relative;
+                    min-height: 48px;
 
                     @media screen and (max-width: 500px) {
                     }
@@ -471,8 +467,11 @@ div.pgcr {
                     }
 
                     > .icon {
-                        max-width: 48px;
-                        flex: 1 0 auto;
+                        width: 48px;
+                        height: 48px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
 
                         @media screen and (max-width: 500px) {
                             display: none;
@@ -485,15 +484,14 @@ div.pgcr {
                     }
 
                     > .name {
-                        flex: 1 0 auto;
+                        margin-left: 58px;
                         max-width: 200px;
-                        min-width: 100px;
-                        margin-left: 10px;
                         overflow: hidden;
                         text-overflow: ellipsis;
                         white-space: nowrap;
 
                         @media screen and (max-width: 500px) {
+                            margin-left: 10px;
                         }
 
                         a {
@@ -522,14 +520,15 @@ div.pgcr {
                     }
 
                     > .pgcr-stats {
-                        flex: 0;
-                        display: flex;
-                        margin-left: auto;
-                        width: 100%;
+                        .flexbox;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        height: 48px;
 
                         .stat {
                             margin-left: auto;
-                            flex: 1 0 auto;
+                            .flex(1);
                             min-width: 70px;
                             text-align: center;
                             white-space: nowrap;

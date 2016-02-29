@@ -1,0 +1,15 @@
+.flexbox {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+.flex(@val: 1) {
+    -webkit-box-flex: @val;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: @val;         /* OLD - Firefox 19- */
+    -webkit-flex: @val;          /* Chrome */
+    -ms-flex: @val;              /* IE 10 */
+    flex: @val;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
