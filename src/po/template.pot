@@ -26,13 +26,6 @@ msgstr ""
 msgid "<em>{{totalPlayers24|number}}</em> tracked in the past day"
 msgstr ""
 
-#: component\pgcr\pgcr.html:30
-msgid ""
-"<i class=\"fa fa-info-circle\"></i> Based on Elo, we projected the odds of winning for {{ teamDefs[16].label }} at\r\n"
-"        <strong>{{ teams[16].chance|number:2 }}%</strong> and {{ teamDefs[17].label }} at\r\n"
-"        <strong>{{ teams[17].chance|number:2 }}%</strong>."
-msgstr ""
-
 #: component\pgcr\pgcr.html:5
 msgid "<i class=\"fa fa-spin fa-refresh\"></i> Loading post game carnage report..."
 msgstr ""
@@ -1271,6 +1264,10 @@ msgstr ""
 
 #: shared\service\consts.js:742
 msgid "The Taken King"
+msgstr ""
+
+#: component\pgcr\pgcr.html:31
+msgid "The average Elo and projected win chance of the teams were"
 msgstr ""
 
 #: component\changelog\changelog.html:39
