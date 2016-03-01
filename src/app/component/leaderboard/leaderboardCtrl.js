@@ -36,7 +36,7 @@ app.controller('leaderboardCtrl', [
 
             if (update !== false) {
                 var href = $state.href(
-                    'app.leaderboard-platform-mode',
+                    'app.leaderboard',
                     {
                         platform: platform,
                         mode: mode,
@@ -107,7 +107,7 @@ app.controller('leaderboardCtrl', [
                                 $interval.cancel(stop);
 
                                 var href = $state.href(
-                                    'app.leaderboard-platform-mode-name',
+                                    'app.leaderboard',
                                     {
                                         locale: locale,
                                         platform: $scope.platform,

@@ -100,23 +100,12 @@ app.config([
                 controller: 'srlCtrl',
                 templateUrl: 'component/srl/srl.html'
             })
-            .state('app.leaderboard-platform-mode-name', {
-                url: '/leaderboard/{platform}/{mode}/{name}',
-                controller: 'leaderboardCtrl',
-                templateUrl: 'component/leaderboard/leaderboard.html'
-            })
-            .state('app.leaderboard-platform-mode', {
-                url: '/leaderboard/{platform}/{mode}',
-                controller: 'leaderboardCtrl',
-                templateUrl: 'component/leaderboard/leaderboard.html'
-            })
-            .state('app.leaderboard-platform', {
-                url: '/leaderboard/{platform}',
-                controller: 'leaderboardCtrl',
-                templateUrl: 'component/leaderboard/leaderboard.html'
-            })
             .state('app.leaderboard', {
-                url: '/leaderboard',
+                url: '/leaderboard/{platform}/{mode}/{name}',
+                params: {
+                    mode: { value: null, squash: true },
+                    name: { value: null, squash: true }
+                },
                 controller: 'leaderboardCtrl',
                 templateUrl: 'component/leaderboard/leaderboard.html'
             })
