@@ -42,7 +42,6 @@ context-specific code like a profile controller should be put in the `app/compon
 git clone git@github.com:guardiangg/http-client
 cd http-client
 npm install
-bower install
 ```
 Copy the file `src/app/config.json.dist` to `src/app/config.json`
 ```sh
