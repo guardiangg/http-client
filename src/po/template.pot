@@ -61,6 +61,10 @@ msgstr ""
 msgid "All"
 msgstr ""
 
+#: component\notice\templates\trials-stream.html:8
+msgid "All donations made during the event will go to the <a href=\"http://www.globaldownsyndrome.org/\">Global Down Syndrome Foundation</a>."
+msgstr ""
+
 #: component\faq\faq.html:50
 msgid ""
 "All players start at a baseline of 1200 points. You will take points from your opponent's Elo score by\r\n"
@@ -734,6 +738,10 @@ msgstr ""
 msgid "Map"
 msgstr ""
 
+#: component\notice\templates\trials-stream.html:3
+msgid "Mar 11-12: \"Trials for Down Syndrome\" Charity Stream <img src=\"/asset/image/notice/ds.png\" class=\"down-syndrome-ribbon\">"
+msgstr ""
+
 #: component\profile\activity-history.html:81
 msgid "Match History"
 msgstr ""
@@ -901,6 +909,12 @@ msgstr ""
 
 #: shared\service\consts.js:162
 msgid "Players"
+msgstr ""
+
+#: component\notice\templates\trials-stream.html:4
+msgid ""
+"Please join Destiny community member <a href=\"http://twitch.tv/Sneakerheadbsj\" translate=\"\">SneakerheadBSJ</a>\r\n"
+"        on Twitch during a 24 hour charity live stream of <em>Trials of Osiris</em> starting 10pm EST on March 11th."
 msgstr ""
 
 #: component\pgcr\pgcr.html:190
@@ -1132,6 +1146,10 @@ msgstr ""
 #: component\subclass\subclass.html:103
 #: shared\service\consts.js:125
 msgid "Skirmish"
+msgstr ""
+
+#: component\notice\templates\trials-stream.html:5
+msgid "SneakerheadBSJ"
 msgstr ""
 
 #: shared\service\consts.js:339

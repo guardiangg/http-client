@@ -22,13 +22,17 @@
                 padding-left: 75px;
                 min-height: 52px;
 
-                img {
+                img.icon {
                     position: absolute;
                     width: 52px;
                     height: 52px;
                     border-radius: 4px;
                     left: 10px;
                     top: 15px;
+
+                    @media screen and (max-width: 500px) {
+                        top: 25px;
+                    }
                 }
             }
 
@@ -38,12 +42,21 @@
                 font-size: 1.3em;
                 font-weight: bold;
                 margin: 0 0 5px 0;
+
+                @media screen and (max-width: 500px) {
+                    font-size: 1.1em;
+                    margin: 10px 0 5px 0;
+                }
             }
 
             p {
                 &:last-child {
                     margin-bottom: 0;
                     padding-bottom: 0;
+                }
+
+                @media screen and (max-width: 500px) {
+                    font-size: 0.92em;
                 }
             }
 
@@ -72,6 +85,35 @@
                 p {
                     margin-bottom: 3px;
                     color: #DAC1F3;
+                }
+            }
+
+            &.trials-stream {
+                background: #1F1F1F;
+                color: #fff;
+
+                .down-syndrome-ribbon {
+                    width: 20px;
+                    height: 20px;
+                    vertical-align: middle;
+                }
+
+                a {
+                    color: #D3D023;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+
+                p {
+                    margin-bottom: 3px;
+                    color: #A7A7A7;
+
+                    a {
+                        color: #E6E6E6;
+                    }
                 }
             }
 

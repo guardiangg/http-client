@@ -1,18 +1,11 @@
 {
   "data": [
     {
-      "uniqueId": "ef7a20e8",
+      "uniqueId": "o989e210",
       "priority": 1000,
-      "template": "item-launch",
+      "template": "trials-stream",
       "dismissable": true,
-      "expires": "2016-01-09 00:00:00"
-    },
-    {
-      "uniqueId": "df82319e",
-      "priority": 1000,
-      "template": "changelog",
-      "dismissable": true,
-      "expires": "2016-02-11 00:00:00"
+      "expires": "2016-03-13 00:00:00"
     }
   ]
 }
