@@ -1,11 +1,11 @@
 {
   "data": [
     {
-      "uniqueId": "o989e210",
+      "uniqueId": "d35t3z13",
       "priority": 1000,
-      "template": "trials-stream",
+      "template": "agora",
       "dismissable": true,
-      "expires": "2016-03-13 00:00:00"
+      "expires": "2016-03-20 00:00:00"
     }
   ]
 }

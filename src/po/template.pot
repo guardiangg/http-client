@@ -4,11 +4,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: component\item\itemDetailCtrl.js:109
-#: shared\chart\item-popularity.js:81
-msgid "% of All Kills"
-msgstr ""
-
 #: component\notice\templates\changelog.html:3
 msgid "'Crimson Days' Patch Changelog"
 msgstr ""
@@ -18,12 +13,30 @@ msgstr ""
 msgid "'Nade"
 msgstr ""
 
-#: component\layout\main.html:47
-msgid "<em>Internal error code: {{apiError}}</em>"
+#: component\item\itemDetailCtrl.js:128
+#: component\item\itemListFactory.js:599
+msgid "[Unnamed Item]"
+msgstr ""
+
+#: component\subclass\subclass.html:56
+msgid "{{subclass.label}} Overview"
+msgstr ""
+
+#: component\subclass\subclass.html:71
+msgid "{{subclass.label}} Perks &amp; Exotics"
+msgstr ""
+
+#: component\item\itemDetailCtrl.js:109
+#: shared\chart\item-popularity.js:81
+msgid "% of All Kills"
 msgstr ""
 
 #: component\home\home.html:7
 msgid "<em>{{totalPlayers24|number}}</em> tracked in the past day"
+msgstr ""
+
+#: component\layout\main.html:47
+msgid "<em>Internal error code: {{apiError}}</em>"
 msgstr ""
 
 #: component\pgcr\pgcr.html:5
@@ -264,10 +277,6 @@ msgstr ""
 msgid "D"
 msgstr ""
 
-#: component\layout\nav.html:181
-msgid "DPS Gear"
-msgstr ""
-
 #: component\weapon-stats\weapon-stats.html:96
 msgid "Data is updating..."
 msgstr ""
@@ -319,6 +328,10 @@ msgstr ""
 #: component\profile\activity-history.html:75
 #: shared\service\consts.js:132
 msgid "Doubles"
+msgstr ""
+
+#: component\layout\nav.html:181
+msgid "DPS Gear"
 msgstr ""
 
 #: component\faq\faq.html:69
@@ -608,6 +621,11 @@ msgstr ""
 msgid "K"
 msgstr ""
 
+#: shared\chart\kd.js:32
+#: shared\chart\subclass-kd.js:34
+msgid "K:D"
+msgstr ""
+
 #. Short for kills / deaths
 #: component\leaderboard\leaderboard.html:69
 #: component\profile\activity-history.html:115
@@ -619,11 +637,6 @@ msgstr ""
 
 #: shared\chart\subclass-kd.js:18
 msgid "K/D by Mode"
-msgstr ""
-
-#: shared\chart\kd.js:32
-#: shared\chart\subclass-kd.js:34
-msgid "K:D"
 msgstr ""
 
 #: shared\chart\kd.js:18
@@ -670,8 +683,16 @@ msgstr ""
 msgid "Loading Armor..."
 msgstr ""
 
+#: component\changelog\changelog.html:35
+msgid "Loading changelog, please wait..."
+msgstr ""
+
 #: component\profile\character.html:2
 msgid "Loading Characters..."
+msgstr ""
+
+#: component\item\item-detail.html:230
+msgid "Loading chart..."
 msgstr ""
 
 #: component\subclass\subclass.html:59
@@ -682,12 +703,20 @@ msgstr ""
 msgid "Loading Elo Data..."
 msgstr ""
 
+#: component\item\item-list.html:15
+msgid "Loading filters..."
+msgstr ""
+
 #: component\profile\activity-history.html:85
 msgid "Loading Fireteam..."
 msgstr ""
 
 #: component\profile\activity-history.html:104
 msgid "Loading Game History..."
+msgstr ""
+
+#: component\item\item-list.html:115
+msgid "Loading items, please wait..."
 msgstr ""
 
 #: component\profile\character.html:69
@@ -700,22 +729,6 @@ msgstr ""
 
 #: component\subclass\subclass.html:139
 msgid "Loading Weapons..."
-msgstr ""
-
-#: component\changelog\changelog.html:35
-msgid "Loading changelog, please wait..."
-msgstr ""
-
-#: component\item\item-detail.html:230
-msgid "Loading chart..."
-msgstr ""
-
-#: component\item\item-list.html:15
-msgid "Loading filters..."
-msgstr ""
-
-#: component\item\item-list.html:115
-msgid "Loading items, please wait..."
 msgstr ""
 
 #: component\changelog\changelogCtrl.js:34
@@ -835,6 +848,10 @@ msgstr ""
 msgid "Ocean of Storms"
 msgstr ""
 
+#: shared\chart\weapon-bar.js:46
+msgid "of total kills"
+msgstr ""
+
 #: shared\service\consts.js:767
 msgid "Old Russia"
 msgstr ""
@@ -901,14 +918,18 @@ msgstr ""
 msgid "Platinum"
 msgstr ""
 
-#: component\layout\nav.html:167
-#: component\layout\nav.html:24
-#: shared\service\consts.js:122
-msgid "PlayStation"
+#: component\pgcr\pgcr.html:12
+msgid "played"
 msgstr ""
 
 #: shared\service\consts.js:162
 msgid "Players"
+msgstr ""
+
+#: component\layout\nav.html:167
+#: component\layout\nav.html:24
+#: shared\service\consts.js:122
+msgid "PlayStation"
 msgstr ""
 
 #: component\notice\templates\trials-stream.html:4
@@ -942,12 +963,12 @@ msgstr ""
 msgid "Primary Stats"
 msgstr ""
 
-#: shared\service\consts.js:291
-msgid "Primary Weapon"
-msgstr ""
-
 #: component\item\item-list.html:31
 msgid "Primary type"
+msgstr ""
+
+#: shared\service\consts.js:291
+msgid "Primary Weapon"
 msgstr ""
 
 #: shared\service\consts.js:697
@@ -1057,20 +1078,6 @@ msgstr ""
 msgid "Rumble"
 msgstr ""
 
-#: component\profile\activity-history.html:77
-#: shared\service\consts.js:136
-msgid "SRL"
-msgstr ""
-
-#: component\layout\nav.html:152
-#: component\layout\nav.html:82
-msgid "SRL <span class=\"expired\">(Inactive)</span>"
-msgstr ""
-
-#: shared\service\consts.js:717
-msgid "SRL Record Book"
-msgstr ""
-
 #: component\item\item-detail.html:224
 #: component\layout\nav.html:137
 #: component\layout\nav.html:67
@@ -1089,6 +1096,10 @@ msgstr ""
 
 #: component\layout\layoutCtrl.js:17
 msgid "Search for a Guardian..."
+msgstr ""
+
+#: component\notice\templates\agora.html:8
+msgid "See the features in action on <a href=\"http://agora.gg/profile/datguylorik\">Lirik's profile</a>."
 msgstr ""
 
 #: component\weapon-stats\weapon-stats.html:25
@@ -1130,6 +1141,10 @@ msgstr ""
 #: shared\chart\profile-elo.js:140
 #: shared\service\consts.js:76
 msgid "Silver"
+msgstr ""
+
+#: component\profile\activity-history.html:31
+msgid "since \"The Taken King\" launch (Sept. 15, 2015)"
 msgstr ""
 
 #: component\faq\faq.html:34
@@ -1186,6 +1201,20 @@ msgstr ""
 
 #: shared\service\consts.js:348
 msgid "Special Weapon"
+msgstr ""
+
+#: component\profile\activity-history.html:77
+#: shared\service\consts.js:136
+msgid "SRL"
+msgstr ""
+
+#: component\layout\nav.html:152
+#: component\layout\nav.html:82
+msgid "SRL <span class=\"expired\">(Inactive)</span>"
+msgstr ""
+
+#: shared\service\consts.js:717
+msgid "SRL Record Book"
 msgstr ""
 
 #: component\profile\activity-history.html:116
@@ -1258,6 +1287,12 @@ msgstr ""
 msgid "Super"
 msgstr ""
 
+#: component\notice\templates\agora.html:4
+msgid ""
+"Support for Epic Games' new MOBA Paragon has been added to our platform, and we welcome you to give it a try\r\n"
+"        at <a href=\"http://agora.gg\">Agora.gg</a>."
+msgstr ""
+
 #: shared\service\consts.js:411
 msgid "Sword"
 msgstr ""
@@ -1270,6 +1305,10 @@ msgstr ""
 msgid "Talent Grid"
 msgstr ""
 
+#: component\changelog\changelog.html:39
+msgid "The changelog you're looking for does not exist"
+msgstr ""
+
 #: component\faq\faq.html:46
 msgid ""
 "The Elo rating system is a method for calculating the relative skill levels of players in\r\n"
@@ -1280,24 +1319,20 @@ msgstr ""
 msgid "The February update has arrived, and with it we've compiled a list of all changes in the item database."
 msgstr ""
 
-#: shared\service\consts.js:841
-msgid "The Speaker"
-msgstr ""
-
-#: shared\service\consts.js:742
-msgid "The Taken King"
-msgstr ""
-
-#: component\changelog\changelog.html:39
-msgid "The changelog you're looking for does not exist"
-msgstr ""
-
 #: component\profile\activity-history.html:101
 msgid "The match history is unavailable due to an API error"
 msgstr ""
 
 #: component\item\item-list.html:11
 msgid "The page URL gets updated with any filters you add. Share it, or come back to it later easily!"
+msgstr ""
+
+#: shared\service\consts.js:841
+msgid "The Speaker"
+msgstr ""
+
+#: shared\service\consts.js:742
+msgid "The Taken King"
 msgstr ""
 
 #: component\weapon-stats\weapon-stats.html:92
@@ -1352,12 +1387,12 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: component\weapon-stats\weapon-stats.html:87
-msgid "Top Weapons"
-msgstr ""
-
 #: component\home\home.html:15
 msgid "Top {{platforms[platform]}} Guardians"
+msgstr ""
+
+#: component\weapon-stats\weapon-stats.html:87
+msgid "Top Weapons"
 msgstr ""
 
 #: shared\service\consts.js:793
@@ -1426,6 +1461,10 @@ msgstr ""
 msgid "Voidwalker"
 msgstr ""
 
+#: component\pgcr\pgcr.html:20
+msgid "vs."
+msgstr ""
+
 #: component\item\item-detail.html:119
 #: component\subclass\subclass.html:51
 #: shared\service\consts.js:179
@@ -1450,6 +1489,10 @@ msgstr ""
 
 #: component\weapon-stats\weapon-stats.html:9
 msgid "We're crunching the numbers based on your filters, this may take a moment."
+msgstr ""
+
+#: component\notice\templates\agora.html:3
+msgid "We've expanded our network for \"Paragon\""
 msgstr ""
 
 #: shared\service\consts.js:285
@@ -1504,33 +1547,4 @@ msgstr ""
 #: component\profile\activity-history.html:76
 #: shared\service\consts.js:133
 msgid "Zone Control"
-msgstr ""
-
-#: component\item\itemDetailCtrl.js:128
-#: component\item\itemListFactory.js:599
-msgid "[Unnamed Item]"
-msgstr ""
-
-#: shared\chart\weapon-bar.js:46
-msgid "of total kills"
-msgstr ""
-
-#: component\pgcr\pgcr.html:12
-msgid "played"
-msgstr ""
-
-#: component\profile\activity-history.html:31
-msgid "since \"The Taken King\" launch (Sept. 15, 2015)"
-msgstr ""
-
-#: component\pgcr\pgcr.html:20
-msgid "vs."
-msgstr ""
-
-#: component\subclass\subclass.html:56
-msgid "{{subclass.label}} Overview"
-msgstr ""
-
-#: component\subclass\subclass.html:71
-msgid "{{subclass.label}} Perks &amp; Exotics"
 msgstr ""
