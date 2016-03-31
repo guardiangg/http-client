@@ -47,6 +47,11 @@ app.config([
                 controller: 'faqCtrl',
                 templateUrl: 'component/faq/faq.html'
             })
+            .state('app.privacy', {
+                url: '/privacy',
+                controller: 'privacyCtrl',
+                templateUrl: 'component/privacy/privacy.html'
+            })
             .state('app.search', {
                 url: '/search/{query}',
                 controller: 'searchCtrl',

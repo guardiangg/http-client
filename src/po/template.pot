@@ -975,6 +975,11 @@ msgstr ""
 msgid "Prison of Elders"
 msgstr ""
 
+#: component\privacy\privacy.html:1
+#: component\privacy\privacyCtrl.js:8
+msgid "Privacy Policy"
+msgstr ""
+
 #: component\search\search.html:10
 msgid "Profiles"
 msgstr ""
