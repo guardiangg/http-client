@@ -57,7 +57,7 @@
             <th class="hidden-xs">A</th>
             <th>K/D</th>
         </tr>
-        <tr ng-repeat="season in seasonData[season]" ng-hide="!showMoreRecords && $index >= 3">
+        <tr ng-repeat="season in seasonData[season]|orderBy: 'rank'" ng-hide="!showMoreRecords && $index >= 3">
             <td ng-if="season.rank">{{ season.rank|number  }}</td>
             <td ng-if="!season.rank">Parsing</td>
             <td>{{ modes[season.mode] }}</td>
