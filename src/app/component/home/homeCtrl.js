@@ -35,10 +35,12 @@ app.controller('homeCtrl', [
 
                     var map = [];
                     _.each(platform, function(obj, k) {
-                        map[_.indexOf(gameModes, parseInt(k))] = {
-                            mode: k,
-                            players: obj
-                        };
+                        if (obj.length > 0) {
+                            map[_.indexOf(gameModes, parseInt(k))] = {
+                                mode: k,
+                                players: obj
+                            };
+                        }
                     });
 
                     $scope.featured[k] = map;
