@@ -381,6 +381,12 @@
     margin-top: -5px;
     margin-right: -5px;
 
+    @media (max-width: 767px) {
+        float: none !important;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
     .dropdown {
         button {
             font-size: 0.7em;
@@ -388,6 +394,10 @@
             background-color: #ecaa4a;
             border-color: #ecaa4a;
             color: #404040;
+
+            @media (max-width: 767px) {
+                width: 100%;
+            }
         }
     }
 }
@@ -437,5 +447,97 @@
         text-align: left;
         font-size: 16px;
         font-weight: bold;
+    }
+}
+
+.no-data {
+    padding: 15px;
+    background: #D6D6D6;
+    margin-bottom: 10px;
+    color: #676767;
+}
+
+.records {
+    margin-bottom: 10px;
+
+    .sub {
+        padding: 5px;
+        font-size: 10px;
+        background: #DEDEDE;
+        color: #404040;
+        margin-bottom: 4px;
+        text-align: center;
+    }
+
+    button {
+        margin-top: 5px;
+        padding: 2px;
+        width: 100%;
+        font-size: 12px;
+        border: none;
+        background: #e7e7e7;
+
+        i {
+            vertical-align: top;
+        }
+    }
+
+    table.table-record {
+        margin-bottom: 0;
+
+        tr {
+            th {
+                font-size: 14px;
+                padding: 5px !important;
+                text-align: center;
+
+                &:nth-child(1) {
+                    width: 75px;
+                }
+
+                &:nth-child(3) {
+                    width: 75px;
+                }
+
+                &:nth-child(4) {
+                    width: 75px;
+                }
+
+                &:nth-child(5) {
+                    width: 75px;
+                }
+
+                &:nth-child(6) {
+                    width: 75px;
+                }
+
+                &:nth-child(7) {
+                    width: 75px;
+                }
+
+                &:nth-child(8) {
+                    width: 75px;
+                }
+
+                &:nth-child(9) {
+                    width: 75px;
+                }
+            }
+
+            td {
+                font-size: 12px;
+                padding: 4px;
+                text-align: center;
+
+                &:nth-child(2) {
+                    font-weight: bold;
+                    text-align: left;
+                }
+
+                &:nth-child(3) {
+                    color: #fff;
+                }
+            }
+        }
     }
 }

@@ -14,6 +14,10 @@
                 <i ng-class="platform == 1 ? 'ggg ggg-platform-xbox' : 'ggg ggg-platform-ps'"></i>
                 <translate>Top {{platforms[platform]}} Guardians</translate>
             </div>
+            <div ng-if="modeData.length == 0" class="no-data">
+                <i class="fa fa-info-circle"></i> There are insufficient games played in this
+                season to show leaderboards. Check back soon!
+            </div>
             <div ng-repeat="data in modeData" class="col-sm-6 leaderboard-wrapper leaderboard-wrapper-home">
                 <h4 class="col-xs-12 text-center">
                     <i class="ggg ggg-{{modes[data.mode]|lowercase}}"

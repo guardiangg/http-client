@@ -27,6 +27,8 @@ app.controller('profileCtrl', [
         //var audit = new auditFactory($scope);
         $scope.mode = $stateParams.mode;
         $scope.modes = consts.modes;
+        $scope.seasons = consts.seasons;
+        $scope.showMoreRecords = false;
         $scope.modeIcons = consts.modeIcons;
         $scope.srlMaps = consts.srl_maps;
         $scope.classes = consts.classes;
@@ -102,6 +104,15 @@ app.controller('profileCtrl', [
 
             setMode(mode);
         };
+        
+        $scope.setSeason = function(season) {
+            $scope.season = season;
+            $scope.showMoreRecords = false;
+        };
+
+        $scope.revealRecords = function() {
+            $scope.showMoreRecords = true;
+        };
 
         var setMode = function(mode, force) {
             $scope.infiniteScroll = false;
@@ -115,7 +126,7 @@ app.controller('profileCtrl', [
             _.each($scope.eloChart.series, function(series) {
                 series.visible = mode == series.mode;
 
-                if (series.mode == mode && series.data.length > 0) {
+                if (series.mode == mode && series.data && series.data.length > 0) {
                     $scope.eloChartEmpty = false;
                 }
             });
@@ -348,11 +359,34 @@ app.controller('profileCtrl', [
                             $scope.loading.eloHistory = false;
                         });
 
+                    return api.getSeasonStatsByMembershipId(membershipId)
+                })
+                .then(function(result) {
+                    $scope.seasonData = {};
+
+                    _.each(result.data.data, function(data) {
+                        if (!$scope.seasonData[data.season]) {
+                            $scope.seasonData[data.season] = [];
+                        }
+                        data.league = consts.ratingToLeague(data.elo);
+
+                        $scope.seasonData[data.season].push(data);
+                        $scope.season = data.season;
+                    });
+
+                    return api.getSrl(membershipId);
+                }, function(err) {
+                    $scope.season = false;
+
                     return api.getSrl(membershipId);
                 })
                 .then(function(result) {
                     $scope.srl = result.data;
                     $scope.loading.srl = false;
+
+                    if ($scope.srl.length > 0 && !$scope.season) {
+                        $scope.season = 'srl';
+                    }
 
                     return bungie.getAccount(platform, membershipId);
                 })

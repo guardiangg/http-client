@@ -31,6 +31,8 @@ app.service('api',[
                     search: 'gamedata/search?q={query}&lc={lc}'
                 },
 
+                seasons: 'v2/players/{membershipId}/seasons',
+
                 subclassExotics: 'subclass/{subclassId}/exotics?mode={mode}&start={start}&end={end}&lc={lc}',
                 subclassPerks: 'subclass/{subclassId}/perks?mode={mode}&start={start}&end={end}&lc={lc}',
 
@@ -65,6 +67,14 @@ app.service('api',[
                 return $http.get(util.buildApiUrl(endpoints.clan, {
                     clanName: clanName
                 }));
+            };
+
+            this.getSeasonStatsByMembershipId = function(membershipId) {
+                return $http.get(
+                    util.buildApiUrl(endpoints.seasons, {
+                        membershipId: membershipId
+                    })
+                );
             };
 
             this.getSubclassPerks = function(params) {

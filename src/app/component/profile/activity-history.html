@@ -2,35 +2,12 @@
     <advert sizes="728x90"></advert>
 </div>
 
-<!--
-<h2 translate ng-show="srl.length > 0">SRL Records <span class="subtext">limited event, ended Dec 29th, 2015</span></h2>
-<div class="loading" ng-show="loading.srl">
-    <i class="fa fa-cog fa-spin"></i> <translate>Loading best SRL times...</translate>
-</div>
-<div class="srl-times row" ng-show="!loading.srl && srl.length > 0">
-    <div class="col-sm-6 map" ng-repeat="race in srl">
-        <div class="name">
-            {{srlMaps[race.activityHash]}}
-        </div>
-        <div class="row srl-stats">
-            <div class="col-sm-6 stat">
-                <span class="value">{{race.time|timeTrial}}</span>
-                <span class="type" translate>Best Time</span>
-            </div>
-            <div class="col-sm-6 stat">
-                <span class="value">{{race.gates|number}}</span>
-                <span class="type" translate>Best Gates</span>
-            </div>
-        </div>
-        <div class="rank" ng-if="race.rank > 0"><span translate>Ranked</span> #{{race.rank|number}}</div>
-        <div class="rank" ng-if="!race.rank || race.rank <= 0"><span translate>Not Ranked</span></div>
-    </div>
-</div>
--->
-
-<h2>Elo <span translate class="subtext">since "The Taken King" launch (Sept. 15, 2015)</span></h2>
+<h2>Current Season Elo</h2>
 <div class="loading" ng-if="loading.elo || loading.eloHistory">
     <i class="fa fa-cog fa-spin"></i> <translate>Loading Elo Data...</translate>
+</div>
+<div class="no-data" ng-show="!loading.elo && elos.length == 0">
+    <i class="fa fa-info-circle"></i> <translate>{{name}} hasn't completed enough games this season to show Elo</translate>
 </div>
 <div class="elo">
     <div class="ratings row" ng-if="elos.length > 0 && !loading.elo">
@@ -48,8 +25,75 @@
     <div class="chart" ng-if="!loading.eloHistory && !eloChartEmpty">
         <highchart config="eloChart" style="height: 300px;"></highchart>
     </div>
-    <div ng-if="!loading.eloHistory && !loading.elo && elos.length == 0 && chartEmpty" class="empty" translate>
-        No Elo data exists for this player. This is either an error in our system, or the player pretty much never enters Crucible.
+</div>
+
+<h2 ng-if="season">
+    <div class="history-filters pull-right">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="seasonSelector" data-toggle="dropdown" aria-haspopup="true">
+                <i class="fa fa-filter"></i> {{seasons[season].label}}
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right" area-labelledby="seasonSelector">
+                <li ng-if="seasonData[1]"><a href="javascript:;" ng-click="setSeason(1)"><translate>Season 1 - The Taken King</translate></a></li>
+                <li ng-if="!loading.srl && srl.length > 0"><a href="javascript:;" ng-click="setSeason('srl')"><translate>SRL Special Event</translate></a></li>
+            </ul>
+        </div>
+    </div>
+
+    Past Seasons/Events
+</h2>
+
+<div class="records" ng-if="season > 0">
+    <div class="sub">{{ seasons[season].subtext }}</div>
+    <table class="table table-striped table-record">
+        <tr>
+            <th>Rank</th>
+            <th>Mode</th>
+            <th>Elo</th>
+            <th class="hidden-xs">Games</th>
+            <th>Win%</th>
+            <th class="hidden-xs">K</th>
+            <th class="hidden-xs">D</th>
+            <th class="hidden-xs">A</th>
+            <th>K/D</th>
+        </tr>
+        <tr ng-repeat="season in seasonData[season]" ng-hide="!showMoreRecords && $index >= 3">
+            <td>{{ season.rank || -1|number  }}</td>
+            <td>{{ modes[season.mode] }}</td>
+            <td class="text-center record-elo elo-{{ season.league.label|lowercase }}" ng-style="{ 'background-color': season.league.colors.background }">{{ season.elo|number:0 }}</td>
+            <td class="hidden-xs">{{ season.gamesPlayed|number  }}</td>
+            <td>{{ (season.wins * 100) / (season.gamesPlayed || 1)|number:1  }}%</td>
+            <td class="hidden-xs">{{ season.kills|number  }}</td>
+            <td class="hidden-xs">{{ season.deaths|number  }}</td>
+            <td class="hidden-xs">{{ season.assists|number }}</td>
+            <td>{{ season.kills / (season.deaths || 1)|number:2 }}</td>
+        </tr>
+    </table>
+    <button class="btn btn-default" ng-if="!showMoreRecords && seasonData[season].length > 3" ng-click="revealRecords()">
+        <i class="fa fa-sort-desc"></i> Show {{ seasonData[season].length - 3 }} more <i class="fa fa-sort-desc"></i>
+    </button>
+</div>
+
+<div class="records" ng-if="season == 'srl'">
+    <div class="sub">{{ seasons[season].subtext }}</div>
+    <div class="srl-times row" ng-show="srl.length > 0">
+        <div class="col-sm-6 map" ng-repeat="race in srl">
+            <div class="name">
+                {{srlMaps[race.activityHash]}}
+            </div>
+            <div class="row srl-stats">
+                <div class="col-sm-6 stat">
+                    <span class="value">{{race.time|timeTrial}}</span>
+                    <span class="type" translate>Best Time</span>
+                </div>
+                <div class="col-sm-6 stat">
+                    <span class="value">{{race.gates|number}}</span>
+                    <span class="type" translate>Best Gates</span>
+                </div>
+            </div>
+            <div class="rank" ng-if="race.rank > 0"><span translate>Ranked</span> #{{race.rank|number}}</div>
+            <div class="rank" ng-if="!race.rank || race.rank <= 0"><span translate>Not Ranked</span></div>
+        </div>
     </div>
 </div>
 
@@ -59,7 +103,7 @@
             <button class="btn btn-default dropdown-toggle" type="button" id="modeSelector" data-toggle="dropdown" aria-haspopup="true">
                 <i class="fa fa-filter"></i> <strong translate>Game mode:</strong> {{modes[mode] || 'All'|translate}}
             </button>
-            <ul class="dropdown-menu" area-labelledby="modeSelector">
+            <ul class="dropdown-menu dropdown-menu-right" area-labelledby="modeSelector">
                 <li><a href="javascript:;" ng-click="setMode(5)"><translate>All</translate></a></li>
                 <li role="seperator" class="divider"></li>
                 <li><a href="javascript:;" ng-click="setMode(523)"><i class="ggg ggg-doubles"></i> <translate>Crimson Doubles</translate></a></li>
@@ -137,7 +181,7 @@
             </td>
         </tr>
         <tr ng-if="activities.length == 0">
-            <td colspan="9" class="empty" translate>No games have been played in this mode.</td>
+            <td colspan="9" class="no-data" translate>{{name}} hasn't played any games in this mode.</td>
         </tr>
     </table>
 </div>

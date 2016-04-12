@@ -60,6 +60,17 @@ app.service('consts', [
                 pl: 'Polski'
             },
 
+            seasons: {
+                srl: {
+                    label: gettextCatalog.getString('SRL Special Event'),
+                    subtext: gettextCatalog.getString('Limited event that ran in December 2015')
+                },
+                1: {
+                    label: gettextCatalog.getString('Season 1 - The Taken King'),
+                    subtext: gettextCatalog.getString('Season 1 took place between Sep 15th, 2015 and Apr 12th, 2016')
+                }
+            },
+            
             leagues: {
                 bronze: {
                     label: gettextCatalog.getString('Bronze'),
