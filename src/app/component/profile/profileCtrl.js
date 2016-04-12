@@ -374,6 +374,10 @@ app.controller('profileCtrl', [
                         $scope.season = data.season;
                     });
 
+                    _.each($scope.seasonData, function(data, k) {
+                        data = _.sortBy(data, 'rank');
+                    });
+
                     return api.getSrl(membershipId);
                 }, function(err) {
                     $scope.season = false;

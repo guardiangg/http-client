@@ -58,7 +58,8 @@
             <th>K/D</th>
         </tr>
         <tr ng-repeat="season in seasonData[season]" ng-hide="!showMoreRecords && $index >= 3">
-            <td>{{ season.rank || -1|number  }}</td>
+            <td ng-if="season.rank">{{ season.rank|number  }}</td>
+            <td ng-if="!season.rank">Parsing</td>
             <td>{{ modes[season.mode] }}</td>
             <td class="text-center record-elo elo-{{ season.league.label|lowercase }}" ng-style="{ 'background-color': season.league.colors.background }">{{ season.elo|number:0 }}</td>
             <td class="hidden-xs">{{ season.gamesPlayed|number  }}</td>

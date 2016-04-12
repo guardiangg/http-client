@@ -22,7 +22,7 @@ msgstr ""
 msgid "{{name}} hasn't completed enough games this season to show Elo"
 msgstr ""
 
-#: component\profile\activity-history.html:184
+#: component\profile\activity-history.html:185
 msgid "{{name}} hasn't played any games in this mode."
 msgstr ""
 
@@ -53,7 +53,7 @@ msgstr ""
 
 #. Short for assists
 #: component\leaderboard\leaderboard.html:68
-#: component\profile\activity-history.html:158
+#: component\profile\activity-history.html:159
 msgid "A"
 msgstr ""
 
@@ -78,7 +78,7 @@ msgstr ""
 msgid "Agility"
 msgstr ""
 
-#: component\profile\activity-history.html:107
+#: component\profile\activity-history.html:108
 msgid "All"
 msgstr ""
 
@@ -135,12 +135,12 @@ msgstr ""
 msgid "Basic"
 msgstr ""
 
-#: component\profile\activity-history.html:91
+#: component\profile\activity-history.html:92
 #: component\srl\srl.html:66
 msgid "Best Gates"
 msgstr ""
 
-#: component\profile\activity-history.html:87
+#: component\profile\activity-history.html:88
 #: component\srl\srl.html:65
 msgid "Best Time"
 msgstr ""
@@ -203,7 +203,7 @@ msgstr ""
 #: component\item\item-detail.html:219
 #: component\layout\nav.html:112
 #: component\layout\nav.html:42
-#: component\profile\activity-history.html:113
+#: component\profile\activity-history.html:114
 #: component\subclass\subclass.html:91
 #: shared\service\consts.js:139
 msgid "Clash"
@@ -245,7 +245,7 @@ msgstr ""
 #: component\item\item-detail.html:218
 #: component\layout\nav.html:107
 #: component\layout\nav.html:37
-#: component\profile\activity-history.html:112
+#: component\profile\activity-history.html:113
 #: component\subclass\subclass.html:82
 #: shared\service\consts.js:137
 msgid "Control"
@@ -256,7 +256,7 @@ msgstr ""
 msgid "Crimson <span class=\"expired\">(Inactive)</span>"
 msgstr ""
 
-#: component\profile\activity-history.html:109
+#: component\profile\activity-history.html:110
 #: shared\service\consts.js:150
 msgid "Crimson Doubles"
 msgstr ""
@@ -289,7 +289,7 @@ msgstr ""
 
 #. Short for deaths
 #: component\leaderboard\leaderboard.html:67
-#: component\profile\activity-history.html:157
+#: component\profile\activity-history.html:158
 msgid "D"
 msgstr ""
 
@@ -341,7 +341,7 @@ msgstr ""
 #: component\item\item-detail.html:225
 #: component\layout\nav.html:142
 #: component\layout\nav.html:72
-#: component\profile\activity-history.html:119
+#: component\profile\activity-history.html:120
 #: shared\service\consts.js:143
 msgid "Doubles"
 msgstr ""
@@ -359,7 +359,7 @@ msgstr ""
 #: component\item\item-detail.html:222
 #: component\layout\nav.html:127
 #: component\layout\nav.html:57
-#: component\profile\activity-history.html:116
+#: component\profile\activity-history.html:117
 #: component\subclass\subclass.html:100
 #: shared\service\consts.js:142
 msgid "Elimination"
@@ -462,7 +462,7 @@ msgid "Future War Cult"
 msgstr ""
 
 #: component\item\item-detail.html:213
-#: component\profile\activity-history.html:104
+#: component\profile\activity-history.html:105
 msgid "Game mode:"
 msgstr ""
 
@@ -606,7 +606,7 @@ msgstr ""
 #: component\item\item-detail.html:216
 #: component\layout\nav.html:102
 #: component\layout\nav.html:32
-#: component\profile\activity-history.html:111
+#: component\profile\activity-history.html:112
 #: component\subclass\subclass.html:85
 #: shared\service\consts.js:145
 #: shared\service\consts.js:704
@@ -633,7 +633,7 @@ msgstr ""
 
 #. Short for kills
 #: component\leaderboard\leaderboard.html:66
-#: component\profile\activity-history.html:156
+#: component\profile\activity-history.html:157
 msgid "K"
 msgstr ""
 
@@ -644,7 +644,7 @@ msgstr ""
 
 #. Short for kills / deaths
 #: component\leaderboard\leaderboard.html:69
-#: component\profile\activity-history.html:159
+#: component\profile\activity-history.html:160
 #: component\subclass\subclass.html:118
 #: component\subclass\subclass.html:144
 #: component\subclass\subclass.html:174
@@ -727,11 +727,11 @@ msgstr ""
 msgid "Loading filters..."
 msgstr ""
 
-#: component\profile\activity-history.html:129
+#: component\profile\activity-history.html:130
 msgid "Loading Fireteam..."
 msgstr ""
 
-#: component\profile\activity-history.html:148
+#: component\profile\activity-history.html:149
 msgid "Loading Game History..."
 msgstr ""
 
@@ -767,7 +767,7 @@ msgstr ""
 msgid "Maintenance Notice"
 msgstr ""
 
-#: component\profile\activity-history.html:154
+#: component\profile\activity-history.html:155
 msgid "Map"
 msgstr ""
 
@@ -775,7 +775,7 @@ msgstr ""
 msgid "Mar 11-12: \"Trials for Down Syndrome\" Charity Stream <img src=\"/asset/image/notice/ds.png\" class=\"down-syndrome-ribbon\">"
 msgstr ""
 
-#: component\profile\activity-history.html:125
+#: component\profile\activity-history.html:126
 msgid "Match History"
 msgstr ""
 
@@ -856,7 +856,7 @@ msgstr ""
 msgid "No results for your query \"{{query}}\". Check your spelling and try again."
 msgstr ""
 
-#: component\profile\activity-history.html:95
+#: component\profile\activity-history.html:96
 msgid "Not Ranked"
 msgstr ""
 
@@ -1040,7 +1040,7 @@ msgstr ""
 msgid "Rank"
 msgstr ""
 
-#: component\profile\activity-history.html:94
+#: component\profile\activity-history.html:95
 msgid "Ranked"
 msgstr ""
 
@@ -1057,7 +1057,7 @@ msgstr ""
 msgid "Real-time stats for <em>{{totalPlayers|number}}</em> Destiny players"
 msgstr ""
 
-#: component\profile\activity-history.html:132
+#: component\profile\activity-history.html:133
 msgid "Recent Fireteam"
 msgstr ""
 
@@ -1084,7 +1084,7 @@ msgstr ""
 #: component\item\item-detail.html:220
 #: component\layout\nav.html:122
 #: component\layout\nav.html:52
-#: component\profile\activity-history.html:114
+#: component\profile\activity-history.html:115
 #: component\subclass\subclass.html:94
 #: shared\service\consts.js:140
 msgid "Rift"
@@ -1097,7 +1097,7 @@ msgstr ""
 #: component\item\item-detail.html:221
 #: component\layout\nav.html:117
 #: component\layout\nav.html:47
-#: component\profile\activity-history.html:115
+#: component\profile\activity-history.html:116
 #: component\subclass\subclass.html:97
 #: shared\service\consts.js:141
 msgid "Rumble"
@@ -1106,12 +1106,12 @@ msgstr ""
 #: component\item\item-detail.html:224
 #: component\layout\nav.html:137
 #: component\layout\nav.html:67
-#: component\profile\activity-history.html:118
+#: component\profile\activity-history.html:119
 #: shared\service\consts.js:138
 msgid "Salvage"
 msgstr ""
 
-#: component\profile\activity-history.html:155
+#: component\profile\activity-history.html:156
 msgid "Score"
 msgstr ""
 
@@ -1187,7 +1187,7 @@ msgstr ""
 #: component\item\item-detail.html:223
 #: component\layout\nav.html:132
 #: component\layout\nav.html:62
-#: component\profile\activity-history.html:117
+#: component\profile\activity-history.html:118
 #: component\subclass\subclass.html:103
 #: shared\service\consts.js:136
 msgid "Skirmish"
@@ -1233,7 +1233,7 @@ msgstr ""
 msgid "Special Weapon"
 msgstr ""
 
-#: component\profile\activity-history.html:121
+#: component\profile\activity-history.html:122
 #: shared\service\consts.js:147
 msgid "SRL"
 msgstr ""
@@ -1252,7 +1252,7 @@ msgstr ""
 msgid "SRL Special Event"
 msgstr ""
 
-#: component\profile\activity-history.html:160
+#: component\profile\activity-history.html:161
 msgid "Standing"
 msgstr ""
 
@@ -1354,7 +1354,7 @@ msgstr ""
 msgid "The February update has arrived, and with it we've compiled a list of all changes in the item database."
 msgstr ""
 
-#: component\profile\activity-history.html:145
+#: component\profile\activity-history.html:146
 msgid "The match history is unavailable due to an API error"
 msgstr ""
 
@@ -1437,7 +1437,7 @@ msgstr ""
 #: component\item\item-detail.html:217
 #: component\layout\nav.html:27
 #: component\layout\nav.html:97
-#: component\profile\activity-history.html:110
+#: component\profile\activity-history.html:111
 #: component\subclass\subclass.html:88
 #: shared\service\consts.js:146
 #: shared\service\consts.js:744
@@ -1585,7 +1585,7 @@ msgstr ""
 #: component\item\item-detail.html:226
 #: component\layout\nav.html:147
 #: component\layout\nav.html:77
-#: component\profile\activity-history.html:120
+#: component\profile\activity-history.html:121
 #: shared\service\consts.js:144
 msgid "Zone Control"
 msgstr ""
