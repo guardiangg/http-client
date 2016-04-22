@@ -83,7 +83,7 @@
                     {{entity.description}}
                 </td>
                 <td ng-class="{'active-sort': listService.sortColumn == 'tier'}">
-                    <span class="quality-{{entity.tier}}">{{tiers[entity.tier].label}}</span>
+                    <span class="quality-{{entity.tier}}">{{ entity.tierName }}</span>
                 </td>
                 <td class="source">
                         <span ng-repeat="source in entity.sources|orderBy:'name'" class="list-reward" uib-tooltip="{{source.name}}" data-toggle="tooltip" tooltip-placement="top">
