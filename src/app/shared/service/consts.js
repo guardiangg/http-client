@@ -708,6 +708,10 @@ app.service('consts', [
                             label: gettextCatalog.getString('Prison of Elders')
                         },
                         {
+                            hash: "3739898362",
+                            label: gettextCatalog.getString('Challenge of the Elders')
+                        },
+                        {
                             hash: "3107502809",
                             label: gettextCatalog.getString('Raid - Crota\'s End')
                         },
