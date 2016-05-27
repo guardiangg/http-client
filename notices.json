@@ -1,11 +1,11 @@
 {
   "data": [
     {
-      "uniqueId": "zd1928sae",
+      "uniqueId": "e83faa192",
       "priority": 1000,
-      "template": "season",
+      "template": "watcher",
       "dismissable": true,
-      "expires": "2016-04-13 12:00:00"
+      "expires": "2016-05-30 12:00:00"
     }
   ]
 }
