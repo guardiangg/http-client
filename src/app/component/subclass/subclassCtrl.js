@@ -80,6 +80,10 @@ app.controller('subclassCtrl', [
                         })
                     });
 
+                    $timeout(function() {
+                        $scope.$emit('chart.reflow');
+                    }, 0);
+
                     $scope.loading.charts = false;
                 });
         };
@@ -214,7 +218,7 @@ app.controller('subclassCtrl', [
                     $scope.loading.weapons = false;
                     $scope.loading.armor = false;
                     $scope.totals = totals;
-    
+
                     $scope.weapons = prepareExoticList(weapons);
                     $scope.armors = prepareExoticList(armors);
                     $scope.loading.weapons = false;
