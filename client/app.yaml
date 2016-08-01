@@ -1,0 +1,14 @@
+runtime: custom
+vm: true
+api_version: 1
+threadsafe: yes
+
+resources:
+    memory_gb: 0.18
+    
+manual_scaling:
+    instances: 1
+
+handlers:
+- url: .*
+  script: dynamic

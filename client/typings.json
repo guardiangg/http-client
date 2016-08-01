@@ -1,0 +1,12 @@
+{
+    "ambientDependencies": {
+        "es6-shim": "github:DefinitelyTyped/DefinitelyTyped/es6-shim/es6-shim.d.ts#7de6c3dd94feaeb21f20054b9f30d5dabc5efabd",
+        "highcharts": "registry:dt/highcharts#4.1.9+20160205151111",
+        "node": "registry:dt/node#4.0.0+20160311162451",
+        "socket.io-client": "registry:dt/socket.io-client#1.4.4+20160317120654"
+    },
+    "dependencies": {
+        "lodash": "registry:npm/lodash#4.0.0+20160305082308",
+        "moment": "registry:npm/moment#2.10.5+20160211003958"
+    }
+}

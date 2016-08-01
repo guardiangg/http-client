@@ -1,8 +1,0 @@
-<div class="row profile-wrapper" ng-show="!maintenance.name">
-    <ng-include src="'component/profile/character.html'" class="col-sm-4 profile-side"></ng-include>
-    <ng-include src="'component/profile/activity-history.html'" class="col-sm-8 profile-main"></ng-include>
-</div>
-
-<div class="empty" ng-show="maintenance.name">
-    <i class="fa fa-warning"></i> <translate>This profile temporarily cannot be displayed. Too much data is missing by consequence of the current API issues.</translate>
-</div>

@@ -1,0 +1,9 @@
+<div *ngIf="provider == 'curse' && zone && format != 'end'" class="ad-unit" [ngClass]="zone.type + ' ' + format">
+    <div id="cdm-zone-{{ zone.zone }}"></div>
+</div>
+
+<div *ngIf="provider == 'curse' && format == 'end'" id="cdm-zone-end"></div>
+
+<div *ngIf="provider == 'monkeybroker' && zone && validSizes.length > 0" id="{{ format }}" class="ad-unit" [ngClass]="zone.type + ' ' + format">
+    <div></div>
+</div>

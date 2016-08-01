@@ -1,0 +1,39 @@
+.faq-content {
+    padding: 15px;
+    background: #fff;
+
+    .faqs {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        > li {
+            margin-bottom: 25px;
+
+            blockquote {
+                font-size: 16px;
+                font-style: italic;
+                color: #555;
+            }
+
+            ul {
+                list-style-type: square;
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
+
+.leaderboard-top {
+    @media (max-width: 992px) {
+        display: none;
+    }
+
+    &.advertisement {
+        text-align: center;
+        margin-bottom: 10px;
+        background: #f9f9f9;
+        padding: 5px;
+        font-size: 0;
+    }
+}

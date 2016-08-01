@@ -1,0 +1,51 @@
+<div class="live-search-wrapper hidden-xs">
+    <div class="search-tagline">Destiny Profile Search</div>
+    <div class="search-box">
+        <form (submit)="onSearch(liveQuery)">
+            <input type="text" name="playerName" placeholder="Enter a player name..." [(ngModel)]="liveQuery" autocorrect="off" autocomplete="off" spellcheck="false">
+            <button [disabled]="isSearching"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+</div>
+
+<ad-unit format="leaderboard-atf" page="home"></ad-unit>
+
+<div class="game-loading" *ngIf="isSearching">
+    <div class="loading">
+        <div class="icon"></div>
+    </div>
+    <div class="info">Searching for profile, please wait...</div>
+</div>
+
+<div *ngIf="isFailure" class="no-player">
+    <h3><i class="fa fa-info-circle"></i> We couldn't find a player with that name</h3>
+
+    This could be a problem on our end, or that player does not exist. Give it another try!
+
+    <p class="suggestions" *ngIf="suggestions.length">
+      <strong>Try one of these similar names</strong>:
+      <span *ngFor="let s of suggestions; let isLast=last">
+        <a [routerLink]="['/profile', s]">{{ s }}</a>{{isLast ? '.' : ', '}}
+      </span>
+    </p>
+</div>
+
+<div class="home-filler">
+    <div class="row">
+        <div class="col-sm-8 left">
+            <h2>Top Players This Season</h2>
+            <div class="leaderboard">
+            </div>
+
+            <ad-unit format="leaderboard-btf" page="home"></ad-unit>
+        </div>
+        <div class="col-sm-4 right">
+            <ad-unit format="medrec-btf" page="home"></ad-unit>
+            <a class="twitter-timeline" data-height="550" data-link-color="#edab4a" href="https://twitter.com/guardiandotgg">Tweets by guardiandotgg</a>
+            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+    </div>
+</div>
+
+<ad-unit format="banner-mobile" page="home"></ad-unit>
+<ad-unit format="end"></ad-unit>

@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "newLine": "LF",
+        "removeComments": true
+    },
+    "exclude": [
+        "node_modules",
+        "typings/main",
+        "typings/main.d.ts"
+    ],
+    "awesomeTypescriptLoaderOptions": {
+        "resolveGlobs": true,
+        "forkChecker": true
+    },
+    "compileOnSave": false,
+    "buildOnSave": false
+}
