@@ -1,0 +1,17 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+# ./src/home/home.html [-:-]
+msgid "Destiny Profile Search"
+msgstr ""
+
+# ./src/home/home.html [-:-]
+msgid "Enter a player name..."
+msgstr ""
+
+# ./src/home/home.html [-:-]
+msgid "Top Players This Season"
+msgstr ""

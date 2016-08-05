@@ -4,9 +4,12 @@ import {ROUTER_DIRECTIVES, Router} from "@angular/router";
 import {Tooltip} from "../directive/tooltip.directive";
 import {SeoService} from "../app/seo.service";
 import {AdUnitComponent} from "../ad-unit/ad-unit.component";
+import {GettextDirective} from "../gettext/gettext.directive";
+import {GettextPipe} from "../gettext/gettext.pipe";
 
 @Component({
-    directives: [ROUTER_DIRECTIVES, Tooltip, AdUnitComponent],
+    directives: [ROUTER_DIRECTIVES, Tooltip, AdUnitComponent, GettextDirective],
+    pipes: [GettextPipe],
     styles: [require('./home.scss')],
     template: require('./home.html')
 })
