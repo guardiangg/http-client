@@ -1,3 +1,4 @@
+import * as _ from "lodash";
 import {Component, ViewEncapsulation} from "@angular/core";
 import {Router, ROUTER_DIRECTIVES, NavigationStart} from "@angular/router";
 import {RecentService} from '../recent/recent';
@@ -8,10 +9,13 @@ import {Session} from "../session/session";
 import {Gettext} from "../gettext/gettext.service";
 import {GettextDirective} from "../gettext/gettext.directive";
 import {GettextPipe} from "../gettext/gettext.pipe";
+import {BungieService, BungieResponse} from "../api/bungie.service";
+import {SearchResult} from "../api/model/bungie/search-result.model";
+import {SearchService} from "../search/search.service";
 
 @Component({
     selector: 'guardian',
-    providers: [Location],
+    providers: [Location, SearchService],
     // this line disables view encapsulation so we can use global (bootstrap/material) styles
     encapsulation: ViewEncapsulation.None,
     directives: [ROUTER_DIRECTIVES, CollapseDirective, DROPDOWN_DIRECTIVES, GettextDirective],
@@ -32,6 +36,8 @@ export class AppComponent {
         angulartics2: Angulartics2,
         angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
         recent: RecentService,
+        private _search: SearchService,
+        private _bungie: BungieService,
         private _gettext: Gettext,
         private _session: Session
     ) {
@@ -66,6 +72,18 @@ export class AppComponent {
             return;
         }
 
-        this.router.navigate(['/profile', player]);
+        this._search.searchByName(player).subscribe(res => {
+            if (res.players.length === 1) {
+                console.debug('Redirect to profile');
+            } else if (res.players.length > 1) {
+                console.debug('Show dialog for multi profiles');
+            } else if (res.players.length === 0 && res.items.results.length > 0) {
+                console.debug('Redirect to item page');
+            } else {
+                console.debug('No results found');
+            }
+        });
+
+        //this.router.navigate(['/profile', player]);
     }
 }

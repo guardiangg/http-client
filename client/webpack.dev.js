@@ -97,6 +97,9 @@ module.exports = {
             GUARDIAN_API: JSON.stringify(
                 process.env.GUARDIAN_API ? process.env.GUARDIAN_API : 'http://api.guardian.gg'
             ),
+            BUNGIE_API: JSON.stringify(
+                process.env.BUNGIE_API ? process.env.BUNGIE_API : 'http://proxy.guardian.gg'
+            ),
         })
     ]
 };

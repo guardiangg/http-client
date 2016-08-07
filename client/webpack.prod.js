@@ -98,6 +98,7 @@ module.exports = {
         new webpack.DefinePlugin({
             ENV: JSON.stringify('prod'),
             GUARDIAN_API: JSON.stringify('http://api.guardian.gg'),
+            BUNGIE_API: JSON.stringify('http://proxy.guardian.gg')
         }),
         new webpack.optimize.UglifyJsPlugin({
             beautify: false,

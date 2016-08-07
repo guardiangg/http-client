@@ -4,14 +4,20 @@ import { Http, Headers } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import { Session } from "../session/session";
 import 'rxjs/add/operator/share';
+import {ItemModel} from "./model/guardian/item.model";
+import {PaginationModel} from "./model/guardian/pagination.model";
 
 @Injectable()
-export class ApiService {
+export class GuardianService {
     BASE_URL: string = GUARDIAN_API + '/';
 
     private _authHeaders: Headers = new Headers();
 
     constructor(private _client: Http, private _session: Session) {
+    }
+
+    searchGamedata(query: string): Observable<PaginationModel> {
+        return this._get('gamedata/search?q={q}', { q: query }).map(res => new PaginationModel(res.items, ItemModel));
     }
 
     private _delete(endpoint: string, params?: any): Observable<any> {
