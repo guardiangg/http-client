@@ -5,7 +5,8 @@ import { provideRouter, RouterConfig } from '@angular/router';
 
 const routes: RouterConfig = [
     { path: '', component: HomeComponent },
-    { path: 'faq', component: FaqComponent },
+    { path: ':lang', component: HomeComponent },
+    { path: ':lang/faq', component: FaqComponent },
     { path: '*', component: NotFoundComponent }
 ];
 

@@ -4,11 +4,16 @@ import {GettextStrings} from "./string.service";
 
 @Injectable()
 export class Gettext {
-    private currentLanguage: string = 'ja';
+    private currentLanguage: string = '';
     private supported: any = ['de', 'en', 'es', 'fr', 'it', 'ja', 'pl', 'pt-br'];
     private strings: any = {};
 
     constructor(_s: GettextStrings) {
+        let lang = localStorage.getItem('lang');
+        if (lang) {
+            this.setCurrentLanguage(lang);
+        }
+
         _.each(this.supported, (lang) => {
             this.strings[lang] = {};
         });
@@ -24,8 +29,15 @@ export class Gettext {
         });
     }
 
+    isSupported(lang: string): boolean {
+        return this.supported.indexOf(lang) > -1;
+    }
+    
     setCurrentLanguage(lang: string) {
-        this.currentLanguage = this.supported.indexOf(lang) > -1 ? lang : 'en';
+        lang = this.isSupported(lang) ? lang : 'en';
+
+        localStorage.setItem('lang', lang);
+        this.currentLanguage = lang;
     }
 
     getCurrentLanguage() {

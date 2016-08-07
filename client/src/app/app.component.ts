@@ -1,10 +1,11 @@
 import {Component, ViewEncapsulation} from "@angular/core";
-import {Router, ROUTER_DIRECTIVES} from "@angular/router";
+import {Router, ROUTER_DIRECTIVES, NavigationStart} from "@angular/router";
 import {RecentService} from '../recent/recent';
 import {CollapseDirective, DROPDOWN_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 import {Angulartics2} from "angulartics2/index";
 import {Angulartics2GoogleAnalytics} from "angulartics2/src/providers/angulartics2-google-analytics";
 import {Session} from "../session/session";
+import {Gettext} from "../gettext/gettext.service";
 
 @Component({
     selector: 'guardian',
@@ -17,6 +18,7 @@ import {Session} from "../session/session";
 })
 export class AppComponent {
     profileQuery: string = '';
+    lang: string = '';
     isCollapsed: boolean = true;
     router: Router;
     recentProfiles: any = [];
@@ -27,12 +29,31 @@ export class AppComponent {
         angulartics2: Angulartics2,
         angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
         recent: RecentService,
-        private session: Session
+        private _gettext: Gettext,
+        private _session: Session
     ) {
         recent.profile.subscribe(profiles => {
             this.recentProfiles = profiles;
         });
 
+        router.events.subscribe(event => {
+            if (event instanceof NavigationStart) {
+                let lang: any = event.url.split('/');
+                lang = lang[1] ? lang[1] : this._gettext.getCurrentLanguage();
+
+                if (this._gettext.isSupported(lang)) {
+                    this._gettext.setCurrentLanguage(lang);
+                } else {
+                    console.error('Attempted to load an unsupported language: ' + lang);
+
+                    let urlParts = event.url.split('/');
+                    urlParts[1] = urlParts[1].replace(lang, this._gettext.getCurrentLanguage());
+                    this.router.navigateByUrl(urlParts.join('/'));
+                }
+            }
+        });
+
+        this.lang = _gettext.getCurrentLanguage();
         this.recentProfiles = recent.getProfiles();
         this.router = router;
     }
