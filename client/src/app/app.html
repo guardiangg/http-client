@@ -7,35 +7,30 @@
             <div class="search">
                 <form (submit)="onPlayer(profileQuery)">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Lookup a Player..." [(ngModel)]="profileQuery" autocorrect="off" autocomplete="off" spellcheck="false">
-                    <span class="input-group-btn">
-                        <button [disabled]="isSearching" class="btn btn-default"><i class="fa fa-search"></i></button>
-                    </span>
+                        <input type="text" class="form-control" placeholder="{{ 'Enter a name...'|translate }}" [(ngModel)]="profileQuery" autocorrect="off" autocomplete="off" spellcheck="false">
+                        <span class="input-group-btn">
+                            <button [disabled]="isSearching" class="btn btn-default"><i class="fa fa-search"></i></button>
+                        </span>
                     </div>
                 </form>
             </div>
             <div class="login" *ngIf="!_session.isAuthenticated()">
-                <button class="btn btn-default login" (click)="_session.goToLogin()">
-                    Sign in
-                </button>
+                <button class="btn btn-default login" (click)="_session.goToLogin()" translate>Sign in</button>
             </div>
             <div class="user" *ngIf="_session.isAuthenticated()" dropdown>
                 <button class="btn btn-default account" dropdownToggle>
-                    <span class="hidden-xs"><strong>Signed in:</strong> {{_session.account.name}} <i class="caret"></i></span>
-                    <span class="visible-xs">My Account <i class="caret"></i></span>
+                    <span class="hidden-xs"><strong translate>Signed in:</strong> {{_session.account.name}} <i class="caret"></i></span>
+                    <span class="visible-xs"><span translate>My Account</span> <i class="caret"></i></span>
                 </button>
                 <ul class="dropdown-menu pull-right" dropdownMenu>
                     <li>
-                        <a [routerLink]="[lang, '/profile', _session.account.name]">Profile</a>
+                        <a [routerLink]="[lang, '/profile', _session.account.name]" translate>Profile</a>
                     </li>
                     <li>
-                        <a [routerLink]="[lang, '/decks', {accountId:_session.account.id, sort:'-updated_at'}]">Decks</a>
+                        <a [routerLink]="[lang, '/account']" translate>Account Settings</a>
                     </li>
                     <li>
-                        <a [routerLink]="[lang, '/account']">Account Settings</a>
-                    </li>
-                    <li>
-                        <a href="javascript:" (click)="_session.logout()">Logout</a>
+                        <a href="javascript:" (click)="_session.logout()" translate>Logout</a>
                     </li>
                 </ul>
             </div>
@@ -47,7 +42,7 @@
     <div class="container">
         <div class="navbar-header">
             <button (click)="isCollapsed = !isCollapsed" type="button" class="navbar-toggle collapsed">
-                <span class="sr-only">Toggle navigation</span>
+                <span class="sr-only"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -56,122 +51,122 @@
         <div class="navbar-collapse" [class.collapse]="isCollapsed != false">
             <ul class="nav navbar-nav pull-right hidden-sm">
                 <li>
-                    <a [routerLink]="[lang, '/supporter']" class="supporter"><i class="ggg ggg-supporter"></i> Support Us</a>
+                    <a [routerLink]="[lang, '/supporter']" class="supporter"><i class="ggg ggg-supporter"></i> <span translate>Support Us</span></a>
                 </li>
             </ul>
             <ul class="nav navbar-nav">
                 <li dropdown>
                     <a href="javascript:" class="dropdown-toggle" dropdownToggle>
-                        <span>Leaderboards</span> <span class="caret"></span>
+                        <span translate>Leaderboards</span> <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu leaderboard-menu" dropdownMenu>
                         <li>
                             <ul class="psn">
-                                <li class="main-heading"><i class="ggg ggg-platform-ps"></i> PlayStation</li>
-                                <li class="heading">Competitive</li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 2, 19]">Iron Banner</a></li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 2, 14]">Trials of Osiris</a></li>
-                                <li class="heading">Standard Playlist</li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 2, 12]">Clash</a></li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 2, 10]">Control</a></li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 2, 15]">Doubles</a></li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 2, 23]">Elimination</a></li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 2, 24]">Rift</a></li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 2, 13]">Rumble</a></li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 2, 11]">Salvage</a></li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 2, 9]">Skirmish</a></li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 2, 28]">Zone Control</a></li>
+                                <li class="main-heading"><i class="ggg ggg-platform-ps"></i> <span translate>PlayStation</span></li>
+                                <li class="heading" translate>Competitive</li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 2, 19]" translate>Iron Banner</a></li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 2, 14]" translate>Trials of Osiris</a></li>
+                                <li class="heading" translate>Standard Playlist</li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 2, 12]" translate>Clash</a></li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 2, 10]" translate>Control</a></li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 2, 15]" translate>Doubles</a></li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 2, 23]" translate>Elimination</a></li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 2, 24]" translate>Rift</a></li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 2, 13]" translate>Rumble</a></li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 2, 11]" translate>Salvage</a></li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 2, 9]" translate>Skirmish</a></li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 2, 28]" translate>Zone Control</a></li>
                             </ul>
                             <ul class="xbl">
-                                <li class="main-heading"><i class="ggg ggg-platform-xbox"></i> Xbox Live</li>
-                                <li class="heading">Competitive</li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 1, 19]">Iron Banner</a></li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 1, 14]">Trials of Osiris</a></li>
-                                <li class="heading">Standard Playlist</li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 1, 12]">Clash</a></li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 1, 10]">Control</a></li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 1, 15]">Doubles</a></li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 1, 23]">Elimination</a></li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 1, 24]">Rift</a></li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 1, 13]">Rumble</a></li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 1, 11]">Salvage</a></li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 1, 9]">Skirmish</a></li>
-                                <li><a [routerLink]="[lang, '/leaderboard', 1, 28]">Zone Control</a></li>
+                                <li class="main-heading"><i class="ggg ggg-platform-xbox"></i> <span translate>Xbox Live</span></li>
+                                <li class="heading" translate>Competitive</li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 1, 19]" translate>Iron Banner</a></li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 1, 14]" translate>Trials of Osiris</a></li>
+                                <li class="heading" translate>Standard Playlist</li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 1, 12]" translate>Clash</a></li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 1, 10]" translate>Control</a></li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 1, 15]" translate>Doubles</a></li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 1, 23]" translate>Elimination</a></li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 1, 24]" translate>Rift</a></li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 1, 13]" translate>Rumble</a></li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 1, 11]" translate>Salvage</a></li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 1, 9]" translate>Skirmish</a></li>
+                                <li><a [routerLink]="[lang, '/leaderboard', 1, 28]" translate>Zone Control</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
                 <li dropdown>
                     <a href="javascript:" class="dropdown-toggle" dropdownToggle>
-                        <span>Item Database</span> <span class="caret"></span>
+                        <span translate>Item Database</span> <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu database-menu" dropdownMenu>
                         <li>
                             <ul class="c1">
-                                <li class="main-heading">DPS Gear</li>
-                                <li><a [routerLink]="[lang, '/items', 'weapon']">Weapons</a></li>
-                                <li class="sub"><a [routerLink]="[lang, '/items', 'weapon', 'primary']">Primary</a></li>
-                                <li class="sub"><a [routerLink]="[lang, '/items', 'weapon', 'special']">Special</a></li>
-                                <li class="sub"><a [routerLink]="[lang, '/items', 'weapon', 'heavy']">Heavy</a></li>
+                                <li class="main-heading" translate>DPS Gear</li>
+                                <li><a [routerLink]="[lang, '/items', 'weapon']" translate>Weapons</a></li>
+                                <li class="sub"><a [routerLink]="[lang, '/items', 'weapon', 'primary']" translate>Primary</a></li>
+                                <li class="sub"><a [routerLink]="[lang, '/items', 'weapon', 'special']" translate>Special</a></li>
+                                <li class="sub"><a [routerLink]="[lang, '/items', 'weapon', 'heavy']" translate>Heavy</a></li>
                             </ul>
                             <ul class="c2">
-                                <li class="main-heading">Defensive Gear</li>
-                                <li><a [routerLink]="[lang, '/items', 'armor']">Armor</a></li>
-                                <li class="sub"><a [routerLink]="[lang, '/items', 'armor', 'helmet']">Helmet</a></li>
-                                <li class="sub"><a [routerLink]="[lang, '/items', 'armor', 'arms']">Arms</a></li>
-                                <li class="sub"><a [routerLink]="[lang, '/items', 'armor', 'chest']">Chest</a></li>
-                                <li class="sub"><a [routerLink]="[lang, '/items', 'armor', 'legs']">Legs</a></li>
-                                <li class="sub"><a [routerLink]="[lang, '/items', 'armor', 'class-item']">Class Item</a></li>
-                                <li class="sub"><a [routerLink]="[lang, '/items', 'armor', 'artifact']">Artifact</a></li>
-                                <li class="sub"><a [routerLink]="[lang, '/items', 'armor', 'ghost']">Ghost</a></li>
+                                <li class="main-heading" translate>Defensive Gear</li>
+                                <li><a [routerLink]="[lang, '/items', 'armor']" translate>Armor</a></li>
+                                <li class="sub"><a [routerLink]="[lang, '/items', 'armor', 'helmet']" translate>Helmet</a></li>
+                                <li class="sub"><a [routerLink]="[lang, '/items', 'armor', 'arms']" translate>Arms</a></li>
+                                <li class="sub"><a [routerLink]="[lang, '/items', 'armor', 'chest']" translate>Chest</a></li>
+                                <li class="sub"><a [routerLink]="[lang, '/items', 'armor', 'legs']" translate>Legs</a></li>
+                                <li class="sub"><a [routerLink]="[lang, '/items', 'armor', 'class-item']" translate>Class Item</a></li>
+                                <li class="sub"><a [routerLink]="[lang, '/items', 'armor', 'artifact']" translate>Artifact</a></li>
+                                <li class="sub"><a [routerLink]="[lang, '/items', 'armor', 'ghost']" translate>Ghost</a></li>
                             </ul>
                             <ul class="c3">
-                                <li class="main-heading">Passive Gear</li>
-                                <li><a [routerLink]="[lang, '/items', 'subclass']">Subclass</a></li>
-                                <li><a [routerLink]="[lang, '/items', 'emblem']">Emblem</a></li>
-                                <li><a [routerLink]="[lang, '/items', 'emote']">Emote</a></li>
-                                <li><a [routerLink]="[lang, '/items', 'shader']">Shader</a></li>
-                                <li><a [routerLink]="[lang, '/items', 'ship']">Ship</a></li>
-                                <li><a [routerLink]="[lang, '/items', 'sparrow']">Sparrow</a></li>
+                                <li class="main-heading" translate>Passive Gear</li>
+                                <li><a [routerLink]="[lang, '/items', 'subclass']" translate>Subclass</a></li>
+                                <li><a [routerLink]="[lang, '/items', 'emblem']" translate>Emblem</a></li>
+                                <li><a [routerLink]="[lang, '/items', 'emote']" translate>Emote</a></li>
+                                <li><a [routerLink]="[lang, '/items', 'shader']" translate>Shader</a></li>
+                                <li><a [routerLink]="[lang, '/items', 'ship']" translate>Ship</a></li>
+                                <li><a [routerLink]="[lang, '/items', 'sparrow']" translate>Sparrow</a></li>
                             </ul>
                             <ul class="c4">
-                                <li class="main-heading">Inventory</li>
-                                <li><a [routerLink]="[lang, '/items', 'bounty']">Bounty</a></li>
-                                <li><a [routerLink]="[lang, '/items', 'consumable']">Consumable</a></li>
-                                <li><a [routerLink]="[lang, '/items', 'currency']">Currency</a></li>
-                                <li><a [routerLink]="[lang, '/items', 'engram']">Engram</a></li>
-                                <li><a [routerLink]="[lang, '/items', 'material']">Material</a></li>
-                                <li><a [routerLink]="[lang, '/items', 'mission-key']">Mission Key Item</a></li>
+                                <li class="main-heading" translate>Inventory</li>
+                                <li><a [routerLink]="[lang, '/items', 'bounty']" translate>Bounty</a></li>
+                                <li><a [routerLink]="[lang, '/items', 'consumable']" translate>Consumable</a></li>
+                                <li><a [routerLink]="[lang, '/items', 'currency']" translate>Currency</a></li>
+                                <li><a [routerLink]="[lang, '/items', 'engram']" translate>Engram</a></li>
+                                <li><a [routerLink]="[lang, '/items', 'material']" translate>Material</a></li>
+                                <li><a [routerLink]="[lang, '/items', 'mission-key']" translate>Mission Key Item</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
                 <li dropdown>
                     <a href="javascript:" class="dropdown-toggle" dropdownToggle>
-                        <span>Stats</span> <span class="caret"></span>
+                        <span translate>Stats</span> <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu stats-menu" dropdownMenu>
-                        <li class="main-heading">General</li>
-                        <li><a [routerLink]="[lang, '/weapon-stats']">Weapons</a></li>
+                        <li class="main-heading" translate>General</li>
+                        <li><a [routerLink]="[lang, '/weapon-stats']" translate>Weapons</a></li>
 
-                        <li class="main-heading">Hunter</li>
-                        <li><a [routerLink]="[lang, '/subclass', 'bladedancer']">Bladedancer</a></li>
-                        <li><a [routerLink]="[lang, '/subclass', 'gunslinger']">Gunslinger</a></li>
-                        <li><a [routerLink]="[lang, '/subclass', 'nightstalker']">Nightstalker</a></li>
+                        <li class="main-heading" translate>Hunter</li>
+                        <li><a [routerLink]="[lang, '/subclass', 'bladedancer']" translate>Bladedancer</a></li>
+                        <li><a [routerLink]="[lang, '/subclass', 'gunslinger']" translate>Gunslinger</a></li>
+                        <li><a [routerLink]="[lang, '/subclass', 'nightstalker']" translate>Nightstalker</a></li>
 
-                        <li class="main-heading">Titan</li>
-                        <li><a [routerLink]="[lang, '/subclass', 'defender']">Defender</a></li>
-                        <li><a [routerLink]="[lang, '/subclass', 'striker']">Striker</a></li>
-                        <li><a [routerLink]="[lang, '/subclass', 'sunbreaker']">Sunbreaker</a></li>
+                        <li class="main-heading" translate>Titan</li>
+                        <li><a [routerLink]="[lang, '/subclass', 'defender']" translate>Defender</a></li>
+                        <li><a [routerLink]="[lang, '/subclass', 'striker']" translate>Striker</a></li>
+                        <li><a [routerLink]="[lang, '/subclass', 'sunbreaker']" translate>Sunbreaker</a></li>
 
-                        <li class="main-heading">Warlock</li>
-                        <li><a [routerLink]="[lang, '/subclass', 'stormcaller']">Stormcaller</a></li>
-                        <li><a [routerLink]="[lang, '/subclass', 'sunsinger']">Sunsinger</a></li>
-                        <li><a [routerLink]="[lang, '/subclass', 'voidwalker']">Voidwalker</a></li>
+                        <li class="main-heading" translate>Warlock</li>
+                        <li><a [routerLink]="[lang, '/subclass', 'stormcaller']" translate>Stormcaller</a></li>
+                        <li><a [routerLink]="[lang, '/subclass', 'sunsinger']" translate>Sunsinger</a></li>
+                        <li><a [routerLink]="[lang, '/subclass', 'voidwalker']" translate>Voidwalker</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a [routerLink]="[lang, '/faq']">FAQ</a>
+                    <a [routerLink]="[lang, '/faq']" translate>FAQ</a>
                 </li>
                 <li>
                     <a href="https://github.com/guardiangg/http-client">
@@ -197,15 +192,15 @@
     <div class="container">
         <div class="content">
             <div class="network pull-right hidden-xs">
-                <strong>Try our other projects:</strong>
+                <strong translate>Try our other projects:</strong>
                 <ul>
                   <li><a href="http://agora.gg"><span class="network-icon network-ggg"></span> Agora.gg (Paragon)</a></li>
                   <li><a href="http://watcher.gg"><span class="network-icon network-wgg"></span> Watcher.gg (Overwatch)</a></li>
                 </ul>
                 <div class="clearfix"></div>
             </div>
-            <div class="credit">Crafted with <i class="fa fa-heart"></i> by <strong>GG Software</strong></div>
-            <div class="subcredit">The <em>Guardian.gg</em> website is not affiliated with Bungie or Activision Blizzard</div>
+            <div class="credit" translate>Crafted with <i class="fa fa-heart"></i> by <strong>GG Software</strong></div>
+            <div class="subcredit" translate>The <em>Guardian.gg</em> website is not affiliated with Bungie or Activision Blizzard</div>
         </div>
     </div>
 </footer>

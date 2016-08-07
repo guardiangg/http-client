@@ -6,13 +6,16 @@ import {Angulartics2} from "angulartics2/index";
 import {Angulartics2GoogleAnalytics} from "angulartics2/src/providers/angulartics2-google-analytics";
 import {Session} from "../session/session";
 import {Gettext} from "../gettext/gettext.service";
+import {GettextDirective} from "../gettext/gettext.directive";
+import {GettextPipe} from "../gettext/gettext.pipe";
 
 @Component({
     selector: 'guardian',
     providers: [Location],
     // this line disables view encapsulation so we can use global (bootstrap/material) styles
     encapsulation: ViewEncapsulation.None,
-    directives: [ROUTER_DIRECTIVES, CollapseDirective, DROPDOWN_DIRECTIVES],
+    directives: [ROUTER_DIRECTIVES, CollapseDirective, DROPDOWN_DIRECTIVES, GettextDirective],
+    pipes: [GettextPipe],
     template: require('./app.html'),
     styles: [require('./app.scss')]
 })

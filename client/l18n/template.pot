@@ -4,14 +4,381 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
+# ./src/app/app.html [-:-]
+msgid "Account Settings"
+msgstr ""
+
+# ./src/faq/faq.html [-:-]
+msgid "All players start at a baseline of 1200 points. You will take points from your opponent's Elo score by defeating them, and vice versa. Defeating a more skilled team will yield higher points than if you beat up on a weaker one. The higher the score, the more skilled the player. It is extremely difficult to maintain a high Elo score, these players are regarded as the best of the best!"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Armor"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Arms"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Artifact"
+msgstr ""
+
+# ./src/faq/faq.html [-:-]
+msgid "As your score rises and falls, you'll be placed into leagues."
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Bladedancer"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Bounty"
+msgstr ""
+
+# ./src/faq/faq.html [-:-]
+msgid "Bronze"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Chest"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+# ./src/app/app.html [-:-]
+msgid "Clash"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Class Item"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+# ./src/app/app.html [-:-]
+msgid "Competitive"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Consumable"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+# ./src/app/app.html [-:-]
+msgid "Control"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Crafted with <i class=\"fa fa-heart\"></i> by <strong>GG Software</strong>"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Currency"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "DPS Gear"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Defender"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Defensive Gear"
+msgstr ""
+
 # ./src/home/home.html [-:-]
 msgid "Destiny Profile Search"
 msgstr ""
 
+# ./src/faq/faq.html [-:-]
+msgid "Diamond"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+# ./src/app/app.html [-:-]
+msgid "Doubles"
+msgstr ""
+
+# ./src/faq/faq.html [-:-]
+msgid "Each mode you play has its own Elo rating and league categorization. Beyond that, Elo is account-wide, so in Control you'll have the same rating whether you're on your Titan, Warlock or Hunter."
+msgstr ""
+
+# ./src/app/app.html [-:-]
+# ./src/app/app.html [-:-]
+msgid "Elimination"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Emblem"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Emote"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Engram"
+msgstr ""
+
+# ./src/app/app.html [-:-]
 # ./src/home/home.html [-:-]
-msgid "Enter a player name..."
+msgid "Enter a name..."
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "FAQ"
+msgstr ""
+
+# ./src/faq/faq.html [-:-]
+msgid "Frequently Asked Questions"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "General"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Ghost"
+msgstr ""
+
+# ./src/faq/faq.html [-:-]
+msgid "Gold"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Gunslinger"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Heavy"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Helmet"
+msgstr ""
+
+# ./src/faq/faq.html [-:-]
+msgid "How accurate is this data?"
+msgstr ""
+
+# ./src/faq/faq.html [-:-]
+msgid "How do I get in touch if I have a question/suggestion?"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Hunter"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Inventory"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+# ./src/app/app.html [-:-]
+msgid "Iron Banner"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Item Database"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Leaderboards"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Legs"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Logout"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Material"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Mission Key Item"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "My Account"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Nightstalker"
+msgstr ""
+
+# ./src/not-found/not-found.html [-:-]
+msgid "Page Not Found"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Passive Gear"
+msgstr ""
+
+# ./src/faq/faq.html [-:-]
+msgid "Platinum"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "PlayStation"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Primary"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Profile"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+# ./src/app/app.html [-:-]
+msgid "Rift"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+# ./src/app/app.html [-:-]
+msgid "Rumble"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+# ./src/app/app.html [-:-]
+msgid "Salvage"
+msgstr ""
+
+# ./src/home/home.html [-:-]
+msgid "Searching for profile, please wait..."
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Shader"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Ship"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Sign in"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Signed in:"
+msgstr ""
+
+# ./src/faq/faq.html [-:-]
+msgid "Silver"
+msgstr ""
+
+# ./src/faq/faq.html [-:-]
+msgid "Since the launch of the Taken King, we have aggregated data from every single match played. Our rankings are updated in real-time and immediately available. If you have played Destiny recently, particularly in the Crucible, you have a profile here - check it out!"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+# ./src/app/app.html [-:-]
+msgid "Skirmish"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Sparrow"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Special"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+# ./src/app/app.html [-:-]
+msgid "Standard Playlist"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Stats"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Stormcaller"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Striker"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Subclass"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Sunbreaker"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Sunsinger"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Support Us"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "The <em>Guardian.gg</em> website is not affiliated with Bungie or Activision Blizzard"
+msgstr ""
+
+# ./src/faq/faq.html [-:-]
+msgid "The Elo rating system is a method for calculating the relative skill levels of players in competitor-versus-competitor games."
+msgstr ""
+
+# ./src/not-found/not-found.html [-:-]
+msgid "The page you were looking for was not found in the system. This is most likely due to a typo, but can also be an API issue. If you believe you've reached this page in error, <a href=\"mailto:support@guardian.gg\">send us a line to support@guardian.gg</a> and we'll try our best to help you out."
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Titan"
 msgstr ""
 
 # ./src/home/home.html [-:-]
 msgid "Top Players This Season"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+# ./src/app/app.html [-:-]
+msgid "Trials of Osiris"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Try our other projects:"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Voidwalker"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Warlock"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+# ./src/app/app.html [-:-]
+msgid "Weapons"
+msgstr ""
+
+# ./src/faq/faq.html [-:-]
+msgid "What is \"Elo\" and what does it mean?"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+msgid "Xbox Live"
+msgstr ""
+
+# ./src/faq/faq.html [-:-]
+msgid "You can fire us an email at <a href=\"mailto:support@guardian.gg\">support@guardian.gg</a>. If you have a question regarding your account please be sure to include your gamer tag and platform you are playing on. We are unable to diagnose issues if you do not include this information!"
+msgstr ""
+
+# ./src/app/app.html [-:-]
+# ./src/app/app.html [-:-]
+msgid "Zone Control"
 msgstr ""

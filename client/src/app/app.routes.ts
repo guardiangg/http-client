@@ -7,7 +7,7 @@ const routes: RouterConfig = [
     { path: '', component: HomeComponent },
     { path: ':lang', component: HomeComponent },
     { path: ':lang/faq', component: FaqComponent },
-    { path: '*', component: NotFoundComponent }
+    { path: '**', component: NotFoundComponent }
 ];
 
 export const appRouterProviders = [

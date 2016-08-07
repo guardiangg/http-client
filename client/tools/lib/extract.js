@@ -165,8 +165,11 @@ var extractHtml = function(src) {
    var $ = cheerio.load(src, { decodeEntities: false, withStartIndices: true });
 
    $('[translate]').each(function(idx, ele) {
+      var term = $(ele).html();
+      term = term.replace(/(\r\n|\n|\r)/gm, ' ').replace(/\s\s+/g, ' ').trim();
+
       terms.push({
-         term: $(ele).html(),
+         term: term,
          start: {
             line: '-',
             column: '-'

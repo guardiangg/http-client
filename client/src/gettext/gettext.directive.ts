@@ -9,6 +9,11 @@ export class GettextDirective {
     }
 
     ngOnInit() {
-        this._el.nativeElement.innerHTML = this._gettext.getString(this._el.nativeElement.innerHTML);
+        let term = this._el.nativeElement.innerHTML;
+        term = term.replace(/(\r\n|\n|\r)/gm, ' ')
+            .replace(/\s\s+/g, ' ')
+            .trim();
+
+        this._el.nativeElement.innerHTML = this._gettext.getString(term);
     }
 }
