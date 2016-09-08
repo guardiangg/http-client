@@ -71,7 +71,7 @@ app
                     if (window["gggTips"]) {
                         window["gggTips"].locale(locale);
                     }
-                }, 3000));
+                }, 3000);
             }
             
             gettextCatalog.setCurrentLanguage(locale);
