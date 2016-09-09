@@ -4,6 +4,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
+#: component\item\itemDetailCtrl.js:109
+#: shared\chart\item-popularity.js:81
+msgid "% of All Kills"
+msgstr ""
+
 #: component\notice\templates\changelog.html:3
 msgid "'Crimson Days' Patch Changelog"
 msgstr ""
@@ -13,38 +18,12 @@ msgstr ""
 msgid "'Nade"
 msgstr ""
 
-#: component\item\itemDetailCtrl.js:128
-#: component\item\itemListFactory.js:599
-msgid "[Unnamed Item]"
-msgstr ""
-
-#: component\profile\activity-history.html:10
-msgid "{{name}} hasn't completed enough games this season to show Elo"
-msgstr ""
-
-#: component\profile\activity-history.html:185
-msgid "{{name}} hasn't played any games in this mode."
-msgstr ""
-
-#: component\subclass\subclass.html:56
-msgid "{{subclass.label}} Overview"
-msgstr ""
-
-#: component\subclass\subclass.html:71
-msgid "{{subclass.label}} Perks &amp; Exotics"
-msgstr ""
-
-#: component\item\itemDetailCtrl.js:109
-#: shared\chart\item-popularity.js:81
-msgid "% of All Kills"
+#: component\layout\main.html:47
+msgid "<em>Internal error code: {{apiError}}</em>"
 msgstr ""
 
 #: component\home\home.html:7
 msgid "<em>{{totalPlayers24|number}}</em> tracked in the past day"
-msgstr ""
-
-#: component\layout\main.html:47
-msgid "<em>Internal error code: {{apiError}}</em>"
 msgstr ""
 
 #: component\pgcr\pgcr.html:5
@@ -290,6 +269,10 @@ msgstr ""
 msgid "D"
 msgstr ""
 
+#: component\layout\nav.html:187
+msgid "DPS Gear"
+msgstr ""
+
 #: component\weapon-stats\weapon-stats.html:96
 msgid "Data is updating..."
 msgstr ""
@@ -341,10 +324,6 @@ msgstr ""
 #: component\profile\activity-history.html:120
 #: shared\service\consts.js:143
 msgid "Doubles"
-msgstr ""
-
-#: component\layout\nav.html:187
-msgid "DPS Gear"
 msgstr ""
 
 #: component\faq\faq.html:69
@@ -636,11 +615,6 @@ msgstr ""
 msgid "K"
 msgstr ""
 
-#: shared\chart\kd.js:32
-#: shared\chart\subclass-kd.js:34
-msgid "K:D"
-msgstr ""
-
 #. Short for kills / deaths
 #: component\leaderboard\leaderboard.html:69
 #: component\profile\activity-history.html:160
@@ -652,6 +626,11 @@ msgstr ""
 
 #: shared\chart\subclass-kd.js:18
 msgid "K/D by Mode"
+msgstr ""
+
+#: shared\chart\kd.js:32
+#: shared\chart\subclass-kd.js:34
+msgid "K:D"
 msgstr ""
 
 #: shared\chart\kd.js:18
@@ -702,16 +681,8 @@ msgstr ""
 msgid "Loading Armor..."
 msgstr ""
 
-#: component\changelog\changelog.html:35
-msgid "Loading changelog, please wait..."
-msgstr ""
-
 #: component\profile\character.html:2
 msgid "Loading Characters..."
-msgstr ""
-
-#: component\item\item-detail.html:230
-msgid "Loading chart..."
 msgstr ""
 
 #: component\subclass\subclass.html:59
@@ -722,20 +693,12 @@ msgstr ""
 msgid "Loading Elo Data..."
 msgstr ""
 
-#: component\item\item-list.html:15
-msgid "Loading filters..."
-msgstr ""
-
 #: component\profile\activity-history.html:130
 msgid "Loading Fireteam..."
 msgstr ""
 
 #: component\profile\activity-history.html:149
 msgid "Loading Game History..."
-msgstr ""
-
-#: component\item\item-list.html:115
-msgid "Loading items, please wait..."
 msgstr ""
 
 #: component\profile\character.html:69
@@ -748,6 +711,22 @@ msgstr ""
 
 #: component\subclass\subclass.html:139
 msgid "Loading Weapons..."
+msgstr ""
+
+#: component\changelog\changelog.html:35
+msgid "Loading changelog, please wait..."
+msgstr ""
+
+#: component\item\item-detail.html:230
+msgid "Loading chart..."
+msgstr ""
+
+#: component\item\item-list.html:15
+msgid "Loading filters..."
+msgstr ""
+
+#: component\item\item-list.html:115
+msgid "Loading items, please wait..."
 msgstr ""
 
 #: component\changelog\changelogCtrl.js:34
@@ -863,10 +842,6 @@ msgstr ""
 msgid "Ocean of Storms"
 msgstr ""
 
-#: shared\chart\weapon-bar.js:46
-msgid "of total kills"
-msgstr ""
-
 #: shared\service\consts.js:782
 msgid "Old Russia"
 msgstr ""
@@ -933,17 +908,13 @@ msgstr ""
 msgid "Platinum"
 msgstr ""
 
-#: component\pgcr\pgcr.html:12
-msgid "played"
+#: component\layout\nav.html:24
+#: shared\service\consts.js:133
+msgid "PlayStation"
 msgstr ""
 
 #: shared\service\consts.js:173
 msgid "Players"
-msgstr ""
-
-#: component\layout\nav.html:24
-#: shared\service\consts.js:133
-msgid "PlayStation"
 msgstr ""
 
 #: component\notice\templates\trials-stream.html:4
@@ -977,12 +948,12 @@ msgstr ""
 msgid "Primary Stats"
 msgstr ""
 
-#: component\item\item-list.html:31
-msgid "Primary type"
-msgstr ""
-
 #: shared\service\consts.js:302
 msgid "Primary Weapon"
+msgstr ""
+
+#: component\item\item-list.html:31
+msgid "Primary type"
 msgstr ""
 
 #: shared\service\consts.js:708
@@ -1099,6 +1070,20 @@ msgstr ""
 #: component\subclass\subclass.html:97
 #: shared\service\consts.js:141
 msgid "Rumble"
+msgstr ""
+
+#: component\profile\activity-history.html:122
+#: shared\service\consts.js:147
+msgid "SRL"
+msgstr ""
+
+#: shared\service\consts.js:732
+msgid "SRL Record Book"
+msgstr ""
+
+#: component\profile\activity-history.html:38
+#: shared\service\consts.js:65
+msgid "SRL Special Event"
 msgstr ""
 
 #: component\item\item-detail.html:224
@@ -1231,20 +1216,6 @@ msgstr ""
 msgid "Special Weapon"
 msgstr ""
 
-#: component\profile\activity-history.html:122
-#: shared\service\consts.js:147
-msgid "SRL"
-msgstr ""
-
-#: shared\service\consts.js:732
-msgid "SRL Record Book"
-msgstr ""
-
-#: component\profile\activity-history.html:38
-#: shared\service\consts.js:65
-msgid "SRL Special Event"
-msgstr ""
-
 #: component\profile\activity-history.html:161
 msgid "Standing"
 msgstr ""
@@ -1339,10 +1310,6 @@ msgstr ""
 msgid "Talent Grid"
 msgstr ""
 
-#: component\changelog\changelog.html:39
-msgid "The changelog you're looking for does not exist"
-msgstr ""
-
 #: component\faq\faq.html:46
 msgid ""
 "The Elo rating system is a method for calculating the relative skill levels of players in\r\n"
@@ -1353,20 +1320,24 @@ msgstr ""
 msgid "The February update has arrived, and with it we've compiled a list of all changes in the item database."
 msgstr ""
 
-#: component\profile\activity-history.html:146
-msgid "The match history is unavailable due to an API error"
-msgstr ""
-
-#: component\item\item-list.html:11
-msgid "The page URL gets updated with any filters you add. Share it, or come back to it later easily!"
-msgstr ""
-
 #: shared\service\consts.js:856
 msgid "The Speaker"
 msgstr ""
 
 #: shared\service\consts.js:757
 msgid "The Taken King"
+msgstr ""
+
+#: component\changelog\changelog.html:39
+msgid "The changelog you're looking for does not exist"
+msgstr ""
+
+#: component\profile\activity-history.html:146
+msgid "The match history is unavailable due to an API error"
+msgstr ""
+
+#: component\item\item-list.html:11
+msgid "The page URL gets updated with any filters you add. Share it, or come back to it later easily!"
 msgstr ""
 
 #: component\weapon-stats\weapon-stats.html:92
@@ -1417,12 +1388,12 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: component\home\home.html:15
-msgid "Top {{platforms[platform]}} Guardians"
-msgstr ""
-
 #: component\weapon-stats\weapon-stats.html:87
 msgid "Top Weapons"
+msgstr ""
+
+#: component\home\home.html:15
+msgid "Top {{platforms[platform]}} Guardians"
 msgstr ""
 
 #: shared\service\consts.js:808
@@ -1495,10 +1466,6 @@ msgstr ""
 #: component\layout\nav.html:246
 #: shared\service\consts.js:217
 msgid "Voidwalker"
-msgstr ""
-
-#: component\pgcr\pgcr.html:20
-msgid "vs."
 msgstr ""
 
 #: component\item\item-detail.html:119
@@ -1586,4 +1553,37 @@ msgstr ""
 #: component\profile\activity-history.html:121
 #: shared\service\consts.js:144
 msgid "Zone Control"
+msgstr ""
+
+#: component\item\itemDetailCtrl.js:128
+#: component\item\itemListFactory.js:599
+msgid "[Unnamed Item]"
+msgstr ""
+
+#: shared\chart\weapon-bar.js:46
+msgid "of total kills"
+msgstr ""
+
+#: component\pgcr\pgcr.html:12
+msgid "played"
+msgstr ""
+
+#: component\pgcr\pgcr.html:20
+msgid "vs."
+msgstr ""
+
+#: component\profile\activity-history.html:10
+msgid "{{name}} hasn't completed enough games this season to show Elo"
+msgstr ""
+
+#: component\profile\activity-history.html:185
+msgid "{{name}} hasn't played any games in this mode."
+msgstr ""
+
+#: component\subclass\subclass.html:56
+msgid "{{subclass.label}} Overview"
+msgstr ""
+
+#: component\subclass\subclass.html:71
+msgid "{{subclass.label}} Perks &amp; Exotics"
 msgstr ""
