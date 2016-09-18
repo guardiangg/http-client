@@ -142,6 +142,10 @@ app.controller('subclassCtrl', [
                         });
                     });
 
+                    filtered.forEach(function(row, index) {
+                        filtered[index] = _.sortBy(row, 'row');
+                    });
+
                     $scope.perks = filtered;
                     $scope.perkTotals = totals;
                     $scope.loading.perks = false;
