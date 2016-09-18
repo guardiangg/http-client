@@ -73,7 +73,7 @@ app
                     }
                 }, 3000);
             }
-            
+
             gettextCatalog.setCurrentLanguage(locale);
             moment.locale(locale);
 
