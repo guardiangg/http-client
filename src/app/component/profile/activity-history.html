@@ -34,6 +34,7 @@
                 <i class="fa fa-filter"></i> {{seasons[season].label}}
             </button>
             <ul class="dropdown-menu dropdown-menu-right" area-labelledby="seasonSelector">
+                <li ng-if="seasonData[2]"><a href="javascript:;" ng-click="setSeason(2)"><translate>Season 2 - The Taken King</translate></a></li>
                 <li ng-if="seasonData[1]"><a href="javascript:;" ng-click="setSeason(1)"><translate>Season 1 - The Taken King</translate></a></li>
                 <li ng-if="!loading.srl && srl.length > 0"><a href="javascript:;" ng-click="setSeason('srl')"><translate>SRL Special Event</translate></a></li>
             </ul>

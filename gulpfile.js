@@ -52,7 +52,7 @@ var jsFiles = {
         'ui-select/dist/select.js',
         'angularjs-datepicker/src/js/angular-datepicker.js',
         'angulartics/dist/angulartics.min.js',
-        'angulartics-google-analytics/dist/angulartics-google-analytics.min.js',
+        'angulartics-google-analytics/dist/angulartics-ga.min.js',
 
         'jquery.kinetic/jquery.kinetic.js',
 

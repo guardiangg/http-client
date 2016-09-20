@@ -68,6 +68,10 @@ app.service('consts', [
                 1: {
                     label: gettextCatalog.getString('Season 1 - The Taken King'),
                     subtext: gettextCatalog.getString('Season 1 took place between Sep 15th, 2015 and Apr 12th, 2016')
+                },
+                2: {
+                    label: gettextCatalog.getString('Season 2 - The Taken King'),
+                    subtext: gettextCatalog.getString('Season 2 took place between Apr 12th, 2015 and Sept 20th, 2016')
                 }
             },
             
