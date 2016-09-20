@@ -64,7 +64,16 @@ app
                 locale = match[1];
             }
 
-            window["gggTips"].locale(locale);
+            if (window["gggTips"]) {
+                window["gggTips"].locale(locale);
+            } else {
+                setTimeout(function() {
+                    if (window["gggTips"]) {
+                        window["gggTips"].locale(locale);
+                    }
+                }, 3000);
+            }
+            
             gettextCatalog.setCurrentLanguage(locale);
             moment.locale(locale);
 
