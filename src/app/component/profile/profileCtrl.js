@@ -371,8 +371,11 @@ app.controller('profileCtrl', [
                         data.league = consts.ratingToLeague(data.elo);
 
                         $scope.seasonData[data.season].push(data);
-                        $scope.season = data.season;
                     });
+                    
+                    if (result.data.data.length > 0) {
+                        $scope.season = result.data.data[0].season;
+                    }
 
                     return api.getSrl(membershipId);
                 }, function(err) {
