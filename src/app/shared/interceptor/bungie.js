@@ -8,7 +8,7 @@ app.factory('bungieInterceptor', [
         return {
             response: function (response) {
                 if (response.config.url.indexOf('proxy.guardian.gg') > -1) {
-                    if (response.data.ErrorCode && response.data.ErrorCode != 1) {
+                    if (response.data.ErrorCode && response.data.ErrorCode != 1 && response.data.ErrorCode != 1670) {
                         $rootScope.apiError = '[' + response.data.ErrorCode + '] ' + response.data.ErrorStatus;
                         return $q.reject(response);
                     }

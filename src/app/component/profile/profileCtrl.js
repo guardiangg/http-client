@@ -33,6 +33,7 @@ app.controller('profileCtrl', [
         $scope.srlMaps = consts.srl_maps;
         $scope.classes = consts.classes;
         $scope.eloChart = charts.get('profile-elo');
+        $scope.eloChartEmpty = true;
         $scope.loading = {
             activityHistory: true,
             elo: true,
@@ -50,6 +51,7 @@ app.controller('profileCtrl', [
             character: false,
             inventory: false
         };
+        $scope.legacy = false;
 
         $scope.loadHistory = function(mode, platform, membershipId) {
             if (!$scope.character || $scope.infiniteScroll) {
@@ -391,6 +393,16 @@ app.controller('profileCtrl', [
                     return bungie.getAccount(platform, membershipId);
                 })
                 .then(function(response) {
+                    if (response.data.ErrorCode && response.data.ErrorCode == 1670) {
+                        $scope.legacy = true;
+                        $scope.loading.character = false;
+                        $scope.loading.inventory = false;
+                        $scope.loading.fireteam = false;
+                        $scope.loading.name = false;
+                        $scope.loading.activityHistory = false;
+                        return;
+                    }
+
                     $scope.characters = response.data.Response.data.characters;
 
                     var idx = 0;

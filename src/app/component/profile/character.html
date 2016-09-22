@@ -2,7 +2,7 @@
     <i class="fa fa-cog fa-spin"></i> <translate>Loading Characters...</translate>
 </div>
 
-<div class="emblem" ng-style="{'background-image':'url(//www.bungie.net/' + character.backgroundPath + ')'}" ng-if="!loading.character">
+<div class="emblem" ng-style="{'background-image':'url(//www.bungie.net/' + character.backgroundPath + ')'}" ng-if="!loading.character && !legacy">
     <img ng-src="{{'//www.bungie.net/' + character.emblemPath}}" />
     <span class="name">{{name}}</span>
     <span class="class">{{classes[character.characterBase.classHash]}}</span>
@@ -10,7 +10,23 @@
     <span class="grimoire"><i class="ggg ggg-grimoire"></i> {{character.characterBase.grimoireScore}}</span>
 </div>
 
-<div ng-if="characters && characters.length > 1" class="alts">
+<div class="emblem" ng-style="{'background-image':'url(/asset/image/emblem_legacy.jpg)'}" ng-if="!loading.character && legacy">
+    <img src="/asset/image/icon_legacy.jpg" />
+    <span class="name">{{name}}</span>
+    <span class="class">Legacy Account</span>
+</div>
+
+<div class="legacy-notice" ng-if="legacy">
+    <i class="fa fa-warning"></i>
+    This is a legacy <span ng-if="platform === 1">Xbox 360</span><span ng-if="platform === 2">PS3</span>
+    account. Bungie made the decision to no longer support legacy accounts in the API with the launch of Rise of Iron.
+    We can't retrieve the match history or character information due to this change. We still collect individual match
+    data so we're able to calculate Elo and continue to display it here. If the account owner upgrades to a
+    <span ng-if="platform === 1">Xbox One</span><span ng-if="platform === 2">PS4</span> copy,
+    this page will automatically be upgraded with all of the standard profile details.
+</div>
+
+<div ng-if="characters && characters.length > 1 && !legacy" class="alts">
     <div ng-repeat="c in ::characters" ng-click="changeCharacter($index)" class="alt-character col-xs-4" ng-style="{'background-image':'url(//www.bungie.net/' + c.backgroundPath + ')'}">
         <div class="info">
             {{classes[c.characterBase.classHash]}} <span class="light">{{c.characterBase.powerLevel}}</span>
@@ -20,7 +36,7 @@
 
 <div class="clear"></div>
 
-<div class="stats" ng-show="!loading.character">
+<div class="stats" ng-show="!loading.character && !legacy">
     <div class="base col-xs-3">
         <div class="stat-bar">
             <div class="fill" ng-style="{ width: ((character.characterBase.stats.STAT_ARMOR.value / 10) * 100) + '%' }"></div>
@@ -65,11 +81,11 @@
     <div class="clear"></div>
 </div>
 
-<div ng-if="loading.inventory" class="loading">
+<div ng-if="loading.inventory && !legacy" class="loading">
     <i class="fa fa-cog fa-spin"></i> <translate>Loading Items...</translate>
 </div>
 
-<div class="loadout" ng-if="!loading.inventory">
+<div class="loadout" ng-if="!loading.inventory && !legacy">
     <profile-items slots="subclass" items="items" definitions="definitions"></profile-items>
     <profile-items slots="primary,special,heavy" items="items" definitions="definitions"></profile-items>
     <profile-items slots="head,arm,chest,leg" is-exotic="true" items="items" definitions="definitions"></profile-items>

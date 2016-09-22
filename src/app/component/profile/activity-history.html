@@ -99,7 +99,7 @@
     </div>
 </div>
 
-<h2>
+<h2 ng-if="!legacy">
     <div class="history-filters pull-right">
         <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="modeSelector" data-toggle="dropdown" aria-haspopup="true">
@@ -127,10 +127,10 @@
     <span translate>Match History</span>
 </h2>
 
-<div class="loading" ng-show="loading.fireteam">
+<div class="loading" ng-show="loading.fireteam && !legacy">
     <i class="fa fa-cog fa-spin"></i> <translate>Loading Fireteam...</translate>
 </div>
-<div class="fireteam row" ng-show="fireteam.length > 0">
+<div class="fireteam row" ng-show="fireteam.length > 0 && !legacy">
     <h4 translate>Recent Fireteam</h4>
     <div class="col-sm-2 member" ng-repeat="row in fireteam" ng-show="row.name != name">
         <div class="details">
@@ -146,10 +146,10 @@
 <div class="empty" ng-show="maintenance.activityHistory">
     <i class="fa fa-warning"></i> <translate>The match history is unavailable due to an API error</translate>
 </div>
-<div class="loading" ng-show="loading.activityHistory">
+<div class="loading" ng-show="loading.activityHistory && !legacy">
     <i class="fa fa-cog fa-spin"></i> <translate>Loading Game History...</translate>
 </div>
-<div infinite-scroll="loadMoreHistory">
+<div infinite-scroll="loadMoreHistory" ng-if="!legacy">
     <table class="table table-striped history noselect" ng-if="activities && !loading.activityHistory">
         <tr>
             <th style="width:15%">Played</th>

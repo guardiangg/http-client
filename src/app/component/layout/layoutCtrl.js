@@ -1,6 +1,7 @@
 var app = angular.module('app');
 
 app.controller('layoutCtrl', [
+    '$rootScope',
     '$scope',
     '$location',
     '$state',
@@ -12,7 +13,7 @@ app.controller('layoutCtrl', [
     'gettextCatalog',
     'notice',
 
-    function ($scope, $location, $state, $stateParams, $localStorage, $window, consts, gettext, gettextCatalog, notice) {
+    function ($rootScope, $scope, $location, $state, $stateParams, $localStorage, $window, consts, gettext, gettextCatalog, notice) {
         $scope.placeholder = $localStorage.searchPlaceholder ?
             $localStorage.searchPlaceholder : gettext('Search for a Guardian...');
 
@@ -34,6 +35,10 @@ app.controller('layoutCtrl', [
 
             return uris;
         };
+
+        $rootScope.$on('$stateChangeStart', function() {
+            $rootScope.apiError = false;
+        });
 
         $scope.currentLanguage = function() {
             return gettextCatalog.getCurrentLanguage();

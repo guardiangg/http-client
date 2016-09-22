@@ -18,7 +18,7 @@
                 <i class="fa fa-info-circle"></i> There are insufficient games played in this
                 season to show leaderboards. Check back soon!
             </div>
-            <div ng-repeat="data in modeData" class="col-sm-6 leaderboard-wrapper leaderboard-wrapper-home">
+            <div ng-repeat="data in modeData" class="col-sm-6 leaderboard-wrapper leaderboard-wrapper-home" ng-if="data.players.length == 5">
                 <h4 class="col-xs-12 text-center">
                     <i class="ggg ggg-{{modes[data.mode]|lowercase}}"
                        ng-class="{'ggg-iron-banner':data.mode == 19, 'ggg-osiris':data.mode == 14}">
