@@ -149,6 +149,7 @@ app.service('consts', [
                 19: gettextCatalog.getString('Iron Banner'),
                 14: gettextCatalog.getString('Trials of Osiris'),
                 29: gettextCatalog.getString('SRL'),
+                31: gettextCatalog.getString('Supremacy'),
 
                 // custom modes
                 523: gettextCatalog.getString('Crimson Doubles')
