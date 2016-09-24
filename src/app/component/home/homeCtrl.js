@@ -21,7 +21,7 @@ app.controller('homeCtrl', [
             'Guardian.gg - Advanced Destiny Stats, Profiles, Leaderboards, and Database'
         );
 
-        var gameModes = [14, /*19,*/ 10, 13, 24, 12, 11, /*15,*/ 23, 9];
+        var gameModes = [31, 14, /*19,*/ 10, 13, 24, 12, 11, /*15,*/ 23, 9];
         leaderboardApi
             .getFeatured(gameModes)
             .then(function(result) {

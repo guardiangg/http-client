@@ -81,18 +81,18 @@ msgstr ""
 msgid "Any Map"
 msgstr ""
 
-#: component\layout\nav.html:207
+#: component\layout\nav.html:217
 #: component\profile\character.html:45
 #: shared\service\consts.js:442
 msgid "Armor"
 msgstr ""
 
-#: component\layout\nav.html:209
+#: component\layout\nav.html:219
 #: shared\service\consts.js:455
 msgid "Arms"
 msgstr ""
 
-#: component\layout\nav.html:213
+#: component\layout\nav.html:223
 #: shared\service\consts.js:483
 msgid "Artifact"
 msgstr ""
@@ -124,12 +124,12 @@ msgstr ""
 msgid "Best Time"
 msgstr ""
 
-#: component\layout\nav.html:246
+#: component\layout\nav.html:256
 #: shared\service\consts.js:245
 msgid "Bladedancer"
 msgstr ""
 
-#: component\layout\nav.html:231
+#: component\layout\nav.html:241
 #: shared\service\consts.js:556
 msgid "Bounty"
 msgstr ""
@@ -168,7 +168,7 @@ msgstr ""
 msgid "Check out the new shells, emblems, emotes and more in the <a ui-sref=\"app.changelog({hash1: 'ccf82677a7f6df2909d520b8d7b146ad', hash2: '7514fc765ba3e52bd7ea0dff8df7671e', type: 'item'})\">changelog for patch 48604.16.01.24.1344-20</a>."
 msgstr ""
 
-#: component\layout\nav.html:210
+#: component\layout\nav.html:220
 #: shared\service\consts.js:462
 msgid "Chest"
 msgstr ""
@@ -182,7 +182,7 @@ msgid "Clan Name"
 msgstr ""
 
 #: component\item\item-detail.html:219
-#: component\layout\nav.html:124
+#: component\layout\nav.html:129
 #: component\layout\nav.html:47
 #: component\profile\activity-history.html:115
 #: component\subclass\subclass.html:91
@@ -194,7 +194,7 @@ msgstr ""
 msgid "Class"
 msgstr ""
 
-#: component\layout\nav.html:212
+#: component\layout\nav.html:222
 #: shared\service\consts.js:476
 msgid "Class Item"
 msgstr ""
@@ -212,13 +212,13 @@ msgstr ""
 msgid "Common"
 msgstr ""
 
-#: component\layout\nav.html:232
+#: component\layout\nav.html:242
 #: shared\service\consts.js:579
 msgid "Consumable"
 msgstr ""
 
 #: component\item\item-detail.html:218
-#: component\layout\nav.html:119
+#: component\layout\nav.html:124
 #: component\layout\nav.html:42
 #: component\profile\activity-history.html:114
 #: component\subclass\subclass.html:82
@@ -251,7 +251,7 @@ msgstr ""
 msgid "Cryptarch"
 msgstr ""
 
-#: component\layout\nav.html:233
+#: component\layout\nav.html:243
 #: shared\service\consts.js:587
 msgid "Currency"
 msgstr ""
@@ -262,7 +262,7 @@ msgstr ""
 msgid "D"
 msgstr ""
 
-#: component\layout\nav.html:197
+#: component\layout\nav.html:207
 msgid "DPS Gear"
 msgstr ""
 
@@ -274,12 +274,12 @@ msgstr ""
 msgid "Dead Orbit"
 msgstr ""
 
-#: component\layout\nav.html:250
+#: component\layout\nav.html:260
 #: shared\service\consts.js:210
 msgid "Defender"
 msgstr ""
 
-#: component\layout\nav.html:206
+#: component\layout\nav.html:216
 msgid "Defensive Gear"
 msgstr ""
 
@@ -312,8 +312,8 @@ msgid "Dismiss Notice"
 msgstr ""
 
 #: component\item\item-detail.html:225
-#: component\layout\nav.html:154
-#: component\layout\nav.html:77
+#: component\layout\nav.html:164
+#: component\layout\nav.html:82
 #: component\profile\activity-history.html:121
 #: shared\service\consts.js:147
 msgid "Doubles"
@@ -326,8 +326,8 @@ msgid ""
 msgstr ""
 
 #: component\item\item-detail.html:222
-#: component\layout\nav.html:139
-#: component\layout\nav.html:62
+#: component\layout\nav.html:149
+#: component\layout\nav.html:67
 #: component\profile\activity-history.html:118
 #: component\subclass\subclass.html:100
 #: shared\service\consts.js:146
@@ -342,7 +342,7 @@ msgstr ""
 msgid "Elo Rankings"
 msgstr ""
 
-#: component\layout\nav.html:221
+#: component\layout\nav.html:231
 #: shared\service\consts.js:508
 msgid "Emblem"
 msgstr ""
@@ -351,7 +351,7 @@ msgstr ""
 msgid "Emblem Preview"
 msgstr ""
 
-#: component\layout\nav.html:222
+#: component\layout\nav.html:232
 #: shared\service\consts.js:516
 msgid "Emote"
 msgstr ""
@@ -360,7 +360,7 @@ msgstr ""
 msgid "End day"
 msgstr ""
 
-#: component\layout\nav.html:234
+#: component\layout\nav.html:244
 #: shared\service\consts.js:595
 msgid "Engram"
 msgstr ""
@@ -395,7 +395,7 @@ msgid "Expansion Pack"
 msgstr ""
 
 #: component\faq\faqCtrl.js:8
-#: component\layout\nav.html:260
+#: component\layout\nav.html:270
 msgid "FAQ"
 msgstr ""
 
@@ -411,7 +411,7 @@ msgstr ""
 msgid "First"
 msgstr ""
 
-#: component\layout\nav.html:279
+#: component\layout\nav.html:289
 msgid "Follow"
 msgstr ""
 
@@ -447,12 +447,12 @@ msgstr ""
 msgid "Get out there and enjoy Rise of Iron! We hope to see you on top of the leaderboards soon."
 msgstr ""
 
-#: component\layout\nav.html:214
+#: component\layout\nav.html:224
 #: shared\service\consts.js:490
 msgid "Ghost"
 msgstr ""
 
-#: component\layout\nav.html:284
+#: component\layout\nav.html:294
 msgid "GitHub"
 msgstr ""
 
@@ -485,7 +485,7 @@ msgid ""
 "    service as soon as possible."
 msgstr ""
 
-#: component\layout\nav.html:247
+#: component\layout\nav.html:257
 #: shared\service\consts.js:235
 msgid "Gunslinger"
 msgstr ""
@@ -502,7 +502,7 @@ msgstr ""
 msgid "Hand Cannon"
 msgstr ""
 
-#: component\layout\nav.html:201
+#: component\layout\nav.html:211
 #: component\weapon-stats\weapon-stats.html:129
 msgid "Heavy"
 msgstr ""
@@ -511,7 +511,7 @@ msgstr ""
 msgid "Heavy Weapon"
 msgstr ""
 
-#: component\layout\nav.html:208
+#: component\layout\nav.html:218
 #: shared\service\consts.js:448
 msgid "Helmet"
 msgstr ""
@@ -574,12 +574,12 @@ msgid "Insufficient weapon data was found for this game mode in the last 7 days.
 msgstr ""
 
 #: component\item\item-list.html:39
-#: component\layout\nav.html:230
+#: component\layout\nav.html:240
 msgid "Inventory"
 msgstr ""
 
 #: component\item\item-detail.html:216
-#: component\layout\nav.html:114
+#: component\layout\nav.html:119
 #: component\layout\nav.html:37
 #: component\profile\activity-history.html:112
 #: component\subclass\subclass.html:85
@@ -601,7 +601,7 @@ msgstr ""
 #: component\item\item-list.html:124
 #: component\item\item-list.html:131
 #: component\item\item-list.html:5
-#: component\layout\nav.html:193
+#: component\layout\nav.html:203
 #: component\search\search.html:26
 msgid "Items"
 msgstr ""
@@ -665,7 +665,7 @@ msgstr ""
 msgid "Legendary"
 msgstr ""
 
-#: component\layout\nav.html:211
+#: component\layout\nav.html:221
 #: shared\service\consts.js:469
 msgid "Legs"
 msgstr ""
@@ -754,7 +754,7 @@ msgstr ""
 msgid "Match History"
 msgstr ""
 
-#: component\layout\nav.html:235
+#: component\layout\nav.html:245
 #: shared\service\consts.js:603
 msgid "Material"
 msgstr ""
@@ -771,7 +771,7 @@ msgstr ""
 msgid "Miscellaneous"
 msgstr ""
 
-#: component\layout\nav.html:236
+#: component\layout\nav.html:246
 #: shared\service\consts.js:611
 msgid "Mission Key Item"
 msgstr ""
@@ -810,7 +810,7 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: component\layout\nav.html:248
+#: component\layout\nav.html:258
 #: shared\service\consts.js:240
 msgid "Nightstalker"
 msgstr ""
@@ -870,7 +870,7 @@ msgid "Page {{page+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Gu
 msgstr ""
 
 #: component\item\item-list.html:36
-#: component\layout\nav.html:219
+#: component\layout\nav.html:229
 msgid "Passive Gear"
 msgstr ""
 
@@ -936,7 +936,7 @@ msgstr ""
 msgid "Preview"
 msgstr ""
 
-#: component\layout\nav.html:199
+#: component\layout\nav.html:209
 #: component\weapon-stats\weapon-stats.html:100
 msgid "Primary"
 msgstr ""
@@ -1048,8 +1048,8 @@ msgid "Reward Sources"
 msgstr ""
 
 #: component\item\item-detail.html:220
-#: component\layout\nav.html:134
-#: component\layout\nav.html:57
+#: component\layout\nav.html:144
+#: component\layout\nav.html:62
 #: component\profile\activity-history.html:116
 #: component\subclass\subclass.html:94
 #: shared\service\consts.js:144
@@ -1061,7 +1061,7 @@ msgid "Rocket Launcher"
 msgstr ""
 
 #: component\item\item-detail.html:221
-#: component\layout\nav.html:129
+#: component\layout\nav.html:134
 #: component\layout\nav.html:52
 #: component\profile\activity-history.html:117
 #: component\subclass\subclass.html:97
@@ -1069,6 +1069,8 @@ msgstr ""
 msgid "Rumble"
 msgstr ""
 
+#: component\layout\nav.html:139
+#: component\layout\nav.html:57
 #: shared\service\consts.js:156
 msgid "Rumble Supremacy"
 msgstr ""
@@ -1088,8 +1090,8 @@ msgid "SRL Special Event"
 msgstr ""
 
 #: component\item\item-detail.html:224
-#: component\layout\nav.html:149
-#: component\layout\nav.html:72
+#: component\layout\nav.html:159
+#: component\layout\nav.html:77
 #: component\profile\activity-history.html:120
 #: shared\service\consts.js:142
 msgid "Salvage"
@@ -1137,12 +1139,12 @@ msgstr ""
 msgid "Select a map"
 msgstr ""
 
-#: component\layout\nav.html:223
+#: component\layout\nav.html:233
 #: shared\service\consts.js:524
 msgid "Shader"
 msgstr ""
 
-#: component\layout\nav.html:224
+#: component\layout\nav.html:234
 #: shared\service\consts.js:532
 msgid "Ship"
 msgstr ""
@@ -1178,8 +1180,8 @@ msgid ""
 msgstr ""
 
 #: component\item\item-detail.html:223
-#: component\layout\nav.html:144
-#: component\layout\nav.html:67
+#: component\layout\nav.html:154
+#: component\layout\nav.html:72
 #: component\profile\activity-history.html:119
 #: component\subclass\subclass.html:103
 #: shared\service\consts.js:140
@@ -1204,7 +1206,7 @@ msgstr ""
 msgid "Sources"
 msgstr ""
 
-#: component\layout\nav.html:225
+#: component\layout\nav.html:235
 #: shared\service\consts.js:548
 msgid "Sparrow"
 msgstr ""
@@ -1213,7 +1215,7 @@ msgstr ""
 msgid "Sparrow Racing League"
 msgstr ""
 
-#: component\layout\nav.html:200
+#: component\layout\nav.html:210
 #: component\weapon-stats\weapon-stats.html:115
 msgid "Special"
 msgstr ""
@@ -1239,11 +1241,11 @@ msgid "Stat Ranges"
 msgstr ""
 
 #: component\changelog\changelogCtrl.js:44
-#: component\layout\nav.html:242
+#: component\layout\nav.html:252
 msgid "Stats"
 msgstr ""
 
-#: component\layout\nav.html:254
+#: component\layout\nav.html:264
 #: shared\service\consts.js:230
 msgid "Stormcaller"
 msgstr ""
@@ -1260,7 +1262,7 @@ msgstr ""
 msgid "Strike - Nightfall"
 msgstr ""
 
-#: component\layout\nav.html:251
+#: component\layout\nav.html:261
 #: shared\service\consts.js:215
 msgid "Striker"
 msgstr ""
@@ -1273,7 +1275,7 @@ msgstr ""
 msgid "Sub-type #2"
 msgstr ""
 
-#: component\layout\nav.html:220
+#: component\layout\nav.html:230
 #: shared\service\consts.js:500
 msgid "Subclass"
 msgstr ""
@@ -1282,12 +1284,12 @@ msgstr ""
 msgid "Subclass Popularity"
 msgstr ""
 
-#: component\layout\nav.html:252
+#: component\layout\nav.html:262
 #: shared\service\consts.js:205
 msgid "Sunbreaker"
 msgstr ""
 
-#: component\layout\nav.html:255
+#: component\layout\nav.html:265
 #: shared\service\consts.js:220
 msgid "Sunsinger"
 msgstr ""
@@ -1308,7 +1310,7 @@ msgid ""
 "        at <a href=\"http://agora.gg\">Agora.gg</a>."
 msgstr ""
 
-#: component\layout\nav.html:109
+#: component\layout\nav.html:114
 #: component\layout\nav.html:32
 #: component\profile\activity-history.html:113
 #: shared\service\consts.js:152
@@ -1418,7 +1420,7 @@ msgid "Tower Vendor"
 msgstr ""
 
 #: component\item\item-detail.html:217
-#: component\layout\nav.html:104
+#: component\layout\nav.html:109
 #: component\layout\nav.html:27
 #: component\profile\activity-history.html:111
 #: component\subclass\subclass.html:88
@@ -1474,7 +1476,7 @@ msgstr ""
 msgid "View carnage report on Bungie.net"
 msgstr ""
 
-#: component\layout\nav.html:256
+#: component\layout\nav.html:266
 #: shared\service\consts.js:225
 msgid "Voidwalker"
 msgstr ""
@@ -1527,8 +1529,8 @@ msgstr ""
 msgid "Weapon Popularity"
 msgstr ""
 
-#: component\layout\nav.html:198
-#: component\layout\nav.html:244
+#: component\layout\nav.html:208
+#: component\layout\nav.html:254
 msgid "Weapons"
 msgstr ""
 
@@ -1547,7 +1549,7 @@ msgstr ""
 msgid "Win%"
 msgstr ""
 
-#: component\layout\nav.html:101
+#: component\layout\nav.html:106
 #: shared\service\consts.js:136
 msgid "Xbox"
 msgstr ""
@@ -1565,8 +1567,8 @@ msgid "Your search for \"{{query}}\" matched {{count}} results"
 msgstr ""
 
 #: component\item\item-detail.html:226
-#: component\layout\nav.html:159
-#: component\layout\nav.html:82
+#: component\layout\nav.html:169
+#: component\layout\nav.html:87
 #: component\profile\activity-history.html:122
 #: shared\service\consts.js:148
 msgid "Zone Control"
