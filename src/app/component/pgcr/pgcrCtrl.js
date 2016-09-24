@@ -28,6 +28,9 @@ app.controller('pgcrCtrl', [
                 $scope.period = pgcr.getPeriod();
                 $scope.id = $stateParams.instanceId;
 
+                console.log($scope.mode);
+                console.log($scope.teams);
+
                 $rootScope.title = '#[' + $stateParams.instanceId + '] ' +
                     $scope.definitions.activities[$scope.details.referenceId].activityName +
                     ' (' + $scope.modeDefs[$scope.mode] + ') - Carnage Report - Guardian.gg';

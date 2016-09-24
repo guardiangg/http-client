@@ -64,10 +64,20 @@ app.factory('pgcrFactory', [
                             pgcr.definitions = response.definitions;
                             var deserters = [];
 
+                            if (pgcr.mode == 31 && response.data.teams.length >= 3) {
+                                pgcr.mode = 531;
+                            }
+
+                            var isRumble = pgcr.mode == 531 || pgcr.mode == 13;
+
                             var membershipIds = [];
                             _.each(response.data.entries, function(player) {
                                 membershipIds.push(player.player.destinyUserInfo.membershipId);
                                 var teamId = player.values.team ? player.values.team.basic.value : 0;
+
+                                if (isRumble) {
+                                    teamId = 0;
+                                }
 
                                 if (!pgcr.teams[teamId]) {
                                     pgcr.teams[teamId] = {
@@ -80,7 +90,7 @@ app.factory('pgcrFactory', [
                                 }
 
                                 // Rumble standings start at 0
-                                if (pgcr.mode == 13) {
+                                if (pgcr.mode == 13 || pgcr.mode == 531) {
                                     if (player.values.completed.basic.value === 1 || player.standing > 0) {
                                         player.standing += 1;
                                     }

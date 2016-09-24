@@ -152,7 +152,8 @@ app.service('consts', [
                 31: gettextCatalog.getString('Supremacy'),
 
                 // custom modes
-                523: gettextCatalog.getString('Crimson Doubles')
+                523: gettextCatalog.getString('Crimson Doubles'),
+                531: gettextCatalog.getString('Rumble Supremacy')
             },
             modeIcons: {
                 9: 'ggg-skirmish',
@@ -169,9 +170,11 @@ app.service('consts', [
                 27: 'ggg-rumble',
                 28: 'ggg-control',
                 29: 'ggg-srl',
+                31: 'ggg-clash',
 
                 // custom modes
-                523: 'ggg-elimination'
+                523: 'ggg-elimination',
+                531: 'ggg-rumble'
             },
             teams: {
                 0: {
