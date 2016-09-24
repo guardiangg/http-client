@@ -891,10 +891,6 @@ msgstr ""
 msgid "Permalink of this game"
 msgstr ""
 
-#: component\profile\activity-history.html:19
-msgid "Placing"
-msgstr ""
-
 #: component\weapon-stats\weapon-stats.html:17
 msgid "Platform"
 msgstr ""
@@ -1436,6 +1432,10 @@ msgstr ""
 #: component\item\item-list.html:94
 #: shared\service\consts.js:283
 msgid "Uncommon"
+msgstr ""
+
+#: component\profile\activity-history.html:19
+msgid "Unranked"
 msgstr ""
 
 #: component\weapon-stats\weapon-stats.html:71
