@@ -170,11 +170,11 @@ app.service('consts', [
                 27: 'ggg-rumble',
                 28: 'ggg-control',
                 29: 'ggg-srl',
-                31: 'ggg-clash',
+                31: 'ggg-supremacy',
 
                 // custom modes
                 523: 'ggg-elimination',
-                531: 'ggg-rumble'
+                531: 'ggg-supremacy'
             },
             teams: {
                 0: {
