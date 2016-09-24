@@ -38,7 +38,7 @@ app.service('consts', [
 
             ratingToLeague: function(rating) {
                 return _.find(this.leagues, function(league, idx) {
-                    return rating >= league.from && rating <= league.to;
+                    return Math.round(rating) >= league.from && Math.round(rating) <= league.to;
                 });
             },
 
