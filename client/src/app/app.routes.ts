@@ -1,15 +1,13 @@
 import { FaqComponent } from "../faq/faq.component";
 import { HomeComponent } from "../home/home.component";
 import { NotFoundComponent } from "../not-found/not-found.component";
-import { provideRouter, RouterConfig } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
-const routes: RouterConfig = [
+const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: ':lang', component: HomeComponent },
     { path: ':lang/faq', component: FaqComponent },
     { path: '**', component: NotFoundComponent }
 ];
 
-export const appRouterProviders = [
-    provideRouter(routes)
-];
+export const routing = RouterModule.forRoot(routes);

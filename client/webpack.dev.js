@@ -9,15 +9,16 @@ module.exports = {
     debug: true,
     devServer: {
         historyApiFallback: true,
-        publicPath: '/'
+        watchOptions: {
+            ignored: /node_modules/
+        }
     },
     entry: {
         'polyfills': './src/polyfills',
-        'vendor': './src/vendor',
         'main': './src/main.browser.ts'
     },
     output: {
-        path: 'dist',
+        path: require("path").resolve("./dist"),
         publicPath: '/',
         filename: '[name].bundle.js',
         sourceMapFilename: '[name].map',
@@ -29,27 +30,19 @@ module.exports = {
     devtool: 'cheap-module-eval-source-map',
     cache: true,
     module: {
-        // preLoaders: [
-        //     {test: /\.js$/, loader: 'source-map-loader', exclude: [
-        // these packages have problems with their sourcemaps
-        // 'node_modules/rxjs',
-        // 'node_modules/@angular2-material'
-        // ]}
-        // ],
         loaders: [
             {
                 test: /\.ts$/,
-                loader: 'awesome-typescript-loader',
+                loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
                 exclude: [/\.(spec|e2e)\.ts$/]
             },
             {
-                test: /\.scss$/,
-                // convert file to sass, then css, then stringify it so we can include it directly in angular2 components
+                test: /\.(scss)$/,
                 loader: 'exports?module.exports.toString()!css?-minimize&root=../../!resolve-url!sass?sourceMap'
             },
             {
                 test: /\.html$/,
-                loader: 'exports?module.exports.toString()!html?-minimize&root=../../'
+                loader: 'raw'
             },
             {
                 test: /\.(png|jpg|jpeg)$/,
@@ -79,12 +72,16 @@ module.exports = {
             verbose: true,
             dry: false
         }),
+        new webpack.ContextReplacementPlugin(
+            /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+            __dirname
+        ),
         // replace standard chunk hashes with md5 hashes
         new WebpackMd5Hash(),
         // varies distribution ids to get smallest id length
-        new webpack.optimize.OccurenceOrderPlugin(true),
+        new webpack.optimize.OccurrenceOrderPlugin(true),
         // separate our vendor chunk into its own files.
-        new webpack.optimize.CommonsChunkPlugin({name: ['main', 'vendor', 'polyfills']}),
+        new webpack.optimize.CommonsChunkPlugin({name: ['main', 'polyfills']}),
         // creates an html file with our cache busted filenames
         new HtmlWebpackPlugin({
             template: 'src/index.html',
