@@ -7,7 +7,7 @@
             <div class="search">
                 <form (submit)="onPlayer(profileQuery)">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="{{ 'Enter a name...'|translate }}" [(ngModel)]="profileQuery" autocorrect="off" autocomplete="off" spellcheck="false">
+                        <input name="playerName" type="text" class="form-control" placeholder="{{ 'Enter a name...'|translate }}" [(ngModel)]="profileQuery" autocorrect="off" autocomplete="off" spellcheck="false">
                         <span class="input-group-btn">
                             <button [disabled]="isSearching" class="btn btn-default"><i class="fa fa-search"></i></button>
                         </span>

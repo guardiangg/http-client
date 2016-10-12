@@ -32,7 +32,7 @@ export class Gettext {
     isSupported(lang: string): boolean {
         return this.supported.indexOf(lang) > -1;
     }
-    
+
     setCurrentLanguage(lang: string) {
         lang = this.isSupported(lang) ? lang : 'en';
 
@@ -49,6 +49,14 @@ export class Gettext {
     }
 
     getString(base: string) {
-        return this.strings[this.currentLanguage][base] || base;
+        if (!this.strings[this.currentLangage]) {
+            return '[' + base + ']';
+        }
+
+        if (!this.strings[this.currentLanguage[base]]) {
+            return '[' + base ']';
+        }
+
+        return this.strings[this.currentLanguage][base];
     }
 }

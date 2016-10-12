@@ -2,7 +2,7 @@ let loc: any = window.location as any;
 let match;
 
 if (loc.search.match(/[?&]/)) {
-    window.location = loc.pathname + loc.search.replace(/[?&]+/g, ';');
+    window.location.href = loc.pathname + loc.search.replace(/[?&]+/g, ';');
 }
 
 if (loc.protocol == 'http:' && document.cookie.match(/authenticated=1/)) {

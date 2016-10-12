@@ -1,14 +1,11 @@
 import * as _ from "lodash";
 import {Component, ViewEncapsulation} from "@angular/core";
-import {Router, ROUTER_DIRECTIVES, NavigationStart} from "@angular/router";
+import {NavigationStart, Router} from '@angular/router';
 import {RecentService} from '../recent/recent';
-import {CollapseDirective, DROPDOWN_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 import {Angulartics2} from "angulartics2/index";
 import {Angulartics2GoogleAnalytics} from "angulartics2/src/providers/angulartics2-google-analytics";
 import {Session} from "../session/session";
 import {Gettext} from "../gettext/gettext.service";
-import {GettextDirective} from "../gettext/gettext.directive";
-import {GettextPipe} from "../gettext/gettext.pipe";
 import {BungieService, BungieResponse} from "../api/bungie.service";
 import {SearchResult} from "../api/model/bungie/search-result.model";
 import {SearchService} from "../search/search.service";
@@ -18,8 +15,6 @@ import {SearchService} from "../search/search.service";
     providers: [Location, SearchService],
     // this line disables view encapsulation so we can use global (bootstrap/material) styles
     encapsulation: ViewEncapsulation.None,
-    directives: [ROUTER_DIRECTIVES, CollapseDirective, DROPDOWN_DIRECTIVES, GettextDirective],
-    pipes: [GettextPipe],
     template: require('./app.html'),
     styles: [require('./app.scss')]
 })

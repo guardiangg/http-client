@@ -155,7 +155,7 @@ var walkTs = function(node) {
          break;
 
       default:
-         throw "Unknown node type: " + node.type;
+         console.log("Unknown node type: " + node.type);
          break;
    }
 };
