@@ -2,7 +2,6 @@ import {InfiniteScrollModule} from 'angular2-infinite-scroll';
 import {CollapseModule, DropdownModule} from "ng2-bootstrap/ng2-bootstrap";
 import {Title} from "@angular/platform-browser";
 import {SeoService} from "./seo.service";
-import {CookieService} from "angular2-cookie/core";
 import {Session} from '../session/session';
 import {RecentService} from '../recent/recent';
 import {Angulartics2} from 'angulartics2/src/core/angulartics2';
@@ -13,7 +12,7 @@ import {HomeComponent} from "../home/home.component";
 import {NiceDatePipe} from "../pipe/nice-date.pipe";
 import {ChartDirective} from "../directive/chart.directive";
 import {UriEncodePipe} from "../pipe/uri-encode.pipe";
-import {Tooltip} from "../directive/tooltip.directive.ts";
+import {Tooltip} from "../directive/tooltip.directive";
 import {BungieService} from '../api/bungie.service';
 import {GuardianService} from '../api/guardian.service';
 import {ToFixedPipe} from "../pipe/to-fixed.pipe";
@@ -75,7 +74,6 @@ import 'rxjs/add/operator/cache';
         Angulartics2,
         Angulartics2GoogleAnalytics,
         BungieService,
-        CookieService,
         Gettext,
         GettextStrings,
         GuardianService,
