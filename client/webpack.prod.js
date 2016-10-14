@@ -14,7 +14,6 @@ module.exports = {
     },
     entry: {
         'polyfills': './src/polyfills',
-        'vendor': './src/vendor',
         'main': './src/main.browser.ts'
     },
     output: {
@@ -79,14 +78,18 @@ module.exports = {
             verbose: true,
             dry: false
         }),
+        new webpack.ContextReplacementPlugin(
+            /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+            __dirname
+        ),
         // replace standard chunk hashes with md5 hashes
         new WebpackMd5Hash(),
         // varies distribution ids to get smallest id length
-        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.optimize.OccurrenceOrderPlugin(true),
         // removes deduped code
-        new webpack.optimize.DedupePlugin(),
+        //new webpack.optimize.DedupePlugin(),
         // separate our vendor chunk into its own files.
-        new webpack.optimize.CommonsChunkPlugin({name: ['main', 'vendor', 'polyfills'], minChunks: Infinity}),
+        new webpack.optimize.CommonsChunkPlugin({name: ['main', 'polyfills'], minChunks: Infinity}),
         // creates an html file with our cache busted filenames
         new HtmlWebpackPlugin({
             template: 'src/index.html',
