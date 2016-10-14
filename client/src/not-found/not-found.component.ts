@@ -2,8 +2,8 @@ import {Component} from "@angular/core";
 import {Title} from "@angular/platform-browser";
 
 @Component({
-    template: require('./not-found.html'),
-    styles: [require('./not-found.scss')]
+    templateUrl: './not-found.html',
+    styleUrls: ['./not-found.scss']
 })
 export class NotFoundComponent {
     constructor(private _title: Title) {

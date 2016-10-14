@@ -5,8 +5,8 @@ import {SeoService} from "../app/seo.service";
 import {Gettext} from "../gettext/gettext.service";
 
 @Component({
-    styles: [require('./home.scss')],
-    template: require('./home.html')
+    styleUrls: ['./home.scss'],
+    templateUrl: './home.html'
 })
 export class HomeComponent {
     constructor(

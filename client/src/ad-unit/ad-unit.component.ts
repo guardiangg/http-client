@@ -4,8 +4,8 @@ import {Component, Input, ElementRef, NgZone} from "@angular/core";
 
 @Component({
     selector: 'ad-unit',
-    template: require('./ad-unit.html'),
-    styles: [require('./ad-unit.scss')]
+    templateUrl: './ad-unit.html',
+    styleUrls: ['./ad-unit.scss']
 })
 export class AdUnitComponent {
     @Input()

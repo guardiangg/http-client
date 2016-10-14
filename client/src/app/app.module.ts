@@ -1,3 +1,4 @@
+import {SearchService} from "../search/search.service";
 import {InfiniteScrollModule} from 'angular2-infinite-scroll';
 import {CollapseModule, DropdownModule} from "ng2-bootstrap/ng2-bootstrap";
 import {Title} from "@angular/platform-browser";
@@ -78,6 +79,7 @@ import 'rxjs/add/operator/cache';
         GettextStrings,
         GuardianService,
         RecentService,
+        SearchService,
         SeoService,
         Session,
         Title,

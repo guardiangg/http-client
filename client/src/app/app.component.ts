@@ -12,11 +12,10 @@ import {SearchService} from "../search/search.service";
 
 @Component({
     selector: 'guardian',
-    providers: [Location, SearchService],
     // this line disables view encapsulation so we can use global (bootstrap/material) styles
     encapsulation: ViewEncapsulation.None,
-    template: require('./app.html'),
-    styles: [require('./app.scss')]
+    templateUrl: './app.html',
+    styleUrls: ['./app.scss']
 })
 export class AppComponent {
     profileQuery: string = '';

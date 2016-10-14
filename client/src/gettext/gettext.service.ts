@@ -4,7 +4,7 @@ import {GettextStrings} from "./string.service";
 
 @Injectable()
 export class Gettext {
-    private currentLanguage: string = '';
+    private currentLanguage: string = 'en';
     private supported: any = ['de', 'en', 'es', 'fr', 'it', 'ja', 'pl', 'pt-br'];
     private strings: any = {};
 
@@ -49,12 +49,12 @@ export class Gettext {
     }
 
     getString(base: string) {
-        if (!this.strings[this.currentLangage]) {
+        if (!this.strings[this.currentLanguage]) {
             return '[' + base + ']';
         }
 
         if (!this.strings[this.currentLanguage[base]]) {
-            return '[' + base ']';
+            return '[' + base + ']';
         }
 
         return this.strings[this.currentLanguage][base];
