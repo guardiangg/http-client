@@ -29,19 +29,20 @@ import {AdUnitComponent} from "../ad-unit/ad-unit.component";
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
+import {LangComponent} from '../i18n/lang.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {routing} from './app.routes';
 
+import 'rxjs/add/operator/cache';
 import "rxjs/add/operator/catch";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/mergeMap";
 import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/finally";
 import "rxjs/add/operator/map";
-import "rxjs/add/operator/toPromise";
+import "rxjs/add/operator/mergeMap";
+import "rxjs/add/operator/map";
 import 'rxjs/add/operator/share';
-import 'rxjs/add/operator/cache';
+import "rxjs/add/operator/toPromise";
 
 @NgModule({
     declarations: [
@@ -53,6 +54,7 @@ import 'rxjs/add/operator/cache';
         GettextPipe,
         FaqComponent,
         HomeComponent,
+        LangComponent,
         LimitPipe,
         NiceDatePipe,
         NotFoundComponent,

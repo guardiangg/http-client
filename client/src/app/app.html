@@ -5,32 +5,33 @@
         </div>
         <div class="header-right">
             <div class="search">
-                <form (submit)="onPlayer(profileQuery)">
+                <form (submit)="onSearch(profileQuery)">
                     <div class="input-group">
-                        <input name="playerName" type="text" class="form-control" placeholder="{{ 'Enter a name...'|translate }}" [(ngModel)]="profileQuery" autocorrect="off" autocomplete="off" spellcheck="false">
+                        <input name="playerName" type="text" class="form-control" placeholder="{{ 'Enter a name...'|translate }}"
+                            [(ngModel)]="profileQuery" autocorrect="off" autocomplete="off" spellcheck="false">
                         <span class="input-group-btn">
                             <button [disabled]="isSearching" class="btn btn-default"><i class="fa fa-search"></i></button>
                         </span>
                     </div>
                 </form>
             </div>
-            <div class="login" *ngIf="!_session.isAuthenticated()">
-                <button class="btn btn-default login" (click)="_session.goToLogin()" translate>Sign in</button>
+            <div class="login" *ngIf="!session.isAuthenticated()">
+                <button class="btn btn-default login" (click)="session.goToLogin()" translate>Sign in</button>
             </div>
-            <div class="user" *ngIf="_session.isAuthenticated()" dropdown>
+            <div class="user" *ngIf="session.isAuthenticated()" dropdown>
                 <button class="btn btn-default account" dropdownToggle>
-                    <span class="hidden-xs"><strong translate>Signed in:</strong> {{_session.account.name}} <i class="caret"></i></span>
+                    <span class="hidden-xs"><strong translate>Signed in:</strong> {{session.account.name}} <i class="caret"></i></span>
                     <span class="visible-xs"><span translate>My Account</span> <i class="caret"></i></span>
                 </button>
                 <ul class="dropdown-menu pull-right" dropdownMenu>
                     <li>
-                        <a [routerLink]="[lang, 'profile', _session.account.name]" translate>Profile</a>
+                        <a [routerLink]="[lang, 'profile', session.account.name]" translate>Profile</a>
                     </li>
                     <li>
                         <a [routerLink]="[lang, 'account']" translate>Account Settings</a>
                     </li>
                     <li>
-                        <a href="javascript:" (click)="_session.logout()" translate>Logout</a>
+                        <a href="javascript:" (click)="session.logout()" translate>Logout</a>
                     </li>
                 </ul>
             </div>
@@ -195,7 +196,6 @@
                 <strong translate>Try our other projects:</strong>
                 <ul>
                   <li><a href="http://agora.gg"><span class="network-icon network-ggg"></span> Agora.gg (Paragon)</a></li>
-                  <li><a href="http://watcher.gg"><span class="network-icon network-wgg"></span> Watcher.gg (Overwatch)</a></li>
                 </ul>
                 <div class="clearfix"></div>
             </div>

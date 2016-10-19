@@ -130,7 +130,11 @@ export class AdUnitComponent {
         this._zone.runOutsideAngular(() => {
             setTimeout(() => {
                 let adEl = document.querySelector('#' + this.format + ' div');
-                window["MonkeyBroker"].adPlacement({
+                if (!window['MonkeyBroker']) {
+                    return;
+                }
+
+                window['MonkeyBroker'].adPlacement({
                     sizes: this.validSizes,
                     el: adEl
                 });
