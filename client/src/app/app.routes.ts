@@ -1,3 +1,4 @@
+import { WeaponStatsComponent } from "../weapon-stats/weapon-stats.component";
 import { FaqComponent } from "../faq/faq.component";
 import { HomeComponent } from "../home/home.component";
 import { LangComponent } from '../i18n/lang.component';
@@ -11,6 +12,7 @@ const routes: Routes = [
         children: [
             { path: '', component: HomeComponent },
             { path: 'faq', component: FaqComponent },
+            { path: 'weapon-stats', component: WeaponStatsComponent },
             { path: '**', component: NotFoundComponent }
         ]
     },

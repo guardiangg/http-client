@@ -1,0 +1,123 @@
+<ad-unit format="leaderboard-atf" page="faq"></ad-unit>
+
+<div id="ggg-filter">
+    <div class="platform">
+        <div class="filter-head" translate>Platform</div>
+        <div class="btn-group" role="group" aria-label="Platform">
+            <button type="button" class="btn btn-default ggg-platform-ps" [ngClass]="{ 'btn-primary': filters.platform == 2 }" (click)="filters.platform = 2"></button>
+            <button type="button" class="btn btn-default ggg-platform-xbox" [ngClass]="{ 'btn-primary': filters.platform == 1 }" (click)="filters.platform = 1"></button>
+        </div>
+    </div>
+
+    <div class="mode">
+        <div class="filter-head" translate>Select a game mode</div>
+
+        <select [(ngModel)]="filters.mode">
+            <option *ngFor="let mode of modes" value="{{ mode.id }}">
+                {{ mode.name }}
+            </option>
+        </select>
+    </div>
+
+    <div class="activity">
+        <div class="filter-head" translate>Select a map</div>
+        <select [(ngModel)]="filters.activity">
+            <option value="0">Any Map</option>
+            <option *ngFor="let activity of activities" value="{{ activity.hash }}">
+                {{ activity.name }}
+            </option>
+        </select>
+    </div>
+
+    <div class="range rangeStart">
+        <div class="filter-head" translate>Start day</div>
+        <datepicker [(ngModel)]="filters.start" [expanded]="true" [viewFormat]="'YYYY-MM-DD'"></datepicker>
+
+    </div>
+    <div class="range rangeEnd">
+        <div class="filter-head" translate>End day</div>
+        <datepicker [(ngModel)]="filters.end" [expanded]="true" [viewFormat]="'YYYY-MM-DD'"></datepicker>
+    </div>
+
+    <div class="update">
+        <div class="filter-head">&nbsp;</div>
+        <button class="btn btn-primary" (click)="update()">
+            <i class="fa fa-refresh"></i>&nbsp;<span translate>Update</span>
+        </button>
+    </div>
+</div>
+
+
+<div id="weapon-type">
+    TODO: CHART GOES HERE
+</div>
+
+
+<div id="extended-stats">
+    <h2>
+        <span translate>Top Weapons</span>&nbsp;
+        <small translate>Ranked as a percentage of all kills</small>
+    </h2>
+
+    <div class="empty" *ngIf="!weaponsLoading && weapons.primary.length == 0">
+        <i class="fa fa-exclamation-triangle"></i>&nbsp;<span translate>There is no data matching your filters.</span>
+    </div>
+
+    <div class="updating" *ngIf="weaponsLoading">
+        <i class="fa fa-refresh fa-spin"></i>&nbsp;<span translate>Data is updating...</span>
+    </div>
+
+
+    <div class="row" *ngIf="!weaponsLoading && weapons.primary.length > 0">
+        <div class="col-md-4">
+            <h3 translate>Primary</h3>
+            <ul class="weapon-list">
+                <li *ngFor="let item of weapons.primary" class="item-{{ item.tier }}">
+                    <a [routerLink]="['/', lang, 'items', item.hash, item.name]">
+                        <img src="//www.bungie.net{{item.icon}}">
+                    </a>
+                    <span class="usage">{{item.kills | toFixed: 2}}%</span>
+                    <span class="name">
+                        <a [routerLink]="['/', lang, 'items', item.hash, item.name]">{{item.name}}</a>
+                    </span>
+                    <span class="type">{{item.itemType}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3 translate>Special</h3>
+            <ul class="weapon-list">
+                <li *ngFor="let item of weapons.special" class="item-{{ item.tier }}">
+                    <a [routerLink]="['/', lang, 'items', item.hash, item.name]">
+                        <img src="//www.bungie.net{{item.icon}}">
+                    </a>
+                    <span class="usage">{{item.kills | toFixed: 2}}%</span>
+                    <span class="name">
+                        <a [routerLink]="['/', lang, 'items', item.hash, item.name]">{{item.name}}</a>
+                    </span>
+                    <span class="type">{{item.itemType}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3 translate>Heavy</h3>
+            <ul class="weapon-list">
+                <li *ngFor="let item of weapons.heavy" class="item-{{ item.tier }}">
+                    <a [routerLink]="['/', lang, 'items', item.hash, item.name]">
+                        <img src="//www.bungie.net{{item.icon}}">
+                    </a>
+                    <span class="usage">{{item.kills | toFixed: 2}}%</span>
+                    <span class="name">
+                        <a [routerLink]="['/', lang, 'items', item.hash, item.name]">{{item.name}}</a>
+                    </span>
+                    <span class="type">{{item.itemType}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<ad-unit format="leaderboard-btf" page="faq"></ad-unit>
+
+<ad-unit format="banner-mobile" page="faq"></ad-unit>
+<ad-unit format="end"></ad-unit>

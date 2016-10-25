@@ -6,6 +6,7 @@ import { Session } from "../session/session";
 import 'rxjs/add/operator/share';
 import {ItemModel} from "./model/guardian/item.model";
 import {PaginationModel} from "./model/guardian/pagination.model";
+import {Gettext} from "../gettext/gettext.service";
 
 @Injectable()
 export class GuardianService {
@@ -13,11 +14,53 @@ export class GuardianService {
 
     private _authHeaders: Headers = new Headers();
 
-    constructor(private _client: Http, private _session: Session) {
+    constructor(private _client: Http, private _session: Session, private gettext: Gettext) {
     }
 
     searchGamedata(query: string): Observable<PaginationModel> {
         return this._get('gamedata/search?q={q}', { q: query }).map(res => new PaginationModel(res.items, ItemModel));
+    }
+
+    getActivities(search: WeaponStatsFilter): Observable<any> {
+        return this._get(
+            'weapon/activities?mode={mode}&platform={platform}&start={start}&end={end}&activity={activity}&lc={lc}',
+            {
+                lc: this.gettext.getCurrentLanguage(),
+                mode: search.mode ? search.mode : 10,
+                platform: search.platform ? search.platform : 2,
+                start: search.start ? search.start : '1970-01-01',
+                end: search.end ? search.end : '2099-01-01',
+                activity: search.activity ? search.activity : 0
+            }
+        );
+    }
+
+    getTopWeapons(search: WeaponStatsFilter): Observable<any> {
+        return this._get(
+            'weapon/top?mode={mode}&platform={platform}&start={start}&end={end}&activity={activity}&lc={lc}',
+             {
+                 lc: this.gettext.getCurrentLanguage(),
+                 mode: search.mode ? search.mode : 10,
+                 platform: search.platform ? search.platform : 2,
+                 start: search.start ? search.start : '1970-01-01',
+                 end: search.end ? search.end : '2099-01-01',
+                 activity: search.activity ? search.activity : 0
+            }
+        );
+    }
+
+    getTopWeaponTypes(search: WeaponStatsFilter): Observable<any> {
+        return this._get(
+            'weapon/type/top?mode={mode}&platform={platform}&start={start}&end={end}&activity={activity}&lc={lc}',
+            {
+                lc: this.gettext.getCurrentLanguage(),
+                mode: search.mode ? search.mode : 10,
+                platform: search.platform ? search.platform : 2,
+                start: search.start ? search.start : '1970-01-01',
+                end: search.end ? search.end : '2099-01-01',
+                activity: search.activity ? search.activity : 0
+            }
+        );
     }
 
     private _delete(endpoint: string, params?: any): Observable<any> {
@@ -84,4 +127,12 @@ export class GuardianService {
             this._authHeaders.delete('Authorization');
         }
     }
+}
+
+export interface WeaponStatsFilter {
+    platform: number;
+    start: string;
+    end: string;
+    mode: string;
+    activity: string;
 }

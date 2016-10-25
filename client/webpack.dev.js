@@ -63,7 +63,8 @@ module.exports = {
             {
                 test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'url?limit=10000'
-            }
+            },
+            { test: /\.css$/, loaders: ['to-string-loader', 'css-loader'] }
         ]
     },
     plugins: [

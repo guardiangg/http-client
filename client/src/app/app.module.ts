@@ -1,3 +1,5 @@
+import {DatePicker} from 'ng2-datepicker/ng2-datepicker';
+import {WeaponStatsComponent} from "../weapon-stats/weapon-stats.component";
 import {SearchService} from "../search/search.service";
 import {InfiniteScrollModule} from 'angular2-infinite-scroll';
 import {CollapseModule, DropdownModule} from "ng2-bootstrap/ng2-bootstrap";
@@ -49,6 +51,7 @@ import "rxjs/add/operator/toPromise";
         AdUnitComponent,
         AppComponent,
         ChartDirective,
+        DatePicker,
         EloLeaguePipe,
         GameLengthPipe,
         GettextPipe,
@@ -62,6 +65,7 @@ import "rxjs/add/operator/toPromise";
         ToFixedPipe,
         Tooltip,
         UriEncodePipe,
+        WeaponStatsComponent,
     ],
     imports: [
         BrowserModule,
