@@ -1,3 +1,4 @@
+import {WeaponStatsChart} from "../weapon-stats/weapon-stats.chart";
 import {DatePicker} from 'ng2-datepicker/ng2-datepicker';
 import {WeaponStatsComponent} from "../weapon-stats/weapon-stats.component";
 import {SearchService} from "../search/search.service";
@@ -66,6 +67,7 @@ import "rxjs/add/operator/toPromise";
         Tooltip,
         UriEncodePipe,
         WeaponStatsComponent,
+        WeaponStatsChart,
     ],
     imports: [
         BrowserModule,

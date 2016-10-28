@@ -1,7 +1,7 @@
 import {Directive, ElementRef, Input, OnDestroy} from "@angular/core";
 import * as Highcharts from "highcharts";
 
-@Directive({selector: '[options]'})
+@Directive({selector: 'chart'})
 export class ChartDirective implements OnDestroy {
     hostElement: ElementRef;
     chart: HighchartsChartObject;

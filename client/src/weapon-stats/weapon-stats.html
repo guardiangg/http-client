@@ -49,7 +49,11 @@
 
 
 <div id="weapon-type">
-    TODO: CHART GOES HERE
+    <div class="updating" *ngIf="weaponsTypesLoading">
+        <i class="fa fa-refresh fa-spin"></i>&nbsp;<span translate>Data is updating...</span>
+    </div>
+
+    <weapon-stats-chart *ngIf="!weaponTypesLoading && weaponTypes" [data]="weaponTypes"></weapon-stats-chart>
 </div>
 
 

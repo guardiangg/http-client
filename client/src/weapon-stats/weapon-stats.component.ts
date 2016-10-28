@@ -26,6 +26,9 @@ export class WeaponStatsComponent {
     private weaponsLoading: boolean = true;
     private weapons: any[];
 
+    private weaponTypesLoading: boolean = true;
+    private weaponTypes: any[];
+
     // TODO: move this someplace better
     private modes = [
         {
@@ -108,8 +111,12 @@ export class WeaponStatsComponent {
             this.weaponsLoading = false;
         });
 
-        this.guardian.getTopWeaponTypes(this.filters).subscribe((res) => {
+        this.weaponTypes = [];
+        this.weaponTypesLoading = true;
 
+        this.guardian.getTopWeaponTypes(this.filters).subscribe((res) => {
+            this.weaponTypes = res;
+            this.weaponTypesLoading = false;
         });
     }
 }
