@@ -80,21 +80,10 @@ app.directive('advertFloating', [
                         return;
                     }
 
-                    var top = $(window).scrollTop();
-                    var eleTop = $('#ggg-view').offset().top - 15;
-
-                    if (top > eleTop) {
-                        element.css({
-                            top: '15px',
-                            position: 'fixed',
-                            'z-index': 10000
-                        });
-                    } else {
-                        element.css({
-                            position: 'absolute',
-                            top: $('#ggg-view').offset().top + 'px'
-                        });
-                    }
+                    element.css({
+                        position: 'absolute',
+                        top: $('#ggg-view').offset().top + 'px'
+                    });
                 };
 
                 scope.$watch(function() {
