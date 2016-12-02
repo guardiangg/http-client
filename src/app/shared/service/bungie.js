@@ -10,7 +10,7 @@ app.service('bungie', [
     function ($q, $http, gettextCatalog, consts, util) {
         return new function () {
             var self = this;
-            var BASE_URL = '//proxy.guardian.gg/Platform/Destiny';
+            var BASE_URL = 'https://www.bungie.net/Platform/Destiny';
             var ENDPOINTS = {
                 statDefinitions: '/Stats/Definition/?lc={locale}',
                 account: '/{platform}/Account/{membershipId}/Summary/',
@@ -80,7 +80,14 @@ app.service('bungie', [
             };
 
             this.get = function(endpoint, tokens) {
-                return $http.get(BASE_URL + util.buildUrl(endpoint, tokens));
+                var req = {
+                    method: 'GET',
+                    url: BASE_URL + util.buildUrl(endpoint, tokens),
+                    headers: {
+                        'X-API-Key': '4da3db4f435e4fcb9dff6805b5c0338a'
+                    },
+                }
+                return $http(req);
             };
         };
     }
