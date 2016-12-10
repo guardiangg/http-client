@@ -74,7 +74,7 @@ app.service('consts', [
                     subtext: gettextCatalog.getString('Season 2 took place between Apr 12th, 2015 and Sept 20th, 2016')
                 }
             },
-            
+
             leagues: {
                 bronze: {
                     label: gettextCatalog.getString('Bronze'),
@@ -150,6 +150,7 @@ app.service('consts', [
                 14: gettextCatalog.getString('Trials of Osiris'),
                 29: gettextCatalog.getString('SRL'),
                 31: gettextCatalog.getString('Supremacy'),
+                34: gettextCatalog.getString('Supremacy'),
 
                 // custom modes
                 523: gettextCatalog.getString('Crimson Doubles'),
