@@ -460,7 +460,36 @@ app.controller('profileCtrl', [
                     $scope.strikes = result.data;
                     $scope.loading.strikes = false;
 
-                    console.log($scope.strikes);
+                    $scope.strikes.bests = [];
+
+                    _.each($scope.strikes.weeklyBestRank, function(strike) {
+                        strike.isBestRank = true;
+                        strike.isBestScore = true;
+
+                        $scope.strikes.bests.push(strike);
+                    });
+
+                    _.each($scope.strikes.weeklyBestScore, function(strike) {
+                        var existing = _.find($scope.strikes.bests, function(s) {
+                            return s.referenceId == strike.referenceId;
+                        });
+
+                        strike.isBestScore = true;
+
+                        if (existing) {
+                            existing.isBestScore = false;
+                            strike.isBestRank = false;
+                        } else {
+                            strike.isBestRank = true;
+                        }
+
+                        $scope.strikes.bests.push(strike);
+                    });
+
+                    $scope.strikes.bests = _($scope.strikes.bests).chain()
+                        .sortBy('activityName')
+                        .sortBy('date')
+                        .value();
 
                     return bungie.getAccount(platform, membershipId);
                 })

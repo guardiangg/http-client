@@ -1,3 +1,105 @@
+<div class="ad-leaderboard dark">
+    <advert sizes="728x90"></advert>
+</div>
+
+<h2>
+    <span translate>All-Time Record Book</span>
+</h2>
+
+<div class="loading" ng-show="loading.strikes">
+    <i class="fa fa-cog fa-spin"></i> <translate>Loading Records...</translate>
+</div>
+
+<div class="record-info" ng-if="!loading.strikes && strikes.allTimeTopThree && strikes.allTimeTopThree.length > 0">
+    <h3 translate>Platform Bests</h3>
+    <span>{{ name }}</span> <span translate>finished in the top 3 out of the entire Destiny player base for 1 or more activities in a week.</span>
+</div>
+
+<div class="trophy-collection" ng-if="!loading.strikes && strikes.allTimeTopThree && strikes.allTimeTopThree.length > 0">
+    <div class="ggg-trophy" ng-repeat="best in strikes.allTimeTopThree" ng-class="{'first': best.rank === 1, 'second': best.rank === 2, 'third': best.rank === 3}">
+        <span>
+            <span>
+                <span>{{ best.rank }}</span>
+            </span>
+        </span>
+        <span>{{ best.activityName }}</span>
+        <span>{{ best.date }}</span>
+    </div>
+</div>
+
+<div class="record-info" ng-if="!loading.strikes && strikes.bests && strikes.bests.length > 0">
+    <h3 translate>Bests per Activity</h3>
+</div>
+
+<div class="best-scores">
+    <div class="no-record" ng-if="!loading.strikes && (!strikes.bests || strikes.bests.length === 0)">
+        {{name}} <span translate>has not completed a qualifying activity from "The Dawning" patch yet.</span>
+    </div>
+
+    <div class="table-responsive" ng-if="!loading.strikes && strikes.bests && strikes.bests.length > 0">
+        <table class="table table-striped history noselect">
+            <tr>
+                <th style="width:15%">Played</th>
+                <th style="width:31%" translate>Activity</th>
+                <th style="width:15%" class="hidden-xs text-center" translate>Mode</th>
+                <th style="width:8%" class="text-center" translate>Score</th>
+                <th style="width:8%" class="text-center" translate>Ranking</th>
+                <th style="width:1%" class="text-center"></th>
+            </tr>
+            <tr ng-repeat="activity in strikes.bests track by activity.instanceId">
+                <td class="clickable">{{ activity.date }}</td>
+                <td class="clickable">
+                    <i class="ggg {{modeIcons[activity.mode]}}"></i> {{ activity.activityName }}
+                </td>
+                <td class="text-center clickable hidden-xs">{{ modes[activity.mode] }}</td>
+                <td class="text-center clickable" ng-class="{'best': activity.isBestScore, 'not-best': !activity.isBestScore}">{{ activity.score|number }}</td>
+                <td class="text-center clickable" ng-class="{'best': activity.isBestRank, 'not-best': !activity.isBestRank}">{{ activity.rank|number }}</td>
+                <td class="text-center external clickable">
+                    <i class="fa fa-plus-square-o" pgcr instance-id="activity.instanceId" character-id="character.characterBase.characterId"></i>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<h2 ng-if="!loading.strikes && strikes.bests && strikes.bests.length > 0">
+    <span translate>Current Week</span>
+</h2>
+
+<div class="best-scores" ng-if="!loading.strikes && strikes.bests && strikes.bests.length > 0">
+    <div class="no-record" ng-if="!loading.strikes && (!strikes.weeklyScores || strikes.weeklyScores.length === 0)">
+        {{name}} <span translate>has not played a qualifying activity this week yet.</span>
+    </div>
+
+    <div class="table-responsive" ng-if="!loading.strikes && strikes.weeklyScores && strikes.weeklyScores.length > 0">
+        <table class="table table-striped history noselect">
+            <tr>
+                <th style="width:15%">Played</th>
+                <th style="width:31%" translate>Activity</th>
+                <th style="width:15%" class="hidden-xs text-center" translate>Mode</th>
+                <th style="width:8%" class="text-center" translate>Score</th>
+                <th style="width:8%" class="text-center" translate>Ranking</th>
+                <th style="width:1%" class="text-center"></th>
+            </tr>
+            <tr ng-repeat="activity in strikes.weeklyScores track by activity.instanceId">
+                <td class="clickable">{{ activity.date }}</td>
+                <td class="clickable">
+                    <i class="ggg {{modeIcons[activity.mode]}}"></i> {{ activity.activityName }}
+                </td>
+                <td class="text-center clickable hidden-xs">{{ modes[activity.mode] }}</td>
+                <td class="text-center clickable">{{ activity.score|number }}</td>
+                <td class="text-center clickable">{{ activity.rank|number }}</td>
+                <td class="text-center external clickable">
+                    <i class="fa fa-plus-square-o" pgcr instance-id="activity.instanceId" character-id="character.characterBase.characterId"></i>
+                </td>
+            </tr>
+            <tr ng-if="activities.length == 0">
+                <td colspan="9" class="no-data" translate>{{name}} hasn't played any games on this character in this mode.</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
 <h2>
     <div class="history-filters pull-right">
         <div class="dropdown">
@@ -28,7 +130,7 @@
     <i class="fa fa-cog fa-spin"></i> <translate>Loading Game History...</translate>
 </div>
 
-<div infinite-scroll="loadMoreHistory" ng-if="!legacy">
+<div infinite-scroll="loadMoreHistory" class="table-responsive" ng-if="!legacy">
     <table class="table table-striped history noselect" ng-if="activities && !loading.activityHistory">
         <tr>
             <th style="width:15%">Played</th>
