@@ -1,4 +1,6 @@
+.history/
 .idea/
+.vscode/
 build/
 node_modules/
 tmp/

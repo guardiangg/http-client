@@ -306,7 +306,9 @@ app.service('consts', [
             },
             srl_maps: {
                 1478347980: gettextCatalog.getString('Campus Martius'),
-                2243240710: gettextCatalog.getString('Infinite Descent')
+                2243240710: gettextCatalog.getString('Infinite Descent'),
+                2010056644: gettextCatalog.getString('Haakon Principle'),
+                2828456290: gettextCatalog.getString('Shining Sands'),
             },
             item_tiers: {
                 1: {
