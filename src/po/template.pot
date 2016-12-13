@@ -440,6 +440,8 @@ msgstr ""
 #: component\leaderboard\leaderboard.html:97
 #: component\srl\srl.html:12
 #: component\srl\srl.html:90
+#: component\strike\strike.html:12
+#: component\strike\strike.html:85
 #: shared\directive\pagination\pagination.html:7
 msgid "First"
 msgstr ""
@@ -685,6 +687,8 @@ msgstr ""
 #: component\leaderboard\leaderboard.html:36
 #: component\srl\srl.html:114
 #: component\srl\srl.html:36
+#: component\strike\strike.html:109
+#: component\strike\strike.html:36
 #: shared\directive\pagination\pagination.html:32
 msgid "Last"
 msgstr ""
@@ -847,6 +851,7 @@ msgstr ""
 #: component\item\item-list.html:20
 #: component\leaderboard\leaderboard.html:64
 #: component\srl\srl.html:64
+#: component\strike\strike.html:64
 msgid "Name"
 msgstr ""
 
@@ -858,6 +863,8 @@ msgstr ""
 #: component\leaderboard\leaderboard.html:29
 #: component\srl\srl.html:107
 #: component\srl\srl.html:29
+#: component\strike\strike.html:102
+#: component\strike\strike.html:29
 #: shared\directive\pagination\pagination.html:25
 msgid "Next"
 msgstr ""
@@ -924,6 +931,8 @@ msgstr ""
 #: component\leaderboard\leaderboard.html:21
 #: component\srl\srl.html:21
 #: component\srl\srl.html:99
+#: component\strike\strike.html:21
+#: component\strike\strike.html:94
 msgid "Page {{page+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>"
 msgstr ""
 
@@ -997,6 +1006,8 @@ msgstr ""
 #: component\leaderboard\leaderboard.html:19
 #: component\srl\srl.html:19
 #: component\srl\srl.html:97
+#: component\strike\strike.html:19
+#: component\strike\strike.html:92
 #: shared\directive\pagination\pagination.html:14
 msgid "Prev"
 msgstr ""
@@ -1090,6 +1101,7 @@ msgstr ""
 #: component\item\itemDetailCtrl.js:100
 #: component\leaderboard\leaderboard.html:62
 #: component\srl\srl.html:63
+#: component\strike\strike.html:63
 #: shared\chart\item-popularity.js:72
 msgid "Rank"
 msgstr ""
@@ -1194,6 +1206,7 @@ msgstr ""
 #: component\profile\profile-pve.html:45
 #: component\profile\profile-pve.html:80
 #: component\profile\profile-pvp.html:133
+#: component\strike\strike.html:65
 msgid "Score"
 msgstr ""
 

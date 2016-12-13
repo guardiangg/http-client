@@ -1,0 +1,117 @@
+<div class="ad-leaderboard">
+    <advert sizes="728x90,970x90,970x250"></advert>
+</div>
+
+<div class="filters">
+    <div class="btn-group pull-right pg" ng-if="!loading.srl && results.data.length > 0">
+        <button type="button"
+                class="btn btn-default"
+                ng-disabled="page == 0"
+                ng-click="load(platform, mode, referenceId, 0)">
+            <i class="fa fa-angle-double-left visible-xs visible-sm"></i>
+            <span class="visible-md visible-lg" translate>First</span>
+        </button>
+        <button type="button"
+                class="btn btn-default"
+                ng-disabled="page - 1 <= 0"
+                ng-click="load(platform, mode, referenceId, page - 1)">
+            <i class="fa fa-angle-left visible-xs visible-sm"></i>
+            <span class="visible-md visible-lg" translate>Prev</span>
+        </button>
+        <button class="btn btn-disabled page-info" translate>
+            Page {{page+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>
+        </button>
+        <button type="button"
+                class="btn btn-default"
+                ng-disabled="page >= pageTotal"
+                ng-click="load(platform, mode, referenceId, page + 1)">
+            <i class="fa fa-angle-right visible-xs visible-sm"></i>
+            <span class="visible-md visible-lg" translate>Next</span>
+        </button>
+        <button type="button"
+                class="btn btn-default"
+                ng-disabled="page == pageTotal"
+                ng-click="load(platform, mode, referenceId, pageTotal)">
+            <i class="fa fa-angle-double-right visible-xs visible-sm"></i>
+            <span class="visible-md visible-lg" translate>Last</span>
+        </button>
+    </div>
+
+    <select ng-options="key*1 as value for (key, value) in platforms"
+            ng-model="platform"
+            ng-change="load(platform, mode, referenceId, 0)"
+            class="form-control filter-platform">
+    </select>&nbsp;
+    <select ng-options="key*1 as value for (key, value) in activities"
+            ng-model="referenceId"
+            ng-change="load(platform, mode, referenceId, 0)"
+            class="form-control filter-map">
+    </select>&nbsp;
+    <input type="text"
+           ng-model="name"
+           ng-model-options="{debounce: 500}"
+           ng-change="search(name)"
+           class="form-control filter-name"
+           placeholder="Guardian..."/>
+</div>
+
+<div class="loading" ng-if="loading.strike"><i class="fa fa-cog fa-spin"></i> Loading Guardian Data...</div>
+
+<div class="table-responsive">
+    <table class="table table-striped leaderboard leaderboard-full" ng-if="!loading.strike">
+        <tr>
+            <th class="text-center" style="width:1%" translate>Rank</th>
+            <th style="width:50%" translate>Name</th>
+            <th class="text-center" style="width:10%" translate>Score</th>
+        </tr>
+        <tr class="empty" ng-if="results.data.length == 0">
+            <td colspan="9" class="text-center">No guardians were found.</td>
+        </tr>
+        <tr ng-class="{highlight: (row.name|lowercase) == highlight}" ng-repeat="row in results.data | orderBy:'rank' track by $index">
+            <td class="text-center">{{ (page * pageCount) + $index + 1|number }}</td>
+            <td><a ui-sref="app.profile({platform: platform, name: row.name})">{{ row.name }}</a></td>
+            <td class="text-center hidden-xs">{{ row.score|number }} <a target="_blank" ng-show="row.instanceId" href="https://www.bungie.net/en/Legend/PGCR?instanceId={{ row.instanceId }}" class="srl-proof"><i class="fa fa-external-link"></i></a></td>
+        </tr>
+    </table>
+</div>
+
+<div class="filters" ng-if="!loading.srl && results.data.length > 0">
+    <div class="btn-group pull-right pg" ng-if="!loading.srl">
+        <button type="button"
+                class="btn btn-default"
+                ng-disabled="page == 0"
+                ng-click="load(platform, mode, referenceId, 0)">
+            <i class="fa fa-angle-double-left visible-xs visible-sm"></i>
+            <span class="visible-md visible-lg" translate>First</span>
+        </button>
+        <button type="button"
+                class="btn btn-default"
+                ng-disabled="page - 1 <= 0"
+                ng-click="load(platform, mode, referenceId, page - 1)">
+            <i class="fa fa-angle-left visible-xs visible-sm"></i>
+            <span class="visible-md visible-lg" translate>Prev</span>
+        </button>
+        <button class="btn btn-disabled page-info" translate>
+            Page {{page+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>
+        </button>
+        <button type="button"
+                class="btn btn-default"
+                ng-disabled="page >= pageTotal"
+                ng-click="load(platform, mode, referenceId, page + 1)">
+            <i class="fa fa-angle-right visible-xs visible-sm"></i>
+            <span class="visible-md visible-lg" translate>Next</span>
+        </button>
+        <button type="button"
+                class="btn btn-default"
+                ng-disabled="page == pageTotal"
+                ng-click="load(platform, mode, referenceId, pageTotal)">
+            <i class="fa fa-angle-double-right visible-xs visible-sm"></i>
+            <span class="visible-md visible-lg" translate>Last</span>
+        </button>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<div class="ad-stack-bottom">
+    <advert sizes="728x90,970x90,970x250,300x250,Unstacked 300x250"></advert>
+</div>
