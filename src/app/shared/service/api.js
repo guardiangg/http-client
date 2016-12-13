@@ -36,7 +36,9 @@ app.service('api',[
                 subclassExotics: 'subclass/{subclassId}/exotics?mode={mode}&start={start}&end={end}&lc={lc}',
                 subclassPerks: 'subclass/{subclassId}/perks?mode={mode}&start={start}&end={end}&lc={lc}',
 
-                srl: 'srl/{membershipId}',
+                strikes: 'strike/{membershipId}',
+
+                srl: 'srl/{membershipId}?season={season}',
 
                 changelog: 'changelog/{type}/{hash1}/{hash2}'
             };
@@ -150,9 +152,18 @@ app.service('api',[
                 );
             };
 
-            this.getSrl = function(membershipId) {
+            this.getSrl = function(membershipId, season) {
                 return $http.get(
                     util.buildApiUrl(endpoints.srl, {
+                        membershipId: membershipId,
+                        season: season
+                    })
+                );
+            };
+
+            this.getStrikes = function(membershipId) {
+                return $http.get(
+                    util.buildApiUrl(endpoints.strikes, {
                         membershipId: membershipId
                     })
                 );

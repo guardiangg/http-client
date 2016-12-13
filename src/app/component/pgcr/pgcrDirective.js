@@ -49,6 +49,7 @@ app.directive('pgcr', [
                         scope.teams = pgcr.getTeams();
                         scope.details = pgcr.getDetails();
                         scope.period = pgcr.getPeriod();
+                        scope.isPvp = pgcr.isPvp();
                         scope.id = instanceId;
                         scope.embedded = true;
 

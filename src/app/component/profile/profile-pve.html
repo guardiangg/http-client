@@ -1,0 +1,72 @@
+<h2>
+    <div class="history-filters pull-right">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="modeSelector" data-toggle="dropdown" aria-haspopup="true">
+                <i class="fa fa-filter"></i> <strong translate>Type:</strong> {{modes[mode] || 'All'|translate}}
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right" area-labelledby="modeSelector">
+                <li><a href="javascript:;" ng-click="setMode(7)"><translate>All</translate></a></li>
+                <li role="seperator" class="divider"></li>
+                <li><a href="javascript:;" ng-click="setMode(3)"><i class="ggg ggg-strike"></i> <translate>Normal Strike</translate></a></li>
+                <li><a href="javascript:;" ng-click="setMode(17)"><i class="ggg ggg-strike-heroic"></i> <translate>Heroic Strike</translate></a></li>
+                <li><a href="javascript:;" ng-click="setMode(16)"><i class="ggg ggg-nightfall"></i> <translate>Nightfall Strike</translate></a></li>
+                <li><a href="javascript:;" ng-click="setMode(4)"><i class="ggg ggg-raid"></i> <translate>Raid</translate></a></li>
+                <li><a href="javascript:;" ng-click="setMode(20)"><i class="ggg ggg-prison"></i> <translate>Prison of Elders</translate></a></li>
+                <li><a href="javascript:;" ng-click="setMode(6)"><i class="ggg ggg-patrol"></i> <translate>Patrol</translate></a></li>
+                <li><a href="javascript:;" ng-click="setMode(2)"><i class="ggg ggg-story"></i> <translate>Story</translate></a></li>
+            </ul>
+        </div>
+    </div>
+    <span translate>Activity History</span>
+</h2>
+
+<div class="empty" ng-show="maintenance.activityHistory">
+    <i class="fa fa-warning"></i> <translate>The match history is unavailable due to an API error</translate>
+</div>
+
+<div class="loading" ng-show="loading.activityHistory && !legacy">
+    <i class="fa fa-cog fa-spin"></i> <translate>Loading Game History...</translate>
+</div>
+
+<div infinite-scroll="loadMoreHistory" ng-if="!legacy">
+    <table class="table table-striped history noselect" ng-if="activities && !loading.activityHistory">
+        <tr>
+            <th style="width:15%">Played</th>
+            <th style="width:20%" class="hidden-xs" translate>Map</th>
+            <th style="width:8%" class="text-center" translate>Score</th>
+            <th style="width:8%" class="text-center" translate>Time</th>
+            <th style="width:5%" class="text-center" translate>K</th>
+            <th style="width:5%" class="text-center" translate>D</th>
+            <th style="width:5%" class="text-center hidden-xs" translate>A</th>
+            <th style="width:5%" class="text-center" translate>K/D</th>
+            <th style="width:5%" class="text-center" translate>Cleared</th>
+            <th style="width:1%" class="text-center"></th>
+        </tr>
+        <tr ng-repeat="activity in activities track by activity.activityDetails.instanceId">
+            <td class="clickable">{{ activity.period|ago }}</td>
+            <td class="clickable hidden-xs">
+                <i class="ggg {{modeIcons[activity.activityDetails.mode]}}"></i> {{ activity.definition.activityName }}
+            </td>
+            <td class="text-center clickable">{{ activity.values.score.basic.displayValue || '--' }}</td>
+            <td class="text-center clickable">{{ activity.values.activityDurationSeconds.basic.displayValue || '--' }}</td>
+            <td class="text-center clickable">{{ activity.values.kills.basic.displayValue }}</td>
+            <td class="text-center clickable">{{ activity.values.deaths.basic.displayValue }}</td>
+            <td class="text-center clickable hidden-xs">{{ activity.values.assists.basic.displayValue }}</td>
+            <td class="text-center clickable">
+                {{ activity.values.killsDeathsRatio.basic.displayValue }}
+            </td>
+            <td class="text-center clickable" ng-class="activity.values.completed.basic.value == 1 ? 'kd positive' : 'kd negative'" ng-if="activity.activityDetails.mode != 6">
+                {{ activity.values.completed.basic.displayValue }}
+            </td>
+            <td class="text-center clickable kd neutral" ng-if="activity.activityDetails.mode == 6">
+                --
+            </td>
+            <td class="text-center external clickable">
+                <i class="fa fa-plus-square-o" pgcr instance-id="activity.activityDetails.instanceId" character-id="character.characterBase.characterId"></i>
+            </td>
+        </tr>
+        <tr ng-if="activities.length == 0">
+            <td colspan="9" class="no-data" translate>{{name}} hasn't played any games on this character in this mode.</td>
+        </tr>
+    </table>
+</div>

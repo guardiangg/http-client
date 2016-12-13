@@ -60,11 +60,9 @@ app.service('consts', [
                 pl: 'Polski'
             },
 
+            currentSeason: 3,
+
             seasons: {
-                srl: {
-                    label: gettextCatalog.getString('SRL Special Event'),
-                    subtext: gettextCatalog.getString('Limited event that ran in December 2015')
-                },
                 1: {
                     label: gettextCatalog.getString('Season 1 - The Taken King'),
                     subtext: gettextCatalog.getString('Season 1 took place between Sep 15th, 2015 and Apr 12th, 2016')
@@ -72,6 +70,19 @@ app.service('consts', [
                 2: {
                     label: gettextCatalog.getString('Season 2 - The Taken King'),
                     subtext: gettextCatalog.getString('Season 2 took place between Apr 12th, 2015 and Sept 20th, 2016')
+                }
+            },
+
+            currentSeasonSrl: 2,
+
+            seasonsSrl: {
+                1: {
+                    label: gettextCatalog.getString('Season 1 (2015)'),
+                    subtext: gettextCatalog.getString('Season 1 took place in December 2015')
+                },
+                2: {
+                    label: gettextCatalog.getString('Season 2 (2016)'),
+                    subtext: gettextCatalog.getString('Season 2 took place in December 2016')
                 }
             },
 
@@ -137,6 +148,7 @@ app.service('consts', [
                 2: gettextCatalog.getString('PlayStation')
             },
             modes: {
+                // pvp
                 9: gettextCatalog.getString('Skirmish'),
                 10: gettextCatalog.getString('Control'),
                 11: gettextCatalog.getString('Salvage'),
@@ -148,13 +160,24 @@ app.service('consts', [
                 28: gettextCatalog.getString('Zone Control'),
                 19: gettextCatalog.getString('Iron Banner'),
                 14: gettextCatalog.getString('Trials of Osiris'),
-                29: gettextCatalog.getString('SRL'),
                 31: gettextCatalog.getString('Supremacy'),
                 34: gettextCatalog.getString('Supremacy'),
 
                 // custom modes
                 523: gettextCatalog.getString('Crimson Doubles'),
-                531: gettextCatalog.getString('Rumble Supremacy')
+                531: gettextCatalog.getString('Rumble Supremacy'),
+
+                // pve
+                3: gettextCatalog.getString('Normal Strike'),
+                4: gettextCatalog.getString('Raid'),
+                16: gettextCatalog.getString('Nightfall Strike'),
+                17: gettextCatalog.getString('Heroic Strike'),
+                20: gettextCatalog.getString('Prison of Elders'),
+                2: gettextCatalog.getString('Story'),
+                6: gettextCatalog.getString('Patrol'),
+
+                // srl
+                29: gettextCatalog.getString('SRL')
             },
             modeIcons: {
                 9: 'ggg-skirmish',
@@ -170,12 +193,26 @@ app.service('consts', [
                 26: 'ggg-clash',
                 27: 'ggg-rumble',
                 28: 'ggg-control',
-                29: 'ggg-srl',
                 31: 'ggg-supremacy',
 
                 // custom modes
                 523: 'ggg-elimination',
-                531: 'ggg-supremacy'
+                531: 'ggg-supremacy',
+
+                // pve
+                3: 'ggg-strike',
+                4: 'ggg-raid',
+                16: 'ggg-nightfall',
+                17: 'ggg-strike-heroic',
+                20: 'ggg-prison',
+                21: 'ggg-prison',
+                22: 'ggg-prison',
+                30: 'ggg-prison',
+                2: 'ggg-story',
+                6: 'ggg-patrol',
+
+                // srl
+                29: 'ggg-srl'
             },
             teams: {
                 0: {

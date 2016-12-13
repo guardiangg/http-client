@@ -36,7 +36,9 @@
     <div class="pgcr-team" ng-repeat="(teamId, team) in teams" ng-show="teamDefs[teamId]">
 
         <div class="team-label team-{{ teamId }}">
-            <div class="name"><i class="ggg" ng-class="teamDefs[teamId].icon"></i> {{ teamDefs[teamId].label }}</div>
+            <div class="name" ng-if="teamId != 99"><i class="ggg" ng-class="teamDefs[teamId].icon"></i> {{ teamDefs[teamId].label }}</div>
+            <div class="name" ng-if="teamId == 99 && !isPvp"><i class="ggg" ng-class="teamDefs[teamId].icon"></i> <span translate>Didn't Finish</span></div>
+            <div class="name" ng-if="teamId == 99 && isPvp"><i class="ggg" ng-class="teamDefs[teamId].icon"></i> {{ teamDefs[teamId].label }}</div>
         </div>
 
         <div class="players">
@@ -61,7 +63,7 @@
                             <span class="value">{{ entry.standing || '-' }}</span>
                             <span class="name">{{ statDefs.standing.statName }}</span>
                         </div>
-                        <div class="stat size-1">
+                        <div class="stat size-1" ng-if="isPvp">
                             <span class="value" ng-show="entry.elo.elo">{{ entry.elo.elo|number:0 }}</span>
                             <span class="value" ng-show="!entry.elo.elo">-</span>
                             <span class="name" translate>Elo</span>

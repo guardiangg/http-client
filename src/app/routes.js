@@ -93,9 +93,10 @@ app.config([
                 templateUrl: 'component/pgcr/pgcr.html'
             })
             .state('app.profile', {
-                url: '/profile/{platform}/{name}/{mode}',
+                url: '/profile/{platform}/{name}/{mode}?state',
                 params: {
-                    mode: { value: null, squash: true }
+                    mode: { value: null, squash: true },
+                    state: { value: null, squash: true }
                 },
                 controller: 'profileCtrl',
                 templateUrl: 'component/profile/profile.html'

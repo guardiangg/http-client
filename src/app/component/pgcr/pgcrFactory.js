@@ -16,6 +16,7 @@ app.factory('pgcrFactory', [
                 definitions: {},
                 details: {},
                 teams: {},
+                isPvp: false,
                 mode: null
             };
 
@@ -41,6 +42,10 @@ app.factory('pgcrFactory', [
 
             this.getDefinitions = function() {
                 return pgcr.definitions;
+            };
+
+            this.isPvp = function() {
+                return pgcr.isPvp;
             };
 
             this.load = function(instanceId) {
@@ -142,25 +147,31 @@ app.factory('pgcrFactory', [
                                 });
                             });
 
-                            _.each(pgcr.teams, function(team) {
+                            _.each(pgcr.teams, function(team, k) {
                                 team.elo = Math.round(team.elo / team.players.length);
 
                                 team.players.sort(function(a, b) {
                                     if (a.standing < b.standing) return -1;
                                     if (a.standing > b.standing) return 1;
-                                    if (a.values.score.basic.value < b.values.score.basic.value) return 1;
-                                    if (a.values.score.basic.value > b.values.score.basic.value) return -1;
+                                    if (a.values.score && a.values.score.basic.value < b.values.score.basic.value) return 1;
+                                    if (a.values.score && a.values.score.basic.value > b.values.score.basic.value) return -1;
                                     if (a.values.killsDeathsRatio.basic.value < b.values.killsDeathsRatio.basic.value) return 1;
                                     if (a.values.killsDeathsRatio.basic.value > b.values.killsDeathsRatio.basic.value) return -1;
 
                                     return 0;
                                 });
+
+                                if (team.players.length === 0) {
+                                    delete pgcr.teams[k];
+                                }
                             });
 
                             if (pgcr.teams[17] && pgcr.teams[16]) {
                                 pgcr.teams[17].chance = 1 / (1.0 + Math.pow(10, (pgcr.teams[16].elo - pgcr.teams[17].elo) / 400)) * 100;
                                 pgcr.teams[16].chance = 1 / (1.0 + Math.pow(10, (pgcr.teams[17].elo - pgcr.teams[16].elo) / 400)) * 100;
                             }
+
+                            pgcr.isPvp = pgcr.teams[17] || pgcr.teams[16] || pgcr.mode == 29 || pgcr.mode == 13 || pgcr.mode == 531;
 
                             resolve();
                         }, function(err) {

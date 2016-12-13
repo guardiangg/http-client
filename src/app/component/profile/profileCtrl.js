@@ -15,19 +15,26 @@ app.controller('profileCtrl', [
     'auditFactory',
 
     function ($rootScope, $scope, $state, $stateParams, $location, $localStorage, $timeout, api, bungie, consts, charts, auditFactory) {
+        var defaultPvpMode = $localStorage.profilePvpMode || 5,
+            defaultPveMode = $localStorage.profilePveMode || 7,
+            defaultSrlMode = $localStorage.profileSrlMode || 29;
+
+        $scope.state = $stateParams.state || 'pvp';
+
         if (!$stateParams.mode) {
             $state.go('app.profile', {
                 platform: $stateParams.platform,
                 name: $stateParams.name,
-                mode: $localStorage.profileMode ? $localStorage.profileMode : 5
+                mode: defaultPvpMode
             });
             return;
         }
 
-        //var audit = new auditFactory($scope);
         $scope.mode = $stateParams.mode;
         $scope.modes = consts.modes;
         $scope.seasons = consts.seasons;
+        $scope.seasonSrl = consts.currentSeasonSrl;
+        $scope.seasonsSrl = consts.seasonsSrl;
         $scope.showMoreRecords = false;
         $scope.modeIcons = consts.modeIcons;
         $scope.srlMaps = consts.srl_maps;
@@ -42,6 +49,7 @@ app.controller('profileCtrl', [
             name: true,
             character: true,
             inventory: true,
+            strikes: true,
             srl: true
         };
         $scope.maintenance = {
@@ -52,6 +60,28 @@ app.controller('profileCtrl', [
             inventory: false
         };
         $scope.legacy = false;
+
+        $scope.setState = function(state) {
+            $scope.state = state;
+
+            $state.transitionTo('app.profile', {
+                platform: $stateParams.platform,
+                name: $stateParams.name,
+                mode: $scope.mode,
+                state: $scope.state != 'pvp' ? $scope.state : null
+            }, {
+                reload: false,
+                notify: false
+            });
+
+            if (state == 'pvp') {
+                $scope.setMode(defaultPvpMode);
+            } else if (state == 'pve') {
+                $scope.setMode(defaultPveMode);
+            } else if (state == 'srl') {
+                $scope.setMode(defaultSrlMode);
+            }
+        };
 
         $scope.loadHistory = function(mode, platform, membershipId) {
             if (!$scope.character || $scope.infiniteScroll) {
@@ -96,7 +126,8 @@ app.controller('profileCtrl', [
                 {
                     platform: $stateParams.platform,
                     name: $stateParams.name,
-                    mode: mode
+                    mode: mode,
+                    state: $scope.state != 'pvp' ? $scope.state : null
                 },
                 {
                     reload: false,
@@ -106,10 +137,21 @@ app.controller('profileCtrl', [
 
             setMode(mode);
         };
-        
+
         $scope.setSeason = function(season) {
             $scope.season = season;
             $scope.showMoreRecords = false;
+        };
+
+        $scope.setSeasonSrl = function(season) {
+            $scope.seasonSrl = season;
+            $scope.loading.srl = true;
+
+            api.getSrl($scope.membershipId, $scope.seasonSrl)
+                .then(function(result) {
+                    $scope.srl = result.data;
+                    $scope.loading.srl = false;
+                });
         };
 
         $scope.revealRecords = function() {
@@ -136,7 +178,19 @@ app.controller('profileCtrl', [
             $scope.activities = [];
             $scope.page = 0;
 
-            $localStorage.profileMode = mode;
+            if ($scope.state == 'pvp') {
+                $localStorage.profilePvpMode = mode;
+                defaultPvpMode = mode;
+
+            } else if ($scope.state == 'pve') {
+                $localStorage.profilePveMode = mode;
+                defaultPveMode = mode;
+
+            } else if ($scope.state == 'srl') {
+                $localStorage.profileSrlMode = mode;
+                defaultSrlMode = mode;
+
+            }
 
             $scope.mode = mode;
 
@@ -280,6 +334,13 @@ app.controller('profileCtrl', [
                         return a.rank - b.rank;
                     });
 
+                    // Temp hide SRL Elo (do we even want this anymore?)
+                    for (var i = 0; i < result.data.length ; i++) {
+                        if (result.data[i].mode == 29) {
+                            result.data.splice(i, 1);
+                        }
+                    }
+
                     $scope.elos = result.data;
                     $scope.loading.elo = false;
                 });
@@ -366,32 +427,40 @@ app.controller('profileCtrl', [
                 .then(function(result) {
                     $scope.seasonData = {};
 
-                    _.each(result.data.data, function(data) {
+                    _.each(result.data.data, function(data, k) {
                         if (!$scope.seasonData[data.season]) {
                             $scope.seasonData[data.season] = [];
                         }
+
                         data.league = consts.ratingToLeague(data.elo);
 
-                        $scope.seasonData[data.season].push(data);
+                        // Temp hide SRL Elo (do we even want this anymore?)
+                        if (data.mode != 29) {
+                            $scope.seasonData[data.season].push(data);
+                        }
                     });
                     
                     if (result.data.data.length > 0) {
                         $scope.season = result.data.data[0].season;
                     }
 
-                    return api.getSrl(membershipId);
+                    return api.getSrl(membershipId, $scope.seasonSrl);
                 }, function(err) {
                     $scope.season = false;
 
-                    return api.getSrl(membershipId);
+                    return api.getSrl(membershipId, $scope.seasonSrl);
                 })
                 .then(function(result) {
                     $scope.srl = result.data;
                     $scope.loading.srl = false;
 
-                    if ($scope.srl.length > 0 && !$scope.season) {
-                        $scope.season = 'srl';
-                    }
+                    return api.getStrikes(membershipId);
+                })
+                .then(function(result) {
+                    $scope.strikes = result.data;
+                    $scope.loading.strikes = false;
+
+                    console.log($scope.strikes);
 
                     return bungie.getAccount(platform, membershipId);
                 })

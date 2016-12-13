@@ -1,0 +1,81 @@
+<h2>
+    <div class="history-filters pull-right">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="modeSelector" data-toggle="dropdown" aria-haspopup="true">
+                <i class="fa fa-filter"></i> {{ seasonsSrl[seasonSrl].label }}
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right" area-labelledby="modeSelector">
+                <li ng-repeat="(id, season) in seasonsSrl"><a href="javascript:;" ng-click="setSeasonSrl(id)">{{ season.label }}</a></li>
+            </ul>
+        </div>
+    </div>
+    <span translate>Personal Record Book</span>
+</h2>
+
+<div class="loading" ng-show="loading.srl">
+    <i class="fa fa-cog fa-spin"></i> <translate>Loading Records...</translate>
+</div>
+
+<div class="records">
+    <div class="no-record" ng-if="!loading.srl && srl.length === 0">
+        {{name}} has not raced in {{ seasonsSrl[seasonSrl].label }}
+    </div>
+
+    <table class="table table-striped history noselect" ng-if="activities && !loading.srl && srl.length > 0">
+        <tr>
+            <th style="width:60%">Map</th>
+            <th style="width:20%" class="text-center" translate>Best Time</th>
+            <th style="width:10%" class="text-center" translate>Ranking</th>
+            <th style="width:1%" class="text-center"></th>
+        </tr>
+        <tr ng-repeat="race in srl">
+            <td class="clickable"><i class="ggg ggg-srl"></i> {{ srlMaps[race.activityHash] || 'Map #' + race.activityHash }}</td>
+            <td class="text-center clickable">{{ race.time|timeTrial }}</td>
+            <td class="text-center clickable" ng-if="race.rank > 0">{{ race.rank|number }}</td>
+            <td class="text-center clickable" ng-if="!race.rank || race.rank < 0">--</td>
+            <td class="text-center external clickable">
+                <i class="fa fa-plus-square-o" pgcr instance-id="race.instanceId" character-id="character.characterBase.characterId"></i>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<h2>
+    <span translate>Race History (Current Character)</span>
+</h2>
+
+<div class="empty" ng-show="maintenance.activityHistory">
+    <i class="fa fa-warning"></i> <translate>The match history is unavailable due to an API error</translate>
+</div>
+
+<div class="loading" ng-show="loading.activityHistory">
+    <i class="fa fa-cog fa-spin"></i> <translate>Loading Game History...</translate>
+</div>
+
+<div infinite-scroll="loadMoreHistory">
+    <table class="table table-striped history noselect" ng-if="activities && !loading.activityHistory">
+        <tr>
+            <th style="width:15%">Played</th>
+            <th style="width:40%" class="hidden-xs" translate>Map</th>
+            <th style="width:8%" class="text-center" translate>Time</th>
+            <th style="width:10%" class="text-center" translate>Placing</th>
+            <th style="width:1%" class="text-center"></th>
+        </tr>
+        <tr ng-repeat="activity in activities track by activity.activityDetails.instanceId">
+            <td class="clickable">{{ activity.period|ago }}</td>
+            <td class="clickable hidden-xs">
+                <i class="ggg {{modeIcons[activity.activityDetails.mode]}}"></i> {{ activity.definition.activityName }}
+            </td>
+            <td class="text-center clickable">{{ activity.values.raceCompletionMilliseconds.basic.displayValue }}</td>
+            <td class="text-center clickable" ng-class="activity.values.standing.basic.value == 0 || activity.values.standing.basic.displayValue == '1' ? 'standing positive' : 'standing negative'">
+                {{ activity.values.standing.basic.displayValue }}
+            </td>
+            <td class="text-center external clickable">
+                <i class="fa fa-plus-square-o" pgcr instance-id="activity.activityDetails.instanceId" character-id="character.characterBase.characterId"></i>
+            </td>
+        </tr>
+        <tr ng-if="activities.length == 0">
+            <td colspan="9" class="no-data" translate>{{name}} hasn't played any games on this character in this mode.</td>
+        </tr>
+    </table>
+</div>

@@ -76,29 +76,6 @@
     </button>
 </div>
 
-<div class="records" ng-if="season == 'srl'">
-    <div class="sub">{{ seasons[season].subtext }}</div>
-    <div class="srl-times row" ng-show="srl.length > 0">
-        <div class="col-sm-6 map" ng-repeat="race in srl">
-            <div class="name">
-                {{srlMaps[race.activityHash]}}
-            </div>
-            <div class="row srl-stats">
-                <div class="col-sm-6 stat">
-                    <span class="value">{{race.time|timeTrial}}</span>
-                    <span class="type" translate>Best Time</span>
-                </div>
-                <div class="col-sm-6 stat">
-                    <span class="value">{{race.gates|number}}</span>
-                    <span class="type" translate>Best Gates</span>
-                </div>
-            </div>
-            <div class="rank" ng-if="race.rank > 0"><span translate>Ranked</span> #{{race.rank|number}}</div>
-            <div class="rank" ng-if="!race.rank || race.rank <= 0"><span translate>Not Ranked</span></div>
-        </div>
-    </div>
-</div>
-
 <h2 ng-if="!legacy">
     <div class="history-filters pull-right">
         <div class="dropdown">
@@ -120,7 +97,6 @@
                 <li><a href="javascript:;" ng-click="setMode(11)"><i class="ggg ggg-salvage"></i> <translate>Salvage</translate></a></li>
                 <li><a href="javascript:;" ng-click="setMode(15)"><i class="ggg ggg-doubles"></i> <translate>Doubles</translate></a></li>
                 <li><a href="javascript:;" ng-click="setMode(28)"><i class="ggg ggg-control"></i> <translate>Zone Control</translate></a></li>
-                <li><a href="javascript:;" ng-click="setMode(29)"><i class="ggg ggg-srl"></i> <translate>SRL</translate></a></li>
             </ul>
         </div>
     </div>
@@ -162,13 +138,12 @@
             <th style="width:10%" class="text-center" translate>Standing</th>
             <th style="width:1%" class="text-center"></th>
         </tr>
-        <tr ng-repeat="activity in activities track by activity.activityDetails.instanceId">
+        <tr ng-repeat="activity in activities track by activity.activityDetails.instanceId" ng-if="activity.activityDetails.mode != 29">
             <td class="clickable">{{ activity.period|ago }}</td>
             <td class="clickable hidden-xs">
                 <i class="ggg {{modeIcons[activity.activityDetails.mode]}}"></i> {{ activity.definition.activityName }}
             </td>
-            <td class="text-center clickable" ng-show="activity.activityDetails.mode == 29">{{ activity.values.raceCompletionMilliseconds.basic.displayValue }}</td>
-            <td class="text-center clickable" ng-show="activity.activityDetails.mode != 29">{{ activity.values.score.basic.displayValue }}</td>
+            <td class="text-center clickable">{{ activity.values.score.basic.displayValue }}</td>
             <td class="text-center clickable">{{ activity.values.kills.basic.displayValue }}</td>
             <td class="text-center clickable">{{ activity.values.deaths.basic.displayValue }}</td>
             <td class="text-center clickable hidden-xs">{{ activity.values.assists.basic.displayValue }}</td>
@@ -183,7 +158,7 @@
             </td>
         </tr>
         <tr ng-if="activities.length == 0">
-            <td colspan="9" class="no-data" translate>{{name}} hasn't played any games in this mode.</td>
+            <td colspan="9" class="no-data" translate>{{name}} hasn't played any games on this character in this mode.</td>
         </tr>
     </table>
 </div>

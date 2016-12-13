@@ -1,6 +1,29 @@
 <div class="row profile-wrapper" ng-show="!maintenance.name">
     <ng-include src="'component/profile/character.html'" class="col-sm-4 profile-side"></ng-include>
-    <ng-include src="'component/profile/activity-history.html'" class="col-sm-8 profile-main"></ng-include>
+    <div class="col-sm-8 profile-main">
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" ng-class="{'active': state == 'pvp'}">
+                <a href="#tab-pvp" aria-controls="tab-pvp" role="tab" data-toggle="tab" ng-click="setState('pvp')" translate>PvP</a>
+            </li>
+            <li role="presentation" ng-class="{'active': state == 'pve'}" ng-if="!legacy">
+                <a href="#tab-pve" aria-controls="tab-pve" role="tab" data-toggle="tab" ng-click="setState('pve')" translate>PvE</a>
+            </li>
+            <li role="presentation" ng-class="{'active': state == 'srl'}" ng-if="!legacy">
+                <a href="#tab-srl" aria-controls="tab-srl" role="tab" data-toggle="tab" ng-click="setState('srl')" translate>SRL</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane" id="tab-pvp" ng-class="{'active': state == 'pvp'}">
+                <ng-include src="'component/profile/profile-pvp.html'" ng-if="state == 'pvp'"></ng-include>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tab-pve" ng-class="{'active': state == 'pve'}" ng-if="!legacy">
+                <ng-include src="'component/profile/profile-pve.html'" ng-if="state == 'pve'"></ng-include>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tab-srl" ng-class="{'active': state == 'srl'}" ng-if="!legacy">
+                <ng-include src="'component/profile/profile-srl.html'" ng-if="state == 'srl'"></ng-include>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="empty" ng-show="maintenance.name">

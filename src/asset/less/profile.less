@@ -331,6 +331,11 @@
     color: #fff;
 }
 
+.kd.neutral {
+    background-color: #d2d2d2;
+    color: #969696;
+}
+
 .standing.negative {
     color: #ED774C;
 }
@@ -369,6 +374,40 @@
 
     .profile-main {
         padding-left: 0;
+
+        .nav-tabs {
+            margin: 0 0 10px 0;
+            padding: 0;
+            border: none;
+            background: #d2d2d2;
+            border-bottom: 4px solid #c3c3c3;
+
+            li {
+                margin-bottom: -4px;
+
+                a {
+                    margin: 0;
+                    padding: 15px 29px 11px 30px;
+                    border: 0;
+                    border-radius: 0;
+                    font-weight: bold;
+                    background-color: #dcdcdc;
+                    border-bottom: 4px solid #c3c3c3;
+                    border-right: 1px solid #c3c3c3;
+                    color: #636363;
+                }
+
+                &.active {
+                    a {
+                        background-color: #edab4a;
+                        color: #fff;
+                        border-bottom: 4px solid #f39711;
+                        border-right: 1px solid #f39711;
+                        padding-bottom: 11px;
+                    }
+                }
+            }
+        }
 
         .ad-leaderboard {
             margin-bottom: 15px;
@@ -459,6 +498,15 @@
 
 .records {
     margin-bottom: 10px;
+
+    .no-record {
+        padding: 100px 10px;
+        text-align: center;
+        font-size: 18px;
+        font-style: italic;
+        color: #888;
+        background: #d2d2d2;
+    }
 
     .sub {
         padding: 5px;
