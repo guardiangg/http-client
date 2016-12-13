@@ -122,13 +122,22 @@
             font-size: 1.4em;
             border-right: 1px solid #E0E0E0;
 
-            @media screen and (max-width: 500px) {
+            @media screen and (max-width: 768px) {
                 font-size: 1.2em;
+
+                i {
+                    display: block;
+                }
             }
 
             div {
                 font-size: 0.55em;
                 color: rgba(255, 255, 255, 0.71);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: block;
+                padding: 0 5px;
             }
 
             div.league {
@@ -372,8 +381,17 @@
 
     }
 
+    .col-sm-4 {
+        @media (width: 768px) {
+            width: 45%;
+        }
+    }
     .profile-main {
         padding-left: 0;
+
+        @media (width: 768px) {
+            width: 55%;
+        }
 
         @media screen and (max-width: 767px) {
             padding-right: 0;
