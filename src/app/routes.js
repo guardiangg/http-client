@@ -102,7 +102,7 @@ app.config([
                 templateUrl: 'component/profile/profile.html'
             })
             .state('app.srl', {
-                url: '/srl/{platform:[0-9]+}/{map:[0-9-]+}/{page:[0-9]+}',
+                url: '/srl/{platform}/{map}/{page}',
                 controller: 'srlCtrl',
                 templateUrl: 'component/srl/srl.html'
             })
