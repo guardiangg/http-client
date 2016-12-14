@@ -491,6 +491,8 @@ app.controller('profileCtrl', [
                         .sortBy('date')
                         .value();
 
+                    console.log($scope.strikes.bests);
+
                     return bungie.getAccount(platform, membershipId);
                 })
                 .then(function(response) {
