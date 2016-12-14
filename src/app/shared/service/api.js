@@ -36,7 +36,7 @@ app.service('api',[
                 subclassExotics: 'subclass/{subclassId}/exotics?mode={mode}&start={start}&end={end}&lc={lc}',
                 subclassPerks: 'subclass/{subclassId}/perks?mode={mode}&start={start}&end={end}&lc={lc}',
 
-                strikes: 'strike/{membershipId}',
+                strikes: 'strike/{platform}/{membershipId}',
 
                 srl: 'srl/{membershipId}?season={season}',
 
@@ -161,9 +161,10 @@ app.service('api',[
                 );
             };
 
-            this.getStrikes = function(membershipId) {
+            this.getStrikes = function(platform, membershipId) {
                 return $http.get(
                     util.buildApiUrl(endpoints.strikes, {
+                        platform: platform,
                         membershipId: membershipId
                     })
                 );

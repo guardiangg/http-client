@@ -454,7 +454,7 @@ app.controller('profileCtrl', [
                     $scope.srl = result.data;
                     $scope.loading.srl = false;
 
-                    return api.getStrikes(membershipId);
+                    return api.getStrikes($stateParams.platform, membershipId);
                 })
                 .then(function(result) {
                     $scope.strikes = result.data;
