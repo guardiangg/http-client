@@ -13,13 +13,16 @@ app.directive('pgcr', [
             restrict: 'A',
             scope: {
                 instanceId: '=',
-                characterId: '='
+                characterId: '=',
+                prefix: '@'
             },
 
             link: function (scope, element) {
-                var elementId = 'pgcr_' + scope.instanceId;
+                var elementId = scope.prefix ? scope.prefix + '_' + scope.instanceId : 'pgcr_' + scope.instanceId;
                 scope.modeDefs = consts.modes;
                 scope.teamDefs = consts.teams;
+
+                console.log(elementId);
 
                 var render = function() {
                     if (document.getElementById(elementId)) {

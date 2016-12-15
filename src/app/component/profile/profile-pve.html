@@ -76,7 +76,7 @@
                 <td class="text-center clickable" ng-class="{'best': activity.isBestScore, 'not-best': !activity.isBestScore}">{{ activity.score|number }}</td>
                 <td class="text-center clickable" ng-class="{'best': activity.isBestRank, 'not-best': !activity.isBestRank}">{{ activity.rank|number }}</td>
                 <td class="text-center external clickable">
-                    <i class="fa fa-plus-square-o" pgcr instance-id="activity.instanceId" character-id="character.characterBase.characterId"></i>
+                    <i class="fa fa-plus-square-o" pgcr instance-id="activity.instanceId" character-id="character.characterBase.characterId" prefix="pgcr-best"></i>
                 </td>
             </tr>
         </table>
@@ -111,7 +111,7 @@
                 <td class="text-center clickable">{{ activity.score|number }}</td>
                 <td class="text-center clickable">{{ activity.rank|number }}</td>
                 <td class="text-center external clickable">
-                    <i class="fa fa-plus-square-o" pgcr instance-id="activity.instanceId" character-id="character.characterBase.characterId"></i>
+                    <i class="fa fa-plus-square-o" pgcr instance-id="activity.instanceId" character-id="character.characterBase.characterId" prefix="pgcr-week"></i>
                 </td>
             </tr>
             <tr ng-if="activities.length == 0">
