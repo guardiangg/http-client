@@ -1,11 +1,11 @@
 {
   "data": [
     {
-      "uniqueId": "ee3320af",
+      "uniqueId": "e800ff22",
       "priority": 1000,
-      "template": "season",
+      "template": "pve",
       "dismissable": true,
-      "expires": "2016-09-30 12:00:00"
+      "expires": "2016-12-30 12:00:00"
     }
   ]
 }

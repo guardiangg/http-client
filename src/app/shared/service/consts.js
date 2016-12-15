@@ -180,6 +180,10 @@ app.service('consts', [
                 29: gettextCatalog.getString('SRL')
             },
             strikes: {
+                exclusive: [
+                    '1646288223', // Echo Chamber
+                    '575376446' // Echo Chamber
+                ],
                 heroic: [
                     '3373044013', // Blighted Chalice
                     '2396741855', // Cerebrus Vae III

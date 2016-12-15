@@ -16,7 +16,7 @@
             <li><a ui-sref="app.home()" translate>Home</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <translate>Elo Rankings</translate> <span class="caret"></span>
+                    <translate>Crucible</translate> <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu wide wide-2">
                     <li>
@@ -85,11 +85,6 @@
                             <li>
                                 <a ui-sref="app.leaderboard({platform: 2, mode: 28})">
                                     <i class="ggg ggg-control"></i>&nbsp;<translate>Zone Control</translate>
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="app.leaderboard({platform: 2, mode: 29})">
-                                    <i class="ggg ggg-srl"></i>&nbsp;<translate>SRL</translate>
                                 </a>
                             </li>
                             <!--
@@ -169,11 +164,6 @@
                                     <i class="ggg ggg-control"></i>&nbsp;<translate>Zone Control</translate>
                                 </a>
                             </li>
-                            <li>
-                                <a ui-sref="app.leaderboard({platform: 1, mode: 29})">
-                                    <i class="ggg ggg-srl"></i>&nbsp;<translate>SRL</translate>
-                                </a>
-                            </li>
                             <!--
                             <li>
                                 <a ui-sref="app.leaderboard({platform: 1, mode: 523})">
@@ -186,19 +176,51 @@
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><translate>SRL Time Trials</translate> <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li class="dropdown-header"><i class="ggg ggg-platform-ps"></i>&nbsp;<translate>PlayStation</translate></li>
-                    <li><a ui-sref="app.srl({platform: 2, map: 1478347980, page: 0})" translate>Campus Martius</a></li>
-                    <li><a ui-sref="app.srl({platform: 2, map: 2010056644, page: 0})" translate>Haakon Precipice</a></li>
-                    <li><a ui-sref="app.srl({platform: 2, map: 2243240710, page: 0})" translate>Infinite Descent</a></li>
-                    <li><a ui-sref="app.srl({platform: 2, map: 2828456290, page: 0})" translate>Shining Sands</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header"><i class="ggg ggg-platform-xbox"></i>&nbsp;<translate>Xbox</translate></li>
-                    <li><a ui-sref="app.srl({platform: 1, map: 1478347980, page: 0})" translate>Campus Martius</a></li>
-                    <li><a ui-sref="app.srl({platform: 1, map: 2010056644, page: 0})" translate>Haakon Precipice</a></li>
-                    <li><a ui-sref="app.srl({platform: 1, map: 2243240710, page: 0})" translate>Infinite Descent</a></li>
-                    <li><a ui-sref="app.srl({platform: 1, map: 2828456290, page: 0})" translate>Shining Sands</a></li>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><translate>Strike Ratings</translate> <span class="caret"></span></a>
+                <ul class="dropdown-menu wide wide-2">
+                    <li>
+                        <ul>
+                            <li class="dropdown-header"><i class="ggg ggg-platform-ps"></i>&nbsp;<translate>PlayStation</translate></li>
+                            <li><a ui-sref="app.strike({ 'period': 'weekly', 'mode': 3, 'referenceId': 3373044013, 'platform': 2, 'page': 0 })" translate>Weekly</a></li>
+                            <li><a ui-sref="app.strike({ 'period': 'all', 'mode': 3, 'referenceId': 3373044013, 'platform': 2, 'page': 0 })" translate>All-Time</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li class="dropdown-header"><i class="ggg ggg-platform-xbox"></i>&nbsp;<translate>Xbox</translate></li>
+                            <li><a ui-sref="app.strike({ 'period': 'weekly', 'mode': 3, 'referenceId': 3373044013, 'platform': 1, 'page': 0 })" translate>Weekly</a></li>
+                            <li><a ui-sref="app.strike({ 'period': 'all', 'mode': 3, 'referenceId': 3373044013, 'platform': 1, 'page': 0 })" translate>All-Time</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><translate>SRL</translate> <span class="caret"></span></a>
+                <ul class="dropdown-menu wide wide-2">
+                    <li>
+                        <ul>
+                            <li class="dropdown-header"><i class="ggg ggg-platform-ps"></i>&nbsp;<translate>Elo</translate></li>
+                            <li><a ui-sref="app.leaderboard({platform: 2, mode: 29})"><translate>Leaderboard</translate></a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header"><i class="ggg ggg-platform-ps"></i>&nbsp;<translate>Time Trials</translate></li>
+                            <li><a ui-sref="app.srl({platform: 2, map: 1478347980, page: 0})" translate>Campus Martius</a></li>
+                            <li><a ui-sref="app.srl({platform: 2, map: 2010056644, page: 0})" translate>Haakon Precipice</a></li>
+                            <li><a ui-sref="app.srl({platform: 2, map: 2243240710, page: 0})" translate>Infinite Descent</a></li>
+                            <li><a ui-sref="app.srl({platform: 2, map: 2828456290, page: 0})" translate>Shining Sands</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li class="dropdown-header"><i class="ggg ggg-platform-xbox"></i>&nbsp;<translate>Elo</translate></li>
+                            <li><a ui-sref="app.leaderboard({platform: 1, mode: 29})"><translate>Leaderboard</translate></a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header"><i class="ggg ggg-platform-xbox"></i>&nbsp;<translate>Time Trials</translate></li>
+                            <li><a ui-sref="app.srl({platform: 1, map: 1478347980, page: 0})" translate>Campus Martius</a></li>
+                            <li><a ui-sref="app.srl({platform: 1, map: 2010056644, page: 0})" translate>Haakon Precipice</a></li>
+                            <li><a ui-sref="app.srl({platform: 1, map: 2243240710, page: 0})" translate>Infinite Descent</a></li>
+                            <li><a ui-sref="app.srl({platform: 1, map: 2828456290, page: 0})" translate>Shining Sands</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li class="dropdown">

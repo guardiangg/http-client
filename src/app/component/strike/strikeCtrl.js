@@ -78,13 +78,23 @@ app.controller('strikeCtrl', [
 
             $rootScope.title = reference.name + ' - Best Strike Scores - ' + $scope.platforms[$scope.platform] + ' - Guardian.gg';
 
+            if (platform === 1 && consts.strikes.exclusive.indexOf(reference.hash) > -1) {
+                reference = {
+                    "hash": "194283519",
+                    "name": "Dust Palace",
+                    "mode": 3
+                };
+
+                update = true;
+            }
+
             if (update !== false) {
                 var href = $state.href(
                     'app.strike',
                     {
                         period: period,
                         platform: platform,
-                        mode: mode,
+                        mode: reference.mode,
                         referenceId: reference.hash,
                         page: page,
                         locale: locale
