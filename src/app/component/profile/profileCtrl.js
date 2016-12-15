@@ -158,6 +158,21 @@ app.controller('profileCtrl', [
             $scope.showMoreRecords = true;
         };
 
+        // Function to fix Bungie's gaff on strike modes. Remove if bungie ever fixes this on the API.
+        var TMP_FixStrikeMode = function(strikes) {
+            _.each(strikes, function(strike) {
+                if (consts.strikes.heroic.indexOf(strike.referenceId) > -1) {
+                    strike.mode = 17;
+
+                } else if (consts.strikes.normal.indexOf(strike.referenceId) > -1) {
+                    strike.mode = 3;
+
+                } else if (strike.mode == 17) {
+                    strike.mode = 16;
+                }
+            });
+        };
+
         var setMode = function(mode, force) {
             $scope.infiniteScroll = false;
 
@@ -495,6 +510,9 @@ app.controller('profileCtrl', [
                         .sortBy('activityName')
                         .sortBy('date')
                         .value();
+
+                    TMP_FixStrikeMode($scope.strikes.weeklyScores);
+                    TMP_FixStrikeMode($scope.strikes.bests);
 
                     return bungie.getAccount(platform, membershipId);
                 })

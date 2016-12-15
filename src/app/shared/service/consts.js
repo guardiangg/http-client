@@ -170,7 +170,7 @@ app.service('consts', [
                 // pve
                 3: gettextCatalog.getString('Normal Strike'),
                 4: gettextCatalog.getString('Raid'),
-                16: gettextCatalog.getString('Nightfall Strike'),
+                16: gettextCatalog.getString('Nightfall'),
                 17: gettextCatalog.getString('Heroic Strike'),
                 20: gettextCatalog.getString('Prison of Elders'),
                 2: gettextCatalog.getString('Story'),
@@ -178,6 +178,45 @@ app.service('consts', [
 
                 // srl
                 29: gettextCatalog.getString('SRL')
+            },
+            strikes: {
+                heroic: [
+                    '3373044013', // Blighted Chalice
+                    '2396741855', // Cerebrus Vae III
+                    '4252752792', // Dust Palace
+                    '1646288223', // Echo Chamber
+                    '1501957761', // Fallen S.A.B.E.R.
+                    '2268273279', // Sepiks Perfected
+                    '342909762', // Shield Brothers
+                    '1431469570', // The Abomination Heist
+                    '2799122060', // The Nexus
+                    '1816396489', // The Shadow Thief
+                    '3842976518', // The Sunless Cell
+                    '1016116686', // The Undying Mind
+                    '3670968271', // The Will of Crota
+                    '2178968385', // The Wretched Eye
+                    '3676594097' // Winter's Run
+                ],
+                normal: [
+                    '3343503784', // Blighted Chalice
+                    '1740074530', // Cerebrus Vae III
+                    '194283519', // Dust Palace
+                    '575376446', // Echo Chamber
+                    '1526798932', // Fallen S.A.B.E.R.
+                    '482017096', // Sepiks Perfected
+                    '1669262087', // Shield Brothers
+                    '2678657479', // The Abomination Heist
+                    '242777083', // The Nexus
+                    '2275772174', // The Shadow Thief
+                    '2546962221', // The Sunless Cell
+                    '1918823817', // The Undying Mind
+                    '4215168114', // The Will of Crota
+                    '2664207554', // The Wretched Eye
+                    '3896699662' // Winter's Run
+                ],
+                nightfall: [
+                    '1169187265' // The Nexus
+                ]
             },
             modeIcons: {
                 9: 'ggg-skirmish',

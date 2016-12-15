@@ -2,51 +2,75 @@
     <advert sizes="728x90,970x90,970x250"></advert>
 </div>
 
-<div class="filters">
+<div class="rating-info">
+    <i class="fa fa-info-circle"></i>
+    <span translate>
+        The <strong>Strike Rating</strong> is our new competitive measure of your fireteam's performance in strikes since
+        "The Dawning" patch on December 13th, 2016. It is based on your team's score and how quickly you completed
+        the strike. Earn more points in less time to climb the weekly leaderboards.
+    </span>
+</div>
+
+<div class="filters strike-filters">
     <div class="btn-group pull-right pg" ng-if="!loading.srl && results.data.length > 0">
         <button type="button"
                 class="btn btn-default"
-                ng-disabled="page == 0"
-                ng-click="load(platform, mode, referenceId, 0)">
+                ng-disabled="+(page) == 0"
+                ng-click="load(period, platform, mode, reference, 0)">
             <i class="fa fa-angle-double-left visible-xs visible-sm"></i>
             <span class="visible-md visible-lg" translate>First</span>
         </button>
         <button type="button"
                 class="btn btn-default"
-                ng-disabled="page - 1 <= 0"
-                ng-click="load(platform, mode, referenceId, page - 1)">
+                ng-disabled="+(page) - 1 <= 0"
+                ng-click="load(period, platform, mode, reference, +(page) - 1)">
             <i class="fa fa-angle-left visible-xs visible-sm"></i>
             <span class="visible-md visible-lg" translate>Prev</span>
         </button>
         <button class="btn btn-disabled page-info" translate>
-            Page {{page+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>
+            Page {{+(page)+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>
         </button>
         <button type="button"
                 class="btn btn-default"
-                ng-disabled="page >= pageTotal"
-                ng-click="load(platform, mode, referenceId, page + 1)">
+                ng-disabled="+(page) >= pageTotal"
+                ng-click="load(period, platform, mode, reference, +(page) + 1)">
             <i class="fa fa-angle-right visible-xs visible-sm"></i>
             <span class="visible-md visible-lg" translate>Next</span>
         </button>
         <button type="button"
                 class="btn btn-default"
-                ng-disabled="page == pageTotal"
-                ng-click="load(platform, mode, referenceId, pageTotal)">
+                ng-disabled="+(page) == pageTotal"
+                ng-click="load(period, platform, mode, reference, pageTotal)">
             <i class="fa fa-angle-double-right visible-xs visible-sm"></i>
             <span class="visible-md visible-lg" translate>Last</span>
         </button>
     </div>
 
+    <select ng-model="period"
+            ng-change="load(period, platform, mode, reference, 0)"
+            class="form-control filter-period">
+        <option value="all" translate>All-Time</option>
+        <option value="weekly" translate>Weekly</option>
+    </select>
+
     <select ng-options="key*1 as value for (key, value) in platforms"
             ng-model="platform"
-            ng-change="load(platform, mode, referenceId, 0)"
+            ng-change="load(period, platform, mode, reference, 0)"
             class="form-control filter-platform">
-    </select>&nbsp;
-    <select ng-options="key*1 as value for (key, value) in activities"
-            ng-model="referenceId"
-            ng-change="load(platform, mode, referenceId, 0)"
-            class="form-control filter-map">
-    </select>&nbsp;
+    </select>
+
+    <ui-select ng-model="reference" theme="bootstrap" class="filter-activity" on-select="load(period, platform, reference.mode, reference, 0)" ng-disabled="loading.strike">
+        <ui-select-match class="ui-select-match" allow-clear="false">
+            <strong>{{ $select.selected.type }}:</strong> {{ $select.selected.name }}
+        </ui-select-match>
+        <ui-select-choices class="ui-select-choices"
+                           repeat="strike in strikeList | propsFilter: {name: $select.search}"
+                           group-filter="filterTypes"
+                           group-by="'type'">
+            <div ng-bind-html="strike.name | highlight: $select.search"></div>
+        </ui-select-choices>
+    </ui-select>
+
     <input type="text"
            ng-model="name"
            ng-model-options="{debounce: 500}"
@@ -58,19 +82,29 @@
 <div class="loading" ng-if="loading.strike"><i class="fa fa-cog fa-spin"></i> Loading Guardian Data...</div>
 
 <div class="table-responsive">
-    <table class="table table-striped leaderboard leaderboard-full" ng-if="!loading.strike">
+    <table class="table table-striped leaderboard leaderboard-full strike-leaderboard" ng-if="!loading.strike">
         <tr>
-            <th class="text-center" style="width:1%" translate>Rank</th>
-            <th style="width:50%" translate>Name</th>
-            <th class="text-center" style="width:10%" translate>Score</th>
+            <th class="text-center rank" translate>Rank</th>
+            <th class="name" translate>Name</th>
+            <th class="text-center rating" translate>Rating</th>
+            <th class="text-center date" translate>Completed</th>
+            <th class="text-center table-space"></th>
+            <th class="text-center pgcr" translate>PGCR</th>
         </tr>
         <tr class="empty" ng-if="results.data.length == 0">
             <td colspan="9" class="text-center">No guardians were found.</td>
         </tr>
-        <tr ng-class="{highlight: (row.name|lowercase) == highlight}" ng-repeat="row in results.data | orderBy:'rank' track by $index">
-            <td class="text-center">{{ (page * pageCount) + $index + 1|number }}</td>
+        <tr ng-class="{highlight: (row.name|lowercase) == highlight} && row.color" ng-repeat="row in results.data | orderBy:'rank' track by $index">
+            <td class="text-center rank">
+                <span ng-if="!results.data[$index - 1] || results.data[$index - 1].rank != row.rank">{{ row.rank }}</span>
+            </td>
             <td><a ui-sref="app.profile({platform: platform, name: row.name})">{{ row.name }}</a></td>
-            <td class="text-center hidden-xs">{{ row.score|number }} <a target="_blank" ng-show="row.instanceId" href="https://www.bungie.net/en/Legend/PGCR?instanceId={{ row.instanceId }}" class="srl-proof"><i class="fa fa-external-link"></i></a></td>
+            <td class="text-center rating" ng-class="{'first': row.rank === 1, 'top10': row.rank > 1 && row.rank <= 10, 'top25': row.rank > 10 && row.rank <= 25, 'top50': row.rank > 25 && row.rank <= 50}">{{ row.score|number }}</td>
+            <td class="text-center date">{{ row.date }}</td>
+            <td></td>
+            <td class="text-center pgcr">
+                <a ng-show="row.instanceId" ui-sref="app.pgcr({ instanceId: row.instanceId })"><i class="fa fa-external-link"></i></a>
+            </td>
         </tr>
     </table>
 </div>
@@ -79,32 +113,32 @@
     <div class="btn-group pull-right pg" ng-if="!loading.srl">
         <button type="button"
                 class="btn btn-default"
-                ng-disabled="page == 0"
-                ng-click="load(platform, mode, referenceId, 0)">
+                ng-disabled="+(page) == 0"
+                ng-click="load(period, platform, mode, reference, 0)">
             <i class="fa fa-angle-double-left visible-xs visible-sm"></i>
             <span class="visible-md visible-lg" translate>First</span>
         </button>
         <button type="button"
                 class="btn btn-default"
-                ng-disabled="page - 1 <= 0"
-                ng-click="load(platform, mode, referenceId, page - 1)">
+                ng-disabled="+(page) - 1 <= 0"
+                ng-click="load(period, platform, mode, reference, +(page) - 1)">
             <i class="fa fa-angle-left visible-xs visible-sm"></i>
             <span class="visible-md visible-lg" translate>Prev</span>
         </button>
         <button class="btn btn-disabled page-info" translate>
-            Page {{page+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>
+            Page {{+(page)+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>
         </button>
         <button type="button"
                 class="btn btn-default"
-                ng-disabled="page >= pageTotal"
-                ng-click="load(platform, mode, referenceId, page + 1)">
+                ng-disabled="+(page) >= pageTotal"
+                ng-click="load(period, platform, mode, reference, +(page) + 1)">
             <i class="fa fa-angle-right visible-xs visible-sm"></i>
             <span class="visible-md visible-lg" translate>Next</span>
         </button>
         <button type="button"
                 class="btn btn-default"
-                ng-disabled="page == pageTotal"
-                ng-click="load(platform, mode, referenceId, pageTotal)">
+                ng-disabled="+(page) == pageTotal"
+                ng-click="load(period, platform, mode, reference, pageTotal)">
             <i class="fa fa-angle-double-right visible-xs visible-sm"></i>
             <span class="visible-md visible-lg" translate>Last</span>
         </button>

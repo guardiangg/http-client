@@ -1,0 +1,150 @@
+.filters.strike-filters {
+    .filter-period {
+        display: inline-block;
+        width: 110px;
+    }
+
+    .filter-activity {
+        display: inline-block;
+        width: 300px;
+        vertical-align: top;
+    }
+
+    .filter-name {
+        vertical-align: top;
+    }
+
+    @media screen and (max-width: 1200px) {
+        .pg {
+            float: none !important;
+            text-align: center;
+            width: 100%;
+            margin: 10px 0;
+
+            button {
+                float: none !important;
+                height: 34px;
+            }
+        }
+
+        > input, > select, > .filter-activity {
+            display: block !important;
+            width: 100% !important;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.strike-leaderboard {
+    tr {
+        th {
+            &.rank {
+                width: 5%;
+            }
+
+            &.name {
+                width: 15%;
+
+                @media (max-width: 767px) {
+                    width: 30%;
+                    min-width: 130px;
+                }
+            }
+
+            &.rating {
+                width: 5%;
+
+                @media (max-width: 1100px) {
+                    width: 10%;
+                }
+
+                @media (max-width: 767px) {
+                    width: 20%;
+                }
+            }
+
+            &.date {
+                width: 10%;
+
+                @media (max-width: 1100px) {
+                    width: 15%;
+                }
+
+                @media (max-width: 767px) {
+                    width: 10%;
+                }
+            }
+
+            &.table-space {
+                width: 30%;
+
+                @media (max-width: 1400px) {
+                    width: 33%;
+                }
+
+                @media (max-width: 1100px) {
+                    width: 20%;
+                }
+
+                @media (max-width: 767px) {
+                    width: 0;
+                }
+            }
+
+            &.pgcr {
+                width: 5%;
+            }
+        }
+
+        td {
+            font-size: 14px;
+
+            &.rating {
+                &.first {
+                    color: #de9e1b;
+                    font-weight: bold;
+                }
+
+                &.top10 {
+                    color: #587bd2;
+                    font-weight: bold;
+                }
+
+                &.top25 {
+                    color: #999;
+                    font-weight: bold;
+                }
+
+                &.top50 {
+                    color: #a06a2b;
+                    font-weight: bold;
+                }
+            }
+
+            &.date {
+                color: #666;
+            }
+
+            &.pgcr {
+                vertical-align: middle;
+                font-size: 14px;
+
+                a {
+                    color: #888;
+                }
+            }
+        }
+
+        &.color-1 {
+            td {
+                background-color: #e8e8e8;
+            }
+        }
+
+        &.color-2 {
+            td {
+                background-color: #f1f1f1;
+            }
+        }
+    }
+}

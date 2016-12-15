@@ -107,7 +107,7 @@ app.config([
                 templateUrl: 'component/srl/srl.html'
             })
             .state('app.strike', {
-                url: '/strike/{platform:[0-9]+}/{mode:[0-9]+}/{referenceId:[0-9-]+}/{page:[0-9]+}',
+                url: '/strike/{period}/{platform:[0-9]+}/{mode:[0-9]+}/{referenceId:[0-9-]+}/{page:[0-9]+}',
                 controller: 'strikeCtrl',
                 templateUrl: 'component/strike/strike.html'
             })

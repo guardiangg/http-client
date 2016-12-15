@@ -6,9 +6,21 @@ app.service('strikeApi', [
 
     function ($http, util) {
         return new function () {
-            this.getPage = function (platform, mode, referenceId, page) {
+            this.getGamedata = function () {
                 return $http.get(
-                    util.buildApiUrl('strike-weekly/{platform}/{mode}/{referenceId}/{page}', {
+                    util.buildApiUrl('strike/gamedata')
+                );
+            };
+
+            this.getPage = function (period, platform, mode, referenceId, page) {
+                var url = 'strike-weekly/{platform}/{mode}/{referenceId}/{page}';
+
+                if (period == 'all') {
+                    url = 'strike/{platform}/{mode}/{referenceId}/{page}';
+                }
+
+                return $http.get(
+                    util.buildApiUrl(url, {
                         platform: platform,
                         mode: mode,
                         referenceId: referenceId,
@@ -17,9 +29,15 @@ app.service('strikeApi', [
                 );
             };
 
-            this.search = function(platform, mode, referenceId, name) {
+            this.search = function(period, platform, mode, referenceId, name) {
+                var url = 'strike-weekly/search/{platform}/{mode}/{referenceId}/{name}';
+
+                if (period == 'all') {
+                    url = 'strike/search/{platform}/{mode}/{referenceId}/{name}';
+                }
+
                 return $http.get(
-                    util.buildApiUrl('strike-weekly/search/{platform}/{mode}/{referenceId}/{name}', {
+                    util.buildApiUrl(url, {
                         platform: platform,
                         mode: mode,
                         referenceId: referenceId,
