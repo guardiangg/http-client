@@ -597,11 +597,11 @@ msgstr ""
 msgid "How can I help?"
 msgstr ""
 
-#: component\faq\faq.html:139
+#: component\faq\faq.html:140
 msgid "How can I increase my Strike Rating?"
 msgstr ""
 
-#: component\faq\faq.html:147
+#: component\faq\faq.html:148
 msgid "How do I get in touch if I have a question/suggestion?"
 msgstr ""
 
@@ -1573,7 +1573,8 @@ msgstr ""
 msgid ""
 "The top 50 players for all of the available Normal, Heroic and Nightfall strike each week will be awarded\r\n"
 "            a permanent badge on their profile. Badges are given out every Tuesday at around 9am UTC during reset.\r\n"
-"            Wear it with pride, you beat out tens (sometimes hundreds) of thousands of gamers for those bragging rights."
+"            Wear it with pride, you beat out tens (sometimes hundreds) of thousands of gamers for those bragging rights.\r\n"
+"            You can earn badges for the same strike in multiple weeks."
 msgstr ""
 
 #: component\weapon-stats\weapon-stats.html:91
@@ -1634,9 +1635,9 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: component\faq\faq.html:104
-#: component\faq\faq.html:116
-#: component\faq\faq.html:128
+#: component\faq\faq.html:105
+#: component\faq\faq.html:117
+#: component\faq\faq.html:129
 #: component\profile\profile-pve.html:33
 #: component\profile\profile-pve.html:37
 #: component\profile\profile-pve.html:41
@@ -1665,7 +1666,7 @@ msgstr ""
 msgid "Trials of Osiris"
 msgstr ""
 
-#: component\faq\faq.html:140
+#: component\faq\faq.html:141
 msgid ""
 "Try and complete the strike as fast as possible, while being very efficient with how you're earning medals.\r\n"
 "            It's up to the players to figure out the best way to achieve this, it's a very simple formula - do it fast,\r\n"
@@ -1832,7 +1833,7 @@ msgstr ""
 msgid "Xûr, Agent of the Nine"
 msgstr ""
 
-#: component\faq\faq.html:149
+#: component\faq\faq.html:150
 msgid "You can fire us an email at"
 msgstr ""
 
