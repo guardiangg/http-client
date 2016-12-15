@@ -22,8 +22,6 @@ app.directive('pgcr', [
                 scope.modeDefs = consts.modes;
                 scope.teamDefs = consts.teams;
 
-                console.log(elementId);
-
                 var render = function() {
                     if (document.getElementById(elementId)) {
                         return;
