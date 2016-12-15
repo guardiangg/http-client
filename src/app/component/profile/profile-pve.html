@@ -2,7 +2,13 @@
     <advert sizes="728x90"></advert>
 </div>
 
-<!--
+<div class="rating-info" ng-if="!loading.strikes && strikes.bests && strikes.bests.length > 0">
+    <i class="fa fa-info-circle"></i>
+    The <strong>Strike Rating</strong> is our competitive measure of your fireteam's performance in strikes.
+    It is based on your team's score and how quickly you completed the strike. Earn more points in less time and
+    to climb the leaderboard!
+</div>
+
 <h2>
     <span translate>All-Time Record Book</span>
 </h2>
@@ -11,16 +17,28 @@
     <i class="fa fa-cog fa-spin"></i> <translate>Loading Records...</translate>
 </div>
 
-<div class="record-info" ng-if="!loading.strikes && strikes.allTimeTopThree && strikes.allTimeTopThree.length > 0">
+<div class="record-info" ng-if="!loading.strikes && strikes.showcase && strikes.showcase.length > 0">
     <h3 translate>Platform Bests</h3>
     <span>{{ name }}</span> <span translate>finished in the top 3 out of the entire Destiny player base for 1 or more activities in a week.</span>
 </div>
 
-<div class="trophy-collection" ng-if="!loading.strikes && strikes.allTimeTopThree && strikes.allTimeTopThree.length > 0">
-    <div class="ggg-trophy" ng-repeat="best in strikes.allTimeTopThree" ng-class="{'first': best.rank === 1, 'second': best.rank === 2, 'third': best.rank === 3}">
+<div class="trophy-collection" ng-if="!loading.strikes && strikes.showcase && strikes.showcase.length > 0">
+    <div class="ggg-trophy" ng-repeat="best in strikes.showcase" ng-class="{'first': best.rank === 1, 'top10': best.rank > 1 && best.rank <= 10, 'top25': best.rank > 10 && best.rank <= 25, 'top50': best.rank > 25 && best.rank <= 50}">
         <span>
             <span>
-                <span>{{ best.rank }}</span>
+                <span ng-if="best.rank === 1">{{ best.rank }}</span>
+                <span ng-if="best.rank > 1 && best.rank <= 10">
+                    <i translate>Top</i>
+                    <b>10</b>
+                </span>
+                <span ng-if="best.rank > 10 && best.rank <= 25">
+                    <i translate>Top</i>
+                    <b>25</b>
+                </span>
+                <span ng-if="best.rank > 20 && best.rank <= 50">
+                    <i translate>Top</i>
+                    <b>50</b>
+                </span>
             </span>
         </span>
         <span>{{ best.activityName }}</span>
@@ -43,11 +61,11 @@
                 <th style="width:15%">Played</th>
                 <th style="width:31%" translate>Activity</th>
                 <th style="width:15%" class="hidden-xs text-center" translate>Mode</th>
-                <th style="width:8%" class="text-center" translate>Score</th>
+                <th style="width:8%" class="text-center" translate>Rating</th>
                 <th style="width:8%" class="text-center" translate>Ranking</th>
                 <th style="width:1%" class="text-center"></th>
             </tr>
-            <tr ng-repeat="activity in strikes.bests track by activity.instanceId">
+            <tr ng-repeat="activity in strikes.bests track by $index">
                 <td class="clickable">{{ activity.date }}</td>
                 <td class="clickable">
                     <i class="ggg {{modeIcons[activity.mode]}}"></i> {{ activity.activityName }}
@@ -78,7 +96,7 @@
                 <th style="width:15%">Played</th>
                 <th style="width:31%" translate>Activity</th>
                 <th style="width:15%" class="hidden-xs text-center" translate>Mode</th>
-                <th style="width:8%" class="text-center" translate>Score</th>
+                <th style="width:8%" class="text-center" translate>Rating</th>
                 <th style="width:8%" class="text-center" translate>Ranking</th>
                 <th style="width:1%" class="text-center"></th>
             </tr>
@@ -100,7 +118,6 @@
         </table>
     </div>
 </div>
--->
 
 <h2>
     <div class="history-filters pull-right">
@@ -137,7 +154,6 @@
         <tr>
             <th style="width:15%">Played</th>
             <th style="width:20%" class="hidden-xs" translate>Map</th>
-            <th style="width:8%" class="text-center" translate>Score</th>
             <th style="width:8%" class="text-center" translate>Time</th>
             <th style="width:5%" class="text-center" translate>K</th>
             <th style="width:5%" class="text-center" translate>D</th>
@@ -151,7 +167,6 @@
             <td class="clickable hidden-xs">
                 <i class="ggg {{modeIcons[activity.activityDetails.mode]}}"></i> {{ activity.definition.activityName }}
             </td>
-            <td class="text-center clickable">{{ activity.values.score.basic.displayValue || '--' }}</td>
             <td class="text-center clickable">{{ activity.values.activityDurationSeconds.basic.displayValue || '--' }}</td>
             <td class="text-center clickable">{{ activity.values.kills.basic.displayValue }}</td>
             <td class="text-center clickable">{{ activity.values.deaths.basic.displayValue }}</td>

@@ -584,6 +584,26 @@
                         z-index: 1;
                         font-size: 20px;
                         color: #fff;
+                        line-height: 0;
+
+                        > i {
+                            font-style: normal;
+                            font-size: 9px;
+                            font-weight: bold;
+                            display: block;
+                            position: relative;
+                            top: -7px;
+                            text-transform: uppercase;
+                        }
+
+                        > b {
+                            font-style: normal;
+                            font-size: 16px;
+                            font-weight: bold;
+                            display: block;
+                            position: relative;
+                            top: 5px;
+                        }
                     }
                 }
             }
@@ -627,7 +647,32 @@
             }
         }
 
-        &.second {
+        &.top10 {
+            > span {
+                &:nth-child(1) {
+                    border-bottom-color: #587bd2;
+
+                    &:after {
+                        border-top-color: #587bd2;
+                    }
+
+                    > span {
+                        border-bottom-color: #fff;
+
+                        &:after {
+                            border-top-color: #fff;
+                        }
+
+                        > span {
+                            color: #587bd2;
+                            line-height: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.top25 {
             > span {
                 &:nth-child(1) {
                     border-bottom-color: #999;
@@ -651,7 +696,7 @@
             }
         }
 
-        &.third {
+        &.top50 {
             > span {
                 &:nth-child(1) {
                     border-bottom-color: #a06a2b;
@@ -857,5 +902,22 @@
         text-align: center;
         color: #ffbd24;
         position: absolute;
+    }
+}
+
+.rating-info {
+    padding: 20px 20px 20px 70px;
+    background: #226fb1;
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 10px;
+    position: relative;
+
+    i {
+        font-size: 40px;
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        line-height: 0;
     }
 }

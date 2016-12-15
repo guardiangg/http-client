@@ -337,6 +337,7 @@ app.controller('profileCtrl', [
                     // Temp hide SRL Elo (do we even want this anymore?)
                     for (var i = 0; i < result.data.length ; i++) {
                         if (result.data[i].mode == 29) {
+                            $scope.eloSrl = result.data[i];
                             result.data.splice(i, 1);
                         }
                     }
@@ -474,6 +475,10 @@ app.controller('profileCtrl', [
                             return s.referenceId == strike.referenceId;
                         });
 
+                        if (existing && existing.instanceId == strike.instanceId) {
+                            return;
+                        }
+
                         strike.isBestScore = true;
 
                         if (existing) {
@@ -490,8 +495,6 @@ app.controller('profileCtrl', [
                         .sortBy('activityName')
                         .sortBy('date')
                         .value();
-
-                    console.log($scope.strikes.bests);
 
                     return bungie.getAccount(platform, membershipId);
                 })

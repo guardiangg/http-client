@@ -2,6 +2,31 @@
     <advert sizes="728x90"></advert>
 </div>
 
+<h2>Current Season Elo</h2>
+<div class="loading" ng-if="loading.elo || loading.eloHistory">
+    <i class="fa fa-cog fa-spin"></i> <translate>Loading Elo Data...</translate>
+</div>
+<div class="no-data" ng-show="!loading.elo && !eloSrl">
+    <i class="fa fa-info-circle"></i> <translate>{{name}} hasn't completed enough games this season to show Elo</translate>
+</div>
+<div class="elo">
+    <div class="ratings row" ng-if="eloSrl">
+        <div class="col-xs-2 rating" ng-style="{ 'background-color': eloSrl.rank > 0 ? eloSrl.league.colors.background : '#9c9c9c' }">
+            <i class="ggg {{modeIcons[eloSrl.mode]}}"></i>
+            <span ng-if="eloSrl.rank != -1">{{ eloSrl.elo|number:0 }}</span>
+            <span ng-if="eloSrl.rank == -1">--</span>
+            <div class="hidden-xs">{{modes[eloSrl.mode]}}</div>
+            <div class="rank" ng-if="eloSrl.rank == -1" translate>Unranked</div>
+            <div class="rank" ng-if="eloSrl.rank == -2" translate>Inactive</div>
+            <div class="rank" ng-if="eloSrl.rank > 0">#{{eloSrl.rank|number}}</div>
+            <div class="league" ng-style="{ 'background-color': eloSrl.rank > 0 ? eloSrl.league.colors.line : '#8a8a8a' }">{{eloSrl.rank > 0 ? eloSrl.league.label : 'Placing'}}</div>
+        </div>
+    </div>
+    <div class="chart" ng-if="!loading.eloHistory && !eloChartEmpty">
+        <highchart config="eloChart" style="height: 300px;"></highchart>
+    </div>
+</div>
+
 <h2>
     <div class="history-filters pull-right">
         <div class="dropdown">

@@ -32,7 +32,7 @@ msgstr ""
 
 #. Short for assists
 #: component\leaderboard\leaderboard.html:68
-#: component\profile\profile-pve.html:144
+#: component\profile\profile-pve.html:160
 #: component\profile\profile-pvp.html:136
 msgid "A"
 msgstr ""
@@ -46,7 +46,12 @@ msgstr ""
 msgid "Activities"
 msgstr ""
 
-#: component\profile\profile-pve.html:124
+#: component\profile\profile-pve.html:62
+#: component\profile\profile-pve.html:97
+msgid "Activity"
+msgstr ""
+
+#: component\profile\profile-pve.html:141
 msgid "Activity History"
 msgstr ""
 
@@ -62,7 +67,7 @@ msgstr ""
 msgid "Agility"
 msgstr ""
 
-#: component\profile\profile-pve.html:112
+#: component\profile\profile-pve.html:129
 #: component\profile\profile-pvp.html:86
 msgid "All"
 msgstr ""
@@ -77,6 +82,10 @@ msgid ""
 "            defeating them, and vise versa. Defeating a more skilled opponent will yield higher points than if you beat up\r\n"
 "            on a weaker one. The higher the score, the more skilled the player. It is extremely difficult\r\n"
 "            to maintain a high Elo score, these players are regarded as the best of the best!"
+msgstr ""
+
+#: component\profile\profile-pve.html:13
+msgid "All-Time Record Book"
 msgstr ""
 
 #: shared\service\consts.js:223
@@ -124,9 +133,13 @@ msgstr ""
 msgid "Best Gates"
 msgstr ""
 
-#: component\profile\profile-srl.html:32
+#: component\profile\profile-srl.html:57
 #: component\srl\srl.html:65
 msgid "Best Time"
+msgstr ""
+
+#: component\profile\profile-pve.html:50
+msgid "Bests per Activity"
 msgstr ""
 
 #: component\layout\nav.html:258
@@ -210,7 +223,7 @@ msgstr ""
 msgid "Class restriction"
 msgstr ""
 
-#: component\profile\profile-pve.html:146
+#: component\profile\profile-pve.html:162
 msgid "Cleared"
 msgstr ""
 
@@ -267,9 +280,13 @@ msgstr ""
 msgid "Currency"
 msgstr ""
 
+#: component\profile\profile-pve.html:85
+msgid "Current Week"
+msgstr ""
+
 #. Short for deaths
 #: component\leaderboard\leaderboard.html:67
-#: component\profile\profile-pve.html:143
+#: component\profile\profile-pve.html:159
 #: component\profile\profile-pvp.html:135
 msgid "D"
 msgstr ""
@@ -543,7 +560,7 @@ msgstr ""
 msgid "Helmet"
 msgstr ""
 
-#: component\profile\profile-pve.html:115
+#: component\profile\profile-pve.html:132
 #: shared\service\consts.js:174
 msgid "Heroic Strike"
 msgstr ""
@@ -586,6 +603,7 @@ msgid ""
 msgstr ""
 
 #: component\profile\profile-pvp.html:20
+#: component\profile\profile-srl.html:20
 msgid "Inactive"
 msgstr ""
 
@@ -642,14 +660,14 @@ msgstr ""
 
 #. Short for kills
 #: component\leaderboard\leaderboard.html:66
-#: component\profile\profile-pve.html:142
+#: component\profile\profile-pve.html:158
 #: component\profile\profile-pvp.html:134
 msgid "K"
 msgstr ""
 
 #. Short for kills / deaths
 #: component\leaderboard\leaderboard.html:69
-#: component\profile\profile-pve.html:145
+#: component\profile\profile-pve.html:161
 #: component\profile\profile-pvp.html:137
 #: component\subclass\subclass.html:118
 #: component\subclass\subclass.html:144
@@ -721,6 +739,7 @@ msgid "Loading Charts..."
 msgstr ""
 
 #: component\profile\profile-pvp.html:7
+#: component\profile\profile-srl.html:7
 msgid "Loading Elo Data..."
 msgstr ""
 
@@ -728,9 +747,9 @@ msgstr ""
 msgid "Loading Fireteam..."
 msgstr ""
 
-#: component\profile\profile-pve.html:132
+#: component\profile\profile-pve.html:149
 #: component\profile\profile-pvp.html:126
-#: component\profile\profile-srl.html:58
+#: component\profile\profile-srl.html:83
 msgid "Loading Game History..."
 msgstr ""
 
@@ -742,7 +761,8 @@ msgstr ""
 msgid "Loading Perks..."
 msgstr ""
 
-#: component\profile\profile-srl.html:20
+#: component\profile\profile-pve.html:17
+#: component\profile\profile-srl.html:45
 msgid "Loading Records..."
 msgstr ""
 
@@ -782,9 +802,9 @@ msgstr ""
 msgid "Maintenance Notice"
 msgstr ""
 
-#: component\profile\profile-pve.html:139
+#: component\profile\profile-pve.html:156
 #: component\profile\profile-pvp.html:132
-#: component\profile\profile-srl.html:65
+#: component\profile\profile-srl.html:90
 msgid "Map"
 msgstr ""
 
@@ -816,6 +836,11 @@ msgstr ""
 #: component\layout\nav.html:248
 #: shared\service\consts.js:651
 msgid "Mission Key Item"
+msgstr ""
+
+#: component\profile\profile-pve.html:63
+#: component\profile\profile-pve.html:98
+msgid "Mode"
 msgstr ""
 
 #: component\home\home.html:46
@@ -855,7 +880,7 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: component\profile\profile-pve.html:116
+#: component\profile\profile-pve.html:133
 #: shared\service\consts.js:173
 msgid "Nightfall Strike"
 msgstr ""
@@ -881,7 +906,7 @@ msgstr ""
 msgid "No results for your query \"{{query}}\". Check your spelling and try again."
 msgstr ""
 
-#: component\profile\profile-pve.html:114
+#: component\profile\profile-pve.html:131
 #: shared\service\consts.js:171
 msgid "Normal Strike"
 msgstr ""
@@ -927,7 +952,7 @@ msgstr ""
 msgid "Passive Gear"
 msgstr ""
 
-#: component\profile\profile-pve.html:119
+#: component\profile\profile-pve.html:136
 #: shared\service\consts.js:177
 #: shared\service\consts.js:822
 msgid "Patrol"
@@ -946,16 +971,20 @@ msgstr ""
 msgid "Permalink of this game"
 msgstr ""
 
-#: component\profile\profile-srl.html:16
+#: component\profile\profile-srl.html:41
 msgid "Personal Record Book"
 msgstr ""
 
-#: component\profile\profile-srl.html:67
+#: component\profile\profile-srl.html:92
 msgid "Placing"
 msgstr ""
 
 #: component\weapon-stats\weapon-stats.html:17
 msgid "Platform"
+msgstr ""
+
+#: component\profile\profile-pve.html:21
+msgid "Platform Bests"
 msgstr ""
 
 #: component\faq\faq.html:65
@@ -1015,7 +1044,7 @@ msgstr ""
 msgid "Primary type"
 msgstr ""
 
-#: component\profile\profile-pve.html:118
+#: component\profile\profile-pve.html:135
 #: shared\service\consts.js:175
 #: shared\service\consts.js:756
 msgid "Prison of Elders"
@@ -1054,11 +1083,11 @@ msgstr ""
 msgid "Quest"
 msgstr ""
 
-#: component\profile\profile-srl.html:50
+#: component\profile\profile-srl.html:75
 msgid "Race History (Current Character)"
 msgstr ""
 
-#: component\profile\profile-pve.html:117
+#: component\profile\profile-pve.html:134
 #: shared\service\consts.js:172
 msgid "Raid"
 msgstr ""
@@ -1092,13 +1121,20 @@ msgstr ""
 msgid "Ranked as a percentage of all kills"
 msgstr ""
 
-#: component\profile\profile-srl.html:33
+#: component\profile\profile-pve.html:100
+#: component\profile\profile-pve.html:65
+#: component\profile\profile-srl.html:58
 msgid "Ranking"
 msgstr ""
 
 #: component\item\item-list.html:93
 #: shared\service\consts.js:327
 msgid "Rare"
+msgstr ""
+
+#: component\profile\profile-pve.html:64
+#: component\profile\profile-pve.html:99
+msgid "Rating"
 msgstr ""
 
 #: component\home\home.html:6
@@ -1157,6 +1193,8 @@ msgstr ""
 msgid "Rumble Supremacy"
 msgstr ""
 
+#: component\layout\nav.html:174
+#: component\layout\nav.html:92
 #: component\profile\profile.html:12
 #: shared\service\consts.js:180
 msgid "SRL"
@@ -1182,7 +1220,6 @@ msgstr ""
 msgid "Salvage"
 msgstr ""
 
-#: component\profile\profile-pve.html:140
 #: component\profile\profile-pvp.html:133
 #: component\strike\strike.html:65
 msgid "Score"
@@ -1359,7 +1396,7 @@ msgstr ""
 msgid "Stormcaller"
 msgstr ""
 
-#: component\profile\profile-pve.html:120
+#: component\profile\profile-pve.html:137
 #: shared\service\consts.js:176
 msgid "Story"
 msgstr ""
@@ -1466,9 +1503,9 @@ msgstr ""
 msgid "The changelog you're looking for does not exist"
 msgstr ""
 
-#: component\profile\profile-pve.html:128
+#: component\profile\profile-pve.html:145
 #: component\profile\profile-pvp.html:123
-#: component\profile\profile-srl.html:54
+#: component\profile\profile-srl.html:79
 msgid "The match history is unavailable due to an API error"
 msgstr ""
 
@@ -1510,8 +1547,8 @@ msgstr ""
 msgid "Tiers"
 msgstr ""
 
-#: component\profile\profile-pve.html:141
-#: component\profile\profile-srl.html:66
+#: component\profile\profile-pve.html:157
+#: component\profile\profile-srl.html:91
 msgid "Time"
 msgstr ""
 
@@ -1527,6 +1564,12 @@ msgstr ""
 
 #: component\layout\nav.html:6
 msgid "Toggle navigation"
+msgstr ""
+
+#: component\profile\profile-pve.html:31
+#: component\profile\profile-pve.html:35
+#: component\profile\profile-pve.html:39
+msgid "Top"
 msgstr ""
 
 #: component\weapon-stats\weapon-stats.html:86
@@ -1555,7 +1598,7 @@ msgstr ""
 msgid "Try updating your filters, there are no items matching your criteria."
 msgstr ""
 
-#: component\profile\profile-pve.html:109
+#: component\profile\profile-pve.html:126
 msgid "Type:"
 msgstr ""
 
@@ -1565,6 +1608,7 @@ msgid "Uncommon"
 msgstr ""
 
 #: component\profile\profile-pvp.html:19
+#: component\profile\profile-srl.html:19
 msgid "Unranked"
 msgstr ""
 
@@ -1710,7 +1754,19 @@ msgstr ""
 msgid "[Unnamed Item]"
 msgstr ""
 
-#: component\profile\profile-srl.html:25
+#: component\profile\profile-pve.html:22
+msgid "finished in the top 3 out of the entire Destiny player base for 1 or more activities in a week."
+msgstr ""
+
+#: component\profile\profile-pve.html:55
+msgid "has not completed a qualifying activity from \"The Dawning\" patch yet."
+msgstr ""
+
+#: component\profile\profile-pve.html:90
+msgid "has not played a qualifying activity this week yet."
+msgstr ""
+
+#: component\profile\profile-srl.html:50
 msgid "has not raced in"
 msgstr ""
 
@@ -1727,12 +1783,14 @@ msgid "vs."
 msgstr ""
 
 #: component\profile\profile-pvp.html:10
+#: component\profile\profile-srl.html:10
 msgid "{{name}} hasn't completed enough games this season to show Elo"
 msgstr ""
 
-#: component\profile\profile-pve.html:173
+#: component\profile\profile-pve.html:116
+#: component\profile\profile-pve.html:188
 #: component\profile\profile-pvp.html:161
-#: component\profile\profile-srl.html:84
+#: component\profile\profile-srl.html:109
 msgid "{{name}} hasn't played any games on this character in this mode."
 msgstr ""
 
