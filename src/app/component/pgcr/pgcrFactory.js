@@ -17,7 +17,10 @@ app.factory('pgcrFactory', [
                 details: {},
                 teams: {},
                 isPvp: false,
-                mode: null
+                mode: null,
+                teamScore: 0,
+                duration: 0,
+                durationDisplay: null
             };
 
             this.getStatDefinitions = function() {
@@ -46,6 +49,18 @@ app.factory('pgcrFactory', [
 
             this.isPvp = function() {
                 return pgcr.isPvp;
+            };
+
+            this.getTeamScore = function() {
+                return pgcr.teamScore;
+            };
+
+            this.getDuration = function() {
+                return pgcr.duration;
+            };
+
+            this.getDurationDisplay = function() {
+                return pgcr.durationDisplay;
             };
 
             this.load = function(instanceId) {
@@ -99,6 +114,15 @@ app.factory('pgcrFactory', [
                                     if (player.values.completed.basic.value === 1 || player.standing > 0) {
                                         player.standing += 1;
                                     }
+                                }
+
+                                if (player.values.teamScore && player.values.teamScore.basic.value > pgcr.teamScore) {
+                                    pgcr.teamScore = player.values.teamScore.basic.value;
+                                }
+
+                                if (player.values.activityDurationSeconds && player.values.activityDurationSeconds.basic.value > pgcr.duration) {
+                                    pgcr.duration = player.values.activityDurationSeconds.basic.value;
+                                    pgcr.durationDisplay = player.values.activityDurationSeconds.basic.displayValue;
                                 }
 
                                 if (player.values.completed.basic.value === 1) {

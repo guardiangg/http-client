@@ -140,7 +140,7 @@ msgstr ""
 msgid "Auto Rifle"
 msgstr ""
 
-#: component\pgcr\pgcr.html:31
+#: component\pgcr\pgcr.html:41
 msgid "Average Elo / Odds of winning:"
 msgstr ""
 
@@ -357,7 +357,7 @@ msgstr ""
 msgid "Diamond"
 msgstr ""
 
-#: component\pgcr\pgcr.html:40
+#: component\pgcr\pgcr.html:50
 msgid "Didn't Finish"
 msgstr ""
 
@@ -394,7 +394,7 @@ msgstr ""
 
 #: component\layout\nav.html:202
 #: component\layout\nav.html:214
-#: component\pgcr\pgcr.html:69
+#: component\pgcr\pgcr.html:79
 msgid "Elo"
 msgstr ""
 
@@ -929,11 +929,11 @@ msgstr ""
 msgid "No items were found"
 msgstr ""
 
-#: component\pgcr\pgcr.html:177
+#: component\pgcr\pgcr.html:187
 msgid "No kills recorded"
 msgstr ""
 
-#: component\pgcr\pgcr.html:196
+#: component\pgcr\pgcr.html:206
 msgid "No medals earned"
 msgstr ""
 
@@ -1009,7 +1009,7 @@ msgstr ""
 msgid "Perk"
 msgstr ""
 
-#: component\pgcr\pgcr.html:217
+#: component\pgcr\pgcr.html:227
 msgid "Permalink of this game"
 msgstr ""
 
@@ -1051,7 +1051,7 @@ msgid ""
 "        on Twitch during a 24 hour charity live stream of <em>Trials of Osiris</em> starting 10pm EST on March 11th."
 msgstr ""
 
-#: component\pgcr\pgcr.html:192
+#: component\pgcr\pgcr.html:202
 msgid "Points"
 msgstr ""
 
@@ -1457,6 +1457,10 @@ msgstr ""
 msgid "Strike - Nightfall"
 msgstr ""
 
+#: component\pgcr\pgcr.html:35
+msgid "Strike Rating"
+msgstr ""
+
 #: component\layout\nav.html:179
 msgid "Strike Ratings"
 msgstr ""
@@ -1527,6 +1531,10 @@ msgstr ""
 
 #: component\item\item-detail.html:236
 msgid "Talent Grid"
+msgstr ""
+
+#: component\pgcr\pgcr.html:31
+msgid "Team Score"
 msgstr ""
 
 #: component\profile\profile-pve.html:7
@@ -1713,7 +1721,7 @@ msgstr ""
 msgid "Version"
 msgstr ""
 
-#: component\pgcr\pgcr.html:214
+#: component\pgcr\pgcr.html:224
 msgid "View carnage report on Bungie.net"
 msgstr ""
 
@@ -1856,6 +1864,10 @@ msgstr ""
 
 #: component\profile\profile-srl.html:50
 msgid "has not raced in"
+msgstr ""
+
+#: component\pgcr\pgcr.html:12
+msgid "in"
 msgstr ""
 
 #: shared\chart\weapon-bar.js:46

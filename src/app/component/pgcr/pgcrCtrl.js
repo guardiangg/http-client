@@ -5,14 +5,26 @@ app.controller('pgcrCtrl', [
     '$scope',
     '$timeout',
     '$stateParams',
+    '$filter',
     'consts',
     'pgcrFactory',
 
-    function ($rootScope, $scope, $timeout, $stateParams, consts, pgcrFactory) {
+    function ($rootScope, $scope, $timeout, $stateParams, $filter, consts, pgcrFactory) {
         $scope.teamDefs = consts.teams;
         $scope.modeDefs = consts.modes;
         $scope.loading = {
             pgcr: true
+        };
+
+        $scope.getMedalCount = function(arr) {
+            var medals = $filter('medals')(arr);
+            var count = 0;
+
+            _.each(medals, function(medal) {
+                count += medal.basic.value;
+            });
+
+            return count;
         };
 
         $rootScope.title = 'Carnage Report - Guardian.gg';
@@ -26,9 +38,14 @@ app.controller('pgcrCtrl', [
                 $scope.teams = pgcr.getTeams();
                 $scope.details = pgcr.getDetails();
                 $scope.period = pgcr.getPeriod();
+                $scope.teamScore = pgcr.getTeamScore();
+                $scope.duration = pgcr.getDuration();
+                $scope.durationDisplay = pgcr.getDurationDisplay();
                 $scope.id = $stateParams.instanceId;
 
-                console.log($scope.mode);
+                if ($scope.teamScore && $scope.duration) {
+                    $scope.rating = Math.floor(($scope.teamScore / $scope.duration) * 100);
+                }
 
                 // Bungie's gaff on strike modes. Remove if bungie ever fixes this on the API.
                 if (consts.strikes.heroic.indexOf($scope.details.referenceId.toString()) > -1) {

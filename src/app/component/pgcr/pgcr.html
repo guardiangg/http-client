@@ -9,7 +9,7 @@
 <div class="pgcr" ng-show="!loading.pgcr" ng-class="{'embedded': embedded}">
     <div class="pgcr-header">
         <div class="name">{{ definitions.activities[details.referenceId].activityName }} ({{ modeDefs[mode] }})</div>
-        <div class="date"><span translate>played</span> {{ period|ago }}</div>
+        <div class="date"><span translate>played</span> {{ period|ago }} <span translate ng-if="durationDisplay">in</span> {{ durationDisplay }}</div>
         <div class="result">
             <div class="alpha-bravo" ng-show="teams[16] && teams[17]">
                 <div class="alpha" ng-class="{'winner': teams[16].standing.standing.basic.value == 0}">
@@ -23,6 +23,16 @@
                     <div class="team"><i class="ggg" ng-class="teamDefs[17].icon"></i> {{ teamDefs[17].label }}</div>
                     <div class="score">{{ teams[17].standing.score.basic.value|number }}</div>
                 </div>
+            </div>
+        </div>
+        <div class="team-info">
+            <div class="team-score" ng-if="teamScore && rating">
+                {{ teamScore|number }}
+                <span translate>Team Score</span>
+            </div>
+            <div class="team-rating" ng-if="teamScore && rating">
+                {{ rating|number }}
+                <span translate>Strike Rating</span>
             </div>
         </div>
     </div>
@@ -90,7 +100,7 @@
                             <span class="name">{{ statDefs.killsDeathsRatio.statName }}</span>
                         </div>
                         <div class="stat size-1 medal-bg hide-compact">
-                            <span class="medal-count">{{ entry.extended.values.allMedalsEarned.basic.displayValue || '0' }}</span>
+                            <span class="medal-count">{{ getMedalCount(entry.extended.values) || '0' }}</span>
                         </div>
                     </div>
 
