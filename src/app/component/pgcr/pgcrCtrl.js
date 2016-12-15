@@ -29,7 +29,17 @@ app.controller('pgcrCtrl', [
                 $scope.id = $stateParams.instanceId;
 
                 console.log($scope.mode);
-                console.log($scope.teams);
+
+                // Bungie's gaff on strike modes. Remove if bungie ever fixes this on the API.
+                if (consts.strikes.heroic.indexOf($scope.details.referenceId.toString()) > -1) {
+                    $scope.mode = 17;
+
+                } else if (consts.strikes.normal.indexOf($scope.details.referenceId.toString()) > -1) {
+                    $scope.mode = 3;
+
+                } else if ($scope.mode == 17) {
+                    $scope.mode = 16;
+                }
 
                 $rootScope.title = '#[' + $stateParams.instanceId + '] ' +
                     $scope.definitions.activities[$scope.details.referenceId].activityName +
