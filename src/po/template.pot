@@ -1571,7 +1571,7 @@ msgstr ""
 
 #: component\faq\faq.html:84
 msgid ""
-"The top 50 players for all of the available Normal, Heroic and Nightfall strike each week will be awarded\r\n"
+"The top 50 players for all of the available Normal, Heroic and Nightfall strikes each week will be awarded\r\n"
 "            a permanent badge on their profile. Badges are given out every Tuesday at around 9am UTC during reset.\r\n"
 "            Wear it with pride, you beat out tens (sometimes hundreds) of thousands of gamers for those bragging rights.\r\n"
 "            You can earn badges for the same strike in multiple weeks."
