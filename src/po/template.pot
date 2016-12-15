@@ -1755,7 +1755,7 @@ msgstr ""
 #: component\faq\faq.html:76
 msgid ""
 "We calculate your rating from the amount of time it took to clear the instance, and your team's combined\r\n"
-"            medal score. We didn't find the medal score alone is very good representation of skill because players can\r\n"
+"            medal score. We didn't find that the medal score alone is very good representation of skill because players can\r\n"
 "            sit in a strike for hours farming hundreds of thousands of points by resetting boss fights."
 msgstr ""
 
