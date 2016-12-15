@@ -86,7 +86,7 @@ msgstr ""
 #: component\faq\faq.html:50
 msgid ""
 "All players start at a baseline of 1200 points. You will take points from your opponent's Elo score by\r\n"
-"            defeating them, and vise versa. Defeating a more skilled opponent will yield higher points than if you beat up\r\n"
+"            defeating them, and vice versa. Defeating a more skilled opponent will yield higher points than if you beat up\r\n"
 "            on a weaker one. The higher the score, the more skilled the player. It is extremely difficult\r\n"
 "            to maintain a high Elo score, these players are regarded as the best of the best!"
 msgstr ""
