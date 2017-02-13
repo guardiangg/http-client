@@ -21,7 +21,7 @@ msgstr "Estadísticas Avanzadas de Destiny"
 #: layout\nav.html:122
 #: shared\service\consts.js:181
 msgid "Bladedancer"
-msgstr "Bladedancer"
+msgstr "Acróbata del filo"
 
 #: faq.html:52
 #: shared\chart\elo.js:129
@@ -35,7 +35,7 @@ msgstr "Bronce"
 #: shared\service\consts.js:111
 #: subclass.html:83
 msgid "Clash"
-msgstr ""
+msgstr "Enfrentamiento"
 
 #: layout\nav.html:35
 #: layout\nav.html:84
@@ -55,7 +55,7 @@ msgstr ""
 #: layout\nav.html:126
 #: shared\service\consts.js:146
 msgid "Defender"
-msgstr "Defender"
+msgstr "Defensor"
 
 #: faq.html:56
 #: shared\chart\elo.js:69
@@ -73,7 +73,7 @@ msgstr "Donar"
 #: shared\service\consts.js:114
 #: subclass.html:92
 msgid "Elimination"
-msgstr ""
+msgstr "Eliminación"
 
 #: layout\nav.html:137
 msgid "FAQ"
@@ -82,7 +82,7 @@ msgstr "Preguntas Frequentes"
 #: leaderboard.html:103
 #: leaderboard.html:20
 msgid "First"
-msgstr ""
+msgstr "Primero"
 
 #: leaderboard.html:78
 msgid "Games"
@@ -97,7 +97,7 @@ msgstr "Oro"
 #: layout\nav.html:123
 #: shared\service\consts.js:171
 msgid "Gunslinger"
-msgstr "Gunslinger"
+msgstr "Pistolero"
 
 #: layout\nav.html:16
 msgid "Home"
@@ -106,7 +106,7 @@ msgstr "Inicio"
 #: shared\service\consts.js:135
 #: subclass.html:15
 msgid "Hunter"
-msgstr "Hunter"
+msgstr "Cazador"
 
 #: layout\nav.html:25
 #: layout\nav.html:74
@@ -114,7 +114,7 @@ msgstr "Hunter"
 #: shared\service\consts.js:115
 #: subclass.html:77
 msgid "Iron Banner"
-msgstr "Iron Banner"
+msgstr "Estandarte de Hierro"
 
 #. Short for kills
 #: leaderboard.html:73
@@ -167,12 +167,12 @@ msgstr "Siguiente"
 #: layout\nav.html:124
 #: shared\service\consts.js:176
 msgid "Nightstalker"
-msgstr "Nightstalker"
+msgstr "Acechador nocturno"
 
 #: leaderboard.html:112
 #: leaderboard.html:29
 msgid "Page {{page+1|number}} of {{pageTotal+1|number}}<span>{{total|number}} Guardians</span>"
-msgstr ""
+msgstr "Página {{page+1|number}} de {{pageTotal+1|number}}<span>{{total|number}} Guardianes</span>"
 
 #: profile\_activity-history.html:12
 msgid "Placing"
@@ -187,7 +187,7 @@ msgstr "Platino"
 #: leaderboard.html:110
 #: leaderboard.html:27
 msgid "Prev"
-msgstr ""
+msgstr "Ant"
 
 #: leaderboard.html:70
 msgid "Rank"
@@ -199,7 +199,7 @@ msgstr "Rango"
 #: shared\service\consts.js:112
 #: subclass.html:86
 msgid "Rift"
-msgstr "Rift"
+msgstr "Grieta"
 
 #: layout\nav.html:45
 #: layout\nav.html:94
@@ -207,17 +207,17 @@ msgstr "Rift"
 #: shared\service\consts.js:113
 #: subclass.html:89
 msgid "Rumble"
-msgstr "Rumble"
+msgstr "Disputa"
 
 #: faq.html:53
 #: shared\chart\elo.js:114
 #: shared\service\consts.js:59
 msgid "Silver"
-msgstr "Silver"
+msgstr "Plata"
 
 #: profile\_activity-history.html:1
 msgid "since \"The Taken King\" launch (Sept. 15, 2015)"
-msgstr "desde el lanzamiento de \"The Taken King\" (15 de septiembre del 2015)"
+msgstr "desde el lanzamiento de \"El Rey de los Poseídos\" (15 de septiembre del 2015)"
 
 #: layout\nav.html:109
 #: layout\nav.html:60
@@ -225,27 +225,27 @@ msgstr "desde el lanzamiento de \"The Taken King\" (15 de septiembre del 2015)"
 #: shared\service\consts.js:108
 #: subclass.html:95
 msgid "Skirmish"
-msgstr "Skirmish"
+msgstr "Escaramuza"
 
 #: layout\nav.html:130
 #: shared\service\consts.js:166
 msgid "Stormcaller"
-msgstr "Stormcaller"
+msgstr "Invocatormentas"
 
 #: layout\nav.html:127
 #: shared\service\consts.js:151
 msgid "Striker"
-msgstr "Striker"
+msgstr "Asaltante"
 
 #: layout\nav.html:128
 #: shared\service\consts.js:141
 msgid "Sunbreaker"
-msgstr "Sunbreaker"
+msgstr "Quiebrasoles"
 
 #: layout\nav.html:131
 #: shared\service\consts.js:156
 msgid "Sunsinger"
-msgstr "Sunsinger"
+msgstr "Aedo del Sol"
 
 #: shared\service\consts.js:136
 #: subclass.html:31
@@ -254,7 +254,7 @@ msgstr "Titán"
 
 #: home.html:10
 msgid "Top {{platforms[platform]}} Guardians"
-msgstr ""
+msgstr "Top de Guardianes {{platforms[platform]}}"
 
 #: layout\nav.html:30
 #: layout\nav.html:79
@@ -262,17 +262,17 @@ msgstr ""
 #: shared\service\consts.js:116
 #: subclass.html:80
 msgid "Trials of Osiris"
-msgstr "Trials of Osiris"
+msgstr "Las Pruebas de Osiris"
 
 #: layout\nav.html:132
 #: shared\service\consts.js:161
 msgid "Voidwalker"
-msgstr "Voidwalker"
+msgstr "Viajero del vacío"
 
 #: shared\service\consts.js:134
 #: subclass.html:47
 msgid "Warlock"
-msgstr "Warlock"
+msgstr "Hechicero"
 
 #: leaderboard.html:77
 #: subclass.html:111
@@ -299,7 +299,7 @@ msgid "All players start at a baseline of 1200 points. You will take points from
 "            defeating them, and vise versa. Defeating a more skilled opponent will yield higher points than if you beat up\n"
 "            on a weaker one. The higher the score, the more skilled the player. It is extremely difficult\n"
 "            to maintain a high Elo score, these players are regarded as the best of the best!"
-msgstr ""
+msgstr "Todos los jugadores comienzan con una base de 1200 puntos. Al derrotar a un oponente obtendrás puntos de su Elo, y viceversa. Al vencer a un jugador habilidoso recibirás más puntos que al vencer a uno débil. Cuando más alta sea la puntuación, más habilidoso será el jugador. Es extremadamente difícil manter una puntuación Elo alta, estos jugadores serán recompensados como los mejores de los mejores!"
 
 #: profile\_pgcr.html:34
 msgid "Alpha"
@@ -311,11 +311,11 @@ msgstr "Armadura"
 
 #: faq.html:47
 msgid "As your score rises and falls, you'll be categorized into leagues."
-msgstr "A medida que tu puntaje aumente y disminuye, serás categorizado en ligas."
+msgstr "A medida que tu puntuación aumente y disminuya, serás clasificado en ligas."
 
 #: profile\_pgcr.html:32
 msgid "Average Team Elo"
-msgstr ""
+msgstr "Elo media del equipo"
 
 #: profile\_pgcr.html:37
 msgid "Bravo"
@@ -323,7 +323,7 @@ msgstr "Bravo"
 
 #: layout\main.html:33
 msgid "Bungie API Error"
-msgstr "Error de API"
+msgstr "Error en la API de Bungie"
 
 #: search.html:4
 msgid "Choose your platform"
@@ -385,7 +385,7 @@ msgstr "Cuerpo a Cuerpo"
 
 #: profile\_activity-history.html:21
 msgid "No Elo data exists for this player. This is either an error in our system, or the player pretty much never enters Crucible."
-msgstr "No existen datos Elo para este jugador. Esto puede ser debido a un error en nuestro sistema, o el jugador nunca ha entrado al Crucible."
+msgstr "No existen datos Elo para este jugador. Esto puede ser debido a un error en nuestro sistema, o a que el jugador nunca ha entrado al Crisol."
 
 #: profile\_activity-history.html:116
 msgid "No games have been played in this mode."
@@ -393,7 +393,7 @@ msgstr "No se han jugado partidas en este modo."
 
 #: search.html:12
 msgid "Oops, we weren't able to find \"{{name}}\". Verify spelling and try again."
-msgstr "Oops, no hemos podido encontrar \"{{name}}\". Verifique que este escrito correctamente e intente otra vez."
+msgstr "Ups, no hemos podido encontrar \"{{name}}\". Verifica que está escrito correctamente e inténtalo de nuevo."
 
 #: profile\_character.html:37
 msgid "Recovery"
@@ -402,7 +402,7 @@ msgstr "Recuperación"
 #: profile\_activity-history.html:88
 #: profile\_pgcr.html:6
 msgid "Score"
-msgstr "Puntaje"
+msgstr "Puntuación"
 
 #: faq.html:24
 msgid "Since the launch of the Taken King, we have aggregated data from every single match played. Our rankings\n"
@@ -417,7 +417,7 @@ msgstr ""
 
 #: profile\_character.html:52
 msgid "Super"
-msgstr "Super"
+msgstr "Súper"
 
 #: profile\_pgcr.html:3
 msgid "Team"
@@ -426,7 +426,8 @@ msgstr "Equipo"
 #: faq.html:36
 msgid "The Elo rating system is a method for calculating the relative skill levels of players in\n"
 "            competitor-versus-competitor games."
-msgstr ""
+msgstr "El sistema de puntuación Elo es un método matemático, basado en cálculo estadístico,\n"
+"            para calcular la habilidad relativa de los jugadores de deportes como el ajedrez."
 
 #: profile\_pgcr.html:36
 msgid "vs."
@@ -434,7 +435,7 @@ msgstr ""
 
 #: search.html:2
 msgid "We found more than one result for \"{{name}}\""
-msgstr "Encontramos más de un resultado para \"{{name}}\""
+msgstr "Hemos encontrado más de un resultado para \"{{name}}\""
 
 #: faq.html:31
 msgid "What is \"Elo\" and what does it mean?"
@@ -446,7 +447,7 @@ msgstr "Nos puedes enviar un email a"
 
 #: home.html:3
 msgid "<em>{{totalPlayers24|number}}</em> tracked in the past day"
-msgstr ""
+msgstr "En el último día se han rastreado <em>{{totalPlayers24|number}}</em>"
 
 #: shared\chart\kd.js:16
 msgid "Kills / Deaths"
@@ -454,11 +455,11 @@ msgstr "Bajas / Muertes"
 
 #: home.html:2
 msgid "Real-time stats for <em>{{totalPlayers|number}}</em> Destiny players"
-msgstr ""
+msgstr "Estadísticas en tiempo real para <em>{{totalPlayers|number}}</em> jugadores de Destiny"
 
 #: shared\chart\popularity.js:16
 msgid "Subclass Popularity"
-msgstr "Popularidad de Subclase"
+msgstr "Popularidad de la Subclase"
 
 #: component\weapon-stats\weaponStatsCtrl.js:43
 msgid "Any Map"
@@ -466,7 +467,7 @@ msgstr "Cualquier Mapa"
 
 #: weapon-stats.html:92
 msgid "Data is updating..."
-msgstr "Datos actualizándose..."
+msgstr "Actualizando datos..."
 
 #: weapon-stats.html:59
 msgid "End day"
@@ -490,20 +491,20 @@ msgstr "Pesada"
 
 #: subclass.html:168
 msgid "Insufficient armor data was found for this game mode in the last 7 days."
-msgstr ""
+msgstr "No hay suficientes datos de armadura para este modo de juego en los últimos 7 días"
 
 #: subclass.html:122
 msgid "Insufficient perk data was found for this game mode in the last 7 days."
-msgstr ""
+msgstr "No hay suficientes datos de habilidades para este modo de juego en los últimos 7 días"
 
 #: subclass.html:145
 msgid "Insufficient weapon data was found for this game mode in the last 7 days."
-msgstr ""
+msgstr "No hay suficientes datos de armas para este modo de juego en los últimos 7 días"
 
 #: subclass.html:133
 #: subclass.html:156
 msgid "Item"
-msgstr ""
+msgstr "Ítem"
 
 #: shared\chart\subclass-kd.js:16
 msgid "K/D by Mode"
@@ -520,11 +521,11 @@ msgstr "Cargando Armadura..."
 
 #: subclass.html:55
 msgid "Loading Charts..."
-msgstr "Cargando Tablas..."
+msgstr "Cargando Gráficos..."
 
 #: subclass.html:103
 msgid "Loading Perks..."
-msgstr ""
+msgstr "Cargando Habilidades"
 
 #: subclass.html:129
 msgid "Loading Weapons..."
@@ -537,7 +538,7 @@ msgstr "Porcentaje de Bajas Totales"
 
 #: subclass.html:109
 msgid "Perk"
-msgstr ""
+msgstr "Habilidad"
 
 #: weapon-stats.html:17
 msgid "Platform"
@@ -554,15 +555,15 @@ msgstr "Primaria"
 
 #: weapon-stats.html:84
 msgid "Ranked as a percentage of all kills"
-msgstr ""
+msgstr "Clasificado como un porcentaje de todas las muertes"
 
 #: weapon-stats.html:37
 msgid "Refreshing map list..."
-msgstr ""
+msgstr "Recargando lista de mapas..."
 
 #: component\layout\layoutCtrl.js:16
 msgid "Search for a Guardian..."
-msgstr "Buscar Guardián..."
+msgstr "Buscar a un Guardián..."
 
 #: weapon-stats.html:25
 msgid "Select a game mode"
@@ -590,11 +591,11 @@ msgstr "No se encontraron datos que concuerden con los filtros."
 
 #: layout\nav.html:6
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Cambiar navegación"
 
 #: weapon-stats.html:83
 msgid "Top Weapons"
-msgstr ""
+msgstr "Top de Armas"
 
 #: weapon-stats.html:72
 msgid "Update"
@@ -608,7 +609,7 @@ msgstr "%Uso"
 
 #: weapon-stats.html:9
 msgid "We're crunching the numbers based on your filters, this may take a moment."
-msgstr ""
+msgstr "Estamos calculando los números basándonos en tus filtros, esto puede llevar un momento."
 
 #: layout\nav.html:136
 msgid "Weapon Stats"
@@ -616,11 +617,11 @@ msgstr "Estadísticas de Arma"
 
 #: weapon-stats.html:2
 msgid "Weapon stat collection was re-started Oct. 29th, 2015. Historical data is unavailable at this time."
-msgstr ""
+msgstr "Las estadísticas de armas fueron reiniciadas el 29 de Octubre del 2015. Los datos históricos no están disponibles en este momento."
 
 #: shared\chart\subclass-win-rate.js:16
 msgid "Win Rate by Mode"
-msgstr ""
+msgstr "Porcentaje de Victorias por Modo"
 
 #: layout\nav.html:71
 #: shared\service\consts.js:104
@@ -629,15 +630,15 @@ msgstr "Xbox"
 
 #: subclass.html:52
 msgid "{{subclass.label}} Overview"
-msgstr ""
+msgstr "Resumen de {{subclass.label}}"
 
 #: subclass.html:63
 msgid "{{subclass.label}} Perks &amp; Exotics"
-msgstr ""
+msgstr "Habilidades y piezas Exóticas de {{subclass.label}}"
 
 #: layout\main.html:38
 msgid "<em>Internal error code: {{apiError}}</em>"
-msgstr ""
+msgstr "<em>Error Interno código: {{apiError}}</em>"
 
 #: layout\nav.html:154
 msgid "Follow"
@@ -649,7 +650,7 @@ msgstr "Inactivo"
 
 #: leaderboard.html:8
 msgid "The dedicated IB leaderboards will be unavailable until Bungie resolves this issue."
-msgstr ""
+msgstr "Las tablas de clasificación IB dedicadas no estarán disponibles hasta que Bungie no resuelva este problema."
 
 #: profile\_activity-history.html:78
 msgid "The match history is unavailable due to an API error"
@@ -657,14 +658,14 @@ msgstr "El historial de partidas no se encuentra disponible debido a un error de
 
 #: profile.html:7
 msgid "This profile temporarily cannot be displayed. Too much data is missing by consequence of the current API issues."
-msgstr ""
+msgstr "Este perfil no se puede mostrar temporalmente. Se han perdido demasiados datos debido a problemas en la API"
 
 #: layout\nav.html:114
 #: layout\nav.html:65
 #: profile\_activity-history.html:57
 #: shared\service\consts.js:110
 msgid "Salvage"
-msgstr "Salvage"
+msgstr "Rescate"
 
 #: shared\chart\kd.js:30
 #: shared\chart\subclass-kd.js:32
@@ -689,7 +690,7 @@ msgstr ""
 #: layout\main.html:34
 msgid "This page relies on one or more Bungie APIs to properly display. We weren't able to retrieve some data, so\n"
 "        as a result one or more areas of this page are temporarily disabled. Try again in a few minutes."
-msgstr "Esta página depende de una o más APIs para mostrarse correctamente. No hemos sido capaces de recuperar algunos datos, por lo que una o más areas de esta página han sido deshabitadas temporalmente. Intenta de nuevo en unos minutos."
+msgstr "Esta página depende de una o más APIs para mostrarse correctamente. No hemos sido capaces de recuperar algunos datos, por lo que una o más areas de esta página han sido deshabilitadas temporalmente. Inténtalo de nuevo en unos minutos."
 
 #: profile\_pgcr.html:35
 #: profile\_pgcr.html:38
@@ -703,5 +704,5 @@ msgstr ""
 
 #: app.js:84
 msgid "Guardian.gg - Advanced Destiny Stats, Profiles and Leaderboards"
-msgstr "Guardian.gg - Avanzadas Estadísticas , Perfiles y Tablas de Clasificaciones de Destiny"
+msgstr "Guardian.gg - Estadísticas Avanzadas, Perfiles y Tablas de Clasificaciones de Destiny"
 
